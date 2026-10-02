@@ -94,6 +94,32 @@ describe("decoder cancellation boundary", () => {
     expect(getChannelData).not.toHaveBeenCalled();
     expect(close).toHaveBeenCalledOnce();
   });
+  it("returns from cancel immediately even though decodeAudioData cannot be interrupted", async () => {
+    let finish!: (value: AudioBuffer) => void;
+    const close = vi.fn().mockResolvedValue(undefined);
+    const getChannelData = vi.fn();
+    vi.stubGlobal("AudioContext", class {
+      close = close;
+      // Never settles on its own, like a long browser decode of a 30 MB file.
+      decodeAudioData = () => new Promise<AudioBuffer>(resolve => { finish = resolve; });
+    });
+    const controller = new AbortController();
+    const input = {name:"long.wav",size:100,arrayBuffer:async()=>new ArrayBuffer(100)} as File;
+    const task = new BrowserAudioDecoder().decode(input, controller.signal);
+    await new Promise(resolve => setTimeout(resolve, 0));
+    controller.abort();
+    const outcome = await Promise.race([
+      task.then(() => "resolved", (error: Error) => error.name),
+      new Promise(resolve => setTimeout(() => resolve("still waiting for decodeAudioData"), 200)),
+    ]);
+    expect(outcome).toBe("AbortError");
+    expect(close).toHaveBeenCalledOnce();
+    // The decode finishing later is ignored: no PCM is read or downmixed.
+    finish({duration:300,length:13230000,sampleRate:44100,numberOfChannels:2,getChannelData} as unknown as AudioBuffer);
+    await new Promise(resolve => setTimeout(resolve, 0));
+    expect(getChannelData).not.toHaveBeenCalled();
+    expect(close).toHaveBeenCalledOnce();
+  });
   it.each(["onerror","onmessageerror"] as const)("cleans up %s", async (event) => {
     setup();
     const task = analyzeAudioIntelligenceFile(file);

@@ -90,6 +90,47 @@ test("audio upload, local review, save, reopen, and Immersive entry", async ({ p
   await expect(page.getByText("Coming soon", { exact: false })).toHaveCount(0);
 });
 
+test("unsaved review edits are autosaved, restored after reload, and cleared on discard or save", async ({ page }) => {
+  const draft = () => page.evaluate(async () =>
+    (await (await import("/src/persistence/dexie/index.ts")).db.meta.get("audio-review-draft:new"))?.value ?? null);
+  const openNewAnalysis = async () => {
+    await page.goto("/import");
+    await page.getByRole("button", { name: /Audio recording/ }).click();
+  };
+  await openNewAnalysis();
+  await page.getByLabel("Choose audio for Audio Intelligence").setInputFiles(
+    "test-fixtures/audio-intelligence/codec-c-major.wav");
+  await expect(page.locator(".ai-regions button").first()).toBeVisible({ timeout: 30000 });
+  await page.getByLabel("Song title").fill("Draft survives reload");
+  await expect.poll(async () => (await draft() as { title?: string } | null)?.title).toBe("Draft survives reload");
+
+  await page.reload();
+  await page.getByRole("button", { name: /Audio recording/ }).click();
+  await expect(page.getByText(/Restored unsaved changes from/)).toBeVisible();
+  await expect(page.getByLabel("Song title")).toHaveValue("Draft survives reload");
+  await expect(page.locator(".ai-regions button").first()).toBeVisible();
+  // A restored draft has no audio; choosing a file reattaches rather than re-analyzing.
+  await expect(page.getByLabel("Reattach original audio")).toBeAttached();
+
+  page.once("dialog", (dialog) => void dialog.accept());
+  await page.getByRole("button", { name: "Discard unsaved changes" }).click();
+  await expect(page.getByText("Unsaved changes discarded.")).toBeVisible();
+  await expect(page.locator(".ai-regions button")).toHaveCount(0);
+  expect(await draft()).toBeNull();
+  await openNewAnalysis();
+  await expect(page.getByText(/Restored unsaved changes/)).toHaveCount(0);
+
+  // Saving clears the draft too.
+  await page.getByLabel("Choose audio for Audio Intelligence").setInputFiles(
+    "test-fixtures/audio-intelligence/codec-c-major.wav");
+  await expect(page.locator(".ai-regions button").first()).toBeVisible({ timeout: 30000 });
+  await page.getByRole("button", { name: "Mark all uncertain regions Unknown" }).click().catch(() => undefined);
+  await expect.poll(draft).not.toBeNull();
+  await page.getByRole("button", { name: "Save as FretShift song" }).click();
+  await expect(page.getByRole("link", { name: "Reopen transcription" })).toBeVisible();
+  await expect.poll(draft).toBeNull();
+});
+
 test("cancelled analysis rejects and retry succeeds", async ({ page }) => {
   await page.goto("/");
   const outcome = await page.evaluate(async (encodedFile) => {

@@ -34,12 +34,26 @@ export class BrowserAudioDecoder implements AudioDecoder {
       (window as typeof window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
     if (!Context) throw new Error("This browser cannot decode audio files.");
     const context = new Context();
+    let released = false;
+    const release = () => {
+      if (released) return Promise.resolve();
+      released = true;
+      return context.close().catch(() => undefined);
+    };
     try {
       let buffer: AudioBuffer;
-      try {
+      // Browsers give no way to interrupt decodeAudioData once it starts: the
+      // decode keeps running on the browser's own thread. Cancellation therefore
+      // stops *waiting* for it, closes the context (best effort; browsers may
+      // still finish the decode), and discards any late result unread.
+      const decoding = (async () => {
         const bytes = await file.arrayBuffer();
         signal?.throwIfAborted();
-        buffer = await context.decodeAudioData(bytes);
+        return context.decodeAudioData(bytes);
+      })();
+      decoding.catch(() => undefined); // a late failure after cancel is expected
+      try {
+        buffer = await untilAborted(decoding, signal, () => void release());
       }
       catch {
         signal?.throwIfAborted();
@@ -54,8 +68,26 @@ export class BrowserAudioDecoder implements AudioDecoder {
         for (let i = 0; i < data.length; i++) samples[i] += data[i] / buffer.numberOfChannels;
       }
       return { samples, sampleRate: buffer.sampleRate };
-    } finally { await context.close(); }
+    } finally {
+      // On cancel the context was already released without waiting on close().
+      if (!signal?.aborted) await release(); else void release();
+    }
   }
+}
+
+/** Settles with `work`, or rejects with an AbortError as soon as `signal` aborts. */
+function untilAborted<T>(work: Promise<T>, signal: AbortSignal | undefined,
+  onAbort: () => void): Promise<T> {
+  if (!signal) return work;
+  return new Promise<T>((resolve, reject) => {
+    const aborted = () => {
+      onAbort();
+      reject(new DOMException("Analysis cancelled.", "AbortError"));
+    };
+    if (signal.aborted) { aborted(); return; }
+    signal.addEventListener("abort", aborted, { once: true });
+    work.then(resolve, reject).finally(() => signal.removeEventListener("abort", aborted));
+  });
 }
 
 export class LocalAnalysisOrchestrator implements AnalysisOrchestrator {

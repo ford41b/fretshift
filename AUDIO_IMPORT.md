@@ -30,6 +30,26 @@ SongV1 quantizes visible chart chord positions to 16th-beat slots. The exact rev
 
 Whole-file Web Audio decoding can use substantial memory even under the 30 MB/five-minute limits. Browser decoding itself cannot be interrupted. The 390 px browser viewport and URL cleanup were tested in Chromium/WebKit, but no physical iPhone or long mobile recording was tested.
 
+## Unsaved drafts and cancellation
+
+- **Draft autosave.** Unsaved review edits (a fresh analysis, or changes to a
+  saved transcription) are written to IndexedDB about 0.4 s after each change
+  and again when the page is hidden or the screen closes. Returning to the same
+  screen restores them with a notice; raw audio is never part of a draft, so
+  reattach the original file to audition. Saving or **Discard unsaved changes**
+  deletes the draft. Drafts are device-local and do not sync. One draft is kept
+  per song plus one for a new, not-yet-saved analysis.
+- **Cancel.** Cancel returns control immediately: the analysis Worker is
+  terminated, the decoding `AudioContext` is closed, and the stage UI and file
+  picker become available again.
+- **What cancel cannot do.** Browsers give no way to interrupt
+  `AudioContext.decodeAudioData()` once it has started. After a cancel during
+  "Preparing audio", the browser may keep decoding that file in the background
+  until it finishes (seconds for a long file on a phone), using CPU and memory
+  meanwhile. FretShift stops waiting for it and discards the result unread. It
+  never downmixes or analyzes a cancelled decode, but it cannot reclaim that
+  work sooner.
+
 ## Developer entry points
 
 - `src/ui/components/AudioIntelligenceReview.tsx`, `src/ui/screens/AudioReviewScreen.tsx`, `src/ui/audio-intelligence.css`: upload, stage display, player, review, timing, save and reopen.

@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Pause, Play, Upload } from "lucide-react";
 import { analyzeAudioIntelligenceFile, type AnalysisStage } from "../../audio/intelligence";
+import { clearReviewDraft, loadReviewDraft, saveReviewDraft,
+  type ReviewDraft } from "../../audio/intelligence/drafts";
 import { audioReviewToSong, createAudioReview, gridAtBpm, mergeRegion, moveBoundary,
   splitRegion, type AudioReview } from "../../audio/intelligence/review";
 import { loadSong } from "../../schema/migrations";
@@ -42,12 +44,58 @@ export function AudioIntelligenceReview({ song, onAnalysisStart }: { song?: Song
   const [firstBeat, setFirstBeat] = useState(song?.provenance?.audioReview?.reviewed.beats[0] ?? 0);
   const [savedId, setSavedId] = useState(song?.id ?? "");
   const [saving, setSaving] = useState(false);
+  const [restoredDraft, setRestoredDraft] = useState(false);
   const audio = useRef<HTMLAudioElement>(null);
   const abort = useRef<AbortController | null>(null);
   const operation = useRef(0);
   const activeUrl = useRef("");
   const persistedId = useRef(song?.id ?? "");
   const hasReview = !!review;
+  // Unsaved edits are autosaved to IndexedDB so leaving the screen, a reload,
+  // or an iOS tab eviction does not lose review work. Keyed by the song once
+  // it exists, else by the single "new analysis" slot.
+  const draftKey = () => song?.id ?? (persistedId.current || null);
+  const pendingDraft = useRef<{ key: string | null; draft: Omit<ReviewDraft, "savedAt"> } | null>(null);
+  const flushDraft = useRef(() => {
+    const pending = pendingDraft.current;
+    pendingDraft.current = null;
+    if (pending) void saveReviewDraft(pending.key, pending.draft).catch(() => undefined);
+  });
+  const songRef = useRef(song);
+  songRef.current = song;
+  useEffect(() => {
+    let live = true;
+    void loadReviewDraft(songRef.current?.id ?? null).then((draft) => {
+      // Never replace an analysis or edit the user started while this loaded.
+      if (!live || !draft || operation.current !== 0) return;
+      const base = songRef.current;
+      setReview(draft.review); setTitle(draft.title); setProviderId(draft.providerId);
+      setFirstBeat(draft.firstBeat); setSavedId(""); setRestoredDraft(true);
+      setNotice(`Restored unsaved changes from ${new Date(draft.savedAt).toLocaleString()}.` +
+        (base && draft.baseUpdatedAt !== base.updatedAt
+          ? " The saved song changed after this draft was made; check it before saving." : "") +
+        " Reattach the original audio to audition regions.");
+    }).catch(() => undefined);
+    return () => { live = false; };
+  }, [song?.id]);
+  useEffect(() => {
+    if (!review || savedId || stage) { pendingDraft.current = null; return; }
+    pendingDraft.current = { key: song?.id ?? (persistedId.current || null), draft: {
+      review, title, providerId, firstBeat, baseUpdatedAt: song?.updatedAt ?? null } };
+    const timer = setTimeout(() => flushDraft.current(), 400);
+    return () => clearTimeout(timer);
+  }, [review, title, providerId, firstBeat, savedId, stage, song?.id, song?.updatedAt]);
+  useEffect(() => {
+    const flush = flushDraft.current;
+    const onHide = () => { if (document.visibilityState === "hidden") flush(); };
+    document.addEventListener("visibilitychange", onHide);
+    window.addEventListener("pagehide", flush);
+    return () => {
+      document.removeEventListener("visibilitychange", onHide);
+      window.removeEventListener("pagehide", flush);
+      flush();
+    };
+  }, []);
   useEffect(() => {
     const player = audio.current;
     return () => { player?.pause(); };
@@ -87,6 +135,7 @@ export function AudioIntelligenceReview({ song, onAnalysisStart }: { song?: Song
     setStage("Preparing audio");
     setCancelling(false);
     setError(""); setNotice(""); setReview(null); setSavedId("");
+    setRestoredDraft(false);
     persistedId.current = "";
     setFile(selectedFile);
     if (activeUrl.current) URL.revokeObjectURL(activeUrl.current);
@@ -194,12 +243,29 @@ export function AudioIntelligenceReview({ song, onAnalysisStart }: { song?: Song
       await flushPersistence();
       if (useSongStore.getState().saveState !== "Saved on this device")
         throw new Error(useSongStore.getState().saveState);
+      pendingDraft.current = null;
+      await Promise.all([clearReviewDraft(id), clearReviewDraft(null)]);
       setSavedId(id);
+      setRestoredDraft(false);
       setNotice("Transcription saved to your songbook. Raw audio was not saved.");
     } catch (reason) { setError(reason instanceof Error ? reason.message : String(reason)); }
     finally { setSaving(false); }
   }
 
+  async function discard() {
+    if (!window.confirm("Discard your unsaved transcription changes?")) return;
+    operation.current++;
+    pendingDraft.current = null;
+    await clearReviewDraft(draftKey()).catch(() => undefined);
+    const saved = song?.provenance?.audioReview ?? null;
+    setReview(saved); setTitle(song?.title ?? ""); setSavedId(song?.id ?? persistedId.current);
+    setFirstBeat(saved?.reviewed.beats[0] ?? 0); setRestoredDraft(false); setError("");
+    if (!saved && !persistedId.current) { setFile(null); setUrl("");
+      if (activeUrl.current) URL.revokeObjectURL(activeUrl.current); activeUrl.current = ""; }
+    setNotice("Unsaved changes discarded.");
+  }
+
+  const reattaching = !!song || restoredDraft;
   const visibleStages = transcribeNotes ? stages : stages.filter(item => item !== "Detecting single notes");
   const regions = review?.reviewed.segments ?? [];
   const unresolved = regions.filter((region) => !region.label && region.decision === "detected").length;
@@ -215,11 +281,11 @@ export function AudioIntelligenceReview({ song, onAnalysisStart }: { song?: Song
   return <section className="ai-review" aria-label="Audio Intelligence timeline">
     <div className="ai-review-head">
       <div><span className="eyebrow">AUDIO INTELLIGENCE</span><h2>{song ? "Edit audio transcription" : transcribeNotes ? "Audio to notes and tablature" : "Audio to chords and rhythm"}</h2></div>
-      <label className="button file-button"><Upload size={17}/>{song ? "Reattach audio" : "Choose WAV, MP3, or M4A"}
-        <input type="file" disabled={!!stage} aria-label={song ? "Reattach original audio" : "Choose audio for Audio Intelligence"}
+      <label className="button file-button"><Upload size={17}/>{reattaching ? "Reattach audio" : "Choose WAV, MP3, or M4A"}
+        <input type="file" disabled={!!stage} aria-label={reattaching ? "Reattach original audio" : "Choose audio for Audio Intelligence"}
           accept=".wav,.mp3,.m4a,audio/wav,audio/mpeg,audio/mp4" onChange={(event) => {
             const chosen = event.target.files?.[0]; event.target.value = "";
-            if (chosen) { if (song) reattach(chosen); else void analyze(chosen); }
+            if (chosen) { if (reattaching) void reattach(chosen); else void analyze(chosen); }
           }}/></label>
     </div>
     {!song && <label className="ai-note-mode"><input type="checkbox" disabled={!!stage} checked={transcribeNotes}
@@ -327,6 +393,7 @@ export function AudioIntelligenceReview({ song, onAnalysisStart }: { song?: Song
             change((r)=>{r.reviewed.timingConfirmed=e.target.checked;});}}/> I checked the beat grid, meter, and downbeats against the audio.</label>
       </section>
       <div className="ai-actions"><button className="primary" disabled={saving} onClick={() => void save()}>{saving ? "Saving…" : song ? "Save corrections" : "Save as FretShift song"}</button>
+        {!savedId && <button disabled={saving} onClick={() => void discard()}>Discard unsaved changes</button>}
         {savedId && <><Link className="button" to={`/audio-review/${savedId}`}>Reopen transcription</Link>
           <Link className="button" to={`/practice/${savedId}`}>Practice</Link>
           <Link className="button" to={`/immersive/${savedId}`}>Immersive Practice</Link></>}
