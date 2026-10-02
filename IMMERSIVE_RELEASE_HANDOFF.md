@@ -58,7 +58,10 @@ There are two cue options:
 - **E2E** (emulated): two tests in `e2e/immersive.spec.ts`:
   - Median and outlier rejection: two taps deliberately 200 ms late are rejected. The stored value becomes the default, a manual override can be reverted, no clicks play during scored practice, the session records `calibrated`, and the value persists after reload.
   - Leakage refusal: nothing is saved.
-- **Emulated values.** Headless Chromium 141 measured +9 to +36 ms across 8 runs (robust spread 8.6–12.1 ms; reported output delay 42 ms; 44.1 kHz). That is the fake-microphone pipeline, **not hardware latency**.
+- **Emulated values.** These are the fake-microphone pipeline, **not hardware latency**:
+  - Headless Chromium 141 (local): +2 to +36 ms across 11 runs, with 10 of 12 taps used. Robust spread was 8.6–12.1 ms; reported output delay was 42 ms.
+  - CI Chromium 140: +4 ms, 10 of 12 taps used.
+  - CI WebKit 26: +15 ms, 9 of 12 taps used (2 outliers, 1 unclear). Spread was 13.8 ms. WebKit reports no `outputLatency`; base latency was 3 ms.
 
 ### 2. Ordinary songs, single notes
 
@@ -169,11 +172,12 @@ The report refuses release because the evidence is synthetic ([report](docs/imme
 | Immersive E2E, Chromium (`-c playwright.immersive.config.ts --project=chromium`) | 6 passed, 5 skipped | **15 passed, 0 skipped** |
 | Audio-notes controlled-mic test, Chromium | skipped | passed |
 | `BROWSER=chromium node scripts/verify-immersive-offline.mjs` | not runnable (WebKit only; stale expectations) | pass |
+| Full E2E, Chromium (`--project=chromium --project=chromium-unconfigured`) | 51 passed, 6 skipped (per CI record) | **61 passed, 0 skipped** |
 | `pnpm eval:chords --synthetic` | n/a | runs; synthetic, release refused |
 
 WebKit cannot run in this container: the egress policy blocks `cdn.playwright.dev` and `playwright.download.prss.microsoft.com`. WebKit evidence comes from GitHub Actions.
 
-**CI (GitHub Actions, ubuntu-latest, Playwright's Chromium 140 and WebKit 26.0).** See the table at the end of this file for the run on the final code commit.
+**CI (GitHub Actions, ubuntu-latest, Playwright's Chromium 140 and WebKit 26.0).** See [CI record](#ci-record) at the end of this file.
 
 ## What is flagged off
 
@@ -268,6 +272,29 @@ When A–I pass, update `physical-acceptance.json` as described above. That remo
 - Scored scope: clean monophonic notes, MIDI 40–88, at least 320 ms between attacks in Rhythm, quiet room. Distortion, legato, vibrato and noisy rooms are not validated.
 - Microphone evidence cannot identify the string or finger, nor whether sound came from a guitar or a speaker.
 - Calibration does not measure display latency.
-- The previously recorded WebKit `cloud.spec.ts` "mobile dark mode" axe failure on `main` (a contrast reading of 1.01, which looks like it was taken during a theme transition) is unrelated to Immersive. It passed on earlier runs of the same code.
+- The WebKit `cloud.spec.ts` dark-mode axe check, which was intermittent on `main` (a contrast reading of 1.01 caught mid-transition), now waits for animations to settle. That is a test-only change.
 
 ## CI record
+
+[Run 14](https://github.com/ford41b/fretshift/actions/runs/37041063245) is on `8597f27`, the last commit that changes code or tests. **All three jobs are green.**
+
+| Job | Result |
+| --- | --- |
+| Lint, unit tests, build | `pnpm lint`, `pnpm test` and `pnpm build` passed. `node scripts/verify-immersive-beta-gate.mjs` passed. |
+| E2E (chromium) | **61 passed, 0 skipped**: 60 Chromium + 1 unconfigured. All 15 Immersive tests and the audio-notes mic test passed. Offline check (Chromium): PASS. |
+| E2E (webkit) | **60 passed, 0 skipped**, including all 15 Immersive tests. Offline check (WebKit): PASS. |
+
+**Failed runs before the fix**, all on the new calibration E2E in WebKit:
+
+| Run | Commit | What happened |
+| --- | --- | --- |
+| [9](https://github.com/ford41b/fretshift/actions/runs/37033715246) | `f201f3a` | 8 of 12 taps used against an exact-count assertion. The `cloud.spec.ts` axe flake from `main` also hit this run. |
+| [12](https://github.com/ford41b/fretshift/actions/runs/37037338352) | `12a0b45` | A leftover ≥ 9 bound. |
+| [13](https://github.com/ford41b/fretshift/actions/runs/37039046343) | `fbcd1fa` | "Only 7 of 12 cues". |
+
+The cause was the test's fake player. It scheduled all 12 taps up front on the fake microphone's separate AudioContext, and in CI WebKit that clock drifts from the app's. The player now reacts to each click on the app's clock, as a person would.
+
+**The axe flake.** That `cloud.spec.ts` test switched to dark mode and then waited a fixed 250 ms. Button backgrounds animate over 150 ms while the text colour switches at once. The test now waits for running animations to finish before scanning.
+
+Runs 10 and 11 were cancelled by newer pushes. Commits after `8597f27` change documentation only.
+
