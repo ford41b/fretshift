@@ -7,11 +7,11 @@
   "devices": [],
   "guitars": [],
   "counts": {
-    "correct": { "n": 0, "hit": 0, "wrong": 0, "uncertain": 0 },
-    "wrong-chord": { "n": 0, "hit": 0, "wrong": 0, "uncertain": 0 },
-    "missing-tone": { "n": 0, "hit": 0, "wrong": 0, "uncertain": 0 },
-    "single-note": { "n": 0, "hit": 0, "wrong": 0, "uncertain": 0 },
-    "muted": { "n": 0, "hit": 0, "wrong": 0, "uncertain": 0 },
-    "silence": { "n": 0, "hit": 0, "wrong": 0, "uncertain": 0 }
+    "correct": { "n": 0, "hit": 0, "wrong": 0, "uncertain": 0, "missed": 0 },
+    "wrong-chord": { "n": 0, "hit": 0, "wrong": 0, "uncertain": 0, "missed": 0 },
+    "missing-tone": { "n": 0, "hit": 0, "wrong": 0, "uncertain": 0, "missed": 0 },
+    "single-note": { "n": 0, "hit": 0, "wrong": 0, "uncertain": 0, "missed": 0 },
+    "muted": { "n": 0, "hit": 0, "wrong": 0, "uncertain": 0, "missed": 0 },
+    "silence": { "n": 0, "hit": 0, "wrong": 0, "uncertain": 0, "missed": 0 }
   }
 }

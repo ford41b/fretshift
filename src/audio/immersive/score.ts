@@ -1,6 +1,7 @@
 import { resolveTuning, SongV1, type Song } from "../../schema/song.v1";
 import { audioNotePlan } from "../intelligence/notePractice";
 import { noteLabel } from "../../theory/pitch";
+import { judgeChord, type Peak } from "./chord";
 
 export type Target = {
   id: string;
@@ -11,11 +12,23 @@ export type Target = {
   kind: "note" | "chord" | "muted";
   supported: boolean;
 };
+export type CompileOptions = {
+  /** Release flag: score voiced chords by required-tone coverage. Off by default. */
+  chordScoring?: boolean;
+};
+const chordTones = (notes: Target["notes"]) =>
+  notes.flatMap((n) => (n.fret === "x" ? [] : [n.midi]));
+/** A chord can be scored only with a known voicing of at least two pitch classes in range. */
+function chordScorable(notes: Target["notes"]) {
+  const tones = chordTones(notes);
+  return new Set(tones.map((m) => m % 12)).size >= 2 && tones.every((m) => m >= 40 && m <= 88);
+}
 export function compileTargets(
   song: Song,
   speed = 1,
   first = 0,
   last = song.measures.length - 1,
+  options: CompileOptions = {},
 ) {
   SongV1.parse(song);
   if (
@@ -94,7 +107,9 @@ export function compileTargets(
           notes,
           kind,
           supported:
-            kind === "note" && notes[0].midi >= 40 && notes[0].midi <= 88,
+            kind === "note"
+              ? notes[0].midi >= 40 && notes[0].midi <= 88
+              : kind === "chord" && options.chordScoring === true && chordScorable(notes),
           label:
             kind === "note"
               ? noteLabel(notes[0].midi)
@@ -108,7 +123,13 @@ export function compileTargets(
       held.fill(null);
       if (mi < first) continue;
       if (m.chords.length && !exactTiming) needsTimingConfirmation = true;
-      for (const c of m.chords)
+      for (const c of m.chords) {
+        const notes =
+          c.voicing?.frets.flatMap((fret, string) =>
+            fret === "x"
+              ? []
+              : [{ string, fret, midi: tuning[string] + song.capo + fret }],
+          ) ?? [];
         targets.push({
           id: c.id,
           time: exactTiming && passageStart !== undefined && c.audioTimeSeconds !== undefined
@@ -117,14 +138,10 @@ export function compileTargets(
           measure: mi,
           label: c.chordName,
           kind: "chord",
-          supported: false,
-          notes:
-            c.voicing?.frets.flatMap((fret, string) =>
-              fret === "x"
-                ? []
-                : [{ string, fret, midi: tuning[string] + song.capo + fret }],
-            ) ?? [],
+          supported: options.chordScoring === true && chordScorable(notes),
+          notes,
         });
+      }
     }
     if (mi >= first) time += count * beat;
   }
@@ -166,14 +183,14 @@ export function compileTargets(
  * the same compiler (and therefore the same hold/chord/range rules) as the
  * practice room. Measures without attacks only extend a run, never start one.
  */
-export function scorablePassages(song: Song, limit = 6) {
+export function scorablePassages(song: Song, limit = 6, options: CompileOptions = {}) {
   if (!song.measures.length) return [];
-  const { targets } = compileTargets(song, 1, 0, song.measures.length - 1);
+  const { targets } = compileTargets(song, 1, 0, song.measures.length - 1, options);
   const perMeasure = song.measures.map(() => ({ notes: 0, blocked: false }));
   for (const t of targets) {
     const m = perMeasure[t.measure];
     if (!m) continue;
-    if (t.kind === "note" && t.supported) m.notes++;
+    if (t.supported) m.notes++;
     else m.blocked = true;
   }
   const runs: { first: number; last: number; notes: number }[] = [];
@@ -202,6 +219,8 @@ export type Attack = {
   midi: number | null;
   cents: number;
   confidence: number;
+  /** Spectral peaks after the attack; present only when chord scoring is enabled. */
+  peaks?: Peak[];
 };
 export type Outcome =
   | "hit"
@@ -265,13 +284,19 @@ export class EventScorer {
     if (!target) return;
     const confident =
       a.midi !== null && a.confidence >= 0.8 && Math.abs(a.cents) <= 40;
+    const chord =
+      target.supported && target.kind === "chord"
+        ? judgeChord(a.peaks ?? [], chordTones(target.notes))
+        : null;
     const outcome: Outcome = !target.supported
       ? "unsupported"
-      : !confident
-        ? "uncertain"
-        : a.midi === target.notes[0].midi
-          ? "hit"
-          : "wrong";
+      : chord
+        ? chord.outcome
+        : !confident
+          ? "uncertain"
+          : a.midi === target.notes[0].midi
+            ? "hit"
+            : "wrong";
     const ms = (time - target.time) * 1000;
     const timing =
       this.mode === "rhythm"
@@ -281,7 +306,17 @@ export class EventScorer {
             ? "late"
             : "on time"
         : undefined;
-    this.feedback = `${outcome === "hit" ? "✓ Match" : outcome === "wrong" ? "× Wrong pitch" : outcome === "unsupported" ? "◇ Chord / muted target · unscored" : "? Uncertain · try a clear single note"}${timing ? ` · ${timing}` : ""}`;
+    this.feedback = `${
+      chord
+        ? `${outcome === "hit" ? "✓ Chord" : outcome === "wrong" ? "× Chord" : "? Chord uncertain"} · ${chord.reason}`
+        : outcome === "hit"
+          ? "✓ Match"
+          : outcome === "wrong"
+            ? "× Wrong pitch"
+            : outcome === "unsupported"
+              ? "◇ Chord / muted target · unscored"
+              : "? Uncertain · try a clear single note"
+    }${timing ? ` · ${timing}` : ""}`;
     if (this.mode === "learn" && outcome !== "hit") return;
     this.results[i] = {
       target,

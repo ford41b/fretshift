@@ -29,7 +29,8 @@ export const CHORD_THRESHOLDS = {
 } as const;
 
 export type ChordLabel = "correct" | "wrong-chord" | "missing-tone" | "single-note" | "muted" | "silence";
-export type OutcomeCounts = { n: number; hit: number; wrong: number; uncertain: number };
+/** `missed`: no attack was detected for a labeled strum (no credit, like a live miss). */
+export type OutcomeCounts = { n: number; hit: number; wrong: number; uncertain: number; missed: number };
 export type ChordEvaluationReport = {
   version: 1;
   generatedAt: string | null;
@@ -97,10 +98,10 @@ export function chordThresholdFailures(report: ChordEvaluationReport): string[] 
 const pct = (v: number | null) => (v === null ? "n/a" : `${(100 * v).toFixed(1)}%`);
 
 export const emptyCounts = (): Record<ChordLabel, OutcomeCounts> => ({
-  correct: { n: 0, hit: 0, wrong: 0, uncertain: 0 },
-  "wrong-chord": { n: 0, hit: 0, wrong: 0, uncertain: 0 },
-  "missing-tone": { n: 0, hit: 0, wrong: 0, uncertain: 0 },
-  "single-note": { n: 0, hit: 0, wrong: 0, uncertain: 0 },
-  muted: { n: 0, hit: 0, wrong: 0, uncertain: 0 },
-  silence: { n: 0, hit: 0, wrong: 0, uncertain: 0 },
+  correct: { n: 0, hit: 0, wrong: 0, uncertain: 0, missed: 0 },
+  "wrong-chord": { n: 0, hit: 0, wrong: 0, uncertain: 0, missed: 0 },
+  "missing-tone": { n: 0, hit: 0, wrong: 0, uncertain: 0, missed: 0 },
+  "single-note": { n: 0, hit: 0, wrong: 0, uncertain: 0, missed: 0 },
+  muted: { n: 0, hit: 0, wrong: 0, uncertain: 0, missed: 0 },
+  silence: { n: 0, hit: 0, wrong: 0, uncertain: 0, missed: 0 },
 });

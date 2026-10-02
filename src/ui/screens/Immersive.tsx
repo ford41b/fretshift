@@ -45,6 +45,8 @@ import { type Song, resolveTuning } from "../../schema/song.v1";
 import { noteLabel } from "../../theory/pitch";
 import "../immersive.css";
 
+/** Chord scoring follows its release flag (off until real recordings meet thresholds). */
+const COMPILE = { chordScoring: IMMERSIVE_FEATURES.chordScoring.enabled };
 type Phase = "setup" | "running" | "paused" | "results";
 type Mode = "learn" | "rhythm" | "visual";
 type Run = {
@@ -136,8 +138,8 @@ function PracticeRoom({ song }: { song: Song }) {
     [last, setLast] = useState(initialLast);
   const [speed, setSpeed] = useState(0.75),
     [mode, setMode] = useState<Mode>(() => {
-      const initial = compileTargets(song, 0.75, selectedFirst, initialLast).targets;
-      return scoring && initial.length && initial.every((t) => t.kind === "note" && t.supported)
+      const initial = compileTargets(song, 0.75, selectedFirst, initialLast, COMPILE).targets;
+      return scoring && initial.length && initial.every((t) => t.supported)
         ? "learn"
         : "visual";
     }),
@@ -183,11 +185,11 @@ function PracticeRoom({ song }: { song: Song }) {
     Parameters<typeof practiceRepo.saveSession>[0] | null
   >(null);
   const plan = useMemo(
-    () => compileTargets(song, speed, first, last),
+    () => compileTargets(song, speed, first, last, COMPILE),
     [song, speed, first, last],
   );
   const passages = useMemo(
-    () => (scoring ? scorablePassages(song) : []),
+    () => (scoring ? scorablePassages(song, 6, COMPILE) : []),
     [song, scoring],
   );
   planRef.current = plan;
@@ -301,6 +303,7 @@ function PracticeRoom({ song }: { song: Song }) {
           setError(message);
           pause(message);
         },
+        { chords: COMPILE.chordScoring },
       );
       if (controller.signal.aborted) {
         device.stop();
@@ -530,9 +533,8 @@ function PracticeRoom({ song }: { song: Song }) {
     setPosition(r.progress);
   }
   const active = phase === "running" || phase === "paused";
-  const guidedChords = plan.targets.filter(t => t.kind === "chord" || t.kind === "muted").length;
-  const supportedNotes = plan.targets.filter(t => t.kind === "note" && t.supported).length;
-  const scoredPassageAllowed = scoring && plan.targets.every(t => t.kind === "note" && t.supported) && supportedNotes > 0;
+  const guidedChords = plan.targets.filter(t => (t.kind === "chord" || t.kind === "muted") && !t.supported).length;
+  const scoredPassageAllowed = scoring && plan.targets.length > 0 && plan.targets.every(t => t.supported);
   const current = plan.targets[run.current?.scorer.index ?? 0];
   const summary = summarize(results);
   const beatNumber =
@@ -669,8 +671,10 @@ function PracticeRoom({ song }: { song: Song }) {
           )}
           <p>
             Coverage shows how much could be assessed. Uncertain, skipped, and
-            unsupported targets never earn a match. Chord completeness and
-            individual strings are not assessed.
+            unsupported targets never earn a match.{" "}
+            {COMPILE.chordScoring
+              ? "Chords are judged by which written tones were heard; individual strings are not assessed."
+              : "Chord completeness and individual strings are not assessed."}
           </p>
           {mode === "learn" && (
             <p>
@@ -758,7 +762,7 @@ function PracticeRoom({ song }: { song: Song }) {
                 {count > 0
                   ? "COUNT IN"
                   : current
-                    ? `MEASURE ${current.measure + 1} · ${current.supported ? "SINGLE NOTE" : "GUIDED · UNSCORED"}`
+                    ? `MEASURE ${current.measure + 1} · ${!current.supported ? "GUIDED · UNSCORED" : current.kind === "chord" ? "CHORD" : "SINGLE NOTE"}`
                     : "PASSAGE COMPLETE"}
               </span>
               <h2>
@@ -832,7 +836,7 @@ function PracticeRoom({ song }: { song: Song }) {
               {mode !== "visual" && <div className="imm-legend" aria-label="Feedback legend"><span><i className="imm-key imm-key-hit"/> Matched</span><span><i className="imm-key imm-key-missed"/> Wrong or missed</span><span><i className="imm-key imm-key-uncertain"/> Uncertain</span></div>}
               <p className="imm-caption">
                 {mode === "learn"
-                  ? "Learn mode waits for a clear, fresh note. Chords need an explicit skip; timing is not scored."
+                  ? `Learn mode waits for a clear, fresh ${COMPILE.chordScoring ? "note or chord" : "note"}. Skip awards no credit; timing is not scored.`
                   : mode === "visual"
                     ? "Quiet visual practice: follow the lane at your pace. Pause for Restart, Previous target, or Change passage."
                     : "Follow the fixed play line. Early / late timing and pitch matches are assessed separately."}{" "}

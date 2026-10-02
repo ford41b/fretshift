@@ -26,6 +26,7 @@ export async function openPracticeInput(
   signal: AbortSignal,
   onFrame: (e: Evidence) => void,
   onFailure: (message: string) => void,
+  options: { chords?: boolean } = {},
 ): Promise<PracticeInput> {
   if (!navigator.mediaDevices?.getUserMedia)
     throw new Error(
@@ -120,7 +121,7 @@ export async function openPracticeInput(
       type: "module",
     });
     const reset = (floor: number) =>
-      worker?.postMessage({ rate: context.sampleRate, a4, floor });
+      worker?.postMessage({ rate: context.sampleRate, a4, floor, chords: options.chords === true });
     reset(0.007);
     worker.onmessage = (e: MessageEvent<Evidence>) => {
       if (stopped) return;
