@@ -32,9 +32,15 @@ async function guitar(page: Page) {
       if (this.context !== ctx) {
         window.appClicks++;
         const app = this.context as AudioContext;
-        window.onAppClick?.(
-          when - app.currentTime + (app.baseLatency || 0) + (app.outputLatency || 0),
-        );
+        const output = (app.baseLatency || 0) + (app.outputLatency || 0);
+        // Like a player hearing each click live: react shortly before it sounds,
+        // timed from the app's own clock, so the fake microphone's separate
+        // AudioContext cannot drift away from it over the whole calibration.
+        const timer = setInterval(() => {
+          if (app.state === "running" && when - app.currentTime > 0.2) return;
+          clearInterval(timer);
+          if (app.state === "running") window.onAppClick?.(when - app.currentTime + output);
+        }, 10);
       }
       return start.call(this, when, ...rest);
     };
