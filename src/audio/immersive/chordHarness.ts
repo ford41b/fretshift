@@ -131,7 +131,8 @@ export function buildReport(manifest: ChordManifest, results: RecordingResult[])
     generatedAt: new Date().toISOString(),
     evidence: manifest.evidence,
     recordings: results.length,
-    chordShapes: new Set(manifest.recordings.filter((r) => r.label === "correct").map((r) => r.target.voicing)).size,
+    // Only shapes with an evaluated correct recording count toward coverage.
+    chordShapes: new Set(results.filter((r) => r.label === "correct" && r.strums.length).map((r) => r.target)).size,
     devices: [manifest.device],
     guitars: [manifest.guitar],
     counts,
@@ -204,7 +205,7 @@ export function checklistMarkdown(plan = recordingPlan()) {
     "3. Put the phone where it sits during practice (on a stand, about 30–50 cm from the sound hole or amp). Quiet room, no music playing.",
     "4. For every file: start recording, wait **1 second in silence**, play the strums about **2 seconds apart**, letting each ring, then wait 2 seconds and stop.",
     "5. Rename each memo to the file name below (without extension). AirDrop them to your Mac into one folder, then convert: `for f in *.m4a; do afconvert -f WAVE -d LEI16 \"$f\" \"${f%.m4a}.wav\"; done`",
-    "6. Copy `manifest.json` from `pnpm eval:chords --checklist` into that folder, fill in `device` and `guitar`, and remove rows you did not record. Run `pnpm eval:chords <folder>`.",
+    "6. Copy `docs/immersive/chord-recording-manifest.template.json` into that folder **as `manifest.json`**, fill in `device` and `guitar`, and remove rows you did not record. Run `pnpm eval:chords <folder>`; it writes `chord-evaluation-report.json` there.",
     "",
     "Labels: **correct** = the target chord as written. **wrong-chord** = a different chord shape while the app asks for the target. **missing-tone** = only the listed strings, omitting a chord tone. **single-note** = the root alone. **muted** = strings fully damped. **silence** = guitar still.",
     "",

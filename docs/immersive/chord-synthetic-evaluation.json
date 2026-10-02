@@ -2,7 +2,7 @@
  "note": "SYNTHETIC: generated harmonic plucks from the recording plan (pnpm eval:chords --synthetic). Pipeline check only; not guitar recordings, not accuracy evidence, never release evidence.",
  "report": {
   "version": 1,
-  "generatedAt": "2026-10-02T16:18:57.681Z",
+  "generatedAt": "2026-10-02T16:48:49.757Z",
   "evidence": "synthetic",
   "recordings": 78,
   "chordShapes": 10,

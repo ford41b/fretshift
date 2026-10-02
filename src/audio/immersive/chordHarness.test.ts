@@ -54,6 +54,7 @@ describe("evaluation (synthetic signals: pipeline behaviour, not accuracy)", () 
       { file: "c.wav", label: "silence", target: "C", strums: [], attacks: 0, extraHits: 0 },
     ]);
     expect(report.counts.correct).toMatchObject({ n: 2, hit: 1, missed: 1 });
+    expect(report.chordShapes).toBe(1); // planned-but-missing files don't count
     expect(report.counts["wrong-chord"]).toMatchObject({ n: 2, hit: 1, wrong: 1 });
     expect(report.counts.silence).toMatchObject({ n: 1, missed: 1 });
     const failures = chordThresholdFailures(report);
