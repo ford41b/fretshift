@@ -1,3 +1,5 @@
+> **2026-10-02 Immersive update:** the P1 rows about skipped Chromium controlled capture and legacy ungated Immersive tests are superseded. Chromium capture tests now run: the hang was a Playwright debugger-attach artifact. Ordinary songs open Immersive under criteria-based flags. Physical-device rows still apply. See `IMMERSIVE_RELEASE_HANDOFF.md`.
+
 # Audio Intelligence validation — post Phase 3, 2026-09-27
 
 ## Decision

@@ -1,0 +1,480 @@
+{
+  "schemaVersion": 1,
+  "id": "fretshift-iphone-check",
+  "title": "FretShift iPhone check",
+  "artist": "Immersive acceptance",
+  "originalKey": {
+    "root": "C",
+    "mode": "major"
+  },
+  "currentKey": {
+    "root": "C",
+    "mode": "major"
+  },
+  "tuningId": "standard",
+  "capo": 0,
+  "tempo": 60,
+  "timeSignature": [
+    4,
+    4
+  ],
+  "difficulty": 1,
+  "tags": [],
+  "measures": [
+    {
+      "id": "3e9811da-96e6-45a7-b0d3-141144be07bb",
+      "index": 0,
+      "subdivision": 2,
+      "chords": [],
+      "tab": {
+        "slots": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            0
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            0,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            0,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            0,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ]
+      }
+    },
+    {
+      "id": "a601f040-f0ae-43ff-8345-2f34048a8435",
+      "index": 1,
+      "subdivision": 2,
+      "chords": [],
+      "tab": {
+        "slots": [
+          [
+            null,
+            0,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            0,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            3,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            5,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ]
+      }
+    },
+    {
+      "id": "e8a0743e-4d37-4813-b211-ff187a67b8fb",
+      "index": 2,
+      "subdivision": 2,
+      "chords": [],
+      "tab": {
+        "slots": [
+          [
+            0,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            0,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            0,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ]
+      }
+    },
+    {
+      "id": "baafadb9-f1f9-423e-96f8-39c51781649f",
+      "index": 3,
+      "subdivision": 2,
+      "chords": [],
+      "tab": {
+        "slots": [
+          [
+            8,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            10,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            12,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            15,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ]
+      }
+    },
+    {
+      "id": "67481e53-65d2-4b4c-b8bf-3f5ea06566d6",
+      "index": 4,
+      "subdivision": 2,
+      "chords": [
+        {
+          "id": "iphone-check-c",
+          "beat": 0,
+          "chordName": "C"
+        }
+      ],
+      "tab": {
+        "slots": [
+          [
+            0,
+            1,
+            0,
+            2,
+            3,
+            "x"
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ]
+      }
+    },
+    {
+      "id": "c8b096d7-639b-4a51-94fc-680b2660fb21",
+      "index": 5,
+      "subdivision": 2,
+      "chords": [],
+      "tab": {
+        "slots": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            0
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            "hold"
+          ],
+          [
+            0,
+            null,
+            null,
+            null,
+            null,
+            "hold"
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ]
+      }
+    }
+  ],
+  "provenance": {
+    "source": "manual"
+  },
+  "createdAt": "2026-10-02T16:34:31.496Z",
+  "updatedAt": "2026-10-02T16:34:31.496Z"
+}

@@ -871,7 +871,7 @@ function PracticeRoom({ song }: { song: Song }) {
                       ? "A visual count-in, written attacks, and separate timing feedback."
                       : "Follow the lane without a microphone. No performance scores."}
                 </p>
-                {guidedChords > 0 && <p role="status" className="imm-scope-warning">This passage contains {guidedChords} guided chord or muted targets; chord matching isn’t scored. Use Quiet visual practice here, or choose a single-note passage for Learn and Rhythm.</p>}
+                {guidedChords > 0 && <p role="status" className="imm-scope-warning">This passage contains {guidedChords} guided chord or muted {guidedChords === 1 ? "target" : "targets"}; chord matching isn’t scored. Use Quiet visual practice here, or choose a single-note passage for Learn and Rhythm.</p>}
                 {!guidedChords && !scoredPassageAllowed && <p role="status" className="imm-scope-warning">{scoring ? "This passage has no supported single-note targets (one sounding note, E2–E6). Use Quiet visual practice." : "Scoring is off for this song in this build. Use Quiet visual practice."}</p>}
                 {!scoredPassageAllowed && passages.length > 0 && (
                   <div className="imm-passages" role="group" aria-label="Scored single-note passages">
@@ -886,7 +886,7 @@ function PracticeRoom({ song }: { song: Song }) {
                           if (mode === "visual") setMode("learn");
                         }}
                       >
-                        {p.first === p.last ? `Measure ${p.first + 1}` : `Measures ${p.first + 1}–${p.last + 1}`} · {p.notes} notes
+                        {p.first === p.last ? `Measure ${p.first + 1}` : `Measures ${p.first + 1}–${p.last + 1}`} · {p.notes} {p.notes === 1 ? "note" : "notes"}
                       </button>
                     ))}
                   </div>

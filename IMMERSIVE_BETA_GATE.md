@@ -1,18 +1,49 @@
-# Immersive Practice beta gate
+# Immersive Practice release gate
 
-This review build uses `FretShift-Review-Fixes-Immersive-Smart-Import.zip` as its base.
+**2026-10-02: the hard "Coming soon" gate has been replaced by criteria-based release flags.** Details, evidence and the iPhone checklist are in [IMMERSIVE_RELEASE_HANDOFF.md](IMMERSIVE_RELEASE_HANDOFF.md).
 
-- `/immersive` and existing non-audio songs at `/immersive/:id` retain the `ImmersiveBeta` gate.
-- Phase 2 audio transcriptions with `provenance.audioReview` mount the existing `Immersive` room at `/immersive/:id`, as required by the audio import journey. Chord-only targets are visual guidance, not scored note or rhythm targets.
-- No microphone, audio clock, or scoring logic starts on the beta-gated routes. The audio-song route uses the existing room and its own controls.
-- Sidebar and song-level Immersive entry points remain visible. The sidebar says BETA; the destination says “Immersive practice. Coming soon.”
-- If the route identifies an existing song, “Keep practicing” goes to ordinary practice for that song and “Back to song” opens the song. Otherwise the buttons lead to Practice and Songbook.
-- The original `Immersive.tsx`, recognition engine, and tests are retained for future restoration.
-- Two existing redundant `mode === "visual"` expressions in the retained, now-unmounted component were corrected to avoid pre-existing strict TypeScript TS2367 build failures. No behavior was changed by those two corrections.
-- Supabase `vision-import` was not modified. This gate requires no backend changes.
+## How the gate works now
 
-The gate check script now verifies this conditional route. The general release decision for Immersive remains separate from Audio Intelligence.
+- `src/audio/immersive/release.ts` defines one flag per feature. Each flag has criteria; a feature is **on only when every criterion is met**. Each criterion names its evidence kind: synthetic, local, emulated or physical.
+- Two criteria are computed from committed evidence files rather than hand-set:
+  - **Chord scoring** follows `src/audio/immersive/evidence/chord-evaluation.json`. The thresholds in `chordEvaluation.ts` are recomputed from the outcome counts. Only `evidence: "physical"` can pass; synthetic data never qualifies.
+  - **BETA badge** follows `src/audio/immersive/evidence/physical-acceptance.json`. The badge stays until `complete` is true and `failedSteps` is empty.
+- `/immersive` and `/immersive/:id` render `ImmersiveRoute`. It mounts the room when `canOpenImmersive()` allows it. Reviewed audio songs always could; every other song can while the room flag is on. `ImmersiveBeta` ("Coming soon") is kept only as the fallback for an unreleased room. It never starts the microphone, the audio clock or the scorer.
+- The library page and the room's Technical details show **What's on in this beta**: each feature, on or off, and why.
 
-## Phase 3 update
+## Current flags
 
-Audio-review songs may now carry confirmed single-note events. The same audio-song route opens Immersive, with sounding-pitch scoring only for confirmed, nonoverlapping, playable notes. Chord-only audio songs remain visual. General/non-audio routing is unchanged. See `GUITAR_TAB_TRANSCRIPTION.md` for timing, stale-chart and playback safeguards; `GUITAR_TAB_TEST_RESULTS.md` records the current verification scope.
+| Feature | State | Reason |
+| --- | --- | --- |
+| Room for every song (setup, guided lane, quiet visual) | on | Emulated Chromium + WebKit tests pass |
+| Scored single notes, ordinary songs | on | Same compiler and safeguards as audio-review songs; passages with chords, muted attacks or overlaps stay guided/visual |
+| Scored confirmed notes, audio-review songs | on | Unchanged confirmation, staleness and overlap rules |
+| Guided timing calibration | on | Unit and emulated E2E evidence; physical latency not yet measured |
+| Chord scoring (required-tone coverage) | **off** | No real labeled recordings; thresholds unmet |
+| BETA badge | **shown** | Physical iPhone checklist not yet run |
+
+## Unchanged safeguards
+
+- Microphone audio stays on the device. The capture worklet outputs silence, and analysis runs in a local worker.
+- Scored practice plays no guide audio or click. Calibration clicks play only during setup calibration, which scores nothing.
+- Quiet visual mode never requests the microphone and never awards performance credit.
+- Early, late, wrong, missed, uncertain, unsupported, skipped and unassessed results stay distinct.
+- Confirmation gates are kept: confirmed audio notes, imported-timing review before Rhythm, and stale-chart rejection.
+
+## Verification
+
+`node scripts/verify-immersive-beta-gate.mjs` checks:
+
+- the routing and the badge wiring
+- that the room honours each flag
+- the safety rules (no guide audio in the room, a silent worklet, no network calls in Immersive audio code)
+- flags equal to the criteria recomputed from the evidence files
+- that the handoff and checklist docs exist
+
+CI runs it on every push.
+
+## History
+
+- Before 2026-10-02, `/immersive` and ordinary songs at `/immersive/:id` rendered `ImmersiveBeta`. Only songs with `provenance.audioReview` mounted the room.
+- Phase 3 added scoring for confirmed single notes in audio-review songs.
+- Two redundant `mode === "visual"` expressions in the then-unmounted room had been corrected for strict TypeScript. No Supabase or backend change was ever needed for the gate.
