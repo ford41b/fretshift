@@ -1,0 +1,286 @@
+{
+  "config": {
+    "configFile": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/playwright.config.ts",
+    "rootDir": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e",
+        "testIgnore": [
+          "/unconfigured\\.spec\\.ts/"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e",
+        "testIgnore": [
+          "/unconfigured\\.spec\\.ts/"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium-unconfigured",
+        "name": "chromium-unconfigured",
+        "testDir": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "/unconfigured\\.spec\\.ts/"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.55.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "audio-notes.spec.ts",
+      "file": "audio-notes.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "confirmed audio notes use controlled microphone pitch, pause cleanup and no guide audio",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Controlled AudioWorklet capture is validated in WebKit; Chrome remains a separate device gate.",
+                  "location": {
+                    "file": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e/audio-notes.spec.ts",
+                    "line": 233,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 574,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T00:16:11.852Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Controlled AudioWorklet capture is validated in WebKit; Chrome remains a separate device gate.",
+                      "location": {
+                        "file": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e/audio-notes.spec.ts",
+                        "line": 233,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "8e7d5d2cabc35f0083e3-1fff19ec699f18186a0e",
+          "file": "audio-notes.spec.ts",
+          "line": 237,
+          "column": 1
+        },
+        {
+          "title": "confirmed audio notes use controlled microphone pitch, pause cleanup and no guide audio",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10998,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T00:16:17.247Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8e7d5d2cabc35f0083e3-df8221a5c62ec13dabc8",
+          "file": "audio-notes.spec.ts",
+          "line": 237,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "audio-validation.spec.ts",
+      "file": "audio-validation.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "navigation during a stalled Worker terminates it without saving a result",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2988,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Expect \"poll toBe\"",
+                      "duration": 112
+                    }
+                  ],
+                  "startTime": "2026-09-27T00:16:13.533Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0c9be62febf70c97bfe1-942dc1f99c2b54445527",
+          "file": "audio-validation.spec.ts",
+          "line": 78,
+          "column": 1
+        },
+        {
+          "title": "navigation during a stalled Worker terminates it without saving a result",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2881,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Expect \"poll toBe\"",
+                      "duration": 156
+                    }
+                  ],
+                  "startTime": "2026-09-27T00:16:28.657Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0c9be62febf70c97bfe1-5838317574cf83bd87f9",
+          "file": "audio-validation.spec.ts",
+          "line": 78,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-27T00:16:09.359Z",
+    "duration": 22245.644,
+    "expected": 3,
+    "skipped": 1,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

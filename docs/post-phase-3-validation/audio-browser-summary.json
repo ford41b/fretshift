@@ -1,0 +1,179 @@
+{
+  "generatedAt": "2026-09-27T16:08:20.795529+00:00",
+  "method": "Final frozen-source Chrome results and subsequent WebKit rerun after reinstall; each case counted once. Five-minute stress is a separate earlier run.",
+  "stats": {
+    "expected": 23,
+    "skipped": 1,
+    "unexpected": 0
+  },
+  "tests": [
+    {
+      "title": "browser decodes local WAV, MP3, and M4A in the real analysis Worker",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 2488,
+      "source": "browser-missing-webkit.json"
+    },
+    {
+      "title": "audio upload, local review, save, reopen, and Immersive entry",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 7043,
+      "source": "browser-missing-webkit.json"
+    },
+    {
+      "title": "cancelled analysis rejects and retry succeeds",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 827,
+      "source": "browser-missing-webkit.json"
+    },
+    {
+      "title": "large files are rejected and real-recording review remains editable offline",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 6443,
+      "source": "browser-missing-webkit.json"
+    },
+    {
+      "title": "mobile timeline releases its local audio URL on navigation",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 2782,
+      "source": "browser-missing-webkit.json"
+    },
+    {
+      "title": "unconfirmed audio timing is not rhythm graded in Practice",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 1344,
+      "source": "browser-missing-webkit.json"
+    },
+    {
+      "title": "note import, fingering/timing edits, playback, persistence and scored target bridge",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 7874,
+      "source": "browser-missing-webkit.json"
+    },
+    {
+      "title": "narrow tab layout, keyboard selection, setup constraints and accessibility",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 4187,
+      "source": "browser-missing-webkit.json"
+    },
+    {
+      "title": "note Worker cancellation terminates an in-flight pass and permits retry",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 1197,
+      "source": "browser-missing-webkit.json"
+    },
+    {
+      "title": "confirmed audio notes use controlled microphone pitch, pause cleanup and no guide audio",
+      "project": "chromium",
+      "status": "skipped",
+      "durationMs": 163,
+      "source": "browser-missing-webkit.json"
+    },
+    {
+      "title": "reopening and repeated correction saves preserve song metadata and beat phase",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 6094,
+      "source": "browser-missing-webkit.json"
+    },
+    {
+      "title": "navigation during a stalled Worker terminates it without saving a result",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 2398,
+      "source": "browser-missing-webkit.json"
+    },
+    {
+      "title": "browser decodes local WAV, MP3, and M4A in the real analysis Worker",
+      "project": "webkit",
+      "status": "passed",
+      "durationMs": 3929,
+      "source": "audio-browser-webkit-final.json"
+    },
+    {
+      "title": "audio upload, local review, save, reopen, and Immersive entry",
+      "project": "webkit",
+      "status": "passed",
+      "durationMs": 6062,
+      "source": "audio-browser-webkit-final.json"
+    },
+    {
+      "title": "cancelled analysis rejects and retry succeeds",
+      "project": "webkit",
+      "status": "passed",
+      "durationMs": 1056,
+      "source": "audio-browser-webkit-final.json"
+    },
+    {
+      "title": "large files are rejected and real-recording review remains editable offline",
+      "project": "webkit",
+      "status": "passed",
+      "durationMs": 5348,
+      "source": "audio-browser-webkit-final.json"
+    },
+    {
+      "title": "mobile timeline releases its local audio URL on navigation",
+      "project": "webkit",
+      "status": "passed",
+      "durationMs": 3483,
+      "source": "audio-browser-webkit-final.json"
+    },
+    {
+      "title": "unconfirmed audio timing is not rhythm graded in Practice",
+      "project": "webkit",
+      "status": "passed",
+      "durationMs": 1622,
+      "source": "audio-browser-webkit-final.json"
+    },
+    {
+      "title": "note import, fingering/timing edits, playback, persistence and scored target bridge",
+      "project": "webkit",
+      "status": "passed",
+      "durationMs": 7951,
+      "source": "audio-browser-webkit-final.json"
+    },
+    {
+      "title": "narrow tab layout, keyboard selection, setup constraints and accessibility",
+      "project": "webkit",
+      "status": "passed",
+      "durationMs": 4030,
+      "source": "audio-browser-webkit-final.json"
+    },
+    {
+      "title": "note Worker cancellation terminates an in-flight pass and permits retry",
+      "project": "webkit",
+      "status": "passed",
+      "durationMs": 1584,
+      "source": "audio-browser-webkit-final.json"
+    },
+    {
+      "title": "confirmed audio notes use controlled microphone pitch, pause cleanup and no guide audio",
+      "project": "webkit",
+      "status": "passed",
+      "durationMs": 10214,
+      "source": "audio-browser-webkit-final.json"
+    },
+    {
+      "title": "reopening and repeated correction saves preserve song metadata and beat phase",
+      "project": "webkit",
+      "status": "passed",
+      "durationMs": 5852,
+      "source": "audio-browser-webkit-final.json"
+    },
+    {
+      "title": "navigation during a stalled Worker terminates it without saving a result",
+      "project": "webkit",
+      "status": "passed",
+      "durationMs": 2668,
+      "source": "audio-browser-webkit-final.json"
+    }
+  ]
+}

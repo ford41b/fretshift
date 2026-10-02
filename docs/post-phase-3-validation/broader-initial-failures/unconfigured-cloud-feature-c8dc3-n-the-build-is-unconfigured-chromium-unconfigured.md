@@ -1,0 +1,129 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - link "Skip to music" [ref=e3] [cursor=pointer]:
+    - /url: "#main"
+  - complementary [ref=e4]:
+    - link "FretShift home" [ref=e5] [cursor=pointer]:
+      - /url: /
+      - img [ref=e6] [cursor=pointer]
+    - navigation "Main navigation" [ref=e9]:
+      - link "Songbook" [ref=e10] [cursor=pointer]:
+        - /url: /
+        - img [ref=e11] [cursor=pointer]
+        - generic: Songbook
+      - link "Setlists" [ref=e13] [cursor=pointer]:
+        - /url: /setlists
+        - img [ref=e14] [cursor=pointer]
+        - generic: Setlists
+      - link "Practice" [ref=e16] [cursor=pointer]:
+        - /url: /practice
+        - img [ref=e17] [cursor=pointer]
+        - generic: Practice
+      - link "Immersive practice BETA" [ref=e19] [cursor=pointer]:
+        - /url: /immersive
+        - img [ref=e20] [cursor=pointer]
+        - generic: Immersive practice
+        - generic: BETA
+      - link "Tuner & metronome" [ref=e26] [cursor=pointer]:
+        - /url: /tools
+        - img [ref=e27] [cursor=pointer]
+        - generic: Tuner & metronome
+      - link "Import" [ref=e28] [cursor=pointer]:
+        - /url: /import
+        - img [ref=e29] [cursor=pointer]
+        - generic: Import
+      - link "Progress" [ref=e32] [cursor=pointer]:
+        - /url: /progress
+        - img [ref=e33] [cursor=pointer]
+        - generic: Progress
+      - link "Settings" [ref=e35] [cursor=pointer]:
+        - /url: /settings
+        - img [ref=e36] [cursor=pointer]
+        - generic: Settings
+    - generic [ref=e39]:
+      - button "Toggle theme" [ref=e40] [cursor=pointer]:
+        - img [ref=e41] [cursor=pointer]
+        - generic: Theme
+      - link "Your account" [ref=e43] [cursor=pointer]:
+        - /url: /settings
+        - text: F
+  - generic [ref=e44]:
+    - generic [ref=e45]:
+      - link "fretshift" [ref=e46] [cursor=pointer]:
+        - /url: /
+        - text: fret
+        - generic [ref=e47] [cursor=pointer]: shift
+      - generic [ref=e48]: Your songs. Your way.
+    - main [ref=e50]:
+      - generic [ref=e52]:
+        - generic [ref=e53]: EVERY SONG STARTS SOMEWHERE
+        - heading "Bring a song along" [level=1] [ref=e54]
+        - paragraph [ref=e55]: From a chart to your hands. Make it your own.
+      - generic [ref=e56]:
+        - generic [ref=e57]:
+          - text: "1"
+          - generic [ref=e58]: Choose source
+        - generic [ref=e60]:
+          - text: "2"
+          - generic [ref=e61]: Review draft
+        - generic [ref=e63]:
+          - text: "3"
+          - generic [ref=e64]: Make it yours
+      - generic [ref=e65]:
+        - generic [ref=e66]:
+          - button "Text & ChordPro Paste chords and lyrics" [ref=e67] [cursor=pointer]:
+            - img [ref=e68] [cursor=pointer]
+            - generic [ref=e71] [cursor=pointer]:
+              - strong [ref=e72] [cursor=pointer]: Text & ChordPro
+              - generic [ref=e73] [cursor=pointer]: Paste chords and lyrics
+            - img [ref=e74] [cursor=pointer]
+          - button "FretShift JSON A complete arrangement" [ref=e76] [cursor=pointer]:
+            - img [ref=e77] [cursor=pointer]
+            - generic [ref=e80] [cursor=pointer]:
+              - strong [ref=e81] [cursor=pointer]: FretShift JSON
+              - generic [ref=e82] [cursor=pointer]: A complete arrangement
+            - img [ref=e83] [cursor=pointer]
+          - button "Structured files MIDI, MusicXML & Guitar Pro" [ref=e85] [cursor=pointer]:
+            - img [ref=e86] [cursor=pointer]
+            - generic [ref=e89] [cursor=pointer]:
+              - strong [ref=e90] [cursor=pointer]: Structured files
+              - generic [ref=e91] [cursor=pointer]: MIDI, MusicXML & Guitar Pro
+            - img [ref=e92] [cursor=pointer]
+          - button "Audio recording Draft chords or single-note tab" [ref=e94] [cursor=pointer]:
+            - img [ref=e95] [cursor=pointer]
+            - generic [ref=e96] [cursor=pointer]:
+              - strong [ref=e97] [cursor=pointer]: Audio recording
+              - generic [ref=e98] [cursor=pointer]: Draft chords or single-note tab
+            - img [ref=e99] [cursor=pointer]
+          - button "Text-layer PDF Read searchable chord sheets locally" [ref=e101] [cursor=pointer]:
+            - img [ref=e102] [cursor=pointer]
+            - generic [ref=e105] [cursor=pointer]:
+              - strong [ref=e106] [cursor=pointer]: Text-layer PDF
+              - generic [ref=e107] [cursor=pointer]: Read searchable chord sheets locally
+            - img [ref=e108] [cursor=pointer]
+          - button "Photos & scans Photo or scanned PDF recognition" [active] [pressed] [ref=e110] [cursor=pointer]:
+            - img [ref=e111] [cursor=pointer]
+            - generic [ref=e114] [cursor=pointer]:
+              - strong [ref=e115] [cursor=pointer]: Photos & scans
+              - generic [ref=e116] [cursor=pointer]: Photo or scanned PDF recognition
+            - img [ref=e117] [cursor=pointer]
+        - generic [ref=e120]:
+          - generic "Import steps" [ref=e121]: Choose file → Check pages → Correct chords → Confirm timing → Save
+          - status [ref=e122]: Photo and visual PDF recognition requires signing in under Account & sync before choosing pages. Local PDF text works without an account.
+          - generic [ref=e123]:
+            - generic [ref=e124]:
+              - img [ref=e125]
+              - heading "Smart photo & PDF import" [level=2] [ref=e130]
+            - generic [ref=e131]:
+              - generic [ref=e132] [cursor=pointer]:
+                - img [ref=e133] [cursor=pointer]
+                - text: Take photo
+                - button "Take a photo of a chord sheet" [ref=e136] [cursor=pointer]
+              - generic [ref=e137] [cursor=pointer]:
+                - img [ref=e138] [cursor=pointer]
+                - text: Choose pages or PDF
+                - button "Choose chart photos or a PDF" [ref=e141] [cursor=pointer]
+          - paragraph [ref=e142]: PDF text is read on this device. Pages that cannot be recognized as chord charts can be analyzed visually, one page at a time. Photo pages are prepared locally, then sent temporarily to OCR; completed pages are kept if another page fails.
+```

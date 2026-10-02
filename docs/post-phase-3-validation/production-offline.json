@@ -1,0 +1,65 @@
+{
+  "generatedAt": "2026-09-27T16:14:35.674Z",
+  "physicalDevice": false,
+  "installedPwa": false,
+  "results": [
+    {
+      "browser": "chrome",
+      "version": "153.0.8010.54",
+      "viewport": "390x844 desktop simulation",
+      "status": "passed",
+      "importMs": 895,
+      "networkFailure": "Playwright offline emulation",
+      "checks": [
+        "production service worker controls page",
+        "offline reload",
+        "offline decode/Worker/note review",
+        "save and offline reload",
+        "fingerprint reattachment",
+        "playback",
+        "unconfirmed notes remain unconfirmed"
+      ],
+      "pageErrors": [
+        {
+          "message": "Uncaught SyntaxError: Unexpected token '<'",
+          "filename": "http://127.0.0.1:5396/_vercel/insights/script.js"
+        },
+        {
+          "message": "Uncaught SyntaxError: Unexpected token '<'",
+          "filename": "http://127.0.0.1:5396/_vercel/insights/script.js"
+        },
+        {
+          "message": "Uncaught SyntaxError: Unexpected token '<'",
+          "filename": "http://127.0.0.1:5396/_vercel/insights/script.js"
+        }
+      ],
+      "previewAnalyticsErrors": 3,
+      "telemetryVerified": false
+    },
+    {
+      "browser": "webkit",
+      "version": "26.0",
+      "viewport": "390x844 desktop simulation",
+      "status": "passed",
+      "importMs": 396,
+      "networkFailure": "origin server stopped",
+      "checks": [
+        "production service worker controls page",
+        "offline reload",
+        "offline decode/Worker/note review",
+        "save and offline reload",
+        "fingerprint reattachment",
+        "playback",
+        "unconfirmed notes remain unconfirmed"
+      ],
+      "pageErrors": [
+        {
+          "message": "SyntaxError: Unexpected token '<'",
+          "filename": "http://127.0.0.1:5396/_vercel/insights/script.js"
+        }
+      ],
+      "previewAnalyticsErrors": 1,
+      "telemetryVerified": false
+    }
+  ]
+}

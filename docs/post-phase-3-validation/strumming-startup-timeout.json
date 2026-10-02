@@ -1,0 +1,98 @@
+{
+  "config": {
+    "configFile": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/playwright.config.ts",
+    "rootDir": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e",
+        "testIgnore": [
+          "/unconfigured\\.spec\\.ts/"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e",
+        "testIgnore": [
+          "/unconfigured\\.spec\\.ts/"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "chromium-unconfigured",
+        "name": "chromium-unconfigured",
+        "testDir": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "/unconfigured\\.spec\\.ts/"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.55.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [],
+  "errors": [
+    {
+      "message": "Error: Timed out waiting 60000ms from config.webServer.",
+      "stack": "Error: Timed out waiting 60000ms from config.webServer."
+    }
+  ],
+  "stats": {
+    "startTime": "2026-09-27T21:03:21.513Z",
+    "duration": 87001.99400000004,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

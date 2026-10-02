@@ -1,0 +1,588 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - link "Skip to music" [ref=e3]:
+    - /url: "#main"
+  - complementary [ref=e4]:
+    - link "FretShift home" [ref=e5]:
+      - /url: /
+      - img [ref=e6]
+    - navigation "Main navigation" [ref=e9]:
+      - link "Songbook" [ref=e10]:
+        - /url: /
+        - img [ref=e11]
+        - generic: Songbook
+      - link "Setlists" [ref=e13]:
+        - /url: /setlists
+        - img [ref=e14]
+        - generic: Setlists
+      - link "Practice" [ref=e16]:
+        - /url: /practice
+        - img [ref=e17]
+        - generic: Practice
+      - link "Immersive practice BETA" [ref=e19]:
+        - /url: /immersive
+        - img [ref=e20]
+        - generic: Immersive practice
+        - generic: BETA
+      - link "Tuner & metronome" [ref=e26]:
+        - /url: /tools
+        - img [ref=e27]
+        - generic: Tuner & metronome
+      - link "Import" [ref=e28]:
+        - /url: /import
+        - img [ref=e29]
+        - generic: Import
+      - link "Progress" [ref=e32]:
+        - /url: /progress
+        - img [ref=e33]
+        - generic: Progress
+      - link "Settings" [ref=e35]:
+        - /url: /settings
+        - img [ref=e36]
+        - generic: Settings
+    - generic [ref=e39]:
+      - button "Toggle theme" [ref=e40] [cursor=pointer]:
+        - img [ref=e41] [cursor=pointer]
+        - generic: Theme
+      - link "Your account" [ref=e43]:
+        - /url: /settings
+        - text: F
+  - generic [ref=e44]:
+    - generic [ref=e45]:
+      - link "fretshift" [ref=e46]:
+        - /url: /
+        - text: fret
+        - generic [ref=e47]: shift
+      - generic [ref=e48]: Your songs. Your way.
+    - main [ref=e50]:
+      - generic [ref=e51]:
+        - link "Songbook" [ref=e52]:
+          - /url: /
+          - img [ref=e53]
+          - text: Songbook
+        - generic [ref=e55]: Saved on this device
+        - generic [ref=e56]:
+          - button "Undo" [ref=e57] [cursor=pointer]:
+            - img [ref=e58] [cursor=pointer]
+          - button "Redo" [ref=e61] [cursor=pointer]:
+            - img [ref=e62] [cursor=pointer]
+      - generic [ref=e65]:
+        - generic [ref=e66]:
+          - generic [ref=e67]: A TRADITIONAL FAVORITE
+          - heading "Amazing Grace" [level=1] [ref=e68]
+          - paragraph [ref=e69]:
+            - text: Traditional · public domain
+            - generic [ref=e70]: •
+            - text: 84 BPM
+            - generic [ref=e71]: •
+            - text: 3/4
+        - generic [ref=e72]:
+          - generic "Practice options" [ref=e73]:
+            - link "Practice" [ref=e74]:
+              - /url: /practice/sample-1
+              - img [ref=e75]
+              - generic [ref=e77]: Practice
+            - link "Immersive practice" [ref=e78]:
+              - /url: /immersive/sample-1
+              - img [ref=e79]
+              - generic [ref=e85]: Immersive practice
+          - link "Open stage view" [ref=e86]:
+            - /url: /stage/sample-1
+            - img [ref=e87]
+          - button "Source and export" [ref=e92] [cursor=pointer]:
+            - img [ref=e93] [cursor=pointer]
+      - generic [ref=e97]:
+        - heading "Your chord palette 4 chords" [level=2] [ref=e98]:
+          - text: Your chord palette
+          - generic [ref=e99]: 4 chords
+        - generic [ref=e100]: Tap to explore a voicing · pin to keep it
+      - generic [ref=e101]:
+        - generic [ref=e102]:
+          - button "Cycle G voicing" [ref=e103] [cursor=pointer]:
+            - img "G chord diagram, frets low to high 3,2,0,0,0,3" [ref=e104] [cursor=pointer]:
+              - generic [ref=e105] [cursor=pointer]: G
+              - generic [ref=e109] [cursor=pointer]: ○
+              - generic [ref=e110] [cursor=pointer]: ○
+              - generic [ref=e111] [cursor=pointer]: ○
+          - button "Pin G voicing" [ref=e116] [cursor=pointer]:
+            - img [ref=e117] [cursor=pointer]
+            - text: Pin voicing
+        - generic [ref=e119]:
+          - button "Cycle C voicing" [ref=e120] [cursor=pointer]:
+            - img "C chord diagram, frets low to high x,3,2,0,1,0" [ref=e121] [cursor=pointer]:
+              - generic [ref=e122] [cursor=pointer]: C
+              - generic [ref=e124] [cursor=pointer]: ○
+              - generic [ref=e127] [cursor=pointer]: ○
+              - generic [ref=e132] [cursor=pointer]: ×
+          - button "Pin C voicing" [ref=e133] [cursor=pointer]:
+            - img [ref=e134] [cursor=pointer]
+            - text: Pin voicing
+        - generic [ref=e136]:
+          - button "Cycle D voicing" [ref=e137] [cursor=pointer]:
+            - img "D chord diagram, frets low to high x,x,0,2,3,2" [ref=e138] [cursor=pointer]:
+              - generic [ref=e139] [cursor=pointer]: D
+              - generic [ref=e147] [cursor=pointer]: ○
+              - generic [ref=e148] [cursor=pointer]: ×
+              - generic [ref=e149] [cursor=pointer]: ×
+          - button "Pin D voicing" [ref=e150] [cursor=pointer]:
+            - img [ref=e151] [cursor=pointer]
+            - text: Pin voicing
+        - generic [ref=e153]:
+          - button "Cycle Em voicing" [ref=e154] [cursor=pointer]:
+            - img "Em chord diagram, frets low to high 0,2,2,0,0,0" [ref=e155] [cursor=pointer]:
+              - generic [ref=e156] [cursor=pointer]: Em
+              - generic [ref=e158] [cursor=pointer]: ○
+              - generic [ref=e159] [cursor=pointer]: ○
+              - generic [ref=e160] [cursor=pointer]: ○
+              - generic [ref=e165] [cursor=pointer]: ○
+          - button "Pin Em voicing" [ref=e166] [cursor=pointer]:
+            - img [ref=e167] [cursor=pointer]
+            - text: Pin voicing
+      - generic [ref=e169]:
+        - generic [ref=e170]:
+          - group "Notation view" [ref=e171]:
+            - button "Chords" [ref=e172] [cursor=pointer]
+            - button "Tab" [ref=e173] [cursor=pointer]
+            - button "Combined" [pressed] [ref=e174] [cursor=pointer]
+          - button "Edit notation" [ref=e175] [cursor=pointer]:
+            - img [ref=e176] [cursor=pointer]
+            - text: Edit notation
+        - generic [ref=e177]:
+          - group "Measure 1, offscreen" [ref=e179]
+          - group "Measure 2, offscreen" [ref=e181]
+          - group "Measure 3, offscreen" [ref=e183]
+          - group "Measure 4, offscreen" [ref=e185]
+          - group "Measure 5, offscreen" [ref=e187]
+          - region "Measure 6" [ref=e189]:
+            - generic [ref=e191]: "06"
+            - generic [ref=e192]:
+              - generic [ref=e194]: G
+              - generic [ref=e196]: D
+            - img "Tab for measure 6. High string on top." [ref=e197]:
+              - group "Measure 6, G to D, 10 notes." [ref=e198]:
+                - generic [ref=e200]: E
+                - generic [ref=e202]: B
+                - generic [ref=e204]: G
+                - generic [ref=e206]: D
+                - generic [ref=e208]: A
+                - generic [ref=e210]: E
+                - img "String 1, beat 1, fret 3" [ref=e211]:
+                  - generic [ref=e213]: "3"
+                - img "String 2, beat 1, fret 0" [ref=e214]:
+                  - generic [ref=e216]: "0"
+                - img "String 3, beat 1, fret 0" [ref=e217]:
+                  - generic [ref=e219]: "0"
+                - img "String 4, beat 1, fret 0" [ref=e220]:
+                  - generic [ref=e222]: "0"
+                - img "String 5, beat 1, fret 2" [ref=e223]:
+                  - generic [ref=e225]: "2"
+                - img "String 6, beat 1, fret 3" [ref=e226]:
+                  - generic [ref=e228]: "3"
+                - img "String 1, beat 1.5, hold" [ref=e229]:
+                  - generic [ref=e231]: —
+                - img "String 2, beat 1.5, hold" [ref=e232]:
+                  - generic [ref=e234]: —
+                - img "String 3, beat 1.5, hold" [ref=e235]:
+                  - generic [ref=e237]: —
+                - img "String 4, beat 1.5, hold" [ref=e238]:
+                  - generic [ref=e240]: —
+                - img "String 5, beat 1.5, hold" [ref=e241]:
+                  - generic [ref=e243]: —
+                - img "String 6, beat 1.5, hold" [ref=e244]:
+                  - generic [ref=e246]: —
+                - img "String 1, beat 2, hold" [ref=e247]:
+                  - generic [ref=e249]: —
+                - img "String 2, beat 2, hold" [ref=e250]:
+                  - generic [ref=e252]: —
+                - img "String 3, beat 2, hold" [ref=e253]:
+                  - generic [ref=e255]: —
+                - img "String 4, beat 2, hold" [ref=e256]:
+                  - generic [ref=e258]: —
+                - img "String 5, beat 2, hold" [ref=e259]:
+                  - generic [ref=e261]: —
+                - img "String 6, beat 2, hold" [ref=e262]:
+                  - generic [ref=e264]: —
+                - img "String 1, beat 2.5, fret 2" [ref=e265]:
+                  - generic [ref=e267]: "2"
+                - img "String 2, beat 2.5, fret 3" [ref=e268]:
+                  - generic [ref=e270]: "3"
+                - img "String 3, beat 2.5, fret 2" [ref=e271]:
+                  - generic [ref=e273]: "2"
+                - img "String 4, beat 2.5, fret 0" [ref=e274]:
+                  - generic [ref=e276]: "0"
+                - img "String 5, beat 2.5, muted" [ref=e277]:
+                  - generic [ref=e279]: ×
+                - img "String 6, beat 2.5, muted" [ref=e280]:
+                  - generic [ref=e282]: ×
+                - img "String 1, beat 3, hold" [ref=e283]:
+                  - generic [ref=e285]: —
+                - img "String 2, beat 3, hold" [ref=e286]:
+                  - generic [ref=e288]: —
+                - img "String 3, beat 3, hold" [ref=e289]:
+                  - generic [ref=e291]: —
+                - img "String 4, beat 3, hold" [ref=e292]:
+                  - generic [ref=e294]: —
+                - img "String 5, beat 3, empty" [ref=e295]
+                - img "String 6, beat 3, empty" [ref=e297]
+                - img "String 1, beat 3.5, hold" [ref=e299]:
+                  - generic [ref=e301]: —
+                - img "String 2, beat 3.5, hold" [ref=e302]:
+                  - generic [ref=e304]: —
+                - img "String 3, beat 3.5, hold" [ref=e305]:
+                  - generic [ref=e307]: —
+                - img "String 4, beat 3.5, hold" [ref=e308]:
+                  - generic [ref=e310]: —
+                - img "String 5, beat 3.5, empty" [ref=e311]
+                - img "String 6, beat 3.5, empty" [ref=e313]
+                - generic [ref=e315]: "1"
+                - generic [ref=e316]: "2"
+                - generic [ref=e317]: "3"
+            - paragraph [ref=e319]: And grace my fears relieved
+          - region "Measure 7" [ref=e322]:
+            - generic [ref=e324]: "07"
+            - generic [ref=e325]:
+              - generic [ref=e327]: G
+              - generic [ref=e329]: C
+              - generic [ref=e331]: G
+            - img "Tab for measure 7. High string on top." [ref=e332]:
+              - group "Measure 7, G to C to G, 17 notes." [ref=e333]:
+                - generic [ref=e335]: E
+                - generic [ref=e337]: B
+                - generic [ref=e339]: G
+                - generic [ref=e341]: D
+                - generic [ref=e343]: A
+                - generic [ref=e345]: E
+                - img "String 1, beat 1, fret 3" [ref=e346]:
+                  - generic [ref=e348]: "3"
+                - img "String 2, beat 1, fret 0" [ref=e349]:
+                  - generic [ref=e351]: "0"
+                - img "String 3, beat 1, fret 0" [ref=e352]:
+                  - generic [ref=e354]: "0"
+                - img "String 4, beat 1, fret 0" [ref=e355]:
+                  - generic [ref=e357]: "0"
+                - img "String 5, beat 1, fret 2" [ref=e358]:
+                  - generic [ref=e360]: "2"
+                - img "String 6, beat 1, fret 3" [ref=e361]:
+                  - generic [ref=e363]: "3"
+                - img "String 1, beat 1.5, hold" [ref=e364]:
+                  - generic [ref=e366]: —
+                - img "String 2, beat 1.5, hold" [ref=e367]:
+                  - generic [ref=e369]: —
+                - img "String 3, beat 1.5, hold" [ref=e370]:
+                  - generic [ref=e372]: —
+                - img "String 4, beat 1.5, hold" [ref=e373]:
+                  - generic [ref=e375]: —
+                - img "String 5, beat 1.5, hold" [ref=e376]:
+                  - generic [ref=e378]: —
+                - img "String 6, beat 1.5, hold" [ref=e379]:
+                  - generic [ref=e381]: —
+                - img "String 1, beat 2, fret 0" [ref=e382]:
+                  - generic [ref=e384]: "0"
+                - img "String 2, beat 2, fret 1" [ref=e385]:
+                  - generic [ref=e387]: "1"
+                - img "String 3, beat 2, fret 0" [ref=e388]:
+                  - generic [ref=e390]: "0"
+                - img "String 4, beat 2, fret 2" [ref=e391]:
+                  - generic [ref=e393]: "2"
+                - img "String 5, beat 2, fret 3" [ref=e394]:
+                  - generic [ref=e396]: "3"
+                - img "String 6, beat 2, muted" [ref=e397]:
+                  - generic [ref=e399]: ×
+                - img "String 1, beat 2.5, hold" [ref=e400]:
+                  - generic [ref=e402]: —
+                - img "String 2, beat 2.5, hold" [ref=e403]:
+                  - generic [ref=e405]: —
+                - img "String 3, beat 2.5, hold" [ref=e406]:
+                  - generic [ref=e408]: —
+                - img "String 4, beat 2.5, hold" [ref=e409]:
+                  - generic [ref=e411]: —
+                - img "String 5, beat 2.5, hold" [ref=e412]:
+                  - generic [ref=e414]: —
+                - img "String 6, beat 2.5, empty" [ref=e415]
+                - img "String 1, beat 3, fret 3" [ref=e417]:
+                  - generic [ref=e419]: "3"
+                - img "String 2, beat 3, fret 0" [ref=e420]:
+                  - generic [ref=e422]: "0"
+                - img "String 3, beat 3, fret 0" [ref=e423]:
+                  - generic [ref=e425]: "0"
+                - img "String 4, beat 3, fret 0" [ref=e426]:
+                  - generic [ref=e428]: "0"
+                - img "String 5, beat 3, fret 2" [ref=e429]:
+                  - generic [ref=e431]: "2"
+                - img "String 6, beat 3, fret 3" [ref=e432]:
+                  - generic [ref=e434]: "3"
+                - img "String 1, beat 3.5, hold" [ref=e435]:
+                  - generic [ref=e437]: —
+                - img "String 2, beat 3.5, hold" [ref=e438]:
+                  - generic [ref=e440]: —
+                - img "String 3, beat 3.5, hold" [ref=e441]:
+                  - generic [ref=e443]: —
+                - img "String 4, beat 3.5, hold" [ref=e444]:
+                  - generic [ref=e446]: —
+                - img "String 5, beat 3.5, hold" [ref=e447]:
+                  - generic [ref=e449]: —
+                - img "String 6, beat 3.5, hold" [ref=e450]:
+                  - generic [ref=e452]: —
+                - generic [ref=e453]: "1"
+                - generic [ref=e454]: "2"
+                - generic [ref=e455]: "3"
+            - paragraph [ref=e457]: How precious did that grace appear
+          - region "Measure 8" [ref=e460]:
+            - generic [ref=e462]: "08"
+            - generic [ref=e463]:
+              - generic [ref=e465]: Em
+              - generic [ref=e467]: D
+              - generic [ref=e469]: G
+            - img "Tab for measure 8. High string on top." [ref=e470]:
+              - group "Measure 8, Em to D to G, 16 notes." [ref=e471]:
+                - generic [ref=e473]: E
+                - generic [ref=e475]: B
+                - generic [ref=e477]: G
+                - generic [ref=e479]: D
+                - generic [ref=e481]: A
+                - generic [ref=e483]: E
+                - img "String 1, beat 1, fret 0" [ref=e484]:
+                  - generic [ref=e486]: "0"
+                - img "String 2, beat 1, fret 0" [ref=e487]:
+                  - generic [ref=e489]: "0"
+                - img "String 3, beat 1, fret 0" [ref=e490]:
+                  - generic [ref=e492]: "0"
+                - img "String 4, beat 1, fret 2" [ref=e493]:
+                  - generic [ref=e495]: "2"
+                - img "String 5, beat 1, fret 2" [ref=e496]:
+                  - generic [ref=e498]: "2"
+                - img "String 6, beat 1, fret 0" [ref=e499]:
+                  - generic [ref=e501]: "0"
+                - img "String 1, beat 1.5, hold" [ref=e502]:
+                  - generic [ref=e504]: —
+                - img "String 2, beat 1.5, hold" [ref=e505]:
+                  - generic [ref=e507]: —
+                - img "String 3, beat 1.5, hold" [ref=e508]:
+                  - generic [ref=e510]: —
+                - img "String 4, beat 1.5, hold" [ref=e511]:
+                  - generic [ref=e513]: —
+                - img "String 5, beat 1.5, hold" [ref=e514]:
+                  - generic [ref=e516]: —
+                - img "String 6, beat 1.5, hold" [ref=e517]:
+                  - generic [ref=e519]: —
+                - img "String 1, beat 2, fret 2" [ref=e520]:
+                  - generic [ref=e522]: "2"
+                - img "String 2, beat 2, fret 3" [ref=e523]:
+                  - generic [ref=e525]: "3"
+                - img "String 3, beat 2, fret 2" [ref=e526]:
+                  - generic [ref=e528]: "2"
+                - img "String 4, beat 2, fret 0" [ref=e529]:
+                  - generic [ref=e531]: "0"
+                - img "String 5, beat 2, muted" [ref=e532]:
+                  - generic [ref=e534]: ×
+                - img "String 6, beat 2, muted" [ref=e535]:
+                  - generic [ref=e537]: ×
+                - img "String 1, beat 2.5, hold" [ref=e538]:
+                  - generic [ref=e540]: —
+                - img "String 2, beat 2.5, hold" [ref=e541]:
+                  - generic [ref=e543]: —
+                - img "String 3, beat 2.5, hold" [ref=e544]:
+                  - generic [ref=e546]: —
+                - img "String 4, beat 2.5, hold" [ref=e547]:
+                  - generic [ref=e549]: —
+                - img "String 5, beat 2.5, empty" [ref=e550]
+                - img "String 6, beat 2.5, empty" [ref=e552]
+                - img "String 1, beat 3, fret 3" [ref=e554]:
+                  - generic [ref=e556]: "3"
+                - img "String 2, beat 3, fret 0" [ref=e557]:
+                  - generic [ref=e559]: "0"
+                - img "String 3, beat 3, fret 0" [ref=e560]:
+                  - generic [ref=e562]: "0"
+                - img "String 4, beat 3, fret 0" [ref=e563]:
+                  - generic [ref=e565]: "0"
+                - img "String 5, beat 3, fret 2" [ref=e566]:
+                  - generic [ref=e568]: "2"
+                - img "String 6, beat 3, fret 3" [ref=e569]:
+                  - generic [ref=e571]: "3"
+                - img "String 1, beat 3.5, hold" [ref=e572]:
+                  - generic [ref=e574]: —
+                - img "String 2, beat 3.5, hold" [ref=e575]:
+                  - generic [ref=e577]: —
+                - img "String 3, beat 3.5, hold" [ref=e578]:
+                  - generic [ref=e580]: —
+                - img "String 4, beat 3.5, hold" [ref=e581]:
+                  - generic [ref=e583]: —
+                - img "String 5, beat 3.5, hold" [ref=e584]:
+                  - generic [ref=e586]: —
+                - img "String 6, beat 3.5, hold" [ref=e587]:
+                  - generic [ref=e589]: —
+                - generic [ref=e590]: "1"
+                - generic [ref=e591]: "2"
+                - generic [ref=e592]: "3"
+            - paragraph [ref=e594]: The hour I first believed
+      - region "Strumming pattern" [ref=e596]:
+        - generic [ref=e597]:
+          - generic [ref=e598]:
+            - generic [ref=e599]:
+              - img [ref=e600]
+              - text: LOCAL RHYTHM STUDIO
+            - heading "Strumming pattern" [level=2] [ref=e603]
+          - generic [ref=e604]: Offline ready
+        - paragraph [ref=e605]: Suggested guitar arrangements, not verified transcriptions of the recording.
+        - generic [ref=e606]:
+          - text: Arrange a measure / section
+          - combobox "Arrange a measure / section" [ref=e607] [cursor=pointer]:
+            - option "Measure 1 · Verse 1" [selected]
+            - option "Measure 2"
+            - option "Measure 3"
+            - option "Measure 4"
+            - option "Measure 5 · Verse 2"
+            - option "Measure 6"
+            - option "Measure 7"
+            - option "Measure 8"
+        - group [ref=e608]:
+          - option "3/4" [selected]
+          - option "4/4"
+          - option "6/8"
+          - option "2/4"
+          - option "5/4"
+          - option "7/8"
+          - option "9/8"
+          - option "12/8"
+          - option "2/2"
+          - option "Use explicit song tags" [selected]
+          - option "pop"
+          - option "folk"
+          - option "rock"
+          - option "country"
+          - option "worship"
+          - option "blues"
+          - option "funk"
+          - option "ballad"
+          - option "beginner"
+          - option "intermediate" [selected]
+          - option "advanced"
+        - paragraph [ref=e610]: Practice tempo · 84 BPM / provisional 3/4 · confirm in Musical inputs.
+        - group "Recommended patterns" [ref=e611]:
+          - button "Simple Waltz pulse beginner" [ref=e612] [cursor=pointer]:
+            - strong [ref=e613] [cursor=pointer]: Simple
+            - generic [ref=e614] [cursor=pointer]: Waltz pulse
+            - generic [ref=e615] [cursor=pointer]: beginner
+          - button "Recommended Waltz lift intermediate" [ref=e616] [cursor=pointer]:
+            - strong [ref=e617] [cursor=pointer]: Recommended
+            - generic [ref=e618] [cursor=pointer]: Waltz lift
+            - generic [ref=e619] [cursor=pointer]: intermediate
+          - button "Expressive Floating waltz advanced" [ref=e620] [cursor=pointer]:
+            - strong [ref=e621] [cursor=pointer]: Expressive
+            - generic [ref=e622] [cursor=pointer]: Floating waltz
+            - generic [ref=e623] [cursor=pointer]: advanced
+        - generic [ref=e624]:
+          - text: Saved variations
+          - combobox "Saved variations" [ref=e625] [cursor=pointer]:
+            - option "Choose a saved variation"
+            - option "Quiet opening · 3/4" [selected]
+        - generic [ref=e626]:
+          - heading "Quiet opening" [level=3] [ref=e627]
+          - generic [ref=e628]: beginner · 84 BPM · 3/4
+        - paragraph [ref=e629]: Your saved arrangement. Its strokes remain unchanged when song metadata changes.
+        - group "Strumming rhythm grid" [ref=e630]:
+          - 'button "Beat 1: rest" [pressed] [ref=e632] [cursor=pointer]':
+            - generic [ref=e633] [cursor=pointer]: "1"
+            - strong [ref=e635] [cursor=pointer]: —
+          - 'button "Beat 2: down" [ref=e637] [cursor=pointer]':
+            - generic [ref=e638] [cursor=pointer]: "2"
+            - strong [ref=e640] [cursor=pointer]: ↓
+          - 'button "Beat 3: down" [ref=e642] [cursor=pointer]':
+            - generic [ref=e643] [cursor=pointer]: "3"
+            - strong [ref=e645] [cursor=pointer]: ↓
+        - paragraph [ref=e646]: ↓ down · ↑ up · × muted · — rest · > accent. Tap a position to edit. Counts use quarter notes.
+        - generic "Edit selected strum" [ref=e647]:
+          - generic [ref=e648]: Position 1
+          - generic [ref=e649]:
+            - text: Stroke
+            - combobox "Stroke" [ref=e650] [cursor=pointer]:
+              - option "down"
+              - option "up"
+              - option "mute"
+              - option "rest" [selected]
+          - generic [ref=e651]:
+            - text: Accent
+            - combobox "Accent" [disabled] [ref=e652]:
+              - option "Light (0%)" [selected]
+              - option "Light (35%)"
+              - option "Medium (65%)"
+              - option "Strong (80%)"
+              - option "Strong (100%)"
+        - generic [ref=e653]:
+          - button "Play strumming" [ref=e654] [cursor=pointer]:
+            - img [ref=e655] [cursor=pointer]
+            - text: Listen
+          - generic [ref=e657]:
+            - checkbox "Loop" [checked] [ref=e659] [cursor=pointer]
+            - text: Loop
+          - generic [ref=e660]:
+            - checkbox "Metronome" [checked] [ref=e662] [cursor=pointer]
+            - text: Metronome
+          - generic [ref=e663]:
+            - text: Playback speed · 100%
+            - slider "Strumming playback speed" [ref=e664]: "100"
+        - paragraph [ref=e665]: Neutral synthesized guitar tones preview the rhythm. Clicks share its audio clock. Pausing or changing controls restarts at beat 1.
+        - generic [ref=e666]:
+          - generic [ref=e667]:
+            - text: Variation name
+            - textbox "Variation name" [ref=e668]: My variation
+          - button "Save variation" [ref=e669] [cursor=pointer]:
+            - img [ref=e670] [cursor=pointer]
+            - text: Save variation
+        - generic [ref=e674]:
+          - button "Reset to recommendation" [ref=e675] [cursor=pointer]:
+            - img [ref=e676] [cursor=pointer]
+            - text: Reset to recommendation
+          - button "Regenerate alternatives" [ref=e679] [cursor=pointer]:
+            - img [ref=e680] [cursor=pointer]
+            - text: Regenerate alternatives
+        - status [ref=e685]: Patterns · Saved on this device
+      - generic [ref=e686]:
+        - generic [ref=e687]:
+          - generic [ref=e688]: KEY
+          - button "Transpose down one semitone" [ref=e689] [cursor=pointer]:
+            - img [ref=e690] [cursor=pointer]
+          - strong [ref=e691]: G
+          - button "Transpose up one semitone" [ref=e692] [cursor=pointer]:
+            - img [ref=e693] [cursor=pointer]
+        - generic [ref=e694]:
+          - generic [ref=e695]: TUNING
+          - combobox "Song tuning" [ref=e696] [cursor=pointer]:
+            - option "Standard" [selected]
+            - option "Drop D"
+            - option "DADGAD"
+            - option "Open G"
+            - option "Open D"
+            - option "Drop C"
+            - option "Half-step down"
+        - generic [ref=e697]:
+          - generic [ref=e698]: CAPO
+          - combobox "Capo" [ref=e699] [cursor=pointer]:
+            - option "None" [selected]
+            - option "1"
+            - option "2"
+            - option "3"
+            - option "4"
+            - option "5"
+            - option "6"
+            - option "7"
+        - generic [ref=e700]:
+          - generic [ref=e701]:
+            - text: DIFFICULTY
+            - strong [ref=e702]: 1/10
+          - slider "DIFFICULTY 1/10" [ref=e703]: "1"
+        - group "Chord name display" [ref=e704]:
+          - button "Sounding" [pressed] [ref=e705] [cursor=pointer]
+          - button "Shape" [ref=e706] [cursor=pointer]
+      - generic [ref=e707]:
+        - button "Suggest capo" [ref=e708] [cursor=pointer]
+        - button "Chords → Tab" [ref=e709] [cursor=pointer]:
+          - img [ref=e710] [cursor=pointer]
+          - text: Chords → Tab
+        - button "Tab → Chords" [ref=e713] [cursor=pointer]
+        - button "Re-roll enrichment" [ref=e714] [cursor=pointer]:
+          - img [ref=e715] [cursor=pointer]
+          - text: Re-roll enrichment
+```

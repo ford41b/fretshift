@@ -1,0 +1,21 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+
+const app = fs.readFileSync('src/ui/App.tsx', 'utf8');
+const gate = fs.readFileSync('src/ui/screens/ImmersiveBeta.tsx', 'utf8');
+const css = fs.readFileSync('src/ui/immersive-beta.css', 'utf8');
+assert.match(app, /<Route path="\/immersive" element=\{<ImmersiveBeta \/>\}/);
+assert.match(app, /<Route path="\/immersive\/:id" element=\{<AudioImmersiveRoute \/>\}/);
+assert.match(app, /song\.provenance\?\.audioReview/);
+assert.match(app, /isAudioSong \? <Immersive \/> : <ImmersiveBeta \/>/);
+assert.doesNotMatch(app, /<Route path="\/immersive(?:\/:id)?" element=\{<Immersive \/>\}/);
+assert.match(app, /icon: Guitar/);
+assert.match(gate, /Coming soon/);
+assert.match(gate, /\/practice\/\$\{song\.id\}/);
+assert.match(gate, /\/song\/\$\{song\.id\}/);
+assert.doesNotMatch(gate, /openPracticeInput|EventScorer|AudioContext|mediaDevices/);
+assert.ok(fs.existsSync('src/ui/screens/Immersive.tsx'));
+assert.match(css, /prefers-reduced-motion/);
+console.log('PASS: General and existing-song routes retain the beta gate; reviewed audio songs open Immersive');
+console.log('PASS: song-aware exit links, original practice code preserved, no microphone or scorer');
+console.log('PASS: guitar navigation, coming-soon messaging, reduced-motion styles');

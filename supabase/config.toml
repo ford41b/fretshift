@@ -1,0 +1,25 @@
+project_id = "fretshift"
+
+# FretShift verifies the signed-in user inside the function by calling
+# Supabase Auth with the caller's bearer token. Keep the platform's legacy
+# JWT gate disabled so projects using current asymmetric Auth signing keys can
+# still reach that in-function verification path.
+[functions.vision-import]
+verify_jwt = false
+
+# password-signup is called before the user has a session (apikey header
+# only), so the platform JWT gate must stay off. It enforces Origin, rate
+# limits, and never confirms an account or sets a password itself.
+[functions.password-signup]
+verify_jwt = false
+
+# Local-development auth email templates. The hosted Supabase project needs the
+# same content copied into Authentication > Email Templates. One email exposes
+# both Supabase-supported passwordless paths: an 8-digit OTP and a magic link.
+[auth.email.template.magic_link]
+subject = "Your FretShift sign-in code or link"
+content_path = "./templates/magic_link.html"
+
+[auth.email.template.confirmation]
+subject = "Confirm your FretShift account"
+content_path = "./templates/confirmation.html"

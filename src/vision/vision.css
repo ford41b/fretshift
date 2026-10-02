@@ -1,0 +1,128 @@
+.vision-import {
+  display: grid;
+  gap: 14px;
+}
+.vision-empty code {
+  font-size: 0.9em;
+}
+.vision-pages {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 14px;
+}
+.vision-pages figure {
+  margin: 0;
+  min-width: 0;
+}
+.vision-page-frame {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  background: var(--surface);
+}
+.vision-page-frame img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  transition: transform 160ms ease;
+}
+.vision-pages figcaption {
+  display: grid;
+  gap: 7px;
+  padding-top: 8px;
+  font-size: 11px;
+}
+.vision-pages figcaption button {
+  justify-self: start;
+  padding: 5px 8px;
+  min-height: 32px;
+}
+.vision-pages figcaption label {
+  display: grid;
+  gap: 3px;
+}
+.vision-confidence {
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 12px;
+  background: var(--surface);
+  font-size: 12px;
+}
+.vision-confidence > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.vision-confidence > div span {
+  padding: 3px 5px;
+  border-bottom: 3px solid var(--green);
+}
+.vision-confidence > div span.low {
+  border-bottom-color: var(--amber);
+  background-image: repeating-linear-gradient(
+    135deg,
+    transparent,
+    transparent 3px,
+    color-mix(in srgb, var(--amber) 18%, transparent) 3px,
+    color-mix(in srgb, var(--amber) 18%, transparent) 6px
+  );
+}
+@media (prefers-reduced-motion: reduce) {
+  .vision-page-frame img {
+    transition: none;
+  }
+}
+
+.vision-page { min-width: 0; }
+.vision-page figcaption { font-size: 12px; }
+.vision-page figcaption strong { font-size: 13px; }
+.vision-page figcaption span { overflow-wrap: anywhere; }
+.vision-page-text { width: 100%; min-height: 110px; resize: vertical; font: 12px/1.5 ui-monospace, SFMono-Regular, Consolas, monospace; }
+.vision-page-error { color: var(--red, #ff898c); }
+.vision-force, .vision-progress, .smart-pdf-fallback { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 12px; background: var(--surface); border: 1px solid var(--border-subtle); border-radius: 14px; }
+.vision-progress button { margin-left: auto; }
+.smart-pdf-fallback { margin: 12px 0; }
+.smart-pdf-fallback p { flex: 1 1 220px; margin: 0; }
+
+.vision-splits { display: grid; gap: 8px; padding: 14px; background: var(--surface); border: 1px solid var(--border-subtle); border-radius: 14px; }
+.vision-splits label { display: flex; gap: 8px; align-items: center; }
+
+/* Shared Liquid Glass toggles in PDF/photo import. */
+.vision-force, .vision-splits label { flex-direction: row; align-items: center; }
+.vision-force > .glass-switch, .vision-splits .glass-switch { order: 1; }
+.vision-force { flex-wrap: nowrap; overflow-wrap: anywhere; }
+.vision-splits label { justify-content: flex-start; margin: 0; flex-wrap: wrap; }
+.vision-page-error { overflow-wrap: anywhere; }
+
+/* Source + actual post-crop JPEG preview are intentionally different views. */
+.vision-workflow {color:var(--text-2);font-size:12px;letter-spacing:.025em;line-height:1.6}
+.vision-signin {padding:12px;border-radius:12px;border:1px solid #ab8ef8;color:var(--text-1);background:color-mix(in srgb,#a998ff 12%,transparent)}
+.vision-thumbs {display:flex;gap:9px;overflow-x:auto;padding:9px 2px;scroll-snap-type:x mandatory}
+.vision-thumbs button {flex:0 0 83px;display:grid;gap:5px;align-content:start;text-align:center;scroll-snap-align:start;min-width:0;padding:7px;border:1px solid var(--border-subtle);border-radius:12px;background:var(--surface);font-size:10px}
+.vision-thumbs img {display:block;max-width:100%;height:75px;object-fit:contain;margin:auto}
+.vision-source-frame {position:relative;overflow:hidden}
+.vision-source-frame img {max-height:100%;max-width:100%;width:100%;height:100%;object-fit:fill}
+.vision-crop-rect {pointer-events:none;position:absolute;border:2px solid #bbadff;box-shadow:0 0 0 999px #09091145,inset 0 0 0 1px #121019;z-index:1}
+.vision-processed {display:grid;gap:8px;padding:9px;border:1px solid #9079c9;border-radius:12px;background:var(--surface)}
+.vision-processed img {width:100%;height:auto;max-height:400px;object-fit:contain;border-radius:8px; background:#fff}
+.vision-processed strong {font-size:11px;line-height:1.4}
+.vision-crop-fields {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.vision-crop-fields label {min-width:0}
+.vision-dense {display:flex!important;flex-direction:row;align-items:center;justify-content:flex-start;gap:10px}
+.vision-review-items {display:grid;gap:7px;padding:10px;border:1px solid #d6a877;border-radius:12px;background:color-mix(in srgb,#d6a877 10%,transparent);overflow-wrap:anywhere}
+.vision-review-items > div {display:grid;gap:5px}
+.vision-page-frame {aspect-ratio:3 / 4}
+@media (max-width:740px) {.vision-pages {grid-template-columns:1fr}.vision-page{max-width:100%;padding-bottom:16px;border-bottom:1px solid var(--border-subtle)}.vision-source-frame{max-height:570px}.vision-page-frame{aspect-ratio:3/4}}
+
+/* Desktop: original with a visible crop area beside its editable corrections. */
+@media (min-width:741px){
+  .vision-pages{grid-template-columns:minmax(0,1fr)}
+  .vision-page{display:grid;grid-template-columns:minmax(180px,.9fr) minmax(260px,1.1fr);gap:14px;align-items:start;padding:14px;border:1px solid var(--border-subtle);border-radius:15px}
+  .vision-page-frame{grid-column:1;grid-row:1}
+  .vision-page .vision-processed{grid-column:1;grid-row:2}
+  .vision-page figcaption{grid-column:2;grid-row:1/span 3;padding-top:0}
+}

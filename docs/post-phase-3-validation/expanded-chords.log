@@ -1,0 +1,18 @@
+Command: ['node', 'scripts/bench-audio-real.mjs', 'test-fixtures/audio-validation', 'docs/post-phase-3-validation/expanded-chords.json']
+{
+  "cases": 2,
+  "seconds": 44.6488,
+  "meanTempoAbsoluteErrorBpm": 53.635,
+  "meanBeatRecall70ms": 0.4166,
+  "meanChordRootTimePrecision": 1,
+  "meanChordRootTimeRecall": 0.0808,
+  "meanExactEligibleTimePrecision": 0,
+  "meanExactEligibleTimeRecall": 0,
+  "meanRootSegmentIoU": 0.0499,
+  "missedChanges": 10,
+  "falseChanges": 0,
+  "meanUncertainCoverage": 0.9193,
+  "meanCoreRuntimeMs": 458.2355
+}
+
+Exit: 0; seconds: 1.933

@@ -1,0 +1,130 @@
+{
+  "generatedAt": "2026-09-27T16:00:22.704Z",
+  "dataset": "GuitarSet v1.1.0, acoustic mono-mic composition excerpts, CC BY 4.0",
+  "source": "https://zenodo.org/records/3371780",
+  "mirror": "https://huggingface.co/datasets/jhartquist/guitarset",
+  "environment": {
+    "node": "v24.19.0",
+    "platform": "darwin",
+    "arch": "arm64"
+  },
+  "limitations": [
+    "Only the selected acoustic clips were tested; per-case track IDs identify the cohort.",
+    "GuitarSet complex chord labels are not silently simplified. Exact-label metrics apply only to simple root-position labels; see eligibility fraction.",
+    "Root precision/recall use 50 ms time samples; beat and change matches are one-to-one within stated tolerances.",
+    "Chord changes compare successive recognized labels; entering or leaving an unlabeled region is measured as coverage, not a false chord change.",
+    "RSS is process-wide before/after, not peak browser memory. Decode, UI, and network latency are excluded.",
+    "No note transcriber is invoked by this chord benchmark. No trained model, separator, GPU or server audio job runs."
+  ],
+  "summary": {
+    "cases": 2,
+    "seconds": 44.6488,
+    "meanTempoAbsoluteErrorBpm": 53.635,
+    "meanBeatRecall70ms": 0.4166,
+    "meanChordRootTimePrecision": 1,
+    "meanChordRootTimeRecall": 0.0808,
+    "meanExactEligibleTimePrecision": 0,
+    "meanExactEligibleTimeRecall": 0,
+    "meanRootSegmentIoU": 0.0499,
+    "missedChanges": 10,
+    "falseChanges": 0,
+    "meanUncertainCoverage": 0.9193,
+    "meanCoreRuntimeMs": 458.2355
+  },
+  "cases": [
+    {
+      "trackId": "01_BN1-129-Eb_comp",
+      "durationSec": 22.3244,
+      "tempoReferenceBpm": 129,
+      "tempoEstimatedBpm": 64.6,
+      "tempoAbsoluteErrorBpm": 64.4,
+      "beatTiming70ms": {
+        "matched": 24,
+        "missed": 24,
+        "false": 0,
+        "precision": 1,
+        "recall": 0.5,
+        "matchedMaeMs": 9.6
+      },
+      "downbeatAccuracy": {
+        "matched": 0,
+        "missed": 12,
+        "false": 6,
+        "precision": 0,
+        "recall": 0,
+        "matchedMaeMs": null
+      },
+      "downbeatReason": "Original JAMS beat_position annotations, position 1; not independently listening-audited.",
+      "chordRootTimePrecision": 1,
+      "chordRootTimeRecall": 0.148,
+      "exactEligibleTimePrecision": 0,
+      "exactEligibleTimeRecall": 0,
+      "exactEligibleReferenceFraction": 1,
+      "rootSegmentMeanIoU": 0.0707,
+      "chordChanges250ms": {
+        "matched": 0,
+        "missed": 5,
+        "false": 0,
+        "precision": 0,
+        "recall": 0,
+        "matchedMaeMs": null
+      },
+      "uncertainCoverageFraction": 0.852,
+      "noteAccuracy": null,
+      "noteOnsetDurationError": null,
+      "coreRuntimeMs": 359.886,
+      "cpuTimeMs": 439.791,
+      "rssBeforeMb": 146.7813,
+      "rssAfterMb": 164.4531,
+      "trainedModelRuntimeMs": null,
+      "serverComputeCostUsd": 0
+    },
+    {
+      "trackId": "02_BN1-129-Eb_comp",
+      "durationSec": 22.3244,
+      "tempoReferenceBpm": 129,
+      "tempoEstimatedBpm": 86.13,
+      "tempoAbsoluteErrorBpm": 42.87,
+      "beatTiming70ms": {
+        "matched": 16,
+        "missed": 32,
+        "false": 17,
+        "precision": 0.4848,
+        "recall": 0.3333,
+        "matchedMaeMs": 10
+      },
+      "downbeatAccuracy": {
+        "matched": 2,
+        "missed": 10,
+        "false": 9,
+        "precision": 0.1818,
+        "recall": 0.1667,
+        "matchedMaeMs": 12.9
+      },
+      "downbeatReason": "Original JAMS beat_position annotations, position 1; not independently listening-audited.",
+      "chordRootTimePrecision": 1,
+      "chordRootTimeRecall": 0.0135,
+      "exactEligibleTimePrecision": 0,
+      "exactEligibleTimeRecall": null,
+      "exactEligibleReferenceFraction": 0,
+      "rootSegmentMeanIoU": 0.0291,
+      "chordChanges250ms": {
+        "matched": 0,
+        "missed": 5,
+        "false": 0,
+        "precision": 0,
+        "recall": 0,
+        "matchedMaeMs": null
+      },
+      "uncertainCoverageFraction": 0.9865,
+      "noteAccuracy": null,
+      "noteOnsetDurationError": null,
+      "coreRuntimeMs": 556.585,
+      "cpuTimeMs": 494.377,
+      "rssBeforeMb": 171.6406,
+      "rssAfterMb": 174.5469,
+      "trainedModelRuntimeMs": null,
+      "serverComputeCostUsd": 0
+    }
+  ]
+}

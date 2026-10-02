@@ -1,0 +1,43 @@
+{
+  "id": "57e6ad2a-f790-4a56-814b-e62640b17865",
+  "bytes": 26460044,
+  "duration": 300,
+  "analysisMs": 29033.40000000596,
+  "saveMs": 342.40000000596046,
+  "stages": [
+    {
+      "stage": "Preparing audio",
+      "atMs": 0.4000000059604645
+    },
+    {
+      "stage": "Finding tempo",
+      "atMs": 1511.2999999970198
+    },
+    {
+      "stage": "Detecting beats",
+      "atMs": 10008
+    },
+    {
+      "stage": "Analyzing chords",
+      "atMs": 10025.79999999702
+    },
+    {
+      "stage": "Detecting single notes",
+      "atMs": 10410.5
+    },
+    {
+      "stage": "Building timeline",
+      "atMs": 29010.5
+    },
+    {
+      "stage": "Preparing review",
+      "atMs": 29010.60000000894
+    }
+  ],
+  "frames": 29933,
+  "notes": 300,
+  "jsonBytes": 4195063,
+  "supportedTargets": 0,
+  "needsTiming": true,
+  "saveState": "Saved on this device"
+}

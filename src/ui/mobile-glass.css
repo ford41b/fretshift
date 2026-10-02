@@ -1,0 +1,444 @@
+.mobile-glass,
+.glass-switch-track,
+.glass-switch-thumb {
+  display: none;
+}
+
+:root { --glass-track: rgba(129, 126, 141, 0.68); }
+:root[data-theme="dark"] { --glass-track: rgba(106, 103, 120, 0.78); }
+
+.glass-switch {
+  display: contents;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+@media (max-width: 650px) {
+  :root {
+    --glass-tint: rgba(255, 255, 255, 0.2);
+    --glass-fill: rgba(26, 27, 35, 0.16);
+    --glass-edge: rgba(255, 255, 255, 0.28);
+    --glass-edge-strong: rgba(255, 255, 255, 0.44);
+    --glass-shadow: rgba(3, 5, 12, 0.34);
+    --glass-track: rgba(129, 126, 141, 0.68);
+    --glass-glow: rgba(131, 103, 255, 0.18);
+    --mobile-nav-clearance: calc(110px + env(safe-area-inset-bottom, 0px));
+  }
+
+  :root[data-theme="dark"] {
+    --glass-tint: rgba(255, 255, 255, 0.1);
+    --glass-fill: rgba(18, 20, 30, 0.24);
+    --glass-edge: rgba(255, 255, 255, 0.22);
+    --glass-edge-strong: rgba(255, 255, 255, 0.36);
+    --glass-shadow: rgba(0, 0, 0, 0.5);
+    --glass-track: rgba(106, 103, 120, 0.78);
+    --glass-glow: rgba(131, 103, 255, 0.22);
+  }
+
+  .mobile-glass {
+    display: block;
+    z-index: 0;
+    overflow: hidden;
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+  }
+
+  /* Clear, lightly refractive glass: keep the rim, not an opaque frosted slab. */
+  .mobile-glass::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent 38%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.07), transparent 52%),
+      var(--glass-fill);
+    box-shadow:
+      inset 0 1px 0 var(--glass-edge-strong),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.06),
+      0 12px 30px var(--glass-shadow),
+      0 0 0 1px rgba(255, 255, 255, 0.06);
+    -webkit-backdrop-filter: blur(4px) saturate(115%);
+    backdrop-filter: blur(4px) saturate(115%);
+  }
+
+  .mobile-glass:has(.glass)::before {
+    display: none;
+  }
+
+  .mobile-glass-effect {
+    position: absolute !important;
+    inset: 0 !important;
+    border-radius: inherit;
+  }
+
+  .mobile-glass-effect > .glass {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    box-shadow:
+      inset 0 1px 0 var(--glass-edge-strong),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.06),
+      0 12px 30px var(--glass-shadow),
+      0 0 0 1px rgba(255, 255, 255, 0.06) !important;
+  }
+
+  .mobile-glass-effect > .glass::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background:
+      radial-gradient(circle at top left, rgba(255, 255, 255, 0.18), transparent 35%),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.12), transparent 42%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 52%);
+  }
+
+  .mobile-glass-effect .glass__warp {
+    border-radius: inherit;
+    -webkit-backdrop-filter: blur(4px) saturate(115%);
+    backdrop-filter: blur(4px) saturate(115%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* The floating rail is CSS-only (effect={false}); defrost its actual fallback. */
+  .nav-rail-glass::before {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.04) 30%, transparent 52%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent 48%),
+      rgba(244, 244, 248, 0.18);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.92),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.28),
+      0 18px 42px rgba(20, 22, 34, 0.16),
+      0 0 0 1px rgba(255, 255, 255, 0.5);
+    -webkit-backdrop-filter: blur(5px) saturate(115%);
+    backdrop-filter: blur(5px) saturate(115%);
+  }
+
+  .nav-rail-glass .mobile-glass-effect > .glass::after {
+    background: none;
+  }
+  .segments-glass::before {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 34%),
+      rgba(255, 255, 255, 0.17);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.24),
+      0 8px 20px rgba(35, 38, 52, 0.08),
+      0 0 0 1px rgba(255, 255, 255, 0.5);
+    -webkit-backdrop-filter: blur(4px) saturate(115%);
+    backdrop-filter: blur(4px) saturate(115%);
+  }
+
+  .switch-thumb-glass::before {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.14) 58%),
+      rgba(247, 246, 252, 0.78);
+  }
+
+  :root[data-theme="dark"] .nav-rail-glass::before {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02) 28%, transparent 48%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.03), transparent 52%),
+      rgba(20, 22, 32, 0.28);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.06),
+      0 18px 42px rgba(0, 0, 0, 0.34),
+      0 0 0 1px rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(5px) saturate(115%);
+    backdrop-filter: blur(5px) saturate(115%);
+  }
+
+  :root[data-theme="dark"] .segments-glass::before {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 34%),
+      rgba(24, 26, 38, 0.3);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.14),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.04),
+      0 8px 20px rgba(0, 0, 0, 0.24),
+      0 0 0 1px rgba(255, 255, 255, 0.08);
+    -webkit-backdrop-filter: blur(4px) saturate(115%);
+    backdrop-filter: blur(4px) saturate(115%);
+  }
+
+  :root[data-theme="dark"] .rail {
+    border-color: rgba(255, 255, 255, 0.16);
+    box-shadow:
+      0 18px 48px rgba(0, 0, 0, 0.36),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  :root[data-theme="dark"] .rail::after {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  :root[data-theme="dark"] .rail .nav-item,
+  :root[data-theme="dark"] .segments > button {
+    color: color-mix(in srgb, var(--text) 92%, white 8%);
+  }
+
+  :root[data-theme="dark"] .rail .nav-item.active,
+  :root[data-theme="dark"] .segments button.active {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 52%),
+      linear-gradient(135deg, rgba(131, 103, 255, 0.22), rgba(73, 55, 152, 0.4));
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.14),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.04),
+      0 10px 22px rgba(0, 0, 0, 0.28),
+      0 0 0 1px rgba(173, 161, 255, 0.16);
+    color: #b9a9ff;
+  }
+
+  .rail {
+    border: 1px solid rgba(255, 255, 255, 0.42);
+    border-radius: 30px;
+    background: transparent;
+    box-shadow:
+      0 18px 48px rgba(20, 22, 34, 0.14),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    overflow: visible;
+  }
+
+  .rail::after {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    border-radius: inherit;
+    border: 1px solid rgba(255, 255, 255, 0.26);
+    mask: linear-gradient(#000, transparent 72%);
+    pointer-events: none;
+  }
+
+  .rail nav {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 6px;
+    height: 100%;
+  }
+
+  .rail .nav-item {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition:
+      transform 180ms ease,
+      box-shadow 180ms ease,
+      background 180ms ease,
+      color 180ms ease;
+  }
+
+  .rail .nav-item.active,
+  .segments button.active {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.1), transparent 50%),
+      linear-gradient(135deg, rgba(131, 103, 255, 0.14), rgba(73, 55, 152, 0.3));
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.16),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.05),
+      0 10px 20px rgba(12, 10, 24, 0.22),
+      0 0 0 1px rgba(173, 161, 255, 0.2);
+    color: var(--accent-text);
+    transform: translateY(-1px);
+  }
+
+  .rail .nav-item.active::before,
+  .segments button.active::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 58%);
+    pointer-events: none;
+  }
+
+  .rail .nav-item:active {
+    transform: translateY(0);
+  }
+
+  .segments {
+    position: relative;
+    background: transparent;
+    border-radius: 999px;
+    padding: 4px;
+    overflow: hidden;
+  }
+
+  .segments > button {
+    position: relative;
+    z-index: 1;
+    min-height: 42px;
+    border-radius: 999px;
+    padding: 8px 15px;
+  }
+
+}
+
+/* Shared native-accessible Liquid Glass switch on every screen size. */
+  .glass-switch {
+    display: inline-flex;
+    position: relative;
+    width: 50px;
+    height: 30px;
+    border-radius: 999px;
+    vertical-align: middle;
+  }
+
+  .glass-switch input[type="checkbox"] {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .glass-switch-track {
+    display: block;
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: var(--glass-track);
+    box-shadow:
+      inset 0 1px 1px rgba(255, 255, 255, 0.1),
+      inset 0 -1px 3px rgba(0, 0, 0, 0.25),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+    transition: background 180ms ease, box-shadow 180ms ease;
+    pointer-events: none;
+  }
+
+  .glass-switch-thumb {
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    --glass-fill: rgba(248, 248, 252, 0.74);
+    --glass-edge: rgba(255, 255, 255, 0.92);
+    --glass-edge-strong: rgba(255, 255, 255, 0.98);
+    --glass-shadow: rgba(0, 0, 0, 0.18);
+    transition: transform 180ms ease;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .glass-switch-thumb .mobile-glass::before {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.92),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.22),
+      0 3px 8px rgba(0, 0, 0, 0.14);
+  }
+
+  .glass-switch input:checked ~ .glass-switch-track {
+    background: linear-gradient(135deg, rgba(131, 103, 255, 0.78), rgba(90, 67, 210, 0.9));
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.12),
+      inset 0 -1px 3px rgba(0, 0, 0, 0.14),
+      0 0 0 1px rgba(173, 161, 255, 0.18);
+  }
+
+  .glass-switch input:checked ~ .glass-switch-thumb {
+    transform: translateX(20px);
+  }
+
+  .glass-switch input:focus-visible ~ .glass-switch-track {
+    outline: 3px solid var(--accent-text);
+    outline-offset: 3px;
+  }
+
+  .glass-switch input:disabled {
+    cursor: not-allowed;
+  }
+
+  .glass-switch input:disabled ~ span {
+    opacity: 0.45;
+  }
+
+@media (prefers-reduced-motion: reduce) {
+  .glass-switch-thumb,
+  .glass-switch-track,
+  .mobile-glass *,
+  .rail .nav-item,
+  .segments > button {
+    transition: none !important;
+  }
+}
+
+@media (forced-colors: active) {
+  .mobile-glass,
+  .glass-switch-track,
+  .glass-switch-thumb {
+    display: none;
+  }
+
+  .rail,
+  .segments {
+    background: Canvas;
+    border: 1px solid ButtonText;
+  }
+
+  .glass-switch input[type="checkbox"] {
+    opacity: 1;
+    position: static;
+    width: 24px;
+    height: 24px;
+  }
+
+  .rail .nav-item.active,
+  .segments button.active {
+    outline: 2px solid Highlight;
+    outline-offset: -3px;
+  }
+}
+
+/* Retain a real keyboard/screen-reader checkbox while making every visible
+ * checkbox use the same pill track and sliding thumb, including desktop. */
+.glass-switch { display: inline-flex; width: 50px; height: 30px; flex: 0 0 50px; }
+.glass-switch .glass-switch-track,
+.glass-switch .glass-switch-thumb { display: block; }
+.glass-switch input[type="checkbox"],
+.immersive-surface .imm-check .glass-switch input[type="checkbox"],
+.strumming-check .glass-switch input[type="checkbox"],
+.pdf-boundaries .glass-switch input[type="checkbox"] {
+  position: absolute; inset: 0; z-index: 2; opacity: 0;
+  width: 100%; height: 100%; min-height: 0; margin: 0; padding: 0;
+}
+@media (forced-colors: active) {
+  .glass-switch .glass-switch-track,
+  .glass-switch .glass-switch-thumb { display: none; }
+  .glass-switch input[type="checkbox"],
+  .immersive-surface .imm-check .glass-switch input[type="checkbox"],
+  .strumming-check .glass-switch input[type="checkbox"],
+  .pdf-boundaries .glass-switch input[type="checkbox"] {
+    position: static; width: 24px; height: 24px; min-height: 24px;
+    opacity: 1; accent-color: Highlight;
+  }
+}
+/* Refractive thumb remains visible on desktop, where MobileGlass deliberately
+ * avoids loading the touch-only shader component. */
+.glass-switch .glass-switch-thumb {
+  background: linear-gradient(145deg, rgba(255,255,255,.98), rgba(207,207,231,.72));
+  border: 1px solid rgba(255,255,255,.86);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.95),
+    inset 0 -1px 2px rgba(95,82,131,.12), 0 2px 7px rgba(0,0,0,.24);
+}
+
+@media (forced-colors: active) {
+  .glass-switch .glass-switch-thumb { display: none; }
+}

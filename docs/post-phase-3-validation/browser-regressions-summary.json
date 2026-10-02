@@ -1,0 +1,423 @@
+{
+  "scope": "Latest executed result per case; combines initial broader suite with focused reruns. Not one complete clean rerun.",
+  "stats": {
+    "expected": 58,
+    "unexpected": 1,
+    "skipped": 0
+  },
+  "cases": [
+    {
+      "project": "chromium",
+      "file": "cloud.spec.ts",
+      "title": "magic-link request has a mocked browser flow",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "chromium",
+      "file": "cloud.spec.ts",
+      "title": "signed-in sync and owner share management survive reopening",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "chromium",
+      "file": "cloud.spec.ts",
+      "title": "public share loads, transposes, and saves a private copy",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "chromium",
+      "file": "cloud.spec.ts",
+      "title": "photo import sends prepared pages and accepts a validated mocked draft",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "chromium",
+      "file": "cloud.spec.ts",
+      "title": "new cloud surfaces have no serious axe findings in mobile dark mode",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "webkit",
+      "file": "cloud.spec.ts",
+      "title": "magic-link request has a mocked browser flow",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "webkit",
+      "file": "cloud.spec.ts",
+      "title": "signed-in sync and owner share management survive reopening",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "webkit",
+      "file": "cloud.spec.ts",
+      "title": "public share loads, transposes, and saves a private copy",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "webkit",
+      "file": "cloud.spec.ts",
+      "title": "photo import sends prepared pages and accepts a validated mocked draft",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "webkit",
+      "file": "cloud.spec.ts",
+      "title": "new cloud surfaces have no serious axe findings in mobile dark mode",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "chromium",
+      "file": "interchange.spec.ts",
+      "title": "MusicXML custom tuning survives save, reload and downloaded-file reimport",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "chromium",
+      "file": "interchange.spec.ts",
+      "title": "Guitar Pro custom tuning survives save, reload and downloaded-file reimport",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "chromium",
+      "file": "interchange.spec.ts",
+      "title": "MIDI requires a track choice and its selected pitches survive export and reimport",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "chromium",
+      "file": "interchange.spec.ts",
+      "title": "a malformed replacement clears a valid preview without saving either file",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "chromium",
+      "file": "interchange.spec.ts",
+      "title": "text-layer PDF boundaries import as separate songs and export a structured PDF",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "chromium",
+      "file": "interchange.spec.ts",
+      "title": "offline audio analysis produces a waveform and an editable chord draft",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "chromium",
+      "file": "interchange.spec.ts",
+      "title": "structured import and export dialog are accessible in light",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "chromium",
+      "file": "interchange.spec.ts",
+      "title": "structured import and export dialog are accessible in dark on mobile",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "webkit",
+      "file": "interchange.spec.ts",
+      "title": "MusicXML custom tuning survives save, reload and downloaded-file reimport",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "webkit",
+      "file": "interchange.spec.ts",
+      "title": "Guitar Pro custom tuning survives save, reload and downloaded-file reimport",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "webkit",
+      "file": "interchange.spec.ts",
+      "title": "MIDI requires a track choice and its selected pitches survive export and reimport",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "webkit",
+      "file": "interchange.spec.ts",
+      "title": "a malformed replacement clears a valid preview without saving either file",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "webkit",
+      "file": "interchange.spec.ts",
+      "title": "text-layer PDF boundaries import as separate songs and export a structured PDF",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "webkit",
+      "file": "interchange.spec.ts",
+      "title": "offline audio analysis produces a waveform and an editable chord draft",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "webkit",
+      "file": "interchange.spec.ts",
+      "title": "structured import and export dialog are accessible in light",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "webkit",
+      "file": "interchange.spec.ts",
+      "title": "structured import and export dialog are accessible in dark on mobile",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "chromium",
+      "file": "stage1.spec.ts",
+      "title": "create, save, reload, edit tab, undo/redo and export source",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "chromium",
+      "file": "stage1.spec.ts",
+      "title": "accessible core screens in light theme",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "chromium",
+      "file": "stage1.spec.ts",
+      "title": "accessible core screens in dark theme",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "chromium",
+      "file": "stage1.spec.ts",
+      "title": "mobile songbook and left-handed tab orientation",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "chromium",
+      "file": "stage1.spec.ts",
+      "title": "setlist create and keyboard reorder",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "webkit",
+      "file": "stage1.spec.ts",
+      "title": "create, save, reload, edit tab, undo/redo and export source",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "webkit",
+      "file": "stage1.spec.ts",
+      "title": "accessible core screens in light theme",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "webkit",
+      "file": "stage1.spec.ts",
+      "title": "accessible core screens in dark theme",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "webkit",
+      "file": "stage1.spec.ts",
+      "title": "mobile songbook and left-handed tab orientation",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "webkit",
+      "file": "stage1.spec.ts",
+      "title": "setlist create and keyboard reorder",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "chromium",
+      "file": "stage2.spec.ts",
+      "title": "accessible practice screens in light",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "chromium",
+      "file": "stage2.spec.ts",
+      "title": "accessible practice screens in dark",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "chromium",
+      "file": "stage2.spec.ts",
+      "title": "plays notation, highlights cells, saves session and leaves the song unchanged",
+      "status": "passed",
+      "source": "browser-regressions-rerun.json"
+    },
+    {
+      "project": "chromium",
+      "file": "stage2.spec.ts",
+      "title": "metronome toggles and denied microphone has a useful recovery message",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "chromium",
+      "file": "stage2.spec.ts",
+      "title": "stage view responds to keyboard page turns",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "chromium",
+      "file": "stage2.spec.ts",
+      "title": "actual time-stretch output preserves synthetic pitch",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "webkit",
+      "file": "stage2.spec.ts",
+      "title": "accessible practice screens in light",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "webkit",
+      "file": "stage2.spec.ts",
+      "title": "accessible practice screens in dark",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "webkit",
+      "file": "stage2.spec.ts",
+      "title": "plays notation, highlights cells, saves session and leaves the song unchanged",
+      "status": "passed",
+      "source": "browser-regressions-rerun.json"
+    },
+    {
+      "project": "webkit",
+      "file": "stage2.spec.ts",
+      "title": "metronome toggles and denied microphone has a useful recovery message",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "webkit",
+      "file": "stage2.spec.ts",
+      "title": "stage view responds to keyboard page turns",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "webkit",
+      "file": "stage2.spec.ts",
+      "title": "actual time-stretch output preserves synthetic pitch",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "chromium",
+      "file": "strumming.spec.ts",
+      "title": "strumming editing, persistence and playback at 390px",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "chromium",
+      "file": "strumming.spec.ts",
+      "title": "strumming editing, persistence and playback at 1280px",
+      "status": "passed",
+      "source": "browser-regressions-rerun.json"
+    },
+    {
+      "project": "chromium",
+      "file": "strumming.spec.ts",
+      "title": "compound meter, difficulty, single pass, and theme retain readable grids",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "chromium",
+      "file": "strumming.spec.ts",
+      "title": "sixteenth-note controls fit an iPhone without shrinking touch targets",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "webkit",
+      "file": "strumming.spec.ts",
+      "title": "strumming editing, persistence and playback at 390px",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "webkit",
+      "file": "strumming.spec.ts",
+      "title": "strumming editing, persistence and playback at 1280px",
+      "status": "timedOut",
+      "source": "browser-regressions-rerun.json"
+    },
+    {
+      "project": "webkit",
+      "file": "strumming.spec.ts",
+      "title": "compound meter, difficulty, single pass, and theme retain readable grids",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "webkit",
+      "file": "strumming.spec.ts",
+      "title": "sixteenth-note controls fit an iPhone without shrinking touch targets",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "chromium",
+      "file": "vision.spec.ts",
+      "title": "photo import explains configuration or transient processing",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "webkit",
+      "file": "vision.spec.ts",
+      "title": "photo import explains configuration or transient processing",
+      "status": "passed",
+      "source": "browser-regressions.json"
+    },
+    {
+      "project": "chromium-unconfigured",
+      "file": "unconfigured.spec.ts",
+      "title": "cloud features stay explicit when the build is unconfigured",
+      "status": "passed",
+      "source": "browser-regressions-rerun.json"
+    }
+  ]
+}

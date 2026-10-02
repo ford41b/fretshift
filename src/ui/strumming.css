@@ -1,0 +1,284 @@
+.strumming-card {
+  padding: clamp(16px, 3vw, 28px);
+  margin: 22px 0;
+  min-width: 0;
+  border-color: color-mix(in srgb, var(--accent) 28%, var(--border-subtle));
+}
+.strumming-heading,
+.strumming-pattern-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.strumming-heading h2 {
+  margin: 6px 0 10px;
+}
+.strumming-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--accent-text);
+}
+.strumming-badge {
+  color: var(--accent-text);
+  background: var(--soft-accent);
+  border: 1px solid var(--border-subtle);
+  border-radius: 99px;
+  padding: 4px 10px;
+  font-size: 11px;
+}
+.strumming-card label {
+  color: var(--text-2);
+  font-size: 12px;
+  font-weight: 600;
+}
+.strumming-card input:not([type="checkbox"]),
+.strumming-card select {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+}
+.strumming-context {
+  display: grid;
+  gap: 5px;
+  margin: 12px 0;
+}
+.strumming-inputs {
+  margin: 12px 0;
+  padding: 12px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+}
+.strumming-inputs summary {
+  color: var(--accent-text);
+  font-weight: 600;
+  cursor: pointer;
+  min-height: 32px;
+}
+.strumming-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 12px 0;
+}
+.strumming-fields label,
+.strumming-edit label,
+.strumming-save label {
+  display: grid;
+  gap: 5px;
+}
+.strumming-assumption {
+  border-left: 3px solid var(--accent);
+  padding: 8px 12px;
+  background: var(--soft-accent);
+  border-radius: 5px;
+  color: var(--text-2);
+}
+.strumming-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 18px 0;
+}
+.strumming-options button {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: flex-start;
+  text-align: left;
+  padding: 12px;
+  white-space: normal;
+  min-width: 0;
+  border-radius: 12px;
+}
+.strumming-options button[aria-pressed="true"] {
+  background: var(--soft-accent);
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+.strumming-options strong {
+  color: var(--text);
+  font-size: 13px;
+}
+.strumming-options span {
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--text-2);
+}
+.strumming-options small {
+  color: var(--accent-text);
+  font-size: 10px;
+  text-transform: capitalize;
+}
+.strumming-pattern-title h3 {
+  margin: 10px 0;
+}
+.strumming-pattern-title > span {
+  color: var(--text-2);
+  font-size: 12px;
+  text-transform: capitalize;
+}
+.strumming-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
+  gap: 8px;
+  padding: 12px;
+  background: var(--bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  margin: 16px 0 10px;
+}
+.strumming-beat {
+  display: flex;
+  min-width: 0;
+  border-radius: 9px;
+  border: 1px solid var(--border-subtle);
+  overflow: hidden;
+  background: var(--card);
+}
+.strumming-event {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: 0;
+  min-width: 0;
+  min-height: 92px;
+  padding: 6px 1px;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.strumming-event small {
+  color: var(--text-2);
+  font-size: 11px;
+}
+.strumming-event strong {
+  font-family: Inter, sans-serif;
+  font-size: 29px;
+  line-height: 1.15;
+  color: var(--accent-text);
+}
+.strumming-accent {
+  height: 15px;
+  line-height: 15px;
+  font-weight: 700;
+  color: var(--accent-text);
+}
+.strumming-event.is-editing {
+  box-shadow: inset 0 -3px var(--accent);
+}
+.strumming-event.is-playing {
+  background: var(--accent);
+}
+.strumming-event.is-playing :is(strong, small, .strumming-accent) {
+  color: #fff;
+}
+.strumming-chord {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 10px;
+}
+.strumming-edit {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) minmax(0, 1fr);
+  align-items: end;
+  gap: 10px;
+  margin: 14px 0;
+}
+.strumming-edit > span {
+  align-self: center;
+  font-size: 12px;
+  color: var(--text-2);
+}
+.strumming-playback {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0 8px;
+}
+.strumming-check {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 44px;
+}
+.strumming-check input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+}
+.strumming-speed {
+  display: grid;
+  flex: 1 1 200px;
+  gap: 2px;
+}
+.strumming-save {
+  display: flex;
+  align-items: end;
+  gap: 10px;
+  margin: 16px 0;
+}
+.strumming-save label {
+  flex: 1;
+  min-width: 0;
+}
+.strumming-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.strumming-actions button {
+  flex: 1 1 180px;
+  font-size: 12px;
+}
+@media (max-width: 480px) {
+  .strumming-options {
+    gap: 6px;
+  }
+  .strumming-options button {
+    padding: 10px 7px;
+  }
+  .strumming-options strong {
+    font-size: 12px;
+  }
+  .strumming-options span {
+    font-size: 11px;
+  }
+  .strumming-grid {
+    padding: 8px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .strumming-edit {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .strumming-edit > span {
+    grid-column: 1/-1;
+  }
+  .strumming-save {
+    flex-wrap: wrap;
+  }
+  .strumming-save label {
+    flex-basis: 100%;
+  }
+  .strumming-save button {
+    width: 100%;
+  }
+}
+
+/* Sixteenth-note groups keep four comfortably sized touch targets together. */
+.strumming-grid.subdivisions-4 {
+  grid-template-columns: repeat(auto-fit, minmax(192px, 1fr));
+}
+@media (max-width: 480px) {
+  .strumming-grid.subdivisions-4 {
+    grid-template-columns: 1fr;
+  }
+}

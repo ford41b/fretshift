@@ -1,0 +1,248 @@
+Command: ['node', 'node_modules/@playwright/test/cli.js', 'test', 'e2e/audio-intelligence.spec.ts', 'e2e/audio-notes.spec.ts', 'e2e/audio-validation.spec.ts', '--grep-invert', 'five-minute', '--project=chromium', '--project=webkit', '--trace=off', '--reporter=list,json']
+[2m[WebServer] [22m(node:30330) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22m(node:30342) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 24 tests using 1 worker
+
+(node:30383) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:30383) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Audio codec check [{"name":"codec-c-major.wav","version":1,"duration":4,"beatProvider":"fretshift-onset-grid-v1","chordProvider":"fretshift-chroma-templates-v1","notes":null},{"name":"codec-c-major.mp3","version":1,"duration":4,"beatProvider":"fretshift-onset-grid-v1","chordProvider":"fretshift-chroma-templates-v1","notes":null},{"name":"codec-c-major.m4a","version":1,"duration":4,"beatProvider":"fretshift-onset-grid-v1","chordProvider":"fretshift-chroma-templates-v1","notes":null}]
+  ✓   1 [chromium] › e2e/audio-intelligence.spec.ts:7:1 › browser decodes local WAV, MP3, and M4A in the real analysis Worker (2.5s)
+  ✓   2 [chromium] › e2e/audio-intelligence.spec.ts:49:1 › audio upload, local review, save, reopen, and Immersive entry (7.0s)
+  ✓   3 [chromium] › e2e/audio-intelligence.spec.ts:117:1 › cancelled analysis rejects and retry succeeds (827ms)
+  ✓   4 [chromium] › e2e/audio-intelligence.spec.ts:145:1 › large files are rejected and real-recording review remains editable offline (6.4s)
+  ✓   5 [chromium] › e2e/audio-intelligence.spec.ts:173:1 › mobile timeline releases its local audio URL on navigation (2.8s)
+  ✓   6 [chromium] › e2e/audio-intelligence.spec.ts:218:1 › unconfirmed audio timing is not rhythm graded in Practice (1.3s)
+  ✓   7 [chromium] › e2e/audio-notes.spec.ts:42:1 › note import, fingering/timing edits, playback, persistence and scored target bridge (7.9s)
+  ✓   8 [chromium] › e2e/audio-notes.spec.ts:168:1 › narrow tab layout, keyboard selection, setup constraints and accessibility (4.2s)
+  ✓   9 [chromium] › e2e/audio-notes.spec.ts:208:1 › note Worker cancellation terminates an in-flight pass and permits retry (1.2s)
+  -  10 [chromium] › e2e/audio-notes.spec.ts:244:1 › confirmed audio notes use controlled microphone pitch, pause cleanup and no guide audio
+  ✓  11 [chromium] › e2e/audio-validation.spec.ts:3:1 › reopening and repeated correction saves preserve song metadata and beat phase (6.1s)
+  ✓  12 [chromium] › e2e/audio-validation.spec.ts:78:1 › navigation during a stalled Worker terminates it without saving a result (2.4s)
+(node:34431) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:34431) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  13 [webkit] › e2e/audio-intelligence.spec.ts:7:1 › browser decodes local WAV, MP3, and M4A in the real analysis Worker (4ms)
+(node:34506) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:34506) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  14 [webkit] › e2e/audio-intelligence.spec.ts:49:1 › audio upload, local review, save, reopen, and Immersive entry (1ms)
+(node:34553) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:34553) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  15 [webkit] › e2e/audio-intelligence.spec.ts:117:1 › cancelled analysis rejects and retry succeeds (1ms)
+(node:34635) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:34635) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  16 [webkit] › e2e/audio-intelligence.spec.ts:145:1 › large files are rejected and real-recording review remains editable offline (1ms)
+(node:34636) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:34636) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  17 [webkit] › e2e/audio-intelligence.spec.ts:173:1 › mobile timeline releases its local audio URL on navigation (1ms)
+(node:34641) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:34641) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  18 [webkit] › e2e/audio-intelligence.spec.ts:218:1 › unconfirmed audio timing is not rhythm graded in Practice (1ms)
+(node:34650) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:34650) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  19 [webkit] › e2e/audio-notes.spec.ts:42:1 › note import, fingering/timing edits, playback, persistence and scored target bridge (1ms)
+(node:34671) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:34671) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  20 [webkit] › e2e/audio-notes.spec.ts:168:1 › narrow tab layout, keyboard selection, setup constraints and accessibility (1ms)
+(node:34751) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:34751) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  21 [webkit] › e2e/audio-notes.spec.ts:208:1 › note Worker cancellation terminates an in-flight pass and permits retry (1ms)
+(node:34804) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:34804) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  22 [webkit] › e2e/audio-notes.spec.ts:244:1 › confirmed audio notes use controlled microphone pitch, pause cleanup and no guide audio (1ms)
+(node:34805) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:34805) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  23 [webkit] › e2e/audio-validation.spec.ts:3:1 › reopening and repeated correction saves preserve song metadata and beat phase (1ms)
+(node:34816) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:34816) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  24 [webkit] › e2e/audio-validation.spec.ts:78:1 › navigation during a stalled Worker terminates it without saving a result (1ms)
+
+
+  1) [webkit] › e2e/audio-intelligence.spec.ts:7:1 › browser decodes local WAV, MP3, and M4A in the real analysis Worker 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/gaultneyfamily/Library/Caches/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+
+  2) [webkit] › e2e/audio-intelligence.spec.ts:49:1 › audio upload, local review, save, reopen, and Immersive entry 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/gaultneyfamily/Library/Caches/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+
+  3) [webkit] › e2e/audio-intelligence.spec.ts:117:1 › cancelled analysis rejects and retry succeeds 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/gaultneyfamily/Library/Caches/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+
+  4) [webkit] › e2e/audio-intelligence.spec.ts:145:1 › large files are rejected and real-recording review remains editable offline 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/gaultneyfamily/Library/Caches/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+
+  5) [webkit] › e2e/audio-intelligence.spec.ts:173:1 › mobile timeline releases its local audio URL on navigation 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/gaultneyfamily/Library/Caches/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+
+  6) [webkit] › e2e/audio-intelligence.spec.ts:218:1 › unconfirmed audio timing is not rhythm graded in Practice 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/gaultneyfamily/Library/Caches/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+
+  7) [webkit] › e2e/audio-notes.spec.ts:42:1 › note import, fingering/timing edits, playback, persistence and scored target bridge 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/gaultneyfamily/Library/Caches/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+
+  8) [webkit] › e2e/audio-notes.spec.ts:168:1 › narrow tab layout, keyboard selection, setup constraints and accessibility 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/gaultneyfamily/Library/Caches/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+
+  9) [webkit] › e2e/audio-notes.spec.ts:208:1 › note Worker cancellation terminates an in-flight pass and permits retry 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/gaultneyfamily/Library/Caches/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+
+  10) [webkit] › e2e/audio-notes.spec.ts:244:1 › confirmed audio notes use controlled microphone pitch, pause cleanup and no guide audio 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/gaultneyfamily/Library/Caches/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+
+  11) [webkit] › e2e/audio-validation.spec.ts:3:1 › reopening and repeated correction saves preserve song metadata and beat phase 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/gaultneyfamily/Library/Caches/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+
+  12) [webkit] › e2e/audio-validation.spec.ts:78:1 › navigation during a stalled Worker terminates it without saving a result 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/gaultneyfamily/Library/Caches/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+
+  12 failed
+    [webkit] › e2e/audio-intelligence.spec.ts:7:1 › browser decodes local WAV, MP3, and M4A in the real analysis Worker 
+    [webkit] › e2e/audio-intelligence.spec.ts:49:1 › audio upload, local review, save, reopen, and Immersive entry 
+    [webkit] › e2e/audio-intelligence.spec.ts:117:1 › cancelled analysis rejects and retry succeeds 
+    [webkit] › e2e/audio-intelligence.spec.ts:145:1 › large files are rejected and real-recording review remains editable offline 
+    [webkit] › e2e/audio-intelligence.spec.ts:173:1 › mobile timeline releases its local audio URL on navigation 
+    [webkit] › e2e/audio-intelligence.spec.ts:218:1 › unconfirmed audio timing is not rhythm graded in Practice 
+    [webkit] › e2e/audio-notes.spec.ts:42:1 › note import, fingering/timing edits, playback, persistence and scored target bridge 
+    [webkit] › e2e/audio-notes.spec.ts:168:1 › narrow tab layout, keyboard selection, setup constraints and accessibility 
+    [webkit] › e2e/audio-notes.spec.ts:208:1 › note Worker cancellation terminates an in-flight pass and permits retry 
+    [webkit] › e2e/audio-notes.spec.ts:244:1 › confirmed audio notes use controlled microphone pitch, pause cleanup and no guide audio 
+    [webkit] › e2e/audio-validation.spec.ts:3:1 › reopening and repeated correction saves preserve song metadata and beat phase 
+    [webkit] › e2e/audio-validation.spec.ts:78:1 › navigation during a stalled Worker terminates it without saving a result 
+  1 skipped
+  11 passed (1.2m)
+
+Exit: 1; seconds: 70.476

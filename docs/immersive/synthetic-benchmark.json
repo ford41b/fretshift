@@ -1,0 +1,139 @@
+{
+  "scope": "Generated harmonic plucks only. Not real guitar validation. Input/hardware/display latency excluded.",
+  "fixtures": [
+    {
+      "rate": 44100,
+      "midi": 40,
+      "attacks": 1,
+      "match": true,
+      "delay": 132.19954648526078
+    },
+    {
+      "rate": 44100,
+      "midi": 45,
+      "attacks": 1,
+      "match": true,
+      "delay": 132.19954648526078
+    },
+    {
+      "rate": 44100,
+      "midi": 50,
+      "attacks": 1,
+      "match": true,
+      "delay": 132.19954648526078
+    },
+    {
+      "rate": 44100,
+      "midi": 55,
+      "attacks": 1,
+      "match": true,
+      "delay": 132.19954648526078
+    },
+    {
+      "rate": 44100,
+      "midi": 59,
+      "attacks": 1,
+      "match": true,
+      "delay": 132.19954648526078
+    },
+    {
+      "rate": 44100,
+      "midi": 64,
+      "attacks": 1,
+      "match": true,
+      "delay": 132.19954648526078
+    },
+    {
+      "rate": 44100,
+      "midi": 69,
+      "attacks": 1,
+      "match": true,
+      "delay": 132.19954648526078
+    },
+    {
+      "rate": 44100,
+      "midi": 76,
+      "attacks": 1,
+      "match": true,
+      "delay": 132.19954648526078
+    },
+    {
+      "rate": 44100,
+      "midi": 88,
+      "attacks": 1,
+      "match": true,
+      "delay": 132.19954648526078
+    },
+    {
+      "rate": 48000,
+      "midi": 40,
+      "attacks": 1,
+      "match": true,
+      "delay": 134.66666666666666
+    },
+    {
+      "rate": 48000,
+      "midi": 45,
+      "attacks": 1,
+      "match": true,
+      "delay": 134.66666666666666
+    },
+    {
+      "rate": 48000,
+      "midi": 50,
+      "attacks": 1,
+      "match": true,
+      "delay": 134.66666666666666
+    },
+    {
+      "rate": 48000,
+      "midi": 55,
+      "attacks": 1,
+      "match": true,
+      "delay": 134.66666666666666
+    },
+    {
+      "rate": 48000,
+      "midi": 59,
+      "attacks": 1,
+      "match": true,
+      "delay": 134.66666666666666
+    },
+    {
+      "rate": 48000,
+      "midi": 64,
+      "attacks": 1,
+      "match": true,
+      "delay": 134.66666666666666
+    },
+    {
+      "rate": 48000,
+      "midi": 69,
+      "attacks": 1,
+      "match": true,
+      "delay": 134.66666666666666
+    },
+    {
+      "rate": 48000,
+      "midi": 76,
+      "attacks": 1,
+      "match": true,
+      "delay": 134.66666666666666
+    },
+    {
+      "rate": 48000,
+      "midi": 88,
+      "attacks": 1,
+      "match": true,
+      "delay": 134.66666666666666
+    }
+  ],
+  "analysisCpuMs": {
+    "median": 1.6704999999992651,
+    "p95": 1.8579170000002705,
+    "hopMs": 21.333333333333332
+  },
+  "fixtureCorrectIdentities": 18,
+  "fixtureFalseNegatives": 0,
+  "fixtureExtraAttacks": 0
+}

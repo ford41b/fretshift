@@ -1,0 +1,139 @@
+Command: ['node', 'node_modules/@playwright/test/cli.js', 'test', 'e2e/stage2.spec.ts', 'e2e/strumming.spec.ts', 'e2e/unconfigured.spec.ts', '--grep', 'plays notation|playback at 1280px|cloud features stay', '--project=chromium', '--project=webkit', '--project=chromium-unconfigured', '--trace=off', '--reporter=list,json']
+[2m[WebServer] [22m(node:96988) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22m(node:97027) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 5 tests using 1 worker
+
+(node:97116) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:97116) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › e2e/stage2.spec.ts:29:1 › plays notation, highlights cells, saves session and leaves the song unchanged (5.4s)
+  ✓  2 [chromium] › e2e/strumming.spec.ts:4:3 › strumming editing, persistence and playback at 1280px (11.1s)
+(node:98174) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:98174) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 [webkit] › e2e/stage2.spec.ts:29:1 › plays notation, highlights cells, saves session and leaves the song unchanged (5.4s)
+  ✘  4 [webkit] › e2e/strumming.spec.ts:4:3 › strumming editing, persistence and playback at 1280px (30.2s)
+(node:423) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:423) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  5 [chromium-unconfigured] › e2e/unconfigured.spec.ts:2:1 › cloud features stay explicit when the build is unconfigured (4.5s)
+
+
+  1) [webkit] › e2e/strumming.spec.ts:4:3 › strumming editing, persistence and playback at 1280px ──
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('region', { name: 'Strumming pattern', exact: true }).locator('summary')[22m
+    [2m    - locator resolved to <summary>Musical inputs & assumptions</summary>[22m
+    [2m  - attempting click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is visible, enabled and stable[22m
+    [2m    - scrolling into view if needed[22m
+    [2m    - done scrolling[22m
+    [2m    - <img alt="FretShift" class="splash-logo" src="/src/assets/fretshift-wordmark-transparent.png"/> from <div role="status" class="launch-splash" aria-label="Opening FretShift">…</div> subtree intercepts pointer events[22m
+    [2m  - retrying click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is not stable[22m
+    [2m  - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is visible, enabled and stable[22m
+    [2m    - scrolling into view if needed[22m
+    [2m    - done scrolling[22m
+    [2m    - <img alt="FretShift" class="splash-logo" src="/src/assets/fretshift-wordmark-transparent.png"/> from <div role="status" class="launch-splash" aria-label="Opening FretShift">…</div> subtree intercepts pointer events[22m
+    [2m  - retrying click action[22m
+    [2m    - waiting 100ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is visible, enabled and stable[22m
+    [2m    - scrolling into view if needed[22m
+    [2m    - done scrolling[22m
+    [2m    - <div class="splash-fretboard">…</div> from <div role="status" class="launch-splash" aria-label="Opening FretShift">…</div> subtree intercepts pointer events[22m
+    [2m  - retrying click action[22m
+    [2m    - waiting 100ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is visible, enabled and stable[22m
+    [2m    - scrolling into view if needed[22m
+    [2m    - done scrolling[22m
+    [2m    - <img alt="FretShift" class="splash-logo" src="/src/assets/fretshift-wordmark-transparent.png"/> from <div role="status" class="launch-splash" aria-label="Opening FretShift">…</div> subtree intercepts pointer events[22m
+    [2m  - retrying click action[22m
+    [2m    - waiting 500ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is visible, enabled and stable[22m
+    [2m    - scrolling into view if needed[22m
+    [2m    - done scrolling[22m
+    [2m    - <div class="splash-fretboard">…</div> from <div role="status" class="launch-splash" aria-label="Opening FretShift">…</div> subtree intercepts pointer events[22m
+    [2m  11 × retrying click action[22m
+    [2m       - waiting 500ms[22m
+    [2m       - waiting for element to be visible, enabled and stable[22m
+    [2m       - element is visible, enabled and stable[22m
+    [2m       - scrolling into view if needed[22m
+    [2m       - done scrolling[22m
+    [2m       - <select>…</select> from <label class="strumming-context">…</label> subtree intercepts pointer events[22m
+    [2m     - retrying click action[22m
+    [2m       - waiting 500ms[22m
+    [2m       - waiting for element to be visible, enabled and stable[22m
+    [2m       - element is visible, enabled and stable[22m
+    [2m       - scrolling into view if needed[22m
+    [2m       - done scrolling[22m
+    [2m       - <section class="card strumming-card" aria-label="Strumming pattern">…</section> intercepts pointer events[22m
+    [2m     - retrying click action[22m
+    [2m       - waiting 500ms[22m
+    [2m       - waiting for element to be visible, enabled and stable[22m
+    [2m       - element is visible, enabled and stable[22m
+    [2m       - scrolling into view if needed[22m
+    [2m       - done scrolling[22m
+    [2m       - <main id="main">…</main> intercepts pointer events[22m
+    [2m     - retrying click action[22m
+    [2m       - waiting 500ms[22m
+    [2m       - waiting for element to be visible, enabled and stable[22m
+    [2m       - element is visible, enabled and stable[22m
+    [2m       - scrolling into view if needed[22m
+    [2m       - done scrolling[22m
+    [2m       - <section class="card strumming-card" aria-label="Strumming pattern">…</section> intercepts pointer events[22m
+    [2m  - retrying click action[22m
+    [2m    - waiting 500ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is visible, enabled and stable[22m
+    [2m    - scrolling into view if needed[22m
+    [2m    - done scrolling[22m
+    [2m    - <select>…</select> from <label class="strumming-context">…</label> subtree intercepts pointer events[22m
+    [2m  - retrying click action[22m
+    [2m    - waiting 500ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is visible, enabled and stable[22m
+    [2m    - scrolling into view if needed[22m
+    [2m    - done scrolling[22m
+    [2m    - <section class="card strumming-card" aria-label="Strumming pattern">…</section> intercepts pointer events[22m
+    [2m  - retrying click action[22m
+    [2m    - waiting 500ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is visible, enabled and stable[22m
+    [2m    - scrolling into view if needed[22m
+    [2m    - done scrolling[22m
+    [2m    - performing click action[22m
+
+
+      47 |       studio.getByRole("button", { name: "Beat 1: rest", exact: true }),
+      48 |     ).toBeVisible();
+    > 49 |     await studio.locator("summary").click();
+         |                                     ^
+      50 |     await studio.getByLabel("Practice BPM (quarter note)").fill("85");
+      51 |     await studio.getByLabel("Practice BPM (quarter note)").press("Tab");
+      52 |     await expect(studio.getByText(/Song inputs changed/)).toBeVisible();
+        at /Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e/strumming.spec.ts:49:37
+
+    Error Context: test-results/strumming-strumming-editin-86144-ence-and-playback-at-1280px-webkit/error-context.md
+
+  1 failed
+    [webkit] › e2e/strumming.spec.ts:4:3 › strumming editing, persistence and playback at 1280px ───
+  4 passed (1.1m)
+
+Exit: 1; seconds: 65.588

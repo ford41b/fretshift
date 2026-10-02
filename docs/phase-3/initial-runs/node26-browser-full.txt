@@ -1,0 +1,366 @@
+{
+  "config": {
+    "configFile": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Phase-3/playwright.config.ts",
+    "rootDir": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Phase-3/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Phase-3/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Phase-3/e2e",
+        "testIgnore": [
+          "/unconfigured\\.spec\\.ts/"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Phase-3/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Phase-3/e2e",
+        "testIgnore": [
+          "/unconfigured\\.spec\\.ts/"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Phase-3/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium-unconfigured",
+        "name": "chromium-unconfigured",
+        "testDir": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Phase-3/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "/unconfigured\\.spec\\.ts/"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.55.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "audio-notes.spec.ts",
+      "file": "audio-notes.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "note import, fingering/timing edits, playback, persistence and scored target bridge",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 30179,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Phase-3/e2e/audio-notes.spec.ts",
+                        "column": 56,
+                        "line": 31
+                      },
+                      "message": "Error: locator.selectOption: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('Playback speed', { exact: true })\u001b[22m\n\n\n  29 | test(\"note import, fingering/timing edits, playback, persistence and scored target bridge\",async({page},info)=>{\n  30 |   await upload(page);\n> 31 |   await page.getByLabel(\"Playback speed\",{exact:true}).selectOption(\".5\");\n     |                                                        ^\n  32 |   await expect.poll(()=>page.locator(\"audio\").evaluate((a:HTMLAudioElement)=>a.playbackRate)).toBe(.5);\n  33 |   await page.getByRole(\"button\",{name:\"Loop selected note\"}).click();\n  34 |   await expect.poll(()=>page.locator(\"audio\").evaluate((a:HTMLAudioElement)=>a.paused)).toBe(false);\n    at /Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Phase-3/e2e/audio-notes.spec.ts:31:56"
+                    },
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-26T20:26:55.729Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Phase-3/test-results/audio-notes-note-import-fi-9b8fb-ce-and-scored-target-bridge-chromium/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "8e7d5d2cabc35f0083e3-2a7b44b43b24bc74489a",
+          "file": "audio-notes.spec.ts",
+          "line": 42,
+          "column": 1
+        },
+        {
+          "title": "narrow tab layout, keyboard selection, setup constraints and accessibility",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 30158,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Phase-3/e2e/audio-notes.spec.ts",
+                        "column": 48,
+                        "line": 80
+                      },
+                      "message": "Error: locator.selectOption: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('Tuning', { exact: true })\u001b[22m\n\n\n  78 |   await expect(page.locator(\".ai-tab-note\").nth(2)).toHaveAttribute(\"aria-pressed\",\"true\");\n  79 |   await page.getByText(\"Guitar setup & playing position\",{exact:true}).click();\n> 80 |   await page.getByLabel(\"Tuning\",{exact:true}).selectOption(\"drop-d\");\n     |                                                ^\n  81 |   await page.getByLabel(\"Capo\",{exact:true}).fill(\"2\");\n  82 |   await expect(page.getByText(/Frets are relative to the capo/)).toBeVisible();\n  83 |   await page.getByLabel(\"Highest fret\").fill(\"1\");\n    at /Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Phase-3/e2e/audio-notes.spec.ts:80:48"
+                    },
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-26T20:28:13.857Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Phase-3/test-results/audio-notes-narrow-tab-lay-e3148-nstraints-and-accessibility-chromium/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "8e7d5d2cabc35f0083e3-b190eb61f1ee40352f73",
+          "file": "audio-notes.spec.ts",
+          "line": 148,
+          "column": 1
+        },
+        {
+          "title": "note Worker cancellation terminates an in-flight pass and permits retry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2750,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-26T20:29:30.975Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8e7d5d2cabc35f0083e3-217d2c7323b66f9d09b6",
+          "file": "audio-notes.spec.ts",
+          "line": 188,
+          "column": 1
+        },
+        {
+          "title": "note import, fingering/timing edits, playback, persistence and scored target bridge",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "interrupted",
+                  "duration": 16475,
+                  "error": {
+                    "message": "Error: locator.selectOption: Test ended.\nCall log:\n\u001b[2m  - waiting for getByLabel('Playback speed', { exact: true })\u001b[22m\n",
+                    "stack": "Error: locator.selectOption: Test ended.\nCall log:\n\u001b[2m  - waiting for getByLabel('Playback speed', { exact: true })\u001b[22m\n\n    at /Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Phase-3/e2e/audio-notes.spec.ts:31:56",
+                    "location": {
+                      "file": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Phase-3/e2e/audio-notes.spec.ts",
+                      "column": 56,
+                      "line": 31
+                    },
+                    "snippet": "  29 | test(\"note import, fingering/timing edits, playback, persistence and scored target bridge\",async({page},info)=>{\n  30 |   await upload(page);\n> 31 |   await page.getByLabel(\"Playback speed\",{exact:true}).selectOption(\".5\");\n     |                                                        ^\n  32 |   await expect.poll(()=>page.locator(\"audio\").evaluate((a:HTMLAudioElement)=>a.playbackRate)).toBe(.5);\n  33 |   await page.getByRole(\"button\",{name:\"Loop selected note\"}).click();\n  34 |   await expect.poll(()=>page.locator(\"audio\").evaluate((a:HTMLAudioElement)=>a.paused)).toBe(false);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Phase-3/e2e/audio-notes.spec.ts",
+                        "column": 56,
+                        "line": 31
+                      },
+                      "message": "Error: locator.selectOption: Test ended.\nCall log:\n\u001b[2m  - waiting for getByLabel('Playback speed', { exact: true })\u001b[22m\n\n\n  29 | test(\"note import, fingering/timing edits, playback, persistence and scored target bridge\",async({page},info)=>{\n  30 |   await upload(page);\n> 31 |   await page.getByLabel(\"Playback speed\",{exact:true}).selectOption(\".5\");\n     |                                                        ^\n  32 |   await expect.poll(()=>page.locator(\"audio\").evaluate((a:HTMLAudioElement)=>a.playbackRate)).toBe(.5);\n  33 |   await page.getByRole(\"button\",{name:\"Loop selected note\"}).click();\n  34 |   await expect.poll(()=>page.locator(\"audio\").evaluate((a:HTMLAudioElement)=>a.paused)).toBe(false);\n    at /Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Phase-3/e2e/audio-notes.spec.ts:31:56"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-26T20:29:35.507Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Phase-3/test-results/audio-notes-note-import-fi-9b8fb-ce-and-scored-target-bridge-webkit/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Phase-3/e2e/audio-notes.spec.ts",
+                    "column": 56,
+                    "line": 31
+                  }
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "8e7d5d2cabc35f0083e3-54ba80262344a58778d7",
+          "file": "audio-notes.spec.ts",
+          "line": 42,
+          "column": 1
+        },
+        {
+          "title": "narrow tab layout, keyboard selection, setup constraints and accessibility",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "8e7d5d2cabc35f0083e3-0541be0ca3fe1addced8",
+          "file": "audio-notes.spec.ts",
+          "line": 148,
+          "column": 1
+        },
+        {
+          "title": "note Worker cancellation terminates an in-flight pass and permits retry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "8e7d5d2cabc35f0083e3-52b99611a1caf89bc5a2",
+          "file": "audio-notes.spec.ts",
+          "line": 188,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-26T20:26:51.122Z",
+    "duration": 182227.312,
+    "expected": 1,
+    "skipped": 3,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}
+
+(node:37009) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)

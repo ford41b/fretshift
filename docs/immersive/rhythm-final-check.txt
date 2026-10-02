@@ -1,0 +1,11 @@
+
+Running 2 tests using 1 worker
+
+(node:4394) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:4394) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [webkit] › e2e/immersive.spec.ts:151:1 › healthy silence in Rhythm yields missed notes, not uncertain successes (13.7s)
+  ✓  2 [webkit] › e2e/immersive.spec.ts:348:1 › loop restart counts a fresh passage without credit from the previous pass (14.6s)
+
+  2 passed (28.9s)

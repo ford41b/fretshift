@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "id": "provisional-18-song",
+  "title": "Road Song 18",
+  "artist": "FretShift Fixtures",
+  "originalKey": {
+    "root": "G",
+    "mode": "major"
+  },
+  "currentKey": {
+    "root": "G",
+    "mode": "major"
+  },
+  "tuningId": "standard",
+  "capo": 2,
+  "tempo": 88,
+  "timeSignature": [
+    4,
+    4
+  ],
+  "difficulty": 2,
+  "tags": [
+    "provisional",
+    "glare"
+  ],
+  "measures": [
+    {
+      "id": "provisional-18-m0",
+      "index": 0,
+      "subdivision": 1,
+      "section": {
+        "kind": "verse",
+        "label": "Verse 1"
+      },
+      "lyrics": "Quiet rain against the glass",
+      "chords": [
+        {
+          "id": "provisional-18-c0",
+          "beat": 0,
+          "chordName": "G"
+        }
+      ]
+    },
+    {
+      "id": "provisional-18-m1",
+      "index": 1,
+      "subdivision": 1,
+      "lyrics": "Footsteps keep a steady time",
+      "chords": [
+        {
+          "id": "provisional-18-c1",
+          "beat": 0,
+          "chordName": "D"
+        }
+      ]
+    },
+    {
+      "id": "provisional-18-m2",
+      "index": 2,
+      "subdivision": 1,
+      "lyrics": "Let the restless evening pass",
+      "chords": [
+        {
+          "id": "provisional-18-c2",
+          "beat": 0,
+          "chordName": "Em"
+        }
+      ]
+    },
+    {
+      "id": "provisional-18-m3",
+      "index": 3,
+      "subdivision": 1,
+      "lyrics": "Meet me at the final line",
+      "chords": [
+        {
+          "id": "provisional-18-c3",
+          "beat": 0,
+          "chordName": "C"
+        }
+      ]
+    }
+  ],
+  "createdAt": "2026-09-13T00:00:00.000Z",
+  "updatedAt": "2026-09-13T00:00:00.000Z"
+}

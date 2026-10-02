@@ -1,0 +1,18 @@
+Command: ['node', 'scripts/bench-audio-real.mjs']
+{
+  "cases": 4,
+  "seconds": 93.156,
+  "meanTempoAbsoluteErrorBpm": 25.7925,
+  "meanBeatRecall70ms": 0.1328,
+  "meanChordRootTimePrecision": 0.6227,
+  "meanChordRootTimeRecall": 0.0716,
+  "meanExactEligibleTimePrecision": 0.1291,
+  "meanExactEligibleTimeRecall": 0.0287,
+  "meanRootSegmentIoU": 0.0533,
+  "missedChanges": 27,
+  "falseChanges": 7,
+  "meanUncertainCoverage": 0.9242,
+  "meanCoreRuntimeMs": 935.7514
+}
+
+Exit: 0; seconds: 5.242

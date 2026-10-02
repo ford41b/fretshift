@@ -1,0 +1,6 @@
+Command: ['node', 'scripts/verify-immersive-beta-gate.mjs']
+PASS: General and existing-song routes retain the beta gate; reviewed audio songs open Immersive
+PASS: song-aware exit links, original practice code preserved, no microphone or scorer
+PASS: guitar navigation, coming-soon messaging, reduced-motion styles
+
+Exit: 0; seconds: 0.074

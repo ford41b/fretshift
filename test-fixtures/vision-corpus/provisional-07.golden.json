@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "id": "provisional-07-song",
+  "title": "Road Song 7",
+  "artist": "FretShift Fixtures",
+  "originalKey": {
+    "root": "A",
+    "mode": "minor"
+  },
+  "currentKey": {
+    "root": "A",
+    "mode": "minor"
+  },
+  "tuningId": "standard",
+  "capo": 3,
+  "tempo": 94,
+  "timeSignature": [
+    4,
+    4
+  ],
+  "difficulty": 2,
+  "tags": [
+    "provisional",
+    "handwritten"
+  ],
+  "measures": [
+    {
+      "id": "provisional-07-m0",
+      "index": 0,
+      "subdivision": 1,
+      "section": {
+        "kind": "verse",
+        "label": "Verse 1"
+      },
+      "lyrics": "River stones and cedar trees",
+      "chords": [
+        {
+          "id": "provisional-07-c0",
+          "beat": 0,
+          "chordName": "Am"
+        }
+      ]
+    },
+    {
+      "id": "provisional-07-m1",
+      "index": 1,
+      "subdivision": 1,
+      "lyrics": "Summer air and silver strings",
+      "chords": [
+        {
+          "id": "provisional-07-c1",
+          "beat": 0,
+          "chordName": "F"
+        }
+      ]
+    },
+    {
+      "id": "provisional-07-m2",
+      "index": 2,
+      "subdivision": 1,
+      "lyrics": "Sing the chorus with the breeze",
+      "chords": [
+        {
+          "id": "provisional-07-c2",
+          "beat": 0,
+          "chordName": "C"
+        }
+      ]
+    },
+    {
+      "id": "provisional-07-m3",
+      "index": 3,
+      "subdivision": 1,
+      "lyrics": "Hear the hope the melody brings",
+      "chords": [
+        {
+          "id": "provisional-07-c3",
+          "beat": 0,
+          "chordName": "G"
+        }
+      ]
+    }
+  ],
+  "createdAt": "2026-09-13T00:00:00.000Z",
+  "updatedAt": "2026-09-13T00:00:00.000Z"
+}

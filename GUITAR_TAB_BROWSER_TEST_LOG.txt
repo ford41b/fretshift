@@ -1,0 +1,40 @@
+[2m[WebServer] [22m(node:35365) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22m(node:35393) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 20 tests using 1 worker
+
+(node:35512) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:35512) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Audio codec check [{"name":"codec-c-major.wav","version":1,"duration":4,"beatProvider":"fretshift-onset-grid-v1","chordProvider":"fretshift-chroma-templates-v1","notes":null},{"name":"codec-c-major.mp3","version":1,"duration":4,"beatProvider":"fretshift-onset-grid-v1","chordProvider":"fretshift-chroma-templates-v1","notes":null},{"name":"codec-c-major.m4a","version":1,"duration":4,"beatProvider":"fretshift-onset-grid-v1","chordProvider":"fretshift-chroma-templates-v1","notes":null}]
+  ✓   1 [chromium] › e2e/audio-intelligence.spec.ts:7:1 › browser decodes local WAV, MP3, and M4A in the real analysis Worker (3.7s)
+  ✓   2 [chromium] › e2e/audio-intelligence.spec.ts:49:1 › audio upload, local review, save, reopen, and Immersive entry (5.9s)
+  ✓   3 [chromium] › e2e/audio-intelligence.spec.ts:117:1 › cancelled analysis rejects and retry succeeds (924ms)
+  ✓   4 [chromium] › e2e/audio-intelligence.spec.ts:145:1 › large files are rejected and real-recording review remains editable offline (6.8s)
+  ✓   5 [chromium] › e2e/audio-intelligence.spec.ts:173:1 › mobile timeline releases its local audio URL on navigation (3.2s)
+  ✓   6 [chromium] › e2e/audio-intelligence.spec.ts:218:1 › unconfirmed audio timing is not rhythm graded in Practice (1.5s)
+  ✓   7 [chromium] › e2e/audio-notes.spec.ts:42:1 › note import, fingering/timing edits, playback, persistence and scored target bridge (7.8s)
+  ✓   8 [chromium] › e2e/audio-notes.spec.ts:161:1 › narrow tab layout, keyboard selection, setup constraints and accessibility (4.5s)
+  ✓   9 [chromium] › e2e/audio-notes.spec.ts:201:1 › note Worker cancellation terminates an in-flight pass and permits retry (1.2s)
+  -  10 [chromium] › e2e/audio-notes.spec.ts:237:1 › confirmed audio notes use controlled microphone pitch, pause cleanup and no guide audio
+(node:38602) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:38602) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Audio codec check [{"name":"codec-c-major.wav","version":1,"duration":4,"beatProvider":"fretshift-onset-grid-v1","chordProvider":"fretshift-chroma-templates-v1","notes":null},{"name":"codec-c-major.mp3","version":1,"duration":4.048979166666666,"beatProvider":"fretshift-onset-grid-v1","chordProvider":"fretshift-chroma-templates-v1","notes":null},{"name":"codec-c-major.m4a","version":1,"duration":4,"beatProvider":"fretshift-onset-grid-v1","chordProvider":"fretshift-chroma-templates-v1","notes":null}]
+  ✓  11 [webkit] › e2e/audio-intelligence.spec.ts:7:1 › browser decodes local WAV, MP3, and M4A in the real analysis Worker (2.5s)
+  ✓  12 [webkit] › e2e/audio-intelligence.spec.ts:49:1 › audio upload, local review, save, reopen, and Immersive entry (5.9s)
+  ✓  13 [webkit] › e2e/audio-intelligence.spec.ts:117:1 › cancelled analysis rejects and retry succeeds (993ms)
+  ✓  14 [webkit] › e2e/audio-intelligence.spec.ts:145:1 › large files are rejected and real-recording review remains editable offline (4.7s)
+  ✓  15 [webkit] › e2e/audio-intelligence.spec.ts:173:1 › mobile timeline releases its local audio URL on navigation (3.2s)
+  ✓  16 [webkit] › e2e/audio-intelligence.spec.ts:218:1 › unconfirmed audio timing is not rhythm graded in Practice (1.5s)
+  ✓  17 [webkit] › e2e/audio-notes.spec.ts:42:1 › note import, fingering/timing edits, playback, persistence and scored target bridge (7.9s)
+  ✓  18 [webkit] › e2e/audio-notes.spec.ts:161:1 › narrow tab layout, keyboard selection, setup constraints and accessibility (3.9s)
+  ✓  19 [webkit] › e2e/audio-notes.spec.ts:201:1 › note Worker cancellation terminates an in-flight pass and permits retry (1.3s)
+  ✓  20 [webkit] › e2e/audio-notes.spec.ts:237:1 › confirmed audio notes use controlled microphone pitch, pause cleanup and no guide audio (10.3s)
+
+  1 skipped
+  19 passed (1.6m)

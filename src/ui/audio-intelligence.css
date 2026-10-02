@@ -1,0 +1,70 @@
+.ai-review { display:grid; gap:16px; min-width:0; }
+.ai-review-head,.ai-summary,.ai-actions,.ai-player,.ai-controls { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+.ai-review-head { justify-content:space-between; }
+.ai-review-head h2 { margin:4px 0; }
+.ai-review p { max-width:900px; }
+.ai-review label { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.ai-review input:not([type=checkbox]):not([type=range]),.ai-review select {
+  min-width:76px; max-width:220px; padding:8px; border-radius:10px;
+  color:var(--text-1); background:var(--surface); border:1px solid var(--border-subtle);
+}
+.ai-review input[type=range] { accent-color:var(--accent-text); }
+.ai-review button { min-height:36px; }
+.ai-stage,.ai-edit,.ai-timing,.ai-notice { padding:14px; border:1px solid var(--border-subtle); border-radius:16px; background:var(--surface); }
+.ai-stage ol { display:flex; gap:8px; flex-wrap:wrap; padding:0; list-style:none; font-size:12px; }
+.ai-stage li { opacity:.5; padding:5px 8px; border-radius:30px; border:1px solid var(--border-subtle); }
+.ai-stage li.active { opacity:1; color:var(--accent-text); border-color:var(--accent-text); }
+.ai-summary { justify-content:space-between; }
+.ai-player audio { flex:1; min-width:180px; max-width:680px; }
+.ai-scroll { max-width:100%; overflow-x:auto; border:1px solid var(--border-subtle); border-radius:16px; background:var(--surface); }
+.ai-track { min-width:100%; padding:10px 0 14px; }
+.ai-waveform { display:flex; align-items:center; gap:0; height:112px; position:relative; cursor:pointer; overflow:hidden; }
+.ai-waveform i { flex:1; min-width:0; background:var(--accent-text); opacity:.72; border-radius:2px; }
+.ai-waveform b,.ai-waveform em { position:absolute; top:0; bottom:0; width:1px; background:var(--text-2); opacity:.55; pointer-events:none; }
+.ai-waveform b.measure { width:2px; background:var(--accent-text); opacity:1; }
+.ai-waveform em { width:2px; background:#ef476f; opacity:1; z-index:2; }
+.ai-regions { height:54px; position:relative; border-top:1px solid var(--border-subtle); }
+.ai-regions button { position:absolute; top:7px; height:40px; min-width:12px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;
+  padding:5px; border-radius:8px; background:var(--soft-accent); color:var(--accent-text); border:1px solid var(--accent-text); font-weight:700; }
+.ai-regions button.uncertain { background:repeating-linear-gradient(135deg,var(--soft-accent),var(--soft-accent) 7px,transparent 7px,transparent 13px); border-style:dashed; }
+.ai-regions button.selected { outline:2px solid var(--accent-text); outline-offset:2px; }
+.ai-edit h3,.ai-timing h3 { margin:0 0 6px; }
+.ai-beat-list { max-height:220px; overflow:auto; display:grid; grid-template-columns:repeat(auto-fill,minmax(170px,1fr)); gap:8px; padding:12px 0; }
+.ai-confirm { margin-top:14px; font-weight:700; }
+.ai-actions { border-top:1px solid var(--border-subtle); padding-top:14px; }
+@media (max-width:650px) { .ai-review-head { align-items:flex-start; } .ai-player audio { width:100%; } .ai-controls>* { flex:1 1 auto; } }
+
+/* Phase 3 shares the waveform's source-time axis. High string is always at the top. */
+.ai-note-mode { padding:14px 16px; border:1px solid var(--accent-text); border-radius:14px; background:var(--soft-accent); font-weight:600; }
+.ai-tab-lane { height:278px; position:relative; margin-top:8px; background:linear-gradient(160deg,var(--soft-accent),var(--surface)); overflow:hidden; }
+.ai-tab-string { position:absolute; left:0; right:0; height:1px; background:var(--border-subtle); }
+.ai-tab-string>span { position:sticky; left:0; z-index:3; top:-10px; display:inline-flex; gap:5px; padding:0 5px; background:var(--surface); color:var(--text-2); font:600 12px monospace; transform:translateY(-8px); pointer-events:none; }
+.ai-tab-string small { font-size:9px; opacity:.7; }
+.ai-tab-lane .ai-tab-note { position:absolute; z-index:2; height:30px; min-height:30px; min-width:28px; max-width:100%; padding:2px 5px; display:flex; align-items:center; justify-content:space-between; gap:4px; border:1px dashed var(--accent-text); border-radius:8px; background:var(--surface); color:var(--accent-text); font-family:monospace; }
+.ai-tab-note b { font-size:16px; }
+.ai-tab-note.confirmed { border-style:solid; background:var(--soft-accent); }
+.ai-tab-note.selected { outline:2px solid var(--accent-text); outline-offset:2px; z-index:4; box-shadow:0 0 20px var(--soft-accent); }
+.ai-tab-unplaced { position:absolute; bottom:10px; left:8px; font-size:10px; color:var(--text-2); }
+.ai-note-editor { border:1px solid var(--border-subtle); border-radius:22px; background:linear-gradient(145deg,var(--soft-accent),var(--surface) 45%); padding:24px; display:grid; gap:16px; min-width:0; }
+.ai-note-editor h3,.ai-note-editor h4,.ai-note-editor p { margin:0; }
+.ai-note-heading { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+.ai-note-heading h3 { font-size:24px; margin-top:5px; }
+.ai-note-count { border:1px solid var(--border-subtle); border-radius:99px; padding:8px 12px; color:var(--accent-text); font-size:12px; }
+.ai-note-detail { display:grid; gap:18px; border-top:1px solid var(--border-subtle); padding-top:18px; }
+.ai-note-identity { display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+.ai-note-identity strong { font-size:36px; font-family:"Space Grotesk",sans-serif; }
+.ai-note-identity span,.ai-grid-note { font-size:12px; color:var(--text-2); }
+.ai-note-editor input[type=number] { width:100px; }
+.ai-note-editor .ai-controls>label { font-size:12px; }
+.ai-fingerings { display:flex; gap:10px; flex-wrap:wrap; }
+.ai-fingerings button { display:grid; gap:6px; padding:12px 16px; border-radius:14px; border:1px solid var(--border-subtle); }
+.ai-fingerings button[aria-pressed=true] { border-color:var(--accent-text); background:var(--soft-accent); color:var(--accent-text); }
+.ai-fingerings span { font-size:11px; color:var(--text-2); }
+.ai-fingerings strong { font-size:18px; }
+.ai-guitar-options .ai-controls { margin-top:12px; }
+.ai-guitar-options fieldset { margin:12px 0; border:1px solid var(--border-subtle); border-radius:12px; }
+@media(max-width:650px) { .ai-note-editor { padding:16px; } .ai-note-editor .ai-controls>label { flex:1 1 130px; } .ai-note-editor input[type=number] { width:85px; } }
+
+.ai-waveform b,.ai-waveform em { min-width:0; min-height:0; padding:0; margin:0; border:0; border-radius:0; }
+.ai-tab-grid,.ai-tab-cursor { position:absolute; top:0; bottom:0; width:1px; background:var(--border-subtle); pointer-events:none; }
+.ai-tab-cursor { width:2px; background:#ef476f; z-index:5; }

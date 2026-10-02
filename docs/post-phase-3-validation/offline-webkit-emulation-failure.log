@@ -1,0 +1,16 @@
+Command: ['node', 'scripts/verify-audio-offline.mjs']
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.reload: WebKit encountered an internal error
+Call log:
+[2m  - waiting for navigation until "load"[22m
+
+    at /Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/scripts/verify-audio-offline.mjs:28:16 {
+  name: 'Error'
+}
+
+Node.js v24.19.0
+
+Exit: 1; seconds: 19.509
