@@ -101,7 +101,10 @@ export async function hashKey(value: string): Promise<string> {
  * first entry is the client. Unknown callers share one bucket (fail safe).
  */
 export function clientIp(request: Request): string {
-  const forwarded = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim();
+  const forwarded = request.headers
+    .get("x-forwarded-for")
+    ?.split(",")[0]
+    ?.trim();
   return forwarded || request.headers.get("x-real-ip")?.trim() || "unknown";
 }
 

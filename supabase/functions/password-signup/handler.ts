@@ -133,7 +133,11 @@ export function createSignupHandler(deps: SignupDeps) {
 
     // The apikey is public; this only filters obviously foreign callers.
     if (!acceptedClientKeys().has(request.headers.get("apikey") ?? ""))
-      return json(401, { error: "FretShift client authorization is required." }, headers);
+      return json(
+        401,
+        { error: "FretShift client authorization is required." },
+        headers,
+      );
 
     let body: Record<string, unknown>;
     try {
@@ -156,7 +160,11 @@ export function createSignupHandler(deps: SignupDeps) {
     const publicKey =
       deps.env("SUPABASE_ANON_KEY") ?? deps.env("SUPABASE_PUBLISHABLE_KEY");
     if (!url || !serviceRole || !publicKey)
-      return json(503, { error: "Account creation is temporarily unavailable." }, headers);
+      return json(
+        503,
+        { error: "Account creation is temporarily unavailable." },
+        headers,
+      );
 
     try {
       const decision = await consumeRateLimits(
@@ -185,7 +193,11 @@ export function createSignupHandler(deps: SignupDeps) {
         );
     } catch (error) {
       if (error instanceof RateLimitUnavailableError)
-        return json(503, { error: "Account creation is temporarily unavailable." }, headers);
+        return json(
+          503,
+          { error: "Account creation is temporarily unavailable." },
+          headers,
+        );
       throw error;
     }
 
@@ -205,7 +217,11 @@ export function createSignupHandler(deps: SignupDeps) {
       });
     } catch (error) {
       console.error("password-signup: auth request failed", error);
-      return json(503, { error: "Account service could not be reached. Please try again." }, headers);
+      return json(
+        503,
+        { error: "Account service could not be reached. Please try again." },
+        headers,
+      );
     }
 
     if (response.ok) return json(202, ACCEPTED, headers);
@@ -215,11 +231,23 @@ export function createSignupHandler(deps: SignupDeps) {
       const retryAfter = Number(response.headers.get("Retry-After") || 0);
       return json(
         429,
-        { error: "The project's email quota has been reached. No new email was sent. Wait, then try once." },
-        { ...headers, "Retry-After": String(retryAfter > 0 ? retryAfter : 3600) },
+        {
+          error:
+            "The project's email quota has been reached. No new email was sent. Wait, then try once.",
+        },
+        {
+          ...headers,
+          "Retry-After": String(retryAfter > 0 ? retryAfter : 3600),
+        },
       );
     }
     console.error("password-signup: auth rejected request", response.status);
-    return json(503, { error: "Account service could not send a code. Please try again later." }, headers);
+    return json(
+      503,
+      {
+        error: "Account service could not send a code. Please try again later.",
+      },
+      headers,
+    );
   };
 }
