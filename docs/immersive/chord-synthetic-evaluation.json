@@ -1,0 +1,1136 @@
+{
+ "note": "SYNTHETIC: generated harmonic plucks from the recording plan (pnpm eval:chords --synthetic). Pipeline check only; not guitar recordings, not accuracy evidence, never release evidence.",
+ "report": {
+  "version": 1,
+  "generatedAt": "2026-10-02T16:48:49.757Z",
+  "evidence": "synthetic",
+  "recordings": 78,
+  "chordShapes": 10,
+  "devices": [
+   "generated signals (no device)"
+  ],
+  "guitars": [
+   "generated harmonic plucks (no guitar)"
+  ],
+  "counts": {
+   "correct": {
+    "n": 150,
+    "hit": 150,
+    "wrong": 0,
+    "uncertain": 0,
+    "missed": 0
+   },
+   "wrong-chord": {
+    "n": 100,
+    "hit": 0,
+    "wrong": 90,
+    "uncertain": 10,
+    "missed": 0
+   },
+   "missing-tone": {
+    "n": 50,
+    "hit": 0,
+    "wrong": 0,
+    "uncertain": 50,
+    "missed": 0
+   },
+   "single-note": {
+    "n": 30,
+    "hit": 0,
+    "wrong": 30,
+    "uncertain": 0,
+    "missed": 0
+   },
+   "muted": {
+    "n": 20,
+    "hit": 0,
+    "wrong": 0,
+    "uncertain": 20,
+    "missed": 0
+   },
+   "silence": {
+    "n": 4,
+    "hit": 0,
+    "wrong": 0,
+    "uncertain": 0,
+    "missed": 4
+   }
+  }
+ },
+ "rates": {
+  "falseAccept": 0,
+  "falseAcceptUpper95": 0.03699480747600191,
+  "missingToneAcceptUpper95": 0.0458197362645751,
+  "noChordAccepts": 0,
+  "noChordN": 24,
+  "correctHitRate": 1,
+  "correctWrongRate": 0,
+  "correctUncertainRate": 0
+ },
+ "thresholds": {
+  "minCorrect": 150,
+  "minWrongChord": 100,
+  "minMissingTone": 50,
+  "minNoChord": 20,
+  "minChordShapes": 8,
+  "maxFalseAccept": 0.02,
+  "maxFalseAcceptUpper95": 0.05,
+  "maxMissingToneAcceptUpper95": 0.1,
+  "maxNoChordAccepts": 0,
+  "minCorrectHitRate": 0.8,
+  "maxCorrectWrongRate": 0.03
+ },
+ "releaseFailures": [
+  "Evidence is \"synthetic\"; only real labeled guitar recordings qualify."
+ ],
+ "files": [
+  {
+   "file": "01-C-correct-down.wav",
+   "label": "correct",
+   "target": "C x32010",
+   "outcomes": [
+    "hit",
+    "hit",
+    "hit",
+    "hit",
+    "hit"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "02-C-correct-up.wav",
+   "label": "correct",
+   "target": "C x32010",
+   "outcomes": [
+    "hit",
+    "hit",
+    "hit",
+    "hit",
+    "hit"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "03-C-correct-soft.wav",
+   "label": "correct",
+   "target": "C x32010",
+   "outcomes": [
+    "hit",
+    "hit",
+    "hit",
+    "hit",
+    "hit"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "04-C-wrong-Am.wav",
+   "label": "wrong-chord",
+   "target": "C x32010",
+   "outcomes": [
+    "wrong",
+    "wrong",
+    "wrong",
+    "wrong",
+    "wrong"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "05-C-wrong-Em.wav",
+   "label": "wrong-chord",
+   "target": "C x32010",
+   "outcomes": [
+    "wrong",
+    "wrong",
+    "wrong",
+    "wrong",
+    "wrong"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "06-C-missing-strings-54.wav",
+   "label": "missing-tone",
+   "target": "C x32010",
+   "outcomes": [
+    "uncertain",
+    "uncertain",
+    "uncertain",
+    "uncertain",
+    "uncertain"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "07-C-single-root.wav",
+   "label": "single-note",
+   "target": "C x32010",
+   "outcomes": [
+    "wrong",
+    "wrong",
+    "wrong"
+   ],
+   "attacks": 3,
+   "extraHits": 0
+  },
+  {
+   "file": "08-G-correct-down.wav",
+   "label": "correct",
+   "target": "G 320003",
+   "outcomes": [
+    "hit",
+    "hit",
+    "hit",
+    "hit",
+    "hit"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "09-G-correct-up.wav",
+   "label": "correct",
+   "target": "G 320003",
+   "outcomes": [
+    "hit",
+    "hit",
+    "hit",
+    "hit",
+    "hit"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "10-G-correct-soft.wav",
+   "label": "correct",
+   "target": "G 320003",
+   "outcomes": [
+    "hit",
+    "hit",
+    "hit",
+    "hit",
+    "hit"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "11-G-wrong-Em.wav",
+   "label": "wrong-chord",
+   "target": "G 320003",
+   "outcomes": [
+    "wrong",
+    "wrong",
+    "wrong",
+    "wrong",
+    "wrong"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "12-G-wrong-C.wav",
+   "label": "wrong-chord",
+   "target": "G 320003",
+   "outcomes": [
+    "wrong",
+    "wrong",
+    "wrong",
+    "wrong",
+    "wrong"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "13-G-missing-strings-65.wav",
+   "label": "missing-tone",
+   "target": "G 320003",
+   "outcomes": [
+    "uncertain",
+    "uncertain",
+    "uncertain",
+    "uncertain",
+    "uncertain"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "14-G-single-root.wav",
+   "label": "single-note",
+   "target": "G 320003",
+   "outcomes": [
+    "wrong",
+    "wrong",
+    "wrong"
+   ],
+   "attacks": 3,
+   "extraHits": 0
+  },
+  {
+   "file": "15-D-correct-down.wav",
+   "label": "correct",
+   "target": "D xx0232",
+   "outcomes": [
+    "hit",
+    "hit",
+    "hit",
+    "hit",
+    "hit"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "16-D-correct-up.wav",
+   "label": "correct",
+   "target": "D xx0232",
+   "outcomes": [
+    "hit",
+    "hit",
+    "hit",
+    "hit",
+    "hit"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "17-D-correct-soft.wav",
+   "label": "correct",
+   "target": "D xx0232",
+   "outcomes": [
+    "hit",
+    "hit",
+    "hit",
+    "hit",
+    "hit"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "18-D-wrong-Dm.wav",
+   "label": "wrong-chord",
+   "target": "D xx0232",
+   "outcomes": [
+    "wrong",
+    "wrong",
+    "wrong",
+    "wrong",
+    "wrong"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "19-D-wrong-G.wav",
+   "label": "wrong-chord",
+   "target": "D xx0232",
+   "outcomes": [
+    "wrong",
+    "wrong",
+    "wrong",
+    "wrong",
+    "wrong"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "20-D-missing-strings-43.wav",
+   "label": "missing-tone",
+   "target": "D xx0232",
+   "outcomes": [
+    "uncertain",
+    "uncertain",
+    "uncertain",
+    "uncertain",
+    "uncertain"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "21-D-single-root.wav",
+   "label": "single-note",
+   "target": "D xx0232",
+   "outcomes": [
+    "wrong",
+    "wrong",
+    "wrong"
+   ],
+   "attacks": 3,
+   "extraHits": 0
+  },
+  {
+   "file": "22-A-correct-down.wav",
+   "label": "correct",
+   "target": "A x02220",
+   "outcomes": [
+    "hit",
+    "hit",
+    "hit",
+    "hit",
+    "hit"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "23-A-correct-up.wav",
+   "label": "correct",
+   "target": "A x02220",
+   "outcomes": [
+    "hit",
+    "hit",
+    "hit",
+    "hit",
+    "hit"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "24-A-correct-soft.wav",
+   "label": "correct",
+   "target": "A x02220",
+   "outcomes": [
+    "hit",
+    "hit",
+    "hit",
+    "hit",
+    "hit"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "25-A-wrong-Am.wav",
+   "label": "wrong-chord",
+   "target": "A x02220",
+   "outcomes": [
+    "wrong",
+    "wrong",
+    "wrong",
+    "wrong",
+    "wrong"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "26-A-wrong-D.wav",
+   "label": "wrong-chord",
+   "target": "A x02220",
+   "outcomes": [
+    "wrong",
+    "wrong",
+    "wrong",
+    "wrong",
+    "wrong"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "27-A-missing-strings-54.wav",
+   "label": "missing-tone",
+   "target": "A x02220",
+   "outcomes": [
+    "uncertain",
+    "uncertain",
+    "uncertain",
+    "uncertain",
+    "uncertain"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "28-A-single-root.wav",
+   "label": "single-note",
+   "target": "A x02220",
+   "outcomes": [
+    "wrong",
+    "wrong",
+    "wrong"
+   ],
+   "attacks": 3,
+   "extraHits": 0
+  },
+  {
+   "file": "29-E-correct-down.wav",
+   "label": "correct",
+   "target": "E 022100",
+   "outcomes": [
+    "hit",
+    "hit",
+    "hit",
+    "hit",
+    "hit"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "30-E-correct-up.wav",
+   "label": "correct",
+   "target": "E 022100",
+   "outcomes": [
+    "hit",
+    "hit",
+    "hit",
+    "hit",
+    "hit"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "31-E-correct-soft.wav",
+   "label": "correct",
+   "target": "E 022100",
+   "outcomes": [
+    "hit",
+    "hit",
+    "hit",
+    "hit",
+    "hit"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "32-E-wrong-Em.wav",
+   "label": "wrong-chord",
+   "target": "E 022100",
+   "outcomes": [
+    "wrong",
+    "wrong",
+    "wrong",
+    "wrong",
+    "wrong"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "33-E-wrong-Am.wav",
+   "label": "wrong-chord",
+   "target": "E 022100",
+   "outcomes": [
+    "wrong",
+    "wrong",
+    "wrong",
+    "wrong",
+    "wrong"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "34-E-missing-strings-65.wav",
+   "label": "missing-tone",
+   "target": "E 022100",
+   "outcomes": [
+    "uncertain",
+    "uncertain",
+    "uncertain",
+    "uncertain",
+    "uncertain"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "35-E-single-root.wav",
+   "label": "single-note",
+   "target": "E 022100",
+   "outcomes": [
+    "wrong",
+    "wrong",
+    "wrong"
+   ],
+   "attacks": 3,
+   "extraHits": 0
+  },
+  {
+   "file": "36-Am-correct-down.wav",
+   "label": "correct",
+   "target": "Am x02210",
+   "outcomes": [
+    "hit",
+    "hit",
+    "hit",
+    "hit",
+    "hit"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "37-Am-correct-up.wav",
+   "label": "correct",
+   "target": "Am x02210",
+   "outcomes": [
+    "hit",
+    "hit",
+    "hit",
+    "hit",
+    "hit"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "38-Am-correct-soft.wav",
+   "label": "correct",
+   "target": "Am x02210",
+   "outcomes": [
+    "hit",
+    "hit",
+    "hit",
+    "hit",
+    "hit"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "39-Am-wrong-C.wav",
+   "label": "wrong-chord",
+   "target": "Am x02210",
+   "outcomes": [
+    "wrong",
+    "wrong",
+    "wrong",
+    "wrong",
+    "wrong"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "40-Am-wrong-E.wav",
+   "label": "wrong-chord",
+   "target": "Am x02210",
+   "outcomes": [
+    "wrong",
+    "wrong",
+    "wrong",
+    "wrong",
+    "wrong"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "41-Am-missing-strings-54.wav",
+   "label": "missing-tone",
+   "target": "Am x02210",
+   "outcomes": [
+    "uncertain",
+    "uncertain",
+    "uncertain",
+    "uncertain",
+    "uncertain"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "42-Am-single-root.wav",
+   "label": "single-note",
+   "target": "Am x02210",
+   "outcomes": [
+    "wrong",
+    "wrong",
+    "wrong"
+   ],
+   "attacks": 3,
+   "extraHits": 0
+  },
+  {
+   "file": "43-Em-correct-down.wav",
+   "label": "correct",
+   "target": "Em 022000",
+   "outcomes": [
+    "hit",
+    "hit",
+    "hit",
+    "hit",
+    "hit"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "44-Em-correct-up.wav",
+   "label": "correct",
+   "target": "Em 022000",
+   "outcomes": [
+    "hit",
+    "hit",
+    "hit",
+    "hit",
+    "hit"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "45-Em-correct-soft.wav",
+   "label": "correct",
+   "target": "Em 022000",
+   "outcomes": [
+    "hit",
+    "hit",
+    "hit",
+    "hit",
+    "hit"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "46-Em-wrong-G.wav",
+   "label": "wrong-chord",
+   "target": "Em 022000",
+   "outcomes": [
+    "wrong",
+    "wrong",
+    "wrong",
+    "wrong",
+    "wrong"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "47-Em-wrong-E.wav",
+   "label": "wrong-chord",
+   "target": "Em 022000",
+   "outcomes": [
+    "wrong",
+    "wrong",
+    "wrong",
+    "wrong",
+    "wrong"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "48-Em-missing-strings-65.wav",
+   "label": "missing-tone",
+   "target": "Em 022000",
+   "outcomes": [
+    "uncertain",
+    "uncertain",
+    "uncertain",
+    "uncertain",
+    "uncertain"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "49-Em-single-root.wav",
+   "label": "single-note",
+   "target": "Em 022000",
+   "outcomes": [
+    "wrong",
+    "wrong",
+    "wrong"
+   ],
+   "attacks": 3,
+   "extraHits": 0
+  },
+  {
+   "file": "50-Dm-correct-down.wav",
+   "label": "correct",
+   "target": "Dm xx0231",
+   "outcomes": [
+    "hit",
+    "hit",
+    "hit",
+    "hit",
+    "hit"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "51-Dm-correct-up.wav",
+   "label": "correct",
+   "target": "Dm xx0231",
+   "outcomes": [
+    "hit",
+    "hit",
+    "hit",
+    "hit",
+    "hit"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "52-Dm-correct-soft.wav",
+   "label": "correct",
+   "target": "Dm xx0231",
+   "outcomes": [
+    "hit",
+    "hit",
+    "hit",
+    "hit",
+    "hit"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "53-Dm-wrong-D.wav",
+   "label": "wrong-chord",
+   "target": "Dm xx0231",
+   "outcomes": [
+    "wrong",
+    "wrong",
+    "wrong",
+    "wrong",
+    "wrong"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "54-Dm-wrong-F.wav",
+   "label": "wrong-chord",
+   "target": "Dm xx0231",
+   "outcomes": [
+    "wrong",
+    "wrong",
+    "wrong",
+    "wrong",
+    "wrong"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "55-Dm-missing-strings-43.wav",
+   "label": "missing-tone",
+   "target": "Dm xx0231",
+   "outcomes": [
+    "uncertain",
+    "uncertain",
+    "uncertain",
+    "uncertain",
+    "uncertain"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "56-Dm-single-root.wav",
+   "label": "single-note",
+   "target": "Dm xx0231",
+   "outcomes": [
+    "wrong",
+    "wrong",
+    "wrong"
+   ],
+   "attacks": 3,
+   "extraHits": 0
+  },
+  {
+   "file": "57-F-correct-down.wav",
+   "label": "correct",
+   "target": "F 133211",
+   "outcomes": [
+    "hit",
+    "hit",
+    "hit",
+    "hit",
+    "hit"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "58-F-correct-up.wav",
+   "label": "correct",
+   "target": "F 133211",
+   "outcomes": [
+    "hit",
+    "hit",
+    "hit",
+    "hit",
+    "hit"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "59-F-correct-soft.wav",
+   "label": "correct",
+   "target": "F 133211",
+   "outcomes": [
+    "hit",
+    "hit",
+    "hit",
+    "hit",
+    "hit"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "60-F-wrong-Fmaj7.wav",
+   "label": "wrong-chord",
+   "target": "F 133211",
+   "outcomes": [
+    "wrong",
+    "wrong",
+    "wrong",
+    "wrong",
+    "wrong"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "61-F-wrong-Dm.wav",
+   "label": "wrong-chord",
+   "target": "F 133211",
+   "outcomes": [
+    "wrong",
+    "wrong",
+    "wrong",
+    "wrong",
+    "wrong"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "62-F-missing-strings-65.wav",
+   "label": "missing-tone",
+   "target": "F 133211",
+   "outcomes": [
+    "uncertain",
+    "uncertain",
+    "uncertain",
+    "uncertain",
+    "uncertain"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "63-F-single-root.wav",
+   "label": "single-note",
+   "target": "F 133211",
+   "outcomes": [
+    "wrong",
+    "wrong",
+    "wrong"
+   ],
+   "attacks": 3,
+   "extraHits": 0
+  },
+  {
+   "file": "64-Fmaj7-correct-down.wav",
+   "label": "correct",
+   "target": "Fmaj7 xx3210",
+   "outcomes": [
+    "hit",
+    "hit",
+    "hit",
+    "hit",
+    "hit"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "65-Fmaj7-correct-up.wav",
+   "label": "correct",
+   "target": "Fmaj7 xx3210",
+   "outcomes": [
+    "hit",
+    "hit",
+    "hit",
+    "hit",
+    "hit"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "66-Fmaj7-correct-soft.wav",
+   "label": "correct",
+   "target": "Fmaj7 xx3210",
+   "outcomes": [
+    "hit",
+    "hit",
+    "hit",
+    "hit",
+    "hit"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "67-Fmaj7-wrong-F.wav",
+   "label": "wrong-chord",
+   "target": "Fmaj7 xx3210",
+   "outcomes": [
+    "uncertain",
+    "uncertain",
+    "uncertain",
+    "uncertain",
+    "uncertain"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "68-Fmaj7-wrong-Am.wav",
+   "label": "wrong-chord",
+   "target": "Fmaj7 xx3210",
+   "outcomes": [
+    "uncertain",
+    "uncertain",
+    "uncertain",
+    "uncertain",
+    "uncertain"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "69-Fmaj7-missing-strings-43.wav",
+   "label": "missing-tone",
+   "target": "Fmaj7 xx3210",
+   "outcomes": [
+    "uncertain",
+    "uncertain",
+    "uncertain",
+    "uncertain",
+    "uncertain"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "70-Fmaj7-single-root.wav",
+   "label": "single-note",
+   "target": "Fmaj7 xx3210",
+   "outcomes": [
+    "wrong",
+    "wrong",
+    "wrong"
+   ],
+   "attacks": 3,
+   "extraHits": 0
+  },
+  {
+   "file": "71-C-muted.wav",
+   "label": "muted",
+   "target": "C x32010",
+   "outcomes": [
+    "uncertain",
+    "uncertain",
+    "uncertain",
+    "uncertain",
+    "uncertain"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "72-G-muted.wav",
+   "label": "muted",
+   "target": "G 320003",
+   "outcomes": [
+    "uncertain",
+    "uncertain",
+    "uncertain",
+    "uncertain",
+    "uncertain"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "73-D-muted.wav",
+   "label": "muted",
+   "target": "D xx0232",
+   "outcomes": [
+    "uncertain",
+    "uncertain",
+    "uncertain",
+    "uncertain",
+    "uncertain"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "74-Am-muted.wav",
+   "label": "muted",
+   "target": "Am x02210",
+   "outcomes": [
+    "uncertain",
+    "uncertain",
+    "uncertain",
+    "uncertain",
+    "uncertain"
+   ],
+   "attacks": 5,
+   "extraHits": 0
+  },
+  {
+   "file": "75-C-silence.wav",
+   "label": "silence",
+   "target": "C x32010",
+   "outcomes": [],
+   "attacks": 0,
+   "extraHits": 0
+  },
+  {
+   "file": "76-G-silence.wav",
+   "label": "silence",
+   "target": "G 320003",
+   "outcomes": [],
+   "attacks": 0,
+   "extraHits": 0
+  },
+  {
+   "file": "77-Em-silence.wav",
+   "label": "silence",
+   "target": "Em 022000",
+   "outcomes": [],
+   "attacks": 0,
+   "extraHits": 0
+  },
+  {
+   "file": "78-F-silence.wav",
+   "label": "silence",
+   "target": "F 133211",
+   "outcomes": [],
+   "attacks": 0,
+   "extraHits": 0
+  }
+ ]
+}

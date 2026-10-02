@@ -103,26 +103,7 @@
 .imm-beta-cta { color: #fff !important; background: linear-gradient(120deg, #8260ec, #a378ff); box-shadow: 0 7px 23px #9165f547; }
 .imm-beta-secondary { color: #e0d3f2 !important; background: rgba(255, 255, 255, .055); border: 1px solid rgba(215, 189, 255, .26); }
 .imm-beta-foot { margin-top: clamp(35px, 7vh, 76px); color: #9181a8; font-size: 9px; font-weight: 700; letter-spacing: .2em; }
-.rail .nav-item > span.imm-beta-nav-badge,
-.mobile-more-menu-item > span.imm-beta-nav-badge {
-  position: absolute;
-  inset: -3px -10px auto auto;
-  display: inline-block;
-  width: auto;
-  min-height: 0;
-  max-width: none;
-  border: 1px solid rgba(169, 137, 255, .45);
-  border-radius: 999px;
-  padding: 3px 5px;
-  background: #292038;
-  color: #a989ff;
-  font-size: 8px;
-  font-weight: 800;
-  letter-spacing: .06em;
-  line-height: 1;
-  opacity: 1;
-  pointer-events: none;
-}
+
 @media (max-width: 650px) {
   .imm-beta { min-height: calc(100dvh - 180px); padding: 40px 15px; border-radius: 21px; }
   .imm-beta-emblem { width: 75px; height: 75px; border-radius: 23px; }
@@ -130,11 +111,5 @@
   .imm-beta-actions a { width: 100%; }
   .imm-beta-foot { font-size: 8px; line-height: 1.5; }
   .mobile-more-menu-item { position: relative; }
-  .mobile-more-menu-item > span.imm-beta-nav-badge {
-    position: static;
-    margin-left: auto;
-    font-size: 9px;
-    padding: 5px 7px;
-  }
 }
 @media (prefers-reduced-motion: reduce) { .imm-beta-actions a { transition: none; } .imm-beta-actions a:hover { transform: none; } }

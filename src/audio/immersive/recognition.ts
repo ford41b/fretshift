@@ -1,6 +1,7 @@
 import { yin } from "../pitch";
 import { spectrum } from "../onset";
 import type { Attack } from "./score";
+import { CHORD_WINDOW, chordPeaks } from "./chord";
 
 export type Evidence = {
   time: number;
@@ -56,7 +57,8 @@ export function identify(samples: Float32Array, rate: number, a4 = 440) {
 export class NoteRecognizer {
   private window = new Float32Array(4096);
   private filled = 0;
-  private previousRms = 0;
+  /** RMS of the last two packets: beating between ringing strings swings one packet's RMS. */
+  private previousRms = [0, 0];
   private lastAttack = -Infinity;
   private id = 0;
   private badSince: number | null = null;
@@ -68,21 +70,30 @@ export class NoteRecognizer {
     confidence: number;
     cents: number;
   } | null = null;
+  /** Longer window for chord evidence; allocated only when chord scoring is enabled. */
+  private long: Float32Array | null;
   constructor(
     private rate: number,
     private a4 = 440,
     private floor = 0.007,
-  ) {}
+    chords = false,
+  ) {
+    this.long = chords ? new Float32Array(CHORD_WINDOW) : null;
+  }
   process(samples: Float32Array, time: number): Evidence {
     this.window.copyWithin(0, samples.length);
     this.window.set(samples, this.window.length - samples.length);
+    if (this.long) {
+      this.long.copyWithin(0, samples.length);
+      this.long.set(samples, this.long.length - samples.length);
+    }
     this.filled += samples.length;
     const rms = Math.sqrt(
       samples.reduce((sum, s) => sum + s * s, 0) / samples.length,
     );
     const threshold = Math.max(0.009, this.floor * 2.8);
     const rising =
-      rms > threshold && rms > Math.max(threshold, this.previousRms * 1.65);
+      rms > threshold && rms > Math.max(threshold, Math.max(...this.previousRms) * 1.65);
     if (
       this.filled >= this.window.length &&
       rising &&
@@ -100,7 +111,7 @@ export class NoteRecognizer {
       };
       this.lastAttack = time;
     }
-    this.previousRms = rms;
+    this.previousRms = [this.previousRms[1], rms];
     const pitch =
       this.filled >= this.window.length && rms > this.floor
         ? identify(this.window, this.rate, this.a4)
@@ -135,6 +146,7 @@ export class NoteRecognizer {
           midi: p.frames >= 3 ? p.midi : null,
           confidence: p.frames >= 3 ? p.confidence : 0,
           cents: p.cents,
+          ...(this.long ? { peaks: chordPeaks(this.long, this.rate) } : {}),
         };
         this.pending = null;
       }

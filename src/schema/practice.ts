@@ -26,6 +26,9 @@ export const PracticeSessionSchema = z.object({
       onTime: z.number().int().nonnegative(),
       extraAttacks: z.number().int().nonnegative(),
       visualProgressPercent: z.number().min(0).max(100).optional(),
+      /** Timing adjustment applied to detected attacks, and where it came from. */
+      timingOffsetMs: z.number().finite().optional(),
+      timingOffsetSource: z.enum(["none", "calibrated", "manual"]).optional(),
       troublesome: z.array(z.number().int().nonnegative()),
     })
     .optional(),

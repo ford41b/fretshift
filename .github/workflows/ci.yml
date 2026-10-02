@@ -23,6 +23,7 @@ jobs:
       - run: pnpm lint
       - run: pnpm test
       - run: pnpm build
+      - run: node scripts/verify-immersive-beta-gate.mjs
 
   e2e:
     name: E2E (${{ matrix.browser }})
@@ -45,6 +46,10 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm exec playwright install --with-deps ${{ matrix.browser }}
       - run: pnpm exec playwright test ${{ matrix.projects }}
+      - name: Immersive offline check (production build)
+        run: pnpm build && node scripts/verify-immersive-offline.mjs
+        env:
+          BROWSER: ${{ matrix.browser }}
       - uses: actions/upload-artifact@v4
         if: failure()
         with:

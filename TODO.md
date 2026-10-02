@@ -9,6 +9,9 @@
 - [ ] Bluetooth foot pedal and stage view wake lock.
 - [ ] Real cross-device sync plus verification-code and optional magic-link delivery.
 - [ ] Deploy a URL to Vercel/Netlify; observe GitHub Actions on the pushed repository.
+- [ ] Immersive iPhone acceptance checklist (IMMERSIVE_RELEASE_HANDOFF.md); then record it in `src/audio/immersive/evidence/physical-acceptance.json` to remove the BETA badge.
+- [ ] Immersive timing calibration on hardware: wired, speaker and Bluetooth/visual results.
+- [ ] Record the 78-file chord corpus (docs/immersive/chord-recording-checklist.md) and run `pnpm eval:chords <folder>`; chord scoring stays off until it meets the thresholds.
 
 ## External setup (last stage; no secrets committed)
 

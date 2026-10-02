@@ -22,7 +22,8 @@
     "bench:audio-real": "node scripts/bench-audio-real.mjs",
     "verify:live": "node scripts/verify-live.mjs",
     "test:offline": "node scripts/verify-strumming-offline.mjs",
-    "bench:audio-notes": "node scripts/bench-audio-notes.mjs"
+    "bench:audio-notes": "node scripts/bench-audio-notes.mjs",
+    "eval:chords": "node scripts/eval-chord-recordings.mjs"
   },
   "dependencies": {
     "@coderline/alphatab": "1.8.4",

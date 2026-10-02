@@ -5,6 +5,8 @@ export type PracticeInput = {
   context: AudioContext;
   stop: () => void;
   reset: (floor: number) => void;
+  /** Browser label of the capturing microphone; keys per-device timing calibration. */
+  inputLabel: string;
 };
 async function bounded<T>(operation: Promise<T>, message: string): Promise<T> {
   let timer: ReturnType<typeof setTimeout> | undefined;
@@ -24,6 +26,7 @@ export async function openPracticeInput(
   signal: AbortSignal,
   onFrame: (e: Evidence) => void,
   onFailure: (message: string) => void,
+  options: { chords?: boolean } = {},
 ): Promise<PracticeInput> {
   if (!navigator.mediaDevices?.getUserMedia)
     throw new Error(
@@ -118,7 +121,7 @@ export async function openPracticeInput(
       type: "module",
     });
     const reset = (floor: number) =>
-      worker?.postMessage({ rate: context.sampleRate, a4, floor });
+      worker?.postMessage({ rate: context.sampleRate, a4, floor, chords: options.chords === true });
     reset(0.007);
     worker.onmessage = (e: MessageEvent<Evidence>) => {
       if (stopped) return;
@@ -155,7 +158,12 @@ export async function openPracticeInput(
           "No microphone frames received. Practice paused; reconnect to resume.",
         );
     }, 500);
-    return { context, stop, reset };
+    return {
+      context,
+      stop,
+      reset,
+      inputLabel: stream.getAudioTracks()[0]?.label ?? "",
+    };
   } catch (e) {
     stop();
     if ((e as DOMException).name === "NotAllowedError")

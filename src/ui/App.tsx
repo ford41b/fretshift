@@ -24,6 +24,7 @@ import {
 } from "lucide-react";
 import { useSongStore } from "../store/songStore";
 import { useSettingsStore } from "../store/settingsStore";
+import { canOpenImmersive, IMMERSIVE_BETA } from "../audio/immersive/release";
 import { ToastProvider, ErrorNotice } from "./components/Common";
 import { Songbook } from "./screens/Songbook";
 import { SplashScreen } from "./components/SplashScreen";
@@ -73,11 +74,12 @@ class ErrorBoundary extends Component<
     );
   }
 }
-function AudioImmersiveRoute() {
+/** Criteria-based gate (src/audio/immersive/release.ts); ImmersiveBeta is only the fallback when the room is not released. */
+function ImmersiveRoute() {
   const { id } = useParams();
   const isAudioSong = useSongStore((state) => state.songs.some((song) =>
     song.id === id && !song.deletedAt && !!song.provenance?.audioReview));
-  return isAudioSong ? <Immersive /> : <ImmersiveBeta />;
+  return canOpenImmersive(isAudioSong) ? <Immersive /> : <ImmersiveBeta />;
 }
 const SPLASH_SEEN = "fretshift:splash-seen";
 function splashSeen() {
@@ -206,11 +208,11 @@ function Shell() {
               className={({ isActive }) =>
                 `nav-item ${n.mobilePrimary ? "mobile-primary" : "mobile-more-only"} ${isActive ? "active" : ""}`
               }
-              title={n.to === "/immersive" ? "Immersive practice · Coming soon" : n.label}
+              title={n.to === "/immersive" && IMMERSIVE_BETA ? "Immersive practice · Beta" : n.label}
             >
               <n.icon size={22} />
               <span data-mobile-label={n.mobileLabel ?? n.label}>{n.label}</span>
-              {n.to === "/immersive" ? <span className="imm-beta-nav-badge">BETA</span> : null}
+              {n.to === "/immersive" && IMMERSIVE_BETA ? <span className="imm-beta-nav-badge">BETA</span> : null}
             </NavLink>
           ))}
           {compactNav ? (
@@ -248,7 +250,7 @@ function Shell() {
                 >
                   <n.icon size={21} />
                   <span data-mobile-label={n.mobileLabel ?? n.label}>{n.label}</span>
-                  {n.to === "/immersive" ? <span className="imm-beta-nav-badge">BETA</span> : null}
+                  {n.to === "/immersive" && IMMERSIVE_BETA ? <span className="imm-beta-nav-badge">BETA</span> : null}
                 </NavLink>
               ))}
             </div>
@@ -316,8 +318,8 @@ function Shell() {
               <Route path="/share/:token" element={<SharedSong />} />
               <Route path="/settings" element={<Settings />} />
               <Route path="/import" element={<Import />} />
-              <Route path="/immersive" element={<ImmersiveBeta />} />
-              <Route path="/immersive/:id" element={<AudioImmersiveRoute />} />
+              <Route path="/immersive" element={<ImmersiveRoute />} />
+              <Route path="/immersive/:id" element={<ImmersiveRoute />} />
               <Route path="/practice" element={<Practice />} />
               <Route path="/practice/:id" element={<Practice />} />
               <Route

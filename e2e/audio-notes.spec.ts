@@ -1,6 +1,7 @@
 import { mkdirSync, readFileSync } from "node:fs";
 import { expect, test, type Page } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
+import { resumeChromiumWorklets } from "./support/worklets";
 
 async function upload(page: Page) {
   await page.goto("/import");
@@ -232,11 +233,9 @@ test("note Worker cancellation terminates an in-flight pass and permits retry", 
 
 test("confirmed audio notes use controlled microphone pitch, pause cleanup and no guide audio", async ({
   page,
-}, info) => {
-  test.skip(
-    info.project.name !== "webkit",
-    "Controlled AudioWorklet capture is validated in WebKit; Chrome remains a separate device gate.",
-  );
+}) => {
+  // Chromium needs the Playwright worklet resume shim; emulated input only.
+  await resumeChromiumWorklets(page);
   await page.addInitScript(() => {
     let context: AudioContext, stream: MediaStream;
     Object.defineProperty(navigator, "mediaDevices", {
