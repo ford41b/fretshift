@@ -542,7 +542,9 @@ test("timing calibration: median of taps, outliers rejected, stored per device a
   await expect(result).toContainText("Measured", { timeout: 30000 });
   // Both late taps are rejected. Emulated pipelines may drop or reject a few more
   // taps, so assert the property rather than exact counts.
-  const [, used, rejected] = (await result.innerText()).match(/from (\d+) of 12 taps \((\d+) outliers? rejected\)/)!.map(Number);
+  const message = await result.innerText();
+  console.log(`[emulated ${test.info().project.name}] ${message}`);
+  const [, used, rejected] = message.match(/from (\d+) of 12 taps \((\d+) outliers? rejected\)/)!.map(Number);
   expect(rejected).toBeGreaterThanOrEqual(2);
   expect(used).toBeGreaterThanOrEqual(8);
   await expect(result).toContainText("Saved for this microphone on this device");
@@ -551,8 +553,7 @@ test("timing calibration: median of taps, outliers rejected, stored per device a
     JSON.parse(localStorage.getItem("fretshift:immersive-calibration:v1")!),
   );
   const record = Object.values(stored)[0] as { offsetMs: number; used: number; cue: string };
-  expect(record.cue).toBe("click");
-  expect(record.used).toBeGreaterThanOrEqual(9);
+  expect(record).toMatchObject({ cue: "click", used, rejected });
   console.log(`[emulated ${test.info().project.name}] calibration ${JSON.stringify(record)}`);
   // Emulated pipeline delay only; plausibility bounds are enforced by the app.
   expect(record.offsetMs).toBeGreaterThanOrEqual(-100);
