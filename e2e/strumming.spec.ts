@@ -198,3 +198,34 @@ test("sixteenth-note controls fit an iPhone without shrinking touch targets", as
     studio.getByRole("button", { name: /Beat 1: up/ }),
   ).toBeVisible();
 });
+
+test("content above the strumming card does not shift after scrolling to it", async ({
+  page,
+}) => {
+  // WebKit has no CSS scroll anchoring, so any height change above the
+  // viewport moves what the user is pointing at. Disable anchoring in every
+  // engine so this guards the layout itself, not a browser compensation.
+  await page.addInitScript(() =>
+    document.addEventListener("DOMContentLoaded", () => {
+      const style = document.createElement("style");
+      style.textContent = "* { overflow-anchor: none !important; }";
+      document.head.append(style);
+    }),
+  );
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto("/song/sample-1");
+  const simple = page
+    .getByRole("region", { name: "Strumming pattern", exact: true })
+    .getByRole("button", { name: /^Simple / });
+  await simple.waitFor();
+  await expect(page.locator(".launch-splash")).toHaveCount(0, { timeout: 10000 });
+  // Page-absolute position: scrolling must not change the layout above.
+  const pageY = () => simple.evaluate((el) => el.getBoundingClientRect().top + window.scrollY);
+  const before = await pageY();
+  await simple.scrollIntoViewIfNeeded();
+  // Give IntersectionObserver-driven virtualization time to react.
+  await page.waitForTimeout(1000);
+  expect(Math.round(await pageY())).toBe(Math.round(before));
+  await simple.click({ timeout: 5000 });
+  await expect(simple).toHaveAttribute("aria-pressed", "true");
+});

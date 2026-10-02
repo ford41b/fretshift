@@ -84,6 +84,11 @@ function VirtualMeasure(props: {
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(props.index < 8);
+  // Height the measure last rendered at. An offscreen placeholder keeps it, so
+  // hiding a measure never changes the layout above the viewport. (Browsers
+  // without CSS scroll anchoring, e.g. WebKit, otherwise jump the page and
+  // move controls out from under the pointer.)
+  const [renderedHeight, setRenderedHeight] = useState<number | null>(null);
   useEffect(() => {
     const el = ref.current;
     if (!el || !("IntersectionObserver" in window)) {
@@ -91,18 +96,26 @@ function VirtualMeasure(props: {
       return;
     }
     const io = new IntersectionObserver(
-      (entries) => setVisible(entries[0].isIntersecting),
+      (entries) => {
+        const entry = entries[0];
+        if (!entry.isIntersecting && entry.boundingClientRect.height > 0)
+          setRenderedHeight(entry.boundingClientRect.height);
+        setVisible(entry.isIntersecting);
+      },
       { rootMargin: "800px" },
     );
     io.observe(el);
     return () => io.disconnect();
   }, []);
+  // A different view or edit mode renders at a different height.
+  useEffect(() => setRenderedHeight(null), [props.view, props.editing]);
+  const estimate = props.view === "chord" ? 120 : 250;
   return (
     <div
       ref={ref}
       id={`measure-${props.measure.id}`}
       className={`virtual-measure ${props.active ? "is-playing" : ""}`}
-      style={{ minHeight: props.view === "chord" ? 120 : 250 }}
+      style={{ minHeight: estimate }}
     >
       {visible ? (
         <MeasureView {...props} />
@@ -110,7 +123,7 @@ function VirtualMeasure(props: {
         <div
           role="group"
           aria-label={`Measure ${props.index + 1}, offscreen`}
-          style={{ height: props.view === "chord" ? 120 : 250 }}
+          style={{ height: renderedHeight ?? estimate }}
         />
       )}
     </div>
