@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "complete": false,
+  "completedAt": null,
+  "devices": [],
+  "failedSteps": [],
+  "notes": "Not run yet. Complete the iPhone checklist in IMMERSIVE_RELEASE_HANDOFF.md, then record the device, iOS/Safari version, date and any failed steps here. Set complete to true only when every step passed."
+}

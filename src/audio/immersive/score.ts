@@ -161,6 +161,40 @@ export function compileTargets(
   };
 }
 
+/**
+ * Measure ranges where every written attack is a supported single note, using
+ * the same compiler (and therefore the same hold/chord/range rules) as the
+ * practice room. Measures without attacks only extend a run, never start one.
+ */
+export function scorablePassages(song: Song, limit = 6) {
+  if (!song.measures.length) return [];
+  const { targets } = compileTargets(song, 1, 0, song.measures.length - 1);
+  const perMeasure = song.measures.map(() => ({ notes: 0, blocked: false }));
+  for (const t of targets) {
+    const m = perMeasure[t.measure];
+    if (!m) continue;
+    if (t.kind === "note" && t.supported) m.notes++;
+    else m.blocked = true;
+  }
+  const runs: { first: number; last: number; notes: number }[] = [];
+  let run: { first: number; last: number; notes: number } | null = null;
+  perMeasure.forEach((m, i) => {
+    if (m.blocked) {
+      run = null;
+      return;
+    }
+    if (!m.notes) return; // a rest-only measure joins a run only if notes follow
+    if (run) {
+      run.last = i;
+      run.notes += m.notes;
+    } else {
+      run = { first: i, last: i, notes: m.notes };
+      runs.push(run);
+    }
+  });
+  return runs.slice(0, limit);
+}
+
 export type Attack = {
   id: number;
   time: number;

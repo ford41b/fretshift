@@ -5,6 +5,8 @@ export type PracticeInput = {
   context: AudioContext;
   stop: () => void;
   reset: (floor: number) => void;
+  /** Browser label of the capturing microphone; keys per-device timing calibration. */
+  inputLabel: string;
 };
 async function bounded<T>(operation: Promise<T>, message: string): Promise<T> {
   let timer: ReturnType<typeof setTimeout> | undefined;
@@ -155,7 +157,12 @@ export async function openPracticeInput(
           "No microphone frames received. Practice paused; reconnect to resume.",
         );
     }, 500);
-    return { context, stop, reset };
+    return {
+      context,
+      stop,
+      reset,
+      inputLabel: stream.getAudioTracks()[0]?.label ?? "",
+    };
   } catch (e) {
     stop();
     if ((e as DOMException).name === "NotAllowedError")

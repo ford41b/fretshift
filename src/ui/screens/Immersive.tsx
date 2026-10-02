@@ -20,15 +20,27 @@ import { practiceRepo } from "../../persistence/dexie";
 import {
   compileTargets,
   EventScorer,
+  scorablePassages,
   summarize,
   type Result,
   type Target,
 } from "../../audio/immersive/score";
 import {
+  IMMERSIVE_BETA,
+  IMMERSIVE_FEATURES,
+  scoringEnabledFor,
+} from "../../audio/immersive/release";
+import {
   openPracticeInput,
   type PracticeInput,
 } from "../../audio/immersive/microphone";
 import type { Evidence } from "../../audio/immersive/recognition";
+import {
+  inputKey,
+  loadCalibration,
+  type CalibrationRecord,
+} from "../../audio/immersive/calibration";
+import { ImmersiveCalibration } from "../components/ImmersiveCalibration";
 import { type Song, resolveTuning } from "../../schema/song.v1";
 import { noteLabel } from "../../theory/pitch";
 import "../immersive.css";
@@ -59,8 +71,10 @@ export function Immersive() {
           <span className="imm-hero-symbol"><Guitar size={34} strokeWidth={1.6} /></span>
           <span className="imm-eyebrow">FRETSHIFT / LIVE GUITAR PRACTICE</span>
           <h1>Immersive practice<span className="imm-period">.</span></h1>
+          {IMMERSIVE_BETA && <span className="imm-beta-chip">BETA</span>}
           <p>Six strings. One clear next step. Choose a song and make some room for the music.</p>
         </div>
+        <ReleaseNotes />
         <div className="imm-library-heading"><span>YOUR PRACTICE LIBRARY</span><span>{songs.length} {songs.length === 1 ? "song" : "songs"}</span></div>
         <div className="immersive-song-list">
           {songs.map((s) => (
@@ -88,6 +102,23 @@ export function Immersive() {
     );
   return <PracticeRoom key={song.id} song={song} />;
 }
+/** Which features are on in this build, and why (criteria from src/audio/immersive/release.ts). */
+function ReleaseNotes() {
+  return (
+    <details className="imm-release">
+      <summary>What’s on in this {IMMERSIVE_BETA ? "beta" : "release"}</summary>
+      <ul>
+        {Object.values(IMMERSIVE_FEATURES).map((f) => (
+          <li key={f.id}>
+            <strong>{f.label}: {f.enabled ? "on" : "off"}</strong>
+            <span>{f.why}</span>
+          </li>
+        ))}
+      </ul>
+      {IMMERSIVE_BETA && <p>Beta until the physical iPhone and guitar checklist passes. Current checks use emulated browsers and generated signals.</p>}
+    </details>
+  );
+}
 function PracticeRoom({ song }: { song: Song }) {
   const settings = useSettingsStore((s) => s.settings);
   const region = usePracticeStore.getState();
@@ -98,16 +129,24 @@ function PracticeRoom({ song }: { song: Song }) {
   const selectedLast = song.measures.findIndex(
     (m) => m.id === region.loopEndMeasureId,
   );
+  const initialLast =
+    selectedLast >= selectedFirst ? selectedLast : song.measures.length - 1;
+  const scoring = scoringEnabledFor(song);
   const [first, setFirst] = useState(selectedFirst),
-    [last, setLast] = useState(
-      selectedLast >= selectedFirst ? selectedLast : song.measures.length - 1,
-    );
+    [last, setLast] = useState(initialLast);
   const [speed, setSpeed] = useState(0.75),
-    [mode, setMode] = useState<Mode>(() => compileTargets(song, .75, selectedFirst,
-      selectedLast >= selectedFirst ? selectedLast : song.measures.length - 1).targets.some(t => t.kind !== "note" || !t.supported) ? "visual" : "learn"),
+    [mode, setMode] = useState<Mode>(() => {
+      const initial = compileTargets(song, 0.75, selectedFirst, initialLast).targets;
+      return scoring && initial.length && initial.every((t) => t.kind === "note" && t.supported)
+        ? "learn"
+        : "visual";
+    }),
     [loop, setLoop] = useState(false);
   const [confirmed, setConfirmed] = useState(false),
     [offset, setOffset] = useState(0),
+    [offsetSource, setOffsetSource] = useState<"none" | "calibrated" | "manual">("none"),
+    [calibration, setCalibration] = useState<CalibrationRecord | null>(null),
+    [calibrating, setCalibrating] = useState(false),
     [phase, setPhase] = useState<Phase>("setup");
   const [connected, setConnected] = useState(false),
     [connecting, setConnecting] = useState(false),
@@ -134,12 +173,22 @@ function PracticeRoom({ song }: { song: Song }) {
   const currentFrame = useRef<Evidence | null>(null),
     floor = useRef(0.007),
     noise = useRef<{ until: number; levels: number[] } | null>(null);
+  const calibrationSink = useRef<((e: Evidence) => void) | null>(null);
+  const applyCalibration = useCallback((record: CalibrationRecord) => {
+    setCalibration(record);
+    setOffset(record.offsetMs);
+    setOffsetSource("calibrated");
+  }, []);
   const pendingSave = useRef<
     Parameters<typeof practiceRepo.saveSession>[0] | null
   >(null);
   const plan = useMemo(
     () => compileTargets(song, speed, first, last),
     [song, speed, first, last],
+  );
+  const passages = useMemo(
+    () => (scoring ? scorablePassages(song) : []),
+    [song, scoring],
   );
   planRef.current = plan;
   modeRef.current = mode;
@@ -225,6 +274,11 @@ function PracticeRoom({ song }: { song: Song }) {
               }
             }
           }
+          // Calibration owns the frames while it runs; it never scores.
+          if (calibrationSink.current) {
+            calibrationSink.current(e);
+            return;
+          }
           if (phaseRef.current !== "running") return;
           if (e.unhealthy) {
             pause(
@@ -254,6 +308,13 @@ function PracticeRoom({ song }: { song: Song }) {
       }
       input.current = device;
       noise.current = { until: device.context.currentTime + 1, levels: [] };
+      // The measured per-device value replaces the 0 ms default; a manual choice stays.
+      const stored = loadCalibration(inputKey(device.inputLabel));
+      setCalibration(stored);
+      if (offsetSource !== "manual") {
+        setOffset(stored?.offsetMs ?? 0);
+        setOffsetSource(stored ? "calibrated" : "none");
+      }
       setConnected(true);
     } catch (e) {
       if (!controller.signal.aborted)
@@ -310,6 +371,7 @@ function PracticeRoom({ song }: { song: Song }) {
         lastMeasure: last,
         ...summary,
         ...(mode === "visual" ? { visualProgressPercent: Math.round(100 * visualFraction) } : {}),
+        ...(mode === "visual" ? {} : { timingOffsetMs: offset, timingOffsetSource: offsetSource }),
         extraAttacks: r.extra + r.scorer.extraAttacks,
       },
     };
@@ -470,7 +532,7 @@ function PracticeRoom({ song }: { song: Song }) {
   const active = phase === "running" || phase === "paused";
   const guidedChords = plan.targets.filter(t => t.kind === "chord" || t.kind === "muted").length;
   const supportedNotes = plan.targets.filter(t => t.kind === "note" && t.supported).length;
-  const scoredPassageAllowed = plan.targets.every(t => t.kind === "note" && t.supported) && supportedNotes > 0;
+  const scoredPassageAllowed = scoring && plan.targets.every(t => t.kind === "note" && t.supported) && supportedNotes > 0;
   const current = plan.targets[run.current?.scorer.index ?? 0];
   const summary = summarize(results);
   const beatNumber =
@@ -507,7 +569,7 @@ function PracticeRoom({ song }: { song: Song }) {
         </Link>
         <div className="imm-heading">
           <span className="imm-heading-icon"><Guitar size={21} strokeWidth={1.7}/></span>
-          <div><span className="imm-eyebrow">FRETSHIFT / IMMERSIVE PRACTICE</span><h1>{song.title}</h1><span className="imm-artist">{song.artist || "Your arrangement"}</span></div>
+          <div><span className="imm-eyebrow">FRETSHIFT / IMMERSIVE PRACTICE{IMMERSIVE_BETA && <span className="imm-beta-chip">BETA</span>}</span><h1>{song.title}</h1><span className="imm-artist">{song.artist || "Your arrangement"}</span></div>
         </div>
         <button
           className="imm-fullscreen"
@@ -591,6 +653,18 @@ function PracticeRoom({ song }: { song: Song }) {
               Mean signed timing offset: {summary.meanOffsetMs > 0 ? "+" : ""}
               {summary.meanOffsetMs} ms. Timing coverage: {summary.timed}/
               {summary.total} targets.
+            </p>
+          )}
+          {mode === "rhythm" && (
+            <p>
+              Timing adjustment applied: {offset > 0 ? "+" : ""}
+              {offset} ms ·{" "}
+              {offsetSource === "calibrated"
+                ? "measured on this device"
+                : offsetSource === "manual"
+                  ? "set manually"
+                  : "not calibrated"}
+              .
             </p>
           )}
           <p>
@@ -793,8 +867,26 @@ function PracticeRoom({ song }: { song: Song }) {
                       ? "A visual count-in, written attacks, and separate timing feedback."
                       : "Follow the lane without a microphone. No performance scores."}
                 </p>
-                {guidedChords > 0 && <p role="status" className="imm-scope-warning">This passage contains {guidedChords} guided chord or muted targets; chord matching isn’t supported. Choose Quiet visual practice, or select a passage containing supported single notes for scored learning.</p>}
-                {!guidedChords && !scoredPassageAllowed && <p role="status" className="imm-scope-warning">This passage has no supported single-note targets. Use Quiet visual practice.</p>}
+                {guidedChords > 0 && <p role="status" className="imm-scope-warning">This passage contains {guidedChords} guided chord or muted targets; chord matching isn’t scored. Use Quiet visual practice here, or choose a single-note passage for Learn and Rhythm.</p>}
+                {!guidedChords && !scoredPassageAllowed && <p role="status" className="imm-scope-warning">{scoring ? "This passage has no supported single-note targets (one sounding note, E2–E6). Use Quiet visual practice." : "Scoring is off for this song in this build. Use Quiet visual practice."}</p>}
+                {!scoredPassageAllowed && passages.length > 0 && (
+                  <div className="imm-passages" role="group" aria-label="Scored single-note passages">
+                    <span>Scored single-note passages in this song</span>
+                    {passages.map((p) => (
+                      <button
+                        key={p.first}
+                        type="button"
+                        onClick={() => {
+                          setFirst(p.first);
+                          setLast(p.last);
+                          if (mode === "visual") setMode("learn");
+                        }}
+                      >
+                        {p.first === p.last ? `Measure ${p.first + 1}` : `Measures ${p.first + 1}–${p.last + 1}`} · {p.notes} notes
+                      </button>
+                    ))}
+                  </div>
+                )}
                 <div className="imm-fields">
                   <label>
                     From measure
@@ -920,24 +1012,48 @@ function PracticeRoom({ song }: { song: Song }) {
                       : "Play one open string and let it settle."}
                   </p>
                 )}
+                {IMMERSIVE_FEATURES.latencyCalibration.enabled && <ImmersiveCalibration
+                  input={connected && noiseReady ? input.current : null}
+                  ready={connected && noiseReady && phase === "setup"}
+                  floor={floor.current}
+                  sink={calibrationSink}
+                  record={calibration}
+                  onBusy={setCalibrating}
+                  onSaved={applyCalibration}
+                />}
                 <details className="imm-advanced"><summary>Advanced · timing and technical details</summary><label>
                   Timing adjustment: {offset > 0 ? "+" : ""}
-                  {offset} ms
+                  {offset} ms ·{" "}
+                  {offsetSource === "calibrated"
+                    ? "calibrated"
+                    : offsetSource === "manual"
+                      ? "manual override"
+                      : "not calibrated"}
                   <input
                     aria-label="Timing adjustment"
                     type="range"
                     min={-200}
-                    max={200}
-                    step={10}
+                    max={250}
+                    step={1}
                     value={offset}
-                    onChange={(e) => setOffset(+e.target.value)}
+                    onChange={(e) => {
+                      setOffset(+e.target.value);
+                      setOffsetSource("manual");
+                    }}
                   />
                 </label>
+                {calibration && offsetSource === "manual" && (
+                  <button type="button" onClick={() => applyCalibration(calibration)}>
+                    Use calibrated value ({calibration.offsetMs > 0 ? "+" : ""}
+                    {calibration.offsetMs} ms)
+                  </button>
+                )}
                 <p className="imm-caption">
-                  Positive values subtract delay from detected attacks. Adjust
-                  after a short rhythm pass if feedback is consistently late.
-                  This is a personal alignment adjustment, not a hardware
-                  latency measurement.
+                  Positive values subtract delay from detected attacks. The
+                  default is the median measured by timing calibration for this
+                  microphone; move the slider to override it for this session.
+                  Calibration measures input delay against a cue; it does not
+                  measure screen delay.
                 </p></details>
               </div>}
               <div className="imm-start">
@@ -948,6 +1064,7 @@ function PracticeRoom({ song }: { song: Song }) {
                     and muted targets are shown but unscored. A microphone hears
                     pitch, not which finger or string made it.
                   </p>
+                  <ReleaseNotes />
                   <p>
                     Audio stays on this device. Scored mode has no accompaniment
                     or guide playback. Use headphones for any external
@@ -960,7 +1077,8 @@ function PracticeRoom({ song }: { song: Song }) {
                     !plan.targets.length ||
                     (mode !== "visual" && !scoredPassageAllowed) ||
                     (mode !== "visual" && (!connected || !noiseReady)) ||
-                    (mode === "rhythm" && !rhythmAllowed)
+                    (mode === "rhythm" && !rhythmAllowed) ||
+                    calibrating
                   }
                   onClick={() => void start()}
                 >
