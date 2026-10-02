@@ -1,0 +1,9 @@
+PASS (1) FAIL (2) skipped (3)
+
+1. note import, fingering/timing edits, playback, persistence and scored target bridge
+   [31mTest timeout of 30000ms exceeded.[39m
+2. narrow tab layout, keyboard selection, setup constraints and accessibility
+   [31mTest timeout of 30000ms exceeded.[39m
+
+Time: 182227ms
+[full output: rtk recall f8ac4b52837d]

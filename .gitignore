@@ -1,0 +1,22 @@
+node_modules
+dist/
+.env.local
+.env
+playwright-report/
+test-results/
+*.tsbuildinfo
+work/
+.DS_Store
+
+.node_modules-offloaded/
+
+# Local recovery / agent artifacts (not application source)
+/artifacts/
+/.openai/
+/FretShift/
+/PROJECT_HANDOFF.zip
+/FretShift-current-*.zip
+
+/supabase/.temp/
+
+.vercel/

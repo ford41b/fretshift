@@ -1,0 +1,1204 @@
+{
+  "config": {
+    "configFile": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/playwright.config.ts",
+    "rootDir": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e",
+        "testIgnore": [
+          "/unconfigured\\.spec\\.ts/"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e",
+        "testIgnore": [
+          "/unconfigured\\.spec\\.ts/"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium-unconfigured",
+        "name": "chromium-unconfigured",
+        "testDir": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "/unconfigured\\.spec\\.ts/"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.55.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "audio-intelligence.spec.ts",
+      "file": "audio-intelligence.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "browser decodes local WAV, MP3, and M4A in the real analysis Worker",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4472,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "Audio codec check [{\"name\":\"codec-c-major.wav\",\"version\":1,\"duration\":4,\"beatProvider\":\"fretshift-onset-grid-v1\",\"chordProvider\":\"fretshift-chroma-templates-v1\",\"notes\":null},{\"name\":\"codec-c-major.mp3\",\"version\":1,\"duration\":4,\"beatProvider\":\"fretshift-onset-grid-v1\",\"chordProvider\":\"fretshift-chroma-templates-v1\",\"notes\":null},{\"name\":\"codec-c-major.m4a\",\"version\":1,\"duration\":4,\"beatProvider\":\"fretshift-onset-grid-v1\",\"chordProvider\":\"fretshift-chroma-templates-v1\",\"notes\":null}]\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T00:11:26.905Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ecf90c8a0bd05e79997b-d237a8694282512c7524",
+          "file": "audio-intelligence.spec.ts",
+          "line": 7,
+          "column": 1
+        },
+        {
+          "title": "audio upload, local review, save, reopen, and Immersive entry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6076,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Expect \"poll toBe\"",
+                      "duration": 7
+                    }
+                  ],
+                  "startTime": "2026-09-27T00:11:33.708Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ecf90c8a0bd05e79997b-1193f76976c43492b2c4",
+          "file": "audio-intelligence.spec.ts",
+          "line": 49,
+          "column": 1
+        },
+        {
+          "title": "cancelled analysis rejects and retry succeeds",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1403,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T00:11:39.798Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ecf90c8a0bd05e79997b-00b9cd4c6f48f260f4f3",
+          "file": "audio-intelligence.spec.ts",
+          "line": 117,
+          "column": 1
+        },
+        {
+          "title": "large files are rejected and real-recording review remains editable offline",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8145,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T00:11:41.222Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ecf90c8a0bd05e79997b-51a3ac12268fd1c72884",
+          "file": "audio-intelligence.spec.ts",
+          "line": 145,
+          "column": 1
+        },
+        {
+          "title": "mobile timeline releases its local audio URL on navigation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3349,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Expect \"poll toBeCloseTo\"",
+                      "duration": 6
+                    },
+                    {
+                      "title": "Expect \"poll toBe\"",
+                      "duration": 4
+                    }
+                  ],
+                  "startTime": "2026-09-27T00:11:49.390Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ecf90c8a0bd05e79997b-7f8f9a47eeca3be569b0",
+          "file": "audio-intelligence.spec.ts",
+          "line": 173,
+          "column": 1
+        },
+        {
+          "title": "unconfirmed audio timing is not rhythm graded in Practice",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2324,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T00:11:52.776Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ecf90c8a0bd05e79997b-448e5d9b0ccc601a33b2",
+          "file": "audio-intelligence.spec.ts",
+          "line": 218,
+          "column": 1
+        },
+        {
+          "title": "browser decodes local WAV, MP3, and M4A in the real analysis Worker",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2857,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "Audio codec check [{\"name\":\"codec-c-major.wav\",\"version\":1,\"duration\":4,\"beatProvider\":\"fretshift-onset-grid-v1\",\"chordProvider\":\"fretshift-chroma-templates-v1\",\"notes\":null},{\"name\":\"codec-c-major.mp3\",\"version\":1,\"duration\":4.048979166666666,\"beatProvider\":\"fretshift-onset-grid-v1\",\"chordProvider\":\"fretshift-chroma-templates-v1\",\"notes\":null},{\"name\":\"codec-c-major.m4a\",\"version\":1,\"duration\":4,\"beatProvider\":\"fretshift-onset-grid-v1\",\"chordProvider\":\"fretshift-chroma-templates-v1\",\"notes\":null}]\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T00:13:07.876Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ecf90c8a0bd05e79997b-21a9f2b22cb902297999",
+          "file": "audio-intelligence.spec.ts",
+          "line": 7,
+          "column": 1
+        },
+        {
+          "title": "audio upload, local review, save, reopen, and Immersive entry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6635,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Expect \"poll toBe\"",
+                      "duration": 4
+                    }
+                  ],
+                  "startTime": "2026-09-27T00:13:12.144Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ecf90c8a0bd05e79997b-2fa3c3f2540e05ecb2f3",
+          "file": "audio-intelligence.spec.ts",
+          "line": 49,
+          "column": 1
+        },
+        {
+          "title": "cancelled analysis rejects and retry succeeds",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1316,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T00:13:18.792Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ecf90c8a0bd05e79997b-1fed6771c05430622f1e",
+          "file": "audio-intelligence.spec.ts",
+          "line": 117,
+          "column": 1
+        },
+        {
+          "title": "large files are rejected and real-recording review remains editable offline",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5794,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T00:13:20.129Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ecf90c8a0bd05e79997b-0e4ce87bc04144a845f8",
+          "file": "audio-intelligence.spec.ts",
+          "line": 145,
+          "column": 1
+        },
+        {
+          "title": "mobile timeline releases its local audio URL on navigation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3480,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Expect \"poll toBeCloseTo\"",
+                      "duration": 19
+                    },
+                    {
+                      "title": "Expect \"poll toBe\"",
+                      "duration": 4
+                    }
+                  ],
+                  "startTime": "2026-09-27T00:13:25.934Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ecf90c8a0bd05e79997b-2d240b116b7ecfed9753",
+          "file": "audio-intelligence.spec.ts",
+          "line": 173,
+          "column": 1
+        },
+        {
+          "title": "unconfirmed audio timing is not rhythm graded in Practice",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1997,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T00:13:29.426Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ecf90c8a0bd05e79997b-0b89a586700b463a0ac4",
+          "file": "audio-intelligence.spec.ts",
+          "line": 218,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "audio-notes.spec.ts",
+      "file": "audio-notes.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "note import, fingering/timing edits, playback, persistence and scored target bridge",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8927,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Expect \"poll toBe\"",
+                      "duration": 11
+                    },
+                    {
+                      "title": "Expect \"poll toBe\"",
+                      "duration": 6
+                    }
+                  ],
+                  "startTime": "2026-09-27T00:11:55.294Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8e7d5d2cabc35f0083e3-2a7b44b43b24bc74489a",
+          "file": "audio-notes.spec.ts",
+          "line": 42,
+          "column": 1
+        },
+        {
+          "title": "narrow tab layout, keyboard selection, setup constraints and accessibility",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5755,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T00:12:04.237Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8e7d5d2cabc35f0083e3-b190eb61f1ee40352f73",
+          "file": "audio-notes.spec.ts",
+          "line": 161,
+          "column": 1
+        },
+        {
+          "title": "note Worker cancellation terminates an in-flight pass and permits retry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1992,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T00:12:10.005Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8e7d5d2cabc35f0083e3-217d2c7323b66f9d09b6",
+          "file": "audio-notes.spec.ts",
+          "line": 201,
+          "column": 1
+        },
+        {
+          "title": "confirmed audio notes use controlled microphone pitch, pause cleanup and no guide audio",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Controlled AudioWorklet capture is validated in WebKit; Chrome remains a separate device gate.",
+                  "location": {
+                    "file": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e/audio-notes.spec.ts",
+                    "line": 233,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 317,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T00:12:12.016Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Controlled AudioWorklet capture is validated in WebKit; Chrome remains a separate device gate.",
+                      "location": {
+                        "file": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e/audio-notes.spec.ts",
+                        "line": 233,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "8e7d5d2cabc35f0083e3-1fff19ec699f18186a0e",
+          "file": "audio-notes.spec.ts",
+          "line": 237,
+          "column": 1
+        },
+        {
+          "title": "note import, fingering/timing edits, playback, persistence and scored target bridge",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9303,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Expect \"poll toBe\"",
+                      "duration": 20
+                    },
+                    {
+                      "title": "Expect \"poll toBe\"",
+                      "duration": 34
+                    }
+                  ],
+                  "startTime": "2026-09-27T00:13:31.551Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8e7d5d2cabc35f0083e3-54ba80262344a58778d7",
+          "file": "audio-notes.spec.ts",
+          "line": 42,
+          "column": 1
+        },
+        {
+          "title": "narrow tab layout, keyboard selection, setup constraints and accessibility",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4613,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T00:13:40.869Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8e7d5d2cabc35f0083e3-0541be0ca3fe1addced8",
+          "file": "audio-notes.spec.ts",
+          "line": 161,
+          "column": 1
+        },
+        {
+          "title": "note Worker cancellation terminates an in-flight pass and permits retry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1803,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T00:13:45.497Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8e7d5d2cabc35f0083e3-52b99611a1caf89bc5a2",
+          "file": "audio-notes.spec.ts",
+          "line": 201,
+          "column": 1
+        },
+        {
+          "title": "confirmed audio notes use controlled microphone pitch, pause cleanup and no guide audio",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 7456,
+                  "error": {
+                    "message": "Error: page.evaluate: TypeError: undefined is not an object (evaluating 'window.guitar.play')",
+                    "stack": "Error: page.evaluate: TypeError: undefined is not an object (evaluating 'window.guitar.play')\n    at /Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e/audio-notes.spec.ts:358:14",
+                    "location": {
+                      "file": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e/audio-notes.spec.ts",
+                      "column": 14,
+                      "line": 358
+                    },
+                    "snippet": "  356 |   await expect(page.locator(\".imm-feedback\")).toContainText(\"Wrong pitch\");\n  357 |   await page.waitForTimeout(1400);\n> 358 |   await page.evaluate(() =>\n      |              ^\n  359 |     (\n  360 |       window as unknown as { guitar: { play: (m: number) => void } }\n  361 |     ).guitar.play(64),"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e/audio-notes.spec.ts",
+                        "column": 14,
+                        "line": 358
+                      },
+                      "message": "Error: page.evaluate: TypeError: undefined is not an object (evaluating 'window.guitar.play')\n\n  356 |   await expect(page.locator(\".imm-feedback\")).toContainText(\"Wrong pitch\");\n  357 |   await page.waitForTimeout(1400);\n> 358 |   await page.evaluate(() =>\n      |              ^\n  359 |     (\n  360 |       window as unknown as { guitar: { play: (m: number) => void } }\n  361 |     ).guitar.play(64),\n    at /Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e/audio-notes.spec.ts:358:14"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T00:13:47.315Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/test-results/audio-notes-confirmed-audi-27bcc--cleanup-and-no-guide-audio-webkit/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e/audio-notes.spec.ts",
+                    "column": 14,
+                    "line": 358
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "8e7d5d2cabc35f0083e3-df8221a5c62ec13dabc8",
+          "file": "audio-notes.spec.ts",
+          "line": 237,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "audio-validation.spec.ts",
+      "file": "audio-validation.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "reopening and repeated correction saves preserve song metadata and beat phase",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6247,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T00:12:12.384Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0c9be62febf70c97bfe1-fd6868fe960c53327fc0",
+          "file": "audio-validation.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "navigation during a stalled Worker terminates it without saving a result",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 2939,
+                  "error": {
+                    "message": "Error: locator.click: Error: strict mode violation: getByRole('link', { name: 'fretshift' }) resolved to 2 elements:\n    1) <a href=\"/\" class=\"brand-symbol\" aria-label=\"FretShift home\">…</a> aka getByRole('link', { name: 'FretShift home' })\n    2) <a href=\"/\" class=\"wordmark\">…</a> aka getByRole('link', { name: 'fretshift', exact: true })\n\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: 'fretshift' })\u001b[22m\n",
+                    "stack": "Error: locator.click: Error: strict mode violation: getByRole('link', { name: 'fretshift' }) resolved to 2 elements:\n    1) <a href=\"/\" class=\"brand-symbol\" aria-label=\"FretShift home\">…</a> aka getByRole('link', { name: 'FretShift home' })\n    2) <a href=\"/\" class=\"wordmark\">…</a> aka getByRole('link', { name: 'fretshift', exact: true })\n\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: 'fretshift' })\u001b[22m\n\n    at /Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e/audio-validation.spec.ts:59:55",
+                    "location": {
+                      "file": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e/audio-validation.spec.ts",
+                      "column": 55,
+                      "line": 59
+                    },
+                    "snippet": "  57 |     \"test-fixtures/audio-validation/02_BN1-129-Eb_comp.wav\");\n  58 |   await expect.poll(() => page.evaluate(() => (window as typeof window & {workerStarts:number}).workerStarts)).toBe(1);\n> 59 |   await page.getByRole(\"link\", { name: \"fretshift\" }).click();\n     |                                                       ^\n  60 |   await expect(page.getByRole(\"heading\", { name: \"Your songbook\" })).toBeVisible();\n  61 |   // Decode may still be pending; its cancellation check must prevent a Worker being created.\n  62 |   await expect(page.locator(\".ai-review\")).toHaveCount(0);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e/audio-validation.spec.ts",
+                        "column": 55,
+                        "line": 59
+                      },
+                      "message": "Error: locator.click: Error: strict mode violation: getByRole('link', { name: 'fretshift' }) resolved to 2 elements:\n    1) <a href=\"/\" class=\"brand-symbol\" aria-label=\"FretShift home\">…</a> aka getByRole('link', { name: 'FretShift home' })\n    2) <a href=\"/\" class=\"wordmark\">…</a> aka getByRole('link', { name: 'fretshift', exact: true })\n\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: 'fretshift' })\u001b[22m\n\n\n  57 |     \"test-fixtures/audio-validation/02_BN1-129-Eb_comp.wav\");\n  58 |   await expect.poll(() => page.evaluate(() => (window as typeof window & {workerStarts:number}).workerStarts)).toBe(1);\n> 59 |   await page.getByRole(\"link\", { name: \"fretshift\" }).click();\n     |                                                       ^\n  60 |   await expect(page.getByRole(\"heading\", { name: \"Your songbook\" })).toBeVisible();\n  61 |   // Decode may still be pending; its cancellation check must prevent a Worker being created.\n  62 |   await expect(page.locator(\".ai-review\")).toHaveCount(0);\n    at /Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e/audio-validation.spec.ts:59:55"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Expect \"poll toBe\"",
+                      "duration": 119
+                    }
+                  ],
+                  "startTime": "2026-09-27T00:12:18.646Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/test-results/audio-validation-navigatio-bd911--it-without-saving-a-result-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e/audio-validation.spec.ts",
+                    "column": 55,
+                    "line": 59
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "0c9be62febf70c97bfe1-942dc1f99c2b54445527",
+          "file": "audio-validation.spec.ts",
+          "line": 78,
+          "column": 1
+        },
+        {
+          "title": "five-minute recording completes, persists and reopens without confirming inferred notes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 33273,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T00:12:22.650Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "five-minute-measurements",
+                      "contentType": "application/json",
+                      "body": "ewogICJpZCI6ICI1N2U2YWQyYS1mNzkwLTRhNTYtODE0Yi1lNjI2NDBiMTc4NjUiLAogICJieXRlcyI6IDI2NDYwMDQ0LAogICJkdXJhdGlvbiI6IDMwMCwKICAiYW5hbHlzaXNNcyI6IDI5MDMzLjQwMDAwMDAwNTk2LAogICJzYXZlTXMiOiAzNDIuNDAwMDAwMDA1OTYwNDYsCiAgInN0YWdlcyI6IFsKICAgIHsKICAgICAgInN0YWdlIjogIlByZXBhcmluZyBhdWRpbyIsCiAgICAgICJhdE1zIjogMC40MDAwMDAwMDU5NjA0NjQ1CiAgICB9LAogICAgewogICAgICAic3RhZ2UiOiAiRmluZGluZyB0ZW1wbyIsCiAgICAgICJhdE1zIjogMTUxMS4yOTk5OTk5OTcwMTk4CiAgICB9LAogICAgewogICAgICAic3RhZ2UiOiAiRGV0ZWN0aW5nIGJlYXRzIiwKICAgICAgImF0TXMiOiAxMDAwOAogICAgfSwKICAgIHsKICAgICAgInN0YWdlIjogIkFuYWx5emluZyBjaG9yZHMiLAogICAgICAiYXRNcyI6IDEwMDI1Ljc5OTk5OTk5NzAyCiAgICB9LAogICAgewogICAgICAic3RhZ2UiOiAiRGV0ZWN0aW5nIHNpbmdsZSBub3RlcyIsCiAgICAgICJhdE1zIjogMTA0MTAuNQogICAgfSwKICAgIHsKICAgICAgInN0YWdlIjogIkJ1aWxkaW5nIHRpbWVsaW5lIiwKICAgICAgImF0TXMiOiAyOTAxMC41CiAgICB9LAogICAgewogICAgICAic3RhZ2UiOiAiUHJlcGFyaW5nIHJldmlldyIsCiAgICAgICJhdE1zIjogMjkwMTAuNjAwMDAwMDA4OTQKICAgIH0KICBdLAogICJmcmFtZXMiOiAyOTkzMywKICAibm90ZXMiOiAzMDAsCiAgImpzb25CeXRlcyI6IDQxOTUwNjMsCiAgInN1cHBvcnRlZFRhcmdldHMiOiAwLAogICJuZWVkc1RpbWluZyI6IHRydWUsCiAgInNhdmVTdGF0ZSI6ICJTYXZlZCBvbiB0aGlzIGRldmljZSIKfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0c9be62febf70c97bfe1-a03a45fb53a3d75f5c13",
+          "file": "audio-validation.spec.ts",
+          "line": 121,
+          "column": 1
+        },
+        {
+          "title": "reopening and repeated correction saves preserve song metadata and beat phase",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6609,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T00:13:55.635Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0c9be62febf70c97bfe1-d27bfe419cc92b2527fc",
+          "file": "audio-validation.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "navigation during a stalled Worker terminates it without saving a result",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 2655,
+                  "error": {
+                    "message": "Error: locator.click: Error: strict mode violation: getByRole('link', { name: 'fretshift' }) resolved to 2 elements:\n    1) <a href=\"/\" class=\"brand-symbol\" aria-label=\"FretShift home\">…</a> aka getByRole('link', { name: 'FretShift home' })\n    2) <a href=\"/\" class=\"wordmark\">…</a> aka getByRole('link', { name: 'fretshift', exact: true })\n\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: 'fretshift' })\u001b[22m\n",
+                    "stack": "Error: locator.click: Error: strict mode violation: getByRole('link', { name: 'fretshift' }) resolved to 2 elements:\n    1) <a href=\"/\" class=\"brand-symbol\" aria-label=\"FretShift home\">…</a> aka getByRole('link', { name: 'FretShift home' })\n    2) <a href=\"/\" class=\"wordmark\">…</a> aka getByRole('link', { name: 'fretshift', exact: true })\n\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: 'fretshift' })\u001b[22m\n\n    at /Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e/audio-validation.spec.ts:59:55",
+                    "location": {
+                      "file": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e/audio-validation.spec.ts",
+                      "column": 55,
+                      "line": 59
+                    },
+                    "snippet": "  57 |     \"test-fixtures/audio-validation/02_BN1-129-Eb_comp.wav\");\n  58 |   await expect.poll(() => page.evaluate(() => (window as typeof window & {workerStarts:number}).workerStarts)).toBe(1);\n> 59 |   await page.getByRole(\"link\", { name: \"fretshift\" }).click();\n     |                                                       ^\n  60 |   await expect(page.getByRole(\"heading\", { name: \"Your songbook\" })).toBeVisible();\n  61 |   // Decode may still be pending; its cancellation check must prevent a Worker being created.\n  62 |   await expect(page.locator(\".ai-review\")).toHaveCount(0);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e/audio-validation.spec.ts",
+                        "column": 55,
+                        "line": 59
+                      },
+                      "message": "Error: locator.click: Error: strict mode violation: getByRole('link', { name: 'fretshift' }) resolved to 2 elements:\n    1) <a href=\"/\" class=\"brand-symbol\" aria-label=\"FretShift home\">…</a> aka getByRole('link', { name: 'FretShift home' })\n    2) <a href=\"/\" class=\"wordmark\">…</a> aka getByRole('link', { name: 'fretshift', exact: true })\n\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: 'fretshift' })\u001b[22m\n\n\n  57 |     \"test-fixtures/audio-validation/02_BN1-129-Eb_comp.wav\");\n  58 |   await expect.poll(() => page.evaluate(() => (window as typeof window & {workerStarts:number}).workerStarts)).toBe(1);\n> 59 |   await page.getByRole(\"link\", { name: \"fretshift\" }).click();\n     |                                                       ^\n  60 |   await expect(page.getByRole(\"heading\", { name: \"Your songbook\" })).toBeVisible();\n  61 |   // Decode may still be pending; its cancellation check must prevent a Worker being created.\n  62 |   await expect(page.locator(\".ai-review\")).toHaveCount(0);\n    at /Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e/audio-validation.spec.ts:59:55"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Expect \"poll toBe\"",
+                      "duration": 142
+                    }
+                  ],
+                  "startTime": "2026-09-27T00:14:02.656Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/test-results/audio-validation-navigatio-bd911--it-without-saving-a-result-webkit/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e/audio-validation.spec.ts",
+                    "column": 55,
+                    "line": 59
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "0c9be62febf70c97bfe1-5838317574cf83bd87f9",
+          "file": "audio-validation.spec.ts",
+          "line": 78,
+          "column": 1
+        },
+        {
+          "title": "five-minute recording completes, persists and reopens without confirming inferred notes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 23367,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T00:14:05.953Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "five-minute-measurements",
+                      "contentType": "application/json",
+                      "body": "ewogICJpZCI6ICIxYWJiZTQyMy03YmM1LTQwZDEtOGI2YS01NjhiOTMyMDFlNTUiLAogICJieXRlcyI6IDI2NDYwMDQ0LAogICJkdXJhdGlvbiI6IDMwMCwKICAiYW5hbHlzaXNNcyI6IDE3Nzk0LAogICJzYXZlTXMiOiA0MTcsCiAgInN0YWdlcyI6IFsKICAgIHsKICAgICAgInN0YWdlIjogIlByZXBhcmluZyBhdWRpbyIsCiAgICAgICJhdE1zIjogMQogICAgfSwKICAgIHsKICAgICAgInN0YWdlIjogIkZpbmRpbmcgdGVtcG8iLAogICAgICAiYXRNcyI6IDc3NgogICAgfSwKICAgIHsKICAgICAgInN0YWdlIjogIkRldGVjdGluZyBiZWF0cyIsCiAgICAgICJhdE1zIjogNDUyOQogICAgfSwKICAgIHsKICAgICAgInN0YWdlIjogIkFuYWx5emluZyBjaG9yZHMiLAogICAgICAiYXRNcyI6IDQ1NTAKICAgIH0sCiAgICB7CiAgICAgICJzdGFnZSI6ICJEZXRlY3Rpbmcgc2luZ2xlIG5vdGVzIiwKICAgICAgImF0TXMiOiA0Nzk1CiAgICB9LAogICAgewogICAgICAic3RhZ2UiOiAiQnVpbGRpbmcgdGltZWxpbmUiLAogICAgICAiYXRNcyI6IDE3NzY0CiAgICB9LAogICAgewogICAgICAic3RhZ2UiOiAiUHJlcGFyaW5nIHJldmlldyIsCiAgICAgICJhdE1zIjogMTc3NjQKICAgIH0KICBdLAogICJmcmFtZXMiOiAyOTkzMywKICAibm90ZXMiOiAzMDAsCiAgImpzb25CeXRlcyI6IDQxOTQ3MjEsCiAgInN1cHBvcnRlZFRhcmdldHMiOiAwLAogICJuZWVkc1RpbWluZyI6IHRydWUsCiAgInNhdmVTdGF0ZSI6ICJTYXZlZCBvbiB0aGlzIGRldmljZSIKfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0c9be62febf70c97bfe1-11da03449ac1eec7663d",
+          "file": "audio-validation.spec.ts",
+          "line": 121,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-27T00:11:23.952Z",
+    "duration": 185893.02599999998,
+    "expected": 22,
+    "skipped": 1,
+    "unexpected": 3,
+    "flaky": 0
+  }
+}

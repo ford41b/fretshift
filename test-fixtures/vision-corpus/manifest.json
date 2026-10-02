@@ -1,0 +1,191 @@
+{
+  "provisional": true,
+  "generatedAt": "2026-09-13",
+  "limitations": "Synthetic rendered charts cover typography, mild skew, glare, contrast, and four two-page cases. They do not represent camera blur, folds, handwriting diversity, or real publisher layouts.",
+  "cases": [
+    {
+      "id": "provisional-01",
+      "images": [
+        "provisional-01-page-1.jpg"
+      ],
+      "golden": "provisional-01.golden.json",
+      "variant": "printed",
+      "pages": 1
+    },
+    {
+      "id": "provisional-02",
+      "images": [
+        "provisional-02-page-1.jpg"
+      ],
+      "golden": "provisional-02.golden.json",
+      "variant": "handwritten",
+      "pages": 1
+    },
+    {
+      "id": "provisional-03",
+      "images": [
+        "provisional-03-page-1.jpg"
+      ],
+      "golden": "provisional-03.golden.json",
+      "variant": "glare",
+      "pages": 1
+    },
+    {
+      "id": "provisional-04",
+      "images": [
+        "provisional-04-page-1.jpg"
+      ],
+      "golden": "provisional-04.golden.json",
+      "variant": "skew",
+      "pages": 1
+    },
+    {
+      "id": "provisional-05",
+      "images": [
+        "provisional-05-page-1.jpg",
+        "provisional-05-page-2.jpg"
+      ],
+      "golden": "provisional-05.golden.json",
+      "variant": "low-contrast",
+      "pages": 2
+    },
+    {
+      "id": "provisional-06",
+      "images": [
+        "provisional-06-page-1.jpg"
+      ],
+      "golden": "provisional-06.golden.json",
+      "variant": "printed",
+      "pages": 1
+    },
+    {
+      "id": "provisional-07",
+      "images": [
+        "provisional-07-page-1.jpg"
+      ],
+      "golden": "provisional-07.golden.json",
+      "variant": "handwritten",
+      "pages": 1
+    },
+    {
+      "id": "provisional-08",
+      "images": [
+        "provisional-08-page-1.jpg"
+      ],
+      "golden": "provisional-08.golden.json",
+      "variant": "glare",
+      "pages": 1
+    },
+    {
+      "id": "provisional-09",
+      "images": [
+        "provisional-09-page-1.jpg"
+      ],
+      "golden": "provisional-09.golden.json",
+      "variant": "skew",
+      "pages": 1
+    },
+    {
+      "id": "provisional-10",
+      "images": [
+        "provisional-10-page-1.jpg",
+        "provisional-10-page-2.jpg"
+      ],
+      "golden": "provisional-10.golden.json",
+      "variant": "low-contrast",
+      "pages": 2
+    },
+    {
+      "id": "provisional-11",
+      "images": [
+        "provisional-11-page-1.jpg"
+      ],
+      "golden": "provisional-11.golden.json",
+      "variant": "printed",
+      "pages": 1
+    },
+    {
+      "id": "provisional-12",
+      "images": [
+        "provisional-12-page-1.jpg"
+      ],
+      "golden": "provisional-12.golden.json",
+      "variant": "handwritten",
+      "pages": 1
+    },
+    {
+      "id": "provisional-13",
+      "images": [
+        "provisional-13-page-1.jpg"
+      ],
+      "golden": "provisional-13.golden.json",
+      "variant": "glare",
+      "pages": 1
+    },
+    {
+      "id": "provisional-14",
+      "images": [
+        "provisional-14-page-1.jpg"
+      ],
+      "golden": "provisional-14.golden.json",
+      "variant": "skew",
+      "pages": 1
+    },
+    {
+      "id": "provisional-15",
+      "images": [
+        "provisional-15-page-1.jpg",
+        "provisional-15-page-2.jpg"
+      ],
+      "golden": "provisional-15.golden.json",
+      "variant": "low-contrast",
+      "pages": 2
+    },
+    {
+      "id": "provisional-16",
+      "images": [
+        "provisional-16-page-1.jpg"
+      ],
+      "golden": "provisional-16.golden.json",
+      "variant": "printed",
+      "pages": 1
+    },
+    {
+      "id": "provisional-17",
+      "images": [
+        "provisional-17-page-1.jpg"
+      ],
+      "golden": "provisional-17.golden.json",
+      "variant": "handwritten",
+      "pages": 1
+    },
+    {
+      "id": "provisional-18",
+      "images": [
+        "provisional-18-page-1.jpg"
+      ],
+      "golden": "provisional-18.golden.json",
+      "variant": "glare",
+      "pages": 1
+    },
+    {
+      "id": "provisional-19",
+      "images": [
+        "provisional-19-page-1.jpg"
+      ],
+      "golden": "provisional-19.golden.json",
+      "variant": "skew",
+      "pages": 1
+    },
+    {
+      "id": "provisional-20",
+      "images": [
+        "provisional-20-page-1.jpg",
+        "provisional-20-page-2.jpg"
+      ],
+      "golden": "provisional-20.golden.json",
+      "variant": "low-contrast",
+      "pages": 2
+    }
+  ]
+}

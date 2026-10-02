@@ -1,0 +1,15 @@
+Command: ['node', 'scripts/bench-audio-intelligence.mjs']
+{
+  "summary": {
+    "cases": 11,
+    "meanTempoErrorBpm": 2.0775,
+    "meanChordLabelAccuracy": 0.678,
+    "meanChordSegmentIoU": 0.5582,
+    "meanRuntimeMs": 216.6739,
+    "totalMissedTransitions": 7,
+    "totalFalseTransitions": 0
+  },
+  "output": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/AUDIO_INTELLIGENCE_BENCHMARK_RESULTS.json"
+}
+
+Exit: 0; seconds: 4.502

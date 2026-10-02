@@ -1,0 +1,41 @@
+Command: ['node', 'scripts/bench-audio-notes.mjs', 'test-fixtures/audio-validation', 'docs/post-phase-3-validation/expanded-notes.json']
+synthetic-melody {"predicted":5,"matched":5,"reference":5,"ms":293.449}
+synthetic-silence {"predicted":0,"matched":0,"reference":0,"ms":1.252}
+synthetic-noise {"predicted":0,"matched":0,"reference":0,"ms":399.2757}
+synthetic-polyphonic {"predicted":0,"matched":0,"reference":3,"ms":190.9886}
+synthetic-octave-mixture {"predicted":1,"matched":1,"reference":2,"ms":171.2058}
+01_BN1-129-Eb_comp {"predicted":15,"matched":4,"reference":105,"ms":1845.0295}
+01_BN1-129-Eb_solo {"predicted":56,"matched":46,"reference":61,"ms":1894.7543}
+02_BN1-129-Eb_comp {"predicted":26,"matched":9,"reference":154,"ms":1963.6397}
+02_BN1-129-Eb_solo {"predicted":59,"matched":47,"reference":57,"ms":1670.7653}
+{
+  "synthetic": {
+    "cases": 5,
+    "referenceNotes": 10,
+    "predictedNotes": 6,
+    "matchedNotes": 6,
+    "falsePositives": 0,
+    "missedNotes": 4,
+    "meanRuntimeMs": 211.2342
+  },
+  "real-solo": {
+    "cases": 2,
+    "referenceNotes": 118,
+    "predictedNotes": 115,
+    "matchedNotes": 93,
+    "falsePositives": 22,
+    "missedNotes": 25,
+    "meanRuntimeMs": 1782.7598
+  },
+  "real-comp-polyphonic": {
+    "cases": 2,
+    "referenceNotes": 259,
+    "predictedNotes": 41,
+    "matchedNotes": 13,
+    "falsePositives": 28,
+    "missedNotes": 246,
+    "meanRuntimeMs": 1904.3346
+  }
+}
+
+Exit: 0; seconds: 9.624

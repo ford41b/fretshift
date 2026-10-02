@@ -1,0 +1,15 @@
+{
+  "status": "unresolved",
+  "functionalEvidence": [
+    "browser-regressions.json",
+    "browser-regressions-rerun.json"
+  ],
+  "failure": "WebKit 1280px: summary click is intercepted by surrounding card/select/main after reload; Chrome and mobile case pass.",
+  "diagnosticEvidence": [
+    "strumming-startup-timeout.json",
+    "strumming-diagnostic.json",
+    "vite-local-read-delay-sample.txt"
+  ],
+  "diagnosticLimitation": "Subsequent local dev-server checks timed out, including direct HTTP fetches. Process sample shows main thread in synchronous filesystem reads while loading local dependencies. No diagnostic screenshot was produced. Temporary instrumentation/config was removed; no application/CSS workaround was guessed.",
+  "nextAction": "Reproduce with e2e/strumming.spec.ts --grep \"playback at 1280px\" --project=webkit on a responsive dev server; inspect summary bounding rectangle, elementFromPoint and actual Safari hit-testing after restored scroll position."
+}

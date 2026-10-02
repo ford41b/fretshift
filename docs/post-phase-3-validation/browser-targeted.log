@@ -1,0 +1,25 @@
+Command: ['node', 'node_modules/@playwright/test/cli.js', 'test', 'e2e/audio-notes.spec.ts', 'e2e/audio-validation.spec.ts', '--grep', 'confirmed audio notes|navigation during', '--project=chromium', '--project=webkit', '--trace=off', '--reporter=list,json']
+[2m[WebServer] [22m(node:39415) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22m(node:39468) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 4 tests using 1 worker
+
+(node:39471) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:39471) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  -  1 [chromium] › e2e/audio-notes.spec.ts:237:1 › confirmed audio notes use controlled microphone pitch, pause cleanup and no guide audio
+  ✓  2 [chromium] › e2e/audio-validation.spec.ts:78:1 › navigation during a stalled Worker terminates it without saving a result (3.0s)
+(node:39952) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:39952) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 [webkit] › e2e/audio-notes.spec.ts:237:1 › confirmed audio notes use controlled microphone pitch, pause cleanup and no guide audio (11.0s)
+  ✓  4 [webkit] › e2e/audio-validation.spec.ts:78:1 › navigation during a stalled Worker terminates it without saving a result (2.9s)
+
+  1 skipped
+  3 passed (22.2s)
+
+Exit: 0; seconds: 23.153

@@ -1,0 +1,91 @@
+Command: ['node', 'scripts/verify-audio-offline.mjs']
+HTML SCRIPT http://127.0.0.1:5396/_vercel/insights/script.js 200
+HTML SCRIPT http://127.0.0.1:5396/_vercel/insights/script.js 200
+HTML SCRIPT http://127.0.0.1:5396/_vercel/insights/script.js 200
+{
+  "errors": [
+    {
+      "message": "Unexpected token '<'",
+      "stack": ""
+    },
+    {
+      "message": "Unexpected token '<'",
+      "stack": ""
+    },
+    {
+      "message": "Unexpected token '<'",
+      "stack": ""
+    }
+  ],
+  "details": [
+    {
+      "message": "Uncaught SyntaxError: Unexpected token '<'",
+      "filename": "http://127.0.0.1:5396/_vercel/insights/script.js"
+    }
+  ],
+  "scripts": [
+    "http://127.0.0.1:5396/assets/index-B3Xn6YOK.js",
+    "http://127.0.0.1:5396/_vercel/insights/script.js"
+  ]
+}
+/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/node_modules/.pnpm/playwright@1.55.0/node_modules/playwright/lib/matchers/expect.js:221
+        return matcher.call(target, ...args);
+                       ^
+
+Je [Error]: expect(received).toEqual(expected) // deep equality
+
+- Expected  -  1
++ Received  + 14
+
+- Array []
++ Array [
++   Object {
++     "message": "Unexpected token '<'",
++     "stack": "",
++   },
++   Object {
++     "message": "Unexpected token '<'",
++     "stack": "",
++   },
++   Object {
++     "message": "Unexpected token '<'",
++     "stack": "",
++   },
++ ]
+    at Proxy.<anonymous> (/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/node_modules/.pnpm/playwright@1.55.0/node_modules/playwright/lib/matchers/expect.js:221:24)
+    at file:///Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/scripts/verify-audio-offline.mjs:53:20 {
+  matcherResult: {
+    actual: [
+      { message: "Unexpected token '<'", stack: '' },
+      { message: "Unexpected token '<'", stack: '' },
+      { message: "Unexpected token '<'", stack: '' }
+    ],
+    expected: [],
+    message: 'expect(received).toEqual(expected) // deep equality\n' +
+      '\n' +
+      '- Expected  -  1\n' +
+      '+ Received  + 14\n' +
+      '\n' +
+      '- Array []\n' +
+      '+ Array [\n' +
+      '+   Object {\n' +
+      `+     "message": "Unexpected token '<'",\n` +
+      '+     "stack": "",\n' +
+      '+   },\n' +
+      '+   Object {\n' +
+      `+     "message": "Unexpected token '<'",\n` +
+      '+     "stack": "",\n' +
+      '+   },\n' +
+      '+   Object {\n' +
+      `+     "message": "Unexpected token '<'",\n` +
+      '+     "stack": "",\n' +
+      '+   },\n' +
+      '+ ]',
+    name: 'toEqual',
+    pass: false
+  }
+}
+
+Node.js v24.19.0
+
+Exit: 1; seconds: 8.713

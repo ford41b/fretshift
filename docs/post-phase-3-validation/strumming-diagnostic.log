@@ -1,0 +1,33 @@
+Command: ['node', 'node_modules/@playwright/test/cli.js', 'test', 'e2e/strumming.spec.ts', '--config=playwright.diagnostic.config.ts', '--grep', 'playback at 1280px', '--project=webkit', '--trace=off', '--reporter=list,json']
+
+Running 1 test using 1 worker
+
+(node:20377) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:20377) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [webkit] › e2e/strumming.spec.ts:4:3 › strumming editing, persistence and playback at 1280px (30.1s)
+
+
+  1) [webkit] › e2e/strumming.spec.ts:4:3 › strumming editing, persistence and playback at 1280px ──
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://127.0.0.1:5263/song/sample-1", waiting until "load"[22m
+
+
+       9 |     const errors: string[] = [];
+      10 |     page.on("pageerror", (e) => errors.push(e.message));
+    > 11 |     await page.goto("/song/sample-1");
+         |                ^
+      12 |     const studio = page.getByRole("region", {
+      13 |       name: "Strumming pattern",
+      14 |       exact: true,
+        at /Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e/strumming.spec.ts:11:16
+
+  1 failed
+    [webkit] › e2e/strumming.spec.ts:4:3 › strumming editing, persistence and playback at 1280px ───
+
+Exit: 1; seconds: 38.240

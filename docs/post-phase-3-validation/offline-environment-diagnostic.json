@@ -1,0 +1,11 @@
+{
+  "errors": [],
+  "responses": [
+    {
+      "url": "http://127.0.0.1:5396/_vercel/insights/script.js",
+      "status": 404,
+      "bodyPrefix": ""
+    }
+  ],
+  "scope": "One initial uncontrolled page visit; returns 404 before service-worker reload. The full controlled-page run returns SPA HTML, shown in offline-diagnostic.log."
+}

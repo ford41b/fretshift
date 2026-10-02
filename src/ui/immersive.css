@@ -1,0 +1,821 @@
+.immersive {
+  --imm-purple: #a998ff;
+  --imm-mint: #baf3d4;
+  max-width: 1300px;
+  margin: auto;
+}
+.imm-header,
+.imm-status,
+.imm-lane-top,
+.imm-lane-bottom,
+.imm-controls,
+.imm-cue {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.imm-header {
+  margin-bottom: 24px;
+}
+.imm-header h1 {
+  font-size: clamp(22px, 3vw, 36px);
+  margin: 5px 0;
+}
+.imm-header > div {
+  flex: 1;
+}
+.imm-header button,
+.imm-header a {
+  min-height: 46px;
+}
+.imm-status {
+  flex-wrap: wrap;
+  font-size: 12px;
+  color: var(--text-2);
+  margin: 16px 0;
+}
+.imm-status > span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.imm-lane {
+  position: relative;
+  background: radial-gradient(
+    ellipse at 28% 10%,
+    #353048 0%,
+    #1d1c27 48%,
+    #15151c 100%
+  );
+  color: #f9f7ff;
+  border: 1px solid #514965;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 18px 60px #16101f18;
+}
+.imm-lane-top,
+.imm-lane-bottom {
+  padding: 18px 24px;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: #c8c0de;
+}
+.imm-lane-top {
+  padding-bottom: 28px;
+}
+.imm-lane-bottom {
+  margin-top: 22px;
+}
+.imm-strings {
+  height: 190px;
+  position: relative;
+  margin: 0 0 0 20px;
+}
+.imm-string {
+  position: absolute;
+  width: 100%;
+  border-top: 1px solid #777082;
+}
+.imm-string:nth-child(n + 4) {
+  border-top-width: 2px;
+}
+.imm-string > span {
+  position: absolute;
+  left: 0;
+  top: -12px;
+  background: #23212d;
+  color: #cec6de;
+  font-size: 12px;
+  padding: 1px 5px;
+}
+.imm-playline {
+  position: absolute;
+  height: calc(100% + 12px);
+  top: -6px;
+  left: 24%;
+  width: 3px;
+  background: var(--imm-mint);
+  box-shadow: 0 0 16px #baf3d45c;
+  z-index: 2;
+}
+.imm-playline > span {
+  position: absolute;
+  top: -25px;
+  left: -14px;
+  color: var(--imm-mint);
+  font-size: 9px;
+  letter-spacing: 0.13em;
+}
+.imm-target {
+  position: absolute;
+  height: 100%;
+  width: 36px;
+  margin-left: -18px;
+  z-index: 3;
+}
+.imm-fret {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 27px;
+  margin-top: -13px;
+  border-radius: 8px;
+  color: #201735;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  background: #efebff;
+  box-shadow: 0 3px 0 #9f93bc;
+}
+.imm-target.chord::before,
+.imm-target.muted::before {
+  content: "";
+  position: absolute;
+  top: 4%;
+  height: 92%;
+  left: 10px;
+  width: 14px;
+  border-radius: 8px;
+  background: #796391;
+  opacity: 0.7;
+}
+.imm-chord-name {
+  position: absolute;
+  top: -25px;
+  left: 0;
+  white-space: nowrap;
+  font-size: 11px;
+}
+.imm-target.hit .imm-fret {
+  background: #baf3d4;
+}
+.imm-target.wrong .imm-fret,
+.imm-target.missed .imm-fret {
+  background: #ffb3b3;
+}
+.imm-target.uncertain .imm-fret {
+  background: #ffe0a2;
+}
+.imm-target-result {
+  position: absolute;
+  bottom: -32px;
+  left: 12px;
+  font-size: 16px;
+}
+.imm-left .imm-strings {
+  transform: scaleX(-1);
+  margin: 0 20px 0 0;
+}
+.imm-left .imm-fret,
+.imm-left .imm-string > span,
+.imm-left .imm-chord-name,
+.imm-left .imm-target-result,
+.imm-left .imm-playline > span {
+  transform: scaleX(-1);
+}
+.imm-cue {
+  min-height: 125px;
+  padding: 20px 6px;
+}
+.imm-cue h2 {
+  margin: 7px 0;
+  font-size: 36px;
+}
+.imm-cue p {
+  margin: 0;
+  color: var(--text-2);
+}
+.imm-feedback {
+  max-width: 360px;
+  text-align: right;
+  font-weight: 600;
+}
+.imm-setup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.imm-setup > .card {
+  padding: 26px;
+}
+.imm-setup h2 {
+  font-size: 26px;
+  margin: 10px 0 18px;
+}
+.imm-setup p {
+  color: var(--text-2);
+  font-size: 13px;
+}
+.imm-modes {
+  display: flex;
+  gap: 6px;
+}
+.imm-modes button {
+  flex: 1;
+  min-height: 44px;
+}
+.imm-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.imm-setup label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 12px;
+  margin: 16px 0;
+}
+.imm-setup select {
+  width: 100%;
+}
+.imm-setup .imm-check {
+  flex-direction: row;
+  align-items: center;
+}
+.imm-check input {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+.imm-level {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 12px;
+  margin: 18px 0;
+}
+.imm-level meter {
+  flex: 1;
+  min-width: 30px;
+  accent-color: var(--accent);
+}
+.imm-start {
+  grid-column: 1/-1;
+  border-top: 1px solid var(--border-subtle);
+  padding: 18px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.imm-start > div {
+  max-width: 750px;
+}
+.imm-start > .primary {
+  white-space: nowrap;
+  min-height: 52px;
+}
+.imm-caption {
+  font-size: 12px;
+  color: var(--text-2);
+}
+.imm-controls {
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px 0;
+}
+.imm-controls button {
+  min-height: 50px;
+  min-width: 120px;
+}
+.imm-notice {
+  background: var(--soft-accent);
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 13px;
+}
+.imm-tuner {
+  font-size: 20px !important;
+  font-weight: 600;
+}
+.immersive-active {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--bg);
+  max-width: none;
+  overflow: auto;
+  padding: max(18px, env(safe-area-inset-top))
+    max(28px, env(safe-area-inset-right)) max(18px, env(safe-area-inset-bottom))
+    max(28px, env(safe-area-inset-left));
+}
+.immersive-active .imm-lane {
+  max-width: 1400px;
+  margin: auto;
+}
+.immersive-active .imm-strings {
+  height: clamp(130px, 30dvh, 340px);
+}
+.immersive:fullscreen {
+  padding: 24px;
+  overflow: auto;
+  background: var(--bg);
+}
+.imm-results {
+  max-width: 1000px;
+  margin: 35px auto;
+}
+.imm-results h2 {
+  font-size: 36px;
+}
+.imm-results p {
+  color: var(--text-2);
+}
+.imm-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 30px 0;
+}
+.imm-stats > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+  border: 1px solid var(--border-subtle);
+  background: var(--card);
+  border-radius: 20px;
+}
+.imm-stats strong {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 42px;
+  color: var(--accent-text);
+}
+.imm-stats span {
+  font-size: 12px;
+}
+.immersive-song-list {
+  display: grid;
+  gap: 12px;
+}
+.immersive-song-list > a {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.immersive-song-list h2 {
+  font-size: 20px;
+  margin: 0;
+}
+.immersive-song-list p {
+  margin: 5px 0 0;
+  color: var(--text-2);
+}
+.immersive-song-list > a > div {
+  flex: 1;
+}
+@media (max-width: 650px) {
+  .imm-setup {
+    grid-template-columns: 1fr;
+  }
+  .imm-header {
+    gap: 10px;
+  }
+  .imm-header h1 {
+    font-size: 22px;
+  }
+  .imm-header .eyebrow {
+    font-size: 9px;
+  }
+  .imm-header a {
+    font-size: 12px;
+    padding: 10px;
+  }
+  .imm-status {
+    gap: 8px;
+    font-size: 10px;
+  }
+  .imm-lane {
+    border-radius: 16px;
+  }
+  .imm-lane-top,
+  .imm-lane-bottom {
+    padding-left: 14px;
+    padding-right: 14px;
+    font-size: 8px;
+  }
+  .imm-strings {
+    height: 170px;
+    margin-left: 8px;
+  }
+  .imm-fret {
+    width: 27px;
+    height: 26px;
+  }
+  .imm-cue {
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .imm-cue h2 {
+    font-size: 30px;
+  }
+  .imm-cue p {
+    font-size: 11px;
+  }
+  .imm-cue .eyebrow {
+    font-size: 9px;
+  }
+  .imm-feedback {
+    max-width: 160px;
+  }
+  .imm-setup > .card {
+    padding: 20px;
+  }
+  .imm-start {
+    display: block;
+  }
+  .imm-start > .primary {
+    width: 100%;
+  }
+  .immersive-active {
+    padding-left: max(12px, env(safe-area-inset-left));
+    padding-right: max(12px, env(safe-area-inset-right));
+  }
+  .imm-stats {
+    grid-template-columns: 1fr;
+  }
+  .imm-stats > div {
+    padding: 18px;
+  }
+  .imm-controls {
+    gap: 8px;
+  }
+  .imm-controls button {
+    min-width: 100px;
+    font-size: 12px;
+  }
+}
+@media (orientation: landscape) and (max-height: 600px) {
+  .immersive-active .imm-header {
+    margin-bottom: 6px;
+  }
+  .immersive-active .imm-header h1 {
+    font-size: 20px;
+  }
+  .immersive-active .imm-header .eyebrow {
+    display: none;
+  }
+  .immersive-active .imm-status {
+    margin: 6px 0;
+  }
+  .immersive-active .imm-strings {
+    height: 110px;
+  }
+  .immersive-active .imm-lane-top {
+    padding-top: 7px;
+  }
+  .immersive-active .imm-lane-bottom {
+    padding: 9px 20px;
+    margin-top: 6px;
+  }
+  .immersive-active .imm-cue {
+    min-height: 60px;
+    padding: 8px 0;
+  }
+  .immersive-active .imm-cue h2 {
+    font-size: 23px;
+    display: inline-block;
+    margin: 0 12px 0 0;
+  }
+  .immersive-active .imm-cue .eyebrow {
+    display: none;
+  }
+  .immersive-active .imm-controls {
+    padding: 4px;
+  }
+  .immersive-active .imm-caption {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .immersive * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+.imm-beat {
+  color: var(--accent-text);
+  min-width: 62px;
+  font-variant-numeric: tabular-nums;
+}
+@media (orientation: landscape) and (max-height: 600px) {
+  .immersive-active {
+    padding-top: max(8px, env(safe-area-inset-top));
+    padding-bottom: max(8px, env(safe-area-inset-bottom));
+  }
+  .immersive-active .imm-header a,
+  .immersive-active .imm-header button {
+    min-height: 38px;
+    padding: 7px 12px;
+  }
+  .immersive-active .imm-strings {
+    height: 88px;
+  }
+  .immersive-active .imm-lane-top {
+    padding: 7px 20px 22px;
+  }
+  .immersive-active .imm-lane-bottom {
+    padding: 5px 20px;
+    margin-top: 4px;
+  }
+  .immersive-active .imm-cue {
+    min-height: 50px;
+  }
+}
+
+/* Immersive visual refresh — scoped to the practice routes. Recognition and scoring remain unchanged. */
+.immersive-surface,
+.imm-library {
+  --imm-ink: #f7f3ff;
+  --imm-muted: #b8accf;
+  --imm-line: rgba(199, 176, 255, .16);
+  --imm-accent: #a78bff;
+  --imm-mint: #83efd6;
+  position: fixed;
+  z-index: 140;
+  inset: 0;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+  height: 100dvh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: max(20px, env(safe-area-inset-top)) max(24px, env(safe-area-inset-right)) max(18px, env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left));
+  background: radial-gradient(ellipse 70% 48% at 50% -13%, #453184 0%, #211537 48%, transparent 95%),
+              radial-gradient(ellipse 50% 45% at 103% 78%, #2b2050 0%, transparent 92%),
+              #100d19;
+  color: var(--imm-ink);
+  color-scheme: dark;
+  font-family: Inter, sans-serif;
+  isolation: isolate;
+}
+.immersive-surface *, .imm-library * { box-sizing: border-box; }
+.immersive-surface h1, .immersive-surface h2, .immersive-surface h3,
+.imm-library h1, .imm-library h2 { color: #fff; font-family: 'Space Grotesk', Inter, sans-serif; letter-spacing: -.035em; }
+.immersive-surface p, .imm-library p { color: var(--imm-muted); line-height: 1.6; }
+.immersive-surface .eyebrow, .immersive-surface .imm-eyebrow, .imm-library .imm-eyebrow {
+  font-size: 10px; font-weight: 750; letter-spacing: .17em; color: #beaaff;
+}
+.imm-period { color: #af92ff; }
+.immersive-surface button, .immersive-surface select, .immersive-surface .button {
+  font-family: inherit; font-size: 13px; font-weight: 650;
+  color: #f5f0ff; background: rgba(255,255,255,.065);
+  border: 1px solid rgba(208,188,255,.19); border-radius: 13px;
+  min-height: 44px; padding: 10px 16px;
+  transition: background .18s ease, border-color .18s ease, transform .18s ease;
+}
+.immersive-surface button:not(:disabled):hover, .immersive-surface .button:hover {
+  background: rgba(161,126,255,.19); border-color: rgba(191,163,255,.52);
+}
+.immersive-surface button:not(:disabled):active { transform: translateY(1px); }
+.immersive-surface button:disabled { opacity: .42; cursor: not-allowed; }
+.immersive-surface button:focus-visible, .immersive-surface a:focus-visible,
+.immersive-surface select:focus-visible, .imm-library a:focus-visible {
+  outline: 2px solid var(--imm-mint); outline-offset: 3px;
+}
+.immersive-surface .primary, .immersive-surface button.primary {
+  background: linear-gradient(130deg, #8056ff, #a16aff);
+  border-color: #ac8cff; color: white; font-weight: 750;
+  box-shadow: 0 8px 22px rgba(89,42,202,.26);
+}
+.immersive-surface .primary:hover:not(:disabled) { background: linear-gradient(130deg, #9069ff, #ae82ff); }
+.immersive-surface a:not(.button) { color: #decfff; }
+.immersive-surface select { background: #29203e; width: 100%; }
+.immersive-surface input[type='checkbox'], .immersive-surface input[type='range'] { accent-color: #9b75ff; }
+
+/* Dark, focused top bar. The guitar matches the prior version's sidebar symbol. */
+.immersive-surface .imm-header {
+  max-width: 1440px; min-height: 62px; margin: 0 auto 21px;
+  display: grid; grid-template-columns: minmax(78px,1fr) minmax(0,2fr) minmax(78px,1fr);
+  align-items: center; gap: 15px;
+}
+.immersive-surface .imm-header .button { justify-self: start; display: inline-flex; align-items:center; gap: 8px; text-decoration:none; }
+.immersive-surface .imm-heading { display: flex; justify-content:center; align-items:center; gap: 13px; min-width:0; }
+.imm-heading-icon, .imm-song-icon, .imm-hero-symbol, .imm-intro-emblem {
+  display: inline-grid; place-items: center; flex-shrink:0;
+  color: #e7dfff; border: 1px solid rgba(194,165,255,.37);
+  background: linear-gradient(135deg, rgba(160,114,255,.3), rgba(94,69,167,.14));
+  box-shadow: inset 0 1px rgba(255,255,255,.13), 0 12px 38px rgba(0,0,0,.18);
+}
+.imm-heading-icon { width:43px;height:43px;border-radius:14px; }
+.immersive-surface .imm-heading h1 { font-size:clamp(16px,2.3vw,24px); line-height:1.25; margin:3px 0 1px; }
+.immersive-surface .imm-heading .imm-artist { color:#9f93b8;font-size:11px; }
+.immersive-surface .imm-heading .imm-eyebrow { font-size:8px; white-space:nowrap; }
+.immersive-surface .imm-fullscreen { justify-self:end; width:46px;padding:0; display:grid;place-items:center; }
+.immersive-surface .imm-notice { max-width:1120px;margin:12px auto; background:#6f484d3b; color:#ffe0e4; border:1px solid #f4aeb742; }
+
+/* A proper setup landing view, with the controls beneath rather than behind the lane. */
+.immersive-surface .imm-intro { max-width:760px;text-align:center;margin:clamp(10px,2.3vh,30px) auto 17px; }
+.immersive-surface .imm-intro-emblem { width:69px;height:69px;border-radius:23px; margin:0 auto 19px;color:#f8f1ff; }
+.immersive-surface .imm-intro h2 { font-size:clamp(32px,5vw,53px);line-height:1.08;margin:11px 0 9px; }
+.immersive-surface .imm-intro p { font-size:14px;margin:0 auto;max-width:530px; }
+.immersive-surface .imm-status {
+  max-width:1120px; margin:0 auto 20px; padding:10px 14px; display:flex; justify-content:center;
+  gap:12px 25px; border:1px solid rgba(200,178,255,.12);
+  border-radius:14px; background:rgba(255,255,255,.035);
+  color:#c9bee1;font-size:11px;
+}
+.immersive-surface .imm-status > span {display:inline-flex;align-items:center;gap:7px;}
+.immersive-surface .imm-status > span:first-child svg {color:#9eebcf;}
+.immersive-surface .imm-beat { color:#d5c1ff; }
+.immersive-surface .imm-setup {max-width:1120px;margin:0 auto;gap:16px;grid-template-columns:1fr 1fr;align-items:stretch;}
+.immersive-surface .imm-setup > .card, .immersive-surface .imm-results,
+.immersive-surface .imm-stats > div {
+  color:var(--imm-ink);background:linear-gradient(155deg,rgba(255,255,255,.09),rgba(255,255,255,.035));
+  border:1px solid rgba(205,184,255,.18);border-radius:24px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 20px 60px rgba(0,0,0,.10);
+}
+.immersive-surface .imm-setup > .card {min-width:0;padding:clamp(19px,2.5vw,28px);}
+.immersive-surface .imm-panel-title {display:flex;gap:14px;align-items:center;margin-bottom:20px;}
+.immersive-surface .imm-panel-title h2 {margin:3px 0 1px;font-size:24px;}
+.immersive-surface .imm-panel-title p {margin:0;font-size:12px;}
+.immersive-surface .imm-step {
+  display:grid;place-items:center;flex:0 0 40px;height:40px;border-radius:13px;
+  background:#8159e8;color:white;font-weight:750;font-size:13px;box-shadow:0 6px 24px #8159e840;
+}
+.immersive-surface .imm-modes {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;}
+.immersive-surface .imm-modes button {
+  min-width:0;text-align:left;min-height:100px;padding:14px;display:flex;flex-direction:column;gap:9px;
+  align-items:flex-start;justify-content:flex-start;
+}
+.immersive-surface .imm-modes button strong {font-family:'Space Grotesk',sans-serif;font-size:16px;}
+.immersive-surface .imm-modes button small {font-size:11px;line-height:1.45;font-weight:400;color:#baafcf;}
+.immersive-surface .imm-modes button.selected, .immersive-surface .imm-speed-options button.selected {
+  border-color:#b797ff; background:linear-gradient(145deg,rgba(150,104,255,.39),rgba(121,76,232,.16));
+  box-shadow:inset 0 0 0 1px #af89ff5c,0 8px 25px #6d35ee24;
+}
+.immersive-surface .imm-modes button.selected small {color:#e1d5f8;}
+.immersive-surface .imm-setup p {font-size:12px;margin:13px 0;}
+.immersive-surface .imm-fields {gap:11px;}
+.immersive-surface .imm-setup label {color:#d7ccee;font-size:12px;margin:13px 0;}
+.immersive-surface .imm-setup select {min-height:43px;border-radius:11px;}
+.immersive-surface .imm-speed-row {display:flex;justify-content:space-between;align-items:center;color:#d7ccee;font-size:12px;margin:18px 0 9px;}
+.immersive-surface .imm-speed-row strong {color:#d5c2ff;font-variant-numeric:tabular-nums;}
+.immersive-surface .imm-speed-options {display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;}
+.immersive-surface .imm-speed-options button {padding:7px 0;min-width:0;min-height:39px;font-size:12px;}
+.immersive-surface .imm-check {flex-direction:row;align-items:flex-start;gap:10px;line-height:1.45;}
+.immersive-surface .imm-check input {margin-top:2px;flex-shrink:0;width:16px;height:16px;}
+.immersive-surface .imm-level {background:rgba(255,255,255,.04);border:1px solid var(--imm-line);border-radius:12px;padding:13px;flex-wrap:wrap;}
+.immersive-surface .imm-level meter {min-width:60px;accent-color:var(--imm-mint);}
+.immersive-surface .button-row {display:flex;align-items:center;gap:9px;flex-wrap:wrap;}
+.immersive-surface .button-row button {display:inline-flex;align-items:center;gap:7px;}
+.immersive-surface .imm-tuner {color:#aef8e3!important;}
+.immersive-surface .imm-start {max-width:1120px;grid-column:1/-1;margin:2px 0 0;border-top:1px solid var(--imm-line);padding:19px 0;}
+.immersive-surface .imm-start h3 {font-size:21px;margin:0 0 4px;}
+.immersive-surface .imm-start p {font-size:11px;margin:4px 0;}
+.immersive-surface .imm-start .primary {white-space:nowrap;min-height:54px;display:flex;align-items:center;gap:11px;padding:11px 22px;}
+
+/* Practice HUD, actual six-string lane and clearly differentiated evidence. */
+.immersive-surface.immersive-active {display:flex;flex-direction:column;gap:9px;}
+.immersive-surface.immersive-active .imm-header {width:100%;margin-bottom:0;flex:0 0 auto;}
+.immersive-surface.immersive-active .imm-status {width:100%;margin:1px auto 5px;flex:0 0 auto;}
+.immersive-surface .imm-progress {max-width:1440px;width:100%;height:4px;border-radius:999px;overflow:hidden;background:#ffffff23;margin:1px auto 0;flex:0 0 auto;}
+.immersive-surface .imm-progress > span {display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#8864ff,#84eed7);transition:width .12s linear;}
+.immersive-surface .imm-lane {
+  width:100%;max-width:1440px;margin:4px auto 0;
+  flex:0 0 auto;overflow:hidden;
+  border:1px solid rgba(209,181,255,.25);border-radius:25px;
+  background:radial-gradient(ellipse at 29% 0%, #333047 0%, #20202d 43%, #16141f 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.15),0 25px 75px #0006;
+}
+.immersive-surface .imm-lane-top,.immersive-surface .imm-lane-bottom {color:#c4b7d9;display:flex;align-items:center;justify-content:space-between;font-size:10px;letter-spacing:.13em;padding:16px 25px;}
+.immersive-surface .imm-lane-top {padding-bottom:25px;}
+.immersive-surface .imm-lane-bottom {padding-top:10px;}
+.immersive-surface .imm-strings {height:clamp(168px,29dvh,300px);margin-left:22px;margin-right:20px;}
+.immersive-surface .imm-string {border-top:1px solid #c1b9d15a;}
+.immersive-surface .imm-string:nth-child(n+4) {border-top-width:1.5px;}
+.immersive-surface .imm-string > span {color:#e1d8f1;background:#242331;border-radius:5px;padding:3px 6px;font-size:11px;left:0;top:-12px;}
+.immersive-surface .imm-playline {z-index:3;width:3px;background:#88eddf;box-shadow:0 0 9px 3px #8ceeff45;}
+.immersive-surface .imm-playline:before {content:"";position:absolute;top:0;left:-5px;border-left:7px solid transparent;border-right:7px solid transparent;border-top:10px solid #88eddf;}
+.immersive-surface .imm-playline > span {color:#a8fff0;left:12px;top:-22px;}
+.immersive-surface .imm-target {width:38px;margin-left:-19px;}
+.immersive-surface .imm-fret {
+  background:#eee8ff;color:#261936;border-radius:9px;width:35px;height:30px;margin-top:-15px;
+  font-size:15px;box-shadow:inset 0 1px #fff,0 4px 0 #9481b2,0 8px 15px #0004;
+}
+.immersive-surface .imm-target.current .imm-fret {outline:2px solid #87f7e5;outline-offset:2px;}
+.immersive-surface .imm-target.chord::before,.immersive-surface .imm-target.muted::before {background:linear-gradient(#ae8bf5,#5c458d);width:19px;border-radius:10px;opacity:.9;left:8px;}
+.immersive-surface .imm-chord-name {color:#e5d9ff;font-weight:700;top:-29px;}
+.immersive-surface .imm-target.hit .imm-fret,.immersive-surface .imm-target.early .imm-fret,.immersive-surface .imm-target.late .imm-fret {background:#92f6d7;box-shadow:0 4px 0 #409e86,0 7px 14px #0005;}
+.immersive-surface .imm-target.wrong .imm-fret,.immersive-surface .imm-target.missed .imm-fret {background:#ffa4b2;box-shadow:0 4px 0 #b6637a,0 7px 14px #0005;}
+.immersive-surface .imm-target.uncertain .imm-fret,.immersive-surface .imm-target.unsupported .imm-fret {background:#d2c4ee;}
+.immersive-surface .imm-target-result {color:#d0fff1;text-shadow:0 1px 5px #000;}
+.immersive-surface .imm-cue {max-width:1440px;width:100%;margin:0 auto;min-height:85px;flex:0 0 auto;padding:12px 4px;gap:15px;}
+.immersive-surface .imm-cue h2 {font-size:clamp(28px,4.1vw,46px);margin:3px 0;}
+.immersive-surface .imm-cue p {margin:0;font-size:12px;}
+.immersive-surface .imm-feedback {font-size:clamp(13px,1.7vw,19px);font-weight:700;color:#baf8e3!important;}
+.immersive-surface .imm-controls {width:100%;max-width:1440px;margin:0 auto;flex:0 0 auto;padding:2px 0 0;justify-content:center;gap:10px;}
+.immersive-surface .imm-controls button {min-height:48px;min-width:105px;display:inline-flex;align-items:center;justify-content:center;gap:8px;}
+.immersive-surface .imm-legend {display:flex;align-items:center;justify-content:center;gap:17px;flex-wrap:wrap;color:#c4b6d9;font-size:10px;margin:7px 0 0;}
+.immersive-surface .imm-legend > span {display:flex;align-items:center;gap:6px;}
+.immersive-surface .imm-key {display:inline-block;width:7px;height:7px;border-radius:50%;}
+.immersive-surface .imm-key-hit {background:#83efd6;}.immersive-surface .imm-key-missed {background:#ffa4b2;}.immersive-surface .imm-key-uncertain {background:#ceb9ef;}
+.immersive-surface .imm-caption {max-width:1060px;margin:0 auto;color:#a79dbb;font-size:11px;text-align:center;}
+.immersive-surface .imm-foot {max-width:1440px;width:100%;margin:auto auto 0;padding-top:12px;display:flex;align-items:center;justify-content:space-between;gap:12px;color:#9f91ba;font-size:9px;font-weight:700;letter-spacing:.1em;}
+.immersive-surface .imm-results {width:min(1060px,100%);margin:30px auto auto;padding:clamp(22px,3vw,36px);}
+.immersive-surface .imm-results h2 {font-size:clamp(29px,4vw,46px);}
+.immersive-surface .imm-stats {margin:22px 0;}
+.immersive-surface .imm-stats > div {padding:clamp(16px,2vw,24px);min-width:0;}
+.immersive-surface .imm-stats strong {font-size:clamp(25px,3.2vw,42px);color:#d0baff;}
+.immersive-surface .imm-stats span {color:#d0c4e0;font-size:11px;}
+
+/* Song chooser gets the same immersive visual language. */
+.imm-library {padding-top:max(42px,env(safe-area-inset-top));}
+.imm-library-hero {max-width:800px;margin:clamp(14px,5vh,60px) auto 50px;text-align:center;}
+.imm-hero-symbol {width:78px;height:78px;border-radius:25px;margin:0 auto 23px;}
+.imm-library-hero h1 {font-size:clamp(36px,6vw,62px);margin:10px 0;}
+.imm-library-hero p {font-size:15px;max-width:590px;margin:0 auto;}
+.imm-library-heading {max-width:1040px;margin:0 auto 14px;display:flex;align-items:center;justify-content:space-between;color:#b9aacf;font-size:10px;font-weight:750;letter-spacing:.14em;}
+.imm-library .immersive-song-list {max-width:1040px;margin:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;}
+.imm-song-card {display:flex;align-items:center;gap:14px;padding:19px;text-decoration:none;color:#f6f1ff;background:rgba(255,255,255,.065);border:1px solid rgba(205,184,255,.18);border-radius:19px;min-width:0;}
+.imm-song-card:hover {background:rgba(168,135,255,.15);border-color:#a88bf88c;}
+.imm-song-icon {width:47px;height:47px;border-radius:15px;}
+.imm-song-card > div {min-width:0;flex:1;}
+.imm-song-card h2 {margin:0;font-size:17px;overflow-wrap:anywhere;}
+.imm-song-card p {margin:4px 0 0;font-size:11px;}
+.imm-enter {display:flex;align-items:center;gap:6px;font-size:9px;letter-spacing:.07em;font-weight:700;color:#d1bfff;white-space:nowrap;}
+.imm-empty {text-align:center;}.imm-empty a {color:#d6c2ff;}
+.imm-library-foot {max-width:1040px;margin:45px auto 0;display:flex;justify-content:space-between;gap:12px;color:#a899c1;font-size:10px;letter-spacing:.07em;}
+
+@media (max-width: 800px) {
+  .immersive-surface .imm-setup {grid-template-columns:1fr;}
+  .immersive-surface .imm-start {grid-column:1;}
+  .imm-library .immersive-song-list {grid-template-columns:1fr;}
+}
+@media (max-width: 650px) {
+  .immersive-surface,.imm-library {padding: max(12px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left));}
+  .immersive-surface .imm-header {grid-template-columns:58px minmax(0,1fr) 44px;gap:7px;margin-bottom:13px;}
+  .immersive-surface .imm-header .button {padding:9px;font-size:0;min-width:43px;min-height:42px;justify-content:center;}
+  .immersive-surface .imm-header .button svg {width:19px;height:19px;}
+  .immersive-surface .imm-heading {gap:7px;justify-content:center;}
+  .immersive-surface .imm-heading-icon {width:35px;height:35px;border-radius:12px;}
+  .immersive-surface .imm-heading-icon svg {width:19px;}
+  .immersive-surface .imm-heading h1 {font-size:16px;}
+  .immersive-surface .imm-heading .imm-eyebrow {font-size:7px;letter-spacing:.06em;}
+  .immersive-surface .imm-heading .imm-artist {display:none;}
+  .immersive-surface .imm-intro {margin:12px auto 17px;}
+  .immersive-surface .imm-intro-emblem {width:59px;height:59px;border-radius:19px;margin-bottom:16px;}
+  .immersive-surface .imm-intro h2 {font-size:35px;}
+  .immersive-surface .imm-intro p {font-size:12px;}
+  .immersive-surface .imm-setup > .card {padding:18px;}
+  .immersive-surface .imm-panel-title h2 {font-size:21px;}
+  .immersive-surface .imm-modes button {min-height:94px;padding:11px 9px;}
+  .immersive-surface .imm-modes button strong {font-size:14px;}
+  .immersive-surface .imm-modes button small {font-size:10px;}
+  .immersive-surface .imm-status {justify-content:space-between;padding:10px;gap:8px 13px;}
+  .immersive-surface .imm-strings {height:clamp(164px,26dvh,245px);margin-left:7px;margin-right:11px;}
+  .immersive-surface .imm-lane {border-radius:19px;}
+  .immersive-surface .imm-lane-top,.immersive-surface .imm-lane-bottom {padding:11px 14px;font-size:8px;}
+  .immersive-surface .imm-lane-top {padding-bottom:23px;}
+  .immersive-surface .imm-fret {width:29px;height:27px;margin-top:-13px;font-size:13px;}
+  .immersive-surface .imm-cue {min-height:80px;align-items:flex-start;gap:10px;}
+  .immersive-surface .imm-cue h2 {font-size:30px;}
+  .immersive-surface .imm-feedback {max-width:48%;font-size:12px;}
+  .immersive-surface .imm-controls {flex-wrap:wrap;gap:8px;}
+  .immersive-surface .imm-controls button {flex:1;min-width:110px;font-size:12px;}
+  .immersive-surface .imm-start {display:flex;flex-direction:column;align-items:stretch;gap:12px;}
+  .immersive-surface .imm-start .primary {justify-content:center;width:100%;}
+  .immersive-surface .imm-stats {grid-template-columns:1fr;}
+  .immersive-surface .imm-foot,.imm-library-foot {font-size:8px;letter-spacing:.04em;}
+  .imm-enter {font-size:0;}.imm-enter svg {width:18px;}
+}
+@media (orientation:landscape) and (max-height:600px) {
+  .immersive-surface.immersive-active {gap:4px;padding-top:max(6px,env(safe-area-inset-top));padding-bottom:max(6px,env(safe-area-inset-bottom));}
+  .immersive-surface.immersive-active .imm-header {min-height:37px;margin:0;}
+  .immersive-surface.immersive-active .imm-heading-icon {width:32px;height:32px;}
+  .immersive-surface.immersive-active .imm-status {margin:0 auto;font-size:10px;padding:6px 12px;}
+  .immersive-surface.immersive-active .imm-strings {height:clamp(85px,25dvh,140px);}
+  .immersive-surface.immersive-active .imm-lane-top {padding:7px 16px 21px;}
+  .immersive-surface.immersive-active .imm-lane-bottom {padding:5px 16px;}
+  .immersive-surface.immersive-active .imm-cue {min-height:46px;padding:2px 3px;}
+  .immersive-surface.immersive-active .imm-cue h2 {font-size:25px;}
+  .immersive-surface.immersive-active .imm-controls button {min-height:39px;padding:5px 13px;}
+  .immersive-surface.immersive-active .imm-legend,.immersive-surface.immersive-active .imm-caption {display:none;}
+  .immersive-surface.immersive-active .imm-foot {padding-top:3px;}
+}
+@media (prefers-reduced-motion:reduce) {
+  .immersive-surface *, .imm-library * {transition:none!important;animation:none!important;scroll-behavior:auto!important;}
+}
+
+.immersive-surface .imm-check .glass-switch { flex: 0 0 50px; }
+
+/* Repeat-activity setup: keep the choice and start in view on narrow screens. */
+.immersive-surface .imm-intro {max-width:980px;margin:0 auto 8px;display:flex;align-items:center;gap:11px;text-align:left}
+.immersive-surface .imm-intro-emblem{width:35px;height:35px;border-radius:11px;margin:0;flex-shrink:0}
+.immersive-surface .imm-intro h2{font-size:clamp(19px,3vw,28px);margin:0}
+.immersive-surface .imm-intro p{margin:0 0 0 auto;font-size:12px}
+.immersive-surface .imm-intro > .imm-eyebrow{display:none}
+.immersive-surface .imm-scope-warning{padding:12px;background:color-mix(in srgb,#a998ff 14%,transparent);border:1px solid #8877b2;border-radius:13px;line-height:1.5;color:#e9deff!important}
+.immersive-surface .imm-modes button:disabled{opacity:.45;cursor:not-allowed}
+.immersive-surface .imm-advanced{width:100%;font-size:12px}
+.immersive-surface .imm-advanced summary{cursor:pointer;padding:8px 0;color:#cec0ed}
+.immersive-surface .imm-setup{align-items:start}
+.immersive-surface .imm-start{position:sticky;bottom:calc(env(safe-area-inset-bottom,0px) + 82px);z-index:20;background:color-mix(in srgb,#19161f 95%,transparent);border:1px solid #5b506b;border-radius:16px;padding:12px 16px;backdrop-filter:blur(20px)}
+.immersive-surface .imm-controls{flex-wrap:wrap}
+@media(max-width:750px){.immersive-surface .imm-intro{margin:0 auto 9px}.immersive-surface .imm-intro p,.immersive-surface .imm-intro-emblem{display:none}.immersive-surface .imm-intro h2{font-size:20px}.immersive-surface .imm-setup>.card{padding:12px}.immersive-surface .imm-modes button{min-height:62px;padding:7px}.immersive-surface .imm-modes button small{display:none}.immersive-surface .imm-start{bottom:calc(env(safe-area-inset-bottom,0px) + 85px)}.immersive-surface .imm-start .primary{width:100%;min-height:49px}.immersive-surface .imm-start details{display:none}}

@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-09-27T16:00:55.483Z",
+  "environment": {
+    "node": "v24.19.0",
+    "platform": "darwin",
+    "arch": "arm64"
+  },
+  "kind": "generated synthetic repeated melody; performance stress, not representative music accuracy",
+  "duration": 300,
+  "sampleRate": 22050,
+  "analysisMs": 22097.162833000002,
+  "conversionMs": 187.35229099999924,
+  "cpuMs": 21048.682,
+  "rssBeforeMb": 164.078125,
+  "rssAfterMb": 319.828125,
+  "peakProcessRssMb": 320.46875,
+  "peakDefinition": "Process high-water RSS since Node start, including Vite, loaded modules, fixture, analysis and conversion. Not per-algorithm allocation or browser/mobile memory.",
+  "frames": 29933,
+  "notes": 375,
+  "songJsonBytes": 4317044,
+  "automaticallyConfirmedNotes": 0,
+  "trainedModelRuntimeMs": null,
+  "serverComputeCostUsd": 0
+}

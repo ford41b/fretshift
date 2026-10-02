@@ -1,0 +1,1742 @@
+{
+  "fingeringEvaluation": {
+    "fixture": "Constructed pitch sequence, playing position 5, preferOpen=false",
+    "pitches": [
+      64,
+      65,
+      67,
+      69,
+      67,
+      65,
+      64,
+      62,
+      60,
+      62,
+      64
+    ],
+    "optimized": {
+      "totalFretMovement": 18,
+      "totalStringCrossing": 0,
+      "shiftsOverFourFrets": 0,
+      "meanDistanceFromRequestedPosition": 1.9091
+    },
+    "lowestFretBaseline": {
+      "totalFretMovement": 20,
+      "totalStringCrossing": 2,
+      "shiftsOverFourFrets": 0,
+      "meanDistanceFromRequestedPosition": 3.1818
+    },
+    "optimizedPath": [
+      {
+        "string": 1,
+        "fret": 5,
+        "source": "suggested"
+      },
+      {
+        "string": 1,
+        "fret": 6,
+        "source": "suggested"
+      },
+      {
+        "string": 1,
+        "fret": 8,
+        "source": "suggested"
+      },
+      {
+        "string": 1,
+        "fret": 10,
+        "source": "suggested"
+      },
+      {
+        "string": 1,
+        "fret": 8,
+        "source": "suggested"
+      },
+      {
+        "string": 1,
+        "fret": 6,
+        "source": "suggested"
+      },
+      {
+        "string": 1,
+        "fret": 5,
+        "source": "suggested"
+      },
+      {
+        "string": 1,
+        "fret": 3,
+        "source": "suggested"
+      },
+      {
+        "string": 1,
+        "fret": 1,
+        "source": "suggested"
+      },
+      {
+        "string": 1,
+        "fret": 3,
+        "source": "suggested"
+      },
+      {
+        "string": 1,
+        "fret": 5,
+        "source": "suggested"
+      }
+    ],
+    "limitation": "Mechanical path costs on one constructed example; not an expert or user-rated measure of musical quality."
+  },
+  "generatedAt": "2026-09-27T16:00:32.421Z",
+  "provider": "fretshift-yin-monophonic-v1",
+  "environment": {
+    "node": "v24.19.0",
+    "platform": "darwin",
+    "arch": "arm64"
+  },
+  "method": "Frame pitch: only reference time with exactly one active note. Event matches: maximum one-to-one, onset ≤70ms and pitch ≤0.5 semitone. Duration MAE is conditional on matched pitch/onsets. Onset-only ignores pitch. False/missed counts are event counts, including unsupported polyphony.",
+  "limitations": [
+    "Selected acoustic GuitarSet recordings only; cohort is identified by per-case track IDs. Not representative of electric/distorted/multi-instrument guitar.",
+    "Raw annotations from GuitarSet mirror; no manual listening audit. Solo recordings include ringing overlaps; frame mono and poly strata are reported separately.",
+    "No trained model was run. DSP thresholds are experimental. Synthetic cases are development fixtures, real clips are an evaluation slice, not a generalization study.",
+    "Fingering candidate validity is a constraint check, not human-rated playability. Expert preference and observed string agreement are unmeasured.",
+    "RSS is process-wide before/after, not peak memory. Runtime excludes decode/UI/network. Physical devices not tested."
+  ],
+  "summary": {
+    "synthetic": {
+      "cases": 5,
+      "referenceNotes": 10,
+      "predictedNotes": 6,
+      "matchedNotes": 6,
+      "falsePositives": 0,
+      "missedNotes": 4,
+      "meanRuntimeMs": 211.2342
+    },
+    "real-solo": {
+      "cases": 2,
+      "referenceNotes": 118,
+      "predictedNotes": 115,
+      "matchedNotes": 93,
+      "falsePositives": 22,
+      "missedNotes": 25,
+      "meanRuntimeMs": 1782.7598
+    },
+    "real-comp-polyphonic": {
+      "cases": 2,
+      "referenceNotes": 259,
+      "predictedNotes": 41,
+      "matchedNotes": 13,
+      "falsePositives": 28,
+      "missedNotes": 246,
+      "meanRuntimeMs": 1904.3346
+    }
+  },
+  "cases": [
+    {
+      "id": "synthetic-melody",
+      "kind": "synthetic",
+      "seconds": 4,
+      "referenceNotes": 5,
+      "predictedNotes": 5,
+      "monophonicFramePitchPrecision": 1,
+      "monophonicFramePitchRecall": 0.952,
+      "monophonicFrameCoverage": 0.952,
+      "pitchAndOnset70ms": {
+        "matched": 5,
+        "precision": 1,
+        "recall": 1,
+        "falsePositives": 0,
+        "missedNotes": 0
+      },
+      "onsetOnly70ms": {
+        "matched": 5,
+        "maeMs": 18.6621
+      },
+      "pitchMatchedOnsetMaeMs": 18.6621,
+      "pitchMatchedDurationMaeMs": 30.9388,
+      "polyphonicReferenceFrames": 0,
+      "polyphonicFramesWithSinglePitch": 0,
+      "fingering": {
+        "validCandidates": 5,
+        "suggestions": 5,
+        "expertPreferenceQuality": null
+      },
+      "runtimeMs": 293.449,
+      "rssBeforeMb": 136.7813,
+      "rssAfterMb": 145.3281,
+      "predictions": [
+        {
+          "id": "detected-0",
+          "start": 0.22551020408163264,
+          "end": 0.6865532879818594,
+          "midi": 52,
+          "confidence": 0.9921338434453805,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-1",
+          "start": 0.9170748299319728,
+          "end": 1.3981632653061224,
+          "midi": 57,
+          "confidence": 0.9961280750225593,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-2",
+          "start": 1.6186621315192744,
+          "end": 2.0897278911564627,
+          "midi": 64,
+          "confidence": 0.9872109242087904,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-3",
+          "start": 2.320249433106576,
+          "end": 2.781292517006803,
+          "midi": 64,
+          "confidence": 0.9890874362227617,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-4",
+          "start": 3.011814058956916,
+          "end": 3.4828798185941046,
+          "midi": 60,
+          "confidence": 0.9910298844507431,
+          "inferredArticulation": "unknown"
+        }
+      ]
+    },
+    {
+      "id": "synthetic-silence",
+      "kind": "synthetic",
+      "seconds": 4,
+      "referenceNotes": 0,
+      "predictedNotes": 0,
+      "monophonicFramePitchPrecision": null,
+      "monophonicFramePitchRecall": null,
+      "monophonicFrameCoverage": null,
+      "pitchAndOnset70ms": {
+        "matched": 0,
+        "precision": null,
+        "recall": null,
+        "falsePositives": 0,
+        "missedNotes": 0
+      },
+      "onsetOnly70ms": {
+        "matched": 0,
+        "maeMs": null
+      },
+      "pitchMatchedOnsetMaeMs": null,
+      "pitchMatchedDurationMaeMs": null,
+      "polyphonicReferenceFrames": 0,
+      "polyphonicFramesWithSinglePitch": 0,
+      "fingering": {
+        "validCandidates": 0,
+        "suggestions": 0,
+        "expertPreferenceQuality": null
+      },
+      "runtimeMs": 1.252,
+      "rssBeforeMb": 145.6406,
+      "rssAfterMb": 145.6563,
+      "predictions": []
+    },
+    {
+      "id": "synthetic-noise",
+      "kind": "synthetic",
+      "seconds": 4,
+      "referenceNotes": 0,
+      "predictedNotes": 0,
+      "monophonicFramePitchPrecision": null,
+      "monophonicFramePitchRecall": null,
+      "monophonicFrameCoverage": null,
+      "pitchAndOnset70ms": {
+        "matched": 0,
+        "precision": null,
+        "recall": null,
+        "falsePositives": 0,
+        "missedNotes": 0
+      },
+      "onsetOnly70ms": {
+        "matched": 0,
+        "maeMs": null
+      },
+      "pitchMatchedOnsetMaeMs": null,
+      "pitchMatchedDurationMaeMs": null,
+      "polyphonicReferenceFrames": 0,
+      "polyphonicFramesWithSinglePitch": 0,
+      "fingering": {
+        "validCandidates": 0,
+        "suggestions": 0,
+        "expertPreferenceQuality": null
+      },
+      "runtimeMs": 399.2757,
+      "rssBeforeMb": 146.0313,
+      "rssAfterMb": 146.5781,
+      "predictions": []
+    },
+    {
+      "id": "synthetic-polyphonic",
+      "kind": "synthetic",
+      "seconds": 4,
+      "referenceNotes": 3,
+      "predictedNotes": 0,
+      "monophonicFramePitchPrecision": null,
+      "monophonicFramePitchRecall": null,
+      "monophonicFrameCoverage": null,
+      "pitchAndOnset70ms": {
+        "matched": 0,
+        "precision": null,
+        "recall": 0,
+        "falsePositives": 0,
+        "missedNotes": 3
+      },
+      "onsetOnly70ms": {
+        "matched": 0,
+        "maeMs": null
+      },
+      "pitchMatchedOnsetMaeMs": null,
+      "pitchMatchedDurationMaeMs": null,
+      "polyphonicReferenceFrames": 170,
+      "polyphonicFramesWithSinglePitch": 0,
+      "fingering": {
+        "validCandidates": 0,
+        "suggestions": 0,
+        "expertPreferenceQuality": null
+      },
+      "runtimeMs": 190.9886,
+      "rssBeforeMb": 146.5938,
+      "rssAfterMb": 146.7188,
+      "predictions": []
+    },
+    {
+      "id": "synthetic-octave-mixture",
+      "kind": "synthetic",
+      "seconds": 4,
+      "referenceNotes": 2,
+      "predictedNotes": 1,
+      "monophonicFramePitchPrecision": null,
+      "monophonicFramePitchRecall": null,
+      "monophonicFrameCoverage": null,
+      "pitchAndOnset70ms": {
+        "matched": 1,
+        "precision": 1,
+        "recall": 0.5,
+        "falsePositives": 0,
+        "missedNotes": 1
+      },
+      "onsetOnly70ms": {
+        "matched": 1,
+        "maeMs": 25.737
+      },
+      "pitchMatchedOnsetMaeMs": 25.737,
+      "pitchMatchedDurationMaeMs": 56.2812,
+      "polyphonicReferenceFrames": 170,
+      "polyphonicFramesWithSinglePitch": 164,
+      "fingering": {
+        "validCandidates": 1,
+        "suggestions": 1,
+        "expertPreferenceQuality": null
+      },
+      "runtimeMs": 171.2058,
+      "rssBeforeMb": 146.875,
+      "rssAfterMb": 147.4375,
+      "predictions": [
+        {
+          "id": "detected-0",
+          "start": 0.32573696145124714,
+          "end": 1.969455782312925,
+          "midi": 52,
+          "confidence": 0.992270775250571,
+          "inferredArticulation": "unknown"
+        }
+      ]
+    },
+    {
+      "id": "01_BN1-129-Eb_comp",
+      "kind": "real-comp-polyphonic",
+      "seconds": 22.3244,
+      "referenceNotes": 105,
+      "predictedNotes": 15,
+      "monophonicFramePitchPrecision": 0.9625,
+      "monophonicFramePitchRecall": 0.1405,
+      "monophonicFrameCoverage": 0.146,
+      "pitchAndOnset70ms": {
+        "matched": 4,
+        "precision": 0.2667,
+        "recall": 0.0381,
+        "falsePositives": 11,
+        "missedNotes": 101
+      },
+      "onsetOnly70ms": {
+        "matched": 7,
+        "maeMs": 56.0363
+      },
+      "pitchMatchedOnsetMaeMs": 56.0476,
+      "pitchMatchedDurationMaeMs": 161.6667,
+      "polyphonicReferenceFrames": 1344,
+      "polyphonicFramesWithSinglePitch": 155,
+      "fingering": {
+        "validCandidates": 15,
+        "suggestions": 15,
+        "expertPreferenceQuality": null
+      },
+      "runtimeMs": 1845.0295,
+      "rssBeforeMb": 153.2969,
+      "rssAfterMb": 130.3281,
+      "predictions": [
+        {
+          "id": "detected-0",
+          "start": 1.2678684807256237,
+          "end": 1.3280045351473921,
+          "midi": 51,
+          "confidence": 0.9652299399367288,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-1",
+          "start": 1.9794784580498868,
+          "end": 2.300204081632653,
+          "midi": 51,
+          "confidence": 0.9771035738955581,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-2",
+          "start": 3.162154195011338,
+          "end": 3.232312925170068,
+          "midi": 51,
+          "confidence": 0.9571540364346741,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-3",
+          "start": 7.532040816326531,
+          "end": 7.682380952380952,
+          "midi": 44,
+          "confidence": 0.9557611270138738,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-4",
+          "start": 8.945238095238095,
+          "end": 9.035442176870749,
+          "midi": 60,
+          "confidence": 0.9265609412906701,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-5",
+          "start": 9.406281179138322,
+          "end": 9.696938775510205,
+          "midi": 44,
+          "confidence": 0.9688365804328479,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-6",
+          "start": 10.208095238095238,
+          "end": 10.438616780045352,
+          "midi": 60,
+          "confidence": 0.9516154941087487,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-7",
+          "start": 10.77938775510204,
+          "end": 10.849546485260772,
+          "midi": 56,
+          "confidence": 0.9235027107489213,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-8",
+          "start": 13.154761904761903,
+          "end": 13.275034013605442,
+          "midi": 51,
+          "confidence": 0.950806676149052,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-9",
+          "start": 16.79299319727891,
+          "end": 16.963378684807257,
+          "midi": 46,
+          "confidence": 0.9686009211365851,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-10",
+          "start": 17.023514739229025,
+          "end": 17.173854875283446,
+          "midi": 46,
+          "confidence": 0.970157497505231,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-11",
+          "start": 17.775215419501134,
+          "end": 17.89548752834467,
+          "midi": 44,
+          "confidence": 0.9484253395097495,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-12",
+          "start": 20.290907029478458,
+          "end": 20.45126984126984,
+          "midi": 58,
+          "confidence": 0.9815951977904124,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-13",
+          "start": 20.621655328798184,
+          "end": 20.701836734693877,
+          "midi": 51,
+          "confidence": 0.9484586038505844,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-14",
+          "start": 21.784285714285712,
+          "end": 21.83439909297052,
+          "midi": 51,
+          "confidence": 0.9527009963516914,
+          "inferredArticulation": "unknown"
+        }
+      ]
+    },
+    {
+      "id": "01_BN1-129-Eb_solo",
+      "kind": "real-solo",
+      "seconds": 22.3244,
+      "referenceNotes": 61,
+      "predictedNotes": 56,
+      "monophonicFramePitchPrecision": 0.9541,
+      "monophonicFramePitchRecall": 0.678,
+      "monophonicFrameCoverage": 0.7106,
+      "pitchAndOnset70ms": {
+        "matched": 46,
+        "precision": 0.8214,
+        "recall": 0.7541,
+        "falsePositives": 10,
+        "missedNotes": 15
+      },
+      "onsetOnly70ms": {
+        "matched": 47,
+        "maeMs": 41.5914
+      },
+      "pitchMatchedOnsetMaeMs": 41.3025,
+      "pitchMatchedDurationMaeMs": 89.4978,
+      "polyphonicReferenceFrames": 55,
+      "polyphonicFramesWithSinglePitch": 0,
+      "fingering": {
+        "validCandidates": 56,
+        "suggestions": 56,
+        "expertPreferenceQuality": null
+      },
+      "runtimeMs": 1894.7543,
+      "rssBeforeMb": 136.2813,
+      "rssAfterMb": 147.9219,
+      "predictions": [
+        {
+          "id": "detected-0",
+          "start": 0.055124716553287975,
+          "end": 0.5161678004535147,
+          "midi": 63,
+          "confidence": 0.992994246568509,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-1",
+          "start": 1.2277777777777779,
+          "end": 1.348049886621315,
+          "midi": 63,
+          "confidence": 0.9828479683288814,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-2",
+          "start": 1.4683219954648528,
+          "end": 1.5585260770975056,
+          "midi": 65,
+          "confidence": 0.9729468311449091,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-3",
+          "start": 1.6487301587301588,
+          "end": 1.7990702947845805,
+          "midi": 63,
+          "confidence": 0.9864081529842793,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-4",
+          "start": 1.9093197278911567,
+          "end": 2.3102267573696147,
+          "midi": 63,
+          "confidence": 0.980346533575091,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-5",
+          "start": 2.630952380952381,
+          "end": 2.741201814058957,
+          "midi": 58,
+          "confidence": 0.9793523003988954,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-6",
+          "start": 2.8013378684807253,
+          "end": 3.2222902494331067,
+          "midi": 58,
+          "confidence": 0.9946027836736526,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-7",
+          "start": 3.4026984126984128,
+          "end": 3.45281179138322,
+          "midi": 60,
+          "confidence": 0.958549681480744,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-8",
+          "start": 3.543015873015873,
+          "end": 3.693356009070295,
+          "midi": 63,
+          "confidence": 0.9796913758673388,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-9",
+          "start": 3.773537414965986,
+          "end": 4.184467120181406,
+          "midi": 63,
+          "confidence": 0.9760038206783255,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-10",
+          "start": 5.4373015873015875,
+          "end": 5.517482993197278,
+          "midi": 70,
+          "confidence": 0.9550406709307914,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-11",
+          "start": 5.617709750566894,
+          "end": 5.7981179138322,
+          "midi": 67,
+          "confidence": 0.9781925162852249,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-12",
+          "start": 5.878299319727891,
+          "end": 6.018616780045351,
+          "midi": 65,
+          "confidence": 0.9799643346661158,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-13",
+          "start": 6.098798185941043,
+          "end": 6.239115646258503,
+          "midi": 63,
+          "confidence": 0.9846750034066025,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-14",
+          "start": 6.329319727891157,
+          "end": 6.48968253968254,
+          "midi": 65,
+          "confidence": 0.9791314342619611,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-15",
+          "start": 6.589909297052155,
+          "end": 6.9006122448979585,
+          "midi": 65,
+          "confidence": 0.9801107786514108,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-16",
+          "start": 7.020884353741497,
+          "end": 7.151179138321995,
+          "midi": 65,
+          "confidence": 0.9757092445897638,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-17",
+          "start": 7.241383219954649,
+          "end": 7.421791383219954,
+          "midi": 63,
+          "confidence": 0.9770043669773096,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-18",
+          "start": 7.501972789115647,
+          "end": 7.6322675736961445,
+          "midi": 70,
+          "confidence": 0.9314288069374551,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-19",
+          "start": 8.023151927437642,
+          "end": 8.14342403628118,
+          "midi": 67,
+          "confidence": 0.9762013479809063,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-20",
+          "start": 9.205827664399093,
+          "end": 9.275986394557824,
+          "midi": 46,
+          "confidence": 0.9446954351307941,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-21",
+          "start": 9.586689342403627,
+          "end": 9.747052154195012,
+          "midi": 67,
+          "confidence": 0.9739468201650505,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-22",
+          "start": 9.817210884353742,
+          "end": 10.14795918367347,
+          "midi": 67,
+          "confidence": 0.9858143357832112,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-23",
+          "start": 10.268231292517006,
+          "end": 10.42859410430839,
+          "midi": 65,
+          "confidence": 0.9784575221041305,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-24",
+          "start": 10.518798185941042,
+          "end": 10.669138321995465,
+          "midi": 67,
+          "confidence": 0.9831518333701462,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-25",
+          "start": 10.749319727891155,
+          "end": 10.829501133786849,
+          "midi": 65,
+          "confidence": 0.9788454734380054,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-26",
+          "start": 10.959795918367346,
+          "end": 11.029954648526077,
+          "midi": 63,
+          "confidence": 0.9773710237246024,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-27",
+          "start": 11.490997732426303,
+          "end": 11.80170068027211,
+          "midi": 67,
+          "confidence": 0.9782052405078485,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-28",
+          "start": 11.81172335600907,
+          "end": 11.992131519274377,
+          "midi": 67,
+          "confidence": 0.9769732581448616,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-29",
+          "start": 12.002154195011338,
+          "end": 12.102380952380953,
+          "midi": 67,
+          "confidence": 0.9837534959184934,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-30",
+          "start": 12.112403628117914,
+          "end": 12.212630385487529,
+          "midi": 67,
+          "confidence": 0.9838518743369618,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-31",
+          "start": 13.555668934240362,
+          "end": 13.695986394557824,
+          "midi": 63,
+          "confidence": 0.9802475416080467,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-32",
+          "start": 13.776167800453514,
+          "end": 13.826281179138322,
+          "midi": 65,
+          "confidence": 0.9727086969260481,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-33",
+          "start": 14.006689342403627,
+          "end": 14.15702947845805,
+          "midi": 63,
+          "confidence": 0.9804190440290127,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-34",
+          "start": 14.237210884353741,
+          "end": 14.387551020408164,
+          "midi": 63,
+          "confidence": 0.9871739758803917,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-35",
+          "start": 14.477755102040815,
+          "end": 14.618072562358277,
+          "midi": 63,
+          "confidence": 0.9798308510818198,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-36",
+          "start": 14.70827664399093,
+          "end": 14.828548752834468,
+          "midi": 63,
+          "confidence": 0.9841306622802438,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-37",
+          "start": 14.938798185941042,
+          "end": 15.079115646258504,
+          "midi": 63,
+          "confidence": 0.980355063965422,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-38",
+          "start": 15.389818594104307,
+          "end": 15.520113378684808,
+          "midi": 72,
+          "confidence": 0.9828060378444635,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-39",
+          "start": 15.620340136054422,
+          "end": 15.720566893424037,
+          "midi": 75,
+          "confidence": 0.97412870910495,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-40",
+          "start": 15.840839002267574,
+          "end": 15.981156462585034,
+          "midi": 72,
+          "confidence": 0.9886989995052079,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-41",
+          "start": 16.111451247165533,
+          "end": 16.251768707482995,
+          "midi": 70,
+          "confidence": 0.9717760370882386,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-42",
+          "start": 16.57249433106576,
+          "end": 16.953356009070294,
+          "midi": 67,
+          "confidence": 0.9879158591353053,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-43",
+          "start": 17.254036281179136,
+          "end": 17.454489795918366,
+          "midi": 67,
+          "confidence": 0.983381652075697,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-44",
+          "start": 17.524648526077097,
+          "end": 17.61485260770975,
+          "midi": 65,
+          "confidence": 0.9871334169745931,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-45",
+          "start": 17.995714285714286,
+          "end": 18.146054421768707,
+          "midi": 65,
+          "confidence": 0.9791880636166805,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-46",
+          "start": 18.216213151927438,
+          "end": 18.3565306122449,
+          "midi": 67,
+          "confidence": 0.9867473980113431,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-47",
+          "start": 18.426689342403627,
+          "end": 18.536938775510205,
+          "midi": 65,
+          "confidence": 0.9850261940773571,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-48",
+          "start": 18.65721088435374,
+          "end": 19.098208616780045,
+          "midi": 63,
+          "confidence": 0.9930526144214885,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-49",
+          "start": 19.449002267573697,
+          "end": 19.499115646258502,
+          "midi": 60,
+          "confidence": 0.9775108861032002,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-50",
+          "start": 19.61938775510204,
+          "end": 19.74968253968254,
+          "midi": 63,
+          "confidence": 0.9864299551768785,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-51",
+          "start": 19.849909297052154,
+          "end": 19.95013605442177,
+          "midi": 65,
+          "confidence": 0.9831514250159611,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-52",
+          "start": 20.280884353741495,
+          "end": 20.351043083900226,
+          "midi": 65,
+          "confidence": 0.9714714959627455,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-53",
+          "start": 20.44124716553288,
+          "end": 20.50138321995465,
+          "midi": 67,
+          "confidence": 0.9696729984025184,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-54",
+          "start": 20.73190476190476,
+          "end": 20.882244897959183,
+          "midi": 63,
+          "confidence": 0.9894555577581498,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-55",
+          "start": 20.972448979591835,
+          "end": 22.185192743764173,
+          "midi": 63,
+          "confidence": 0.9959313632094522,
+          "inferredArticulation": "unknown"
+        }
+      ]
+    },
+    {
+      "id": "02_BN1-129-Eb_comp",
+      "kind": "real-comp-polyphonic",
+      "seconds": 22.3244,
+      "referenceNotes": 154,
+      "predictedNotes": 26,
+      "monophonicFramePitchPrecision": 0.7875,
+      "monophonicFramePitchRecall": 0.2727,
+      "monophonicFrameCoverage": 0.3463,
+      "pitchAndOnset70ms": {
+        "matched": 9,
+        "precision": 0.3462,
+        "recall": 0.0584,
+        "falsePositives": 17,
+        "missedNotes": 145
+      },
+      "onsetOnly70ms": {
+        "matched": 15,
+        "maeMs": 47.9864
+      },
+      "pitchMatchedOnsetMaeMs": 49.8131,
+      "pitchMatchedDurationMaeMs": 297.7072,
+      "polyphonicReferenceFrames": 1878,
+      "polyphonicFramesWithSinglePitch": 332,
+      "fingering": {
+        "validCandidates": 26,
+        "suggestions": 26,
+        "expertPreferenceQuality": null
+      },
+      "runtimeMs": 1963.6397,
+      "rssBeforeMb": 151.875,
+      "rssAfterMb": 191.7813,
+      "predictions": [
+        {
+          "id": "detected-0",
+          "start": 0.255578231292517,
+          "end": 0.4660544217687075,
+          "midi": 51,
+          "confidence": 0.9531867164239148,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-1",
+          "start": 0.566281179138322,
+          "end": 0.6163945578231292,
+          "midi": 43,
+          "confidence": 0.9464231293077441,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-2",
+          "start": 0.786780045351474,
+          "end": 1.1075056689342402,
+          "midi": 63,
+          "confidence": 0.9779781097986268,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-3",
+          "start": 2.28015873015873,
+          "end": 2.410453514739229,
+          "midi": 48,
+          "confidence": 0.9326521682554996,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-4",
+          "start": 2.4204761904761902,
+          "end": 2.540748299319728,
+          "midi": 48,
+          "confidence": 0.9354296487306243,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-5",
+          "start": 3.9339002267573693,
+          "end": 4.204512471655328,
+          "midi": 51,
+          "confidence": 0.9706995182058387,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-6",
+          "start": 4.5252380952380955,
+          "end": 4.605419501133786,
+          "midi": 55,
+          "confidence": 0.9470517215399501,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-7",
+          "start": 5.477392290249433,
+          "end": 5.567596371882086,
+          "midi": 51,
+          "confidence": 0.9484235970076447,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-8",
+          "start": 7.542063492063493,
+          "end": 7.592176870748299,
+          "midi": 44,
+          "confidence": 0.9923432873482433,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-9",
+          "start": 8.203560090702947,
+          "end": 8.253673469387756,
+          "midi": 55,
+          "confidence": 0.9254805030542128,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-10",
+          "start": 9.125646258503401,
+          "end": 9.18578231292517,
+          "midi": 43,
+          "confidence": 0.9384437232549406,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-11",
+          "start": 9.837256235827663,
+          "end": 9.927460317460318,
+          "midi": 44,
+          "confidence": 0.9475769694183787,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-12",
+          "start": 10.067777777777778,
+          "end": 10.127913832199548,
+          "midi": 43,
+          "confidence": 0.9387478446236305,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-13",
+          "start": 10.258208616780045,
+          "end": 10.368458049886621,
+          "midi": 43,
+          "confidence": 0.9537557056379943,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-14",
+          "start": 11.39077097505669,
+          "end": 11.611269841269841,
+          "midi": 51,
+          "confidence": 0.9559029190958505,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-15",
+          "start": 11.94201814058957,
+          "end": 11.992131519274377,
+          "midi": 55,
+          "confidence": 0.9322511682689104,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-16",
+          "start": 12.884149659863946,
+          "end": 13.014444444444445,
+          "midi": 51,
+          "confidence": 0.9555219107311365,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-17",
+          "start": 14.958843537414966,
+          "end": 15.32968253968254,
+          "midi": 46,
+          "confidence": 0.974193268557371,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-18",
+          "start": 15.429909297052154,
+          "end": 15.54015873015873,
+          "midi": 46,
+          "confidence": 0.9828863680282139,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-19",
+          "start": 16.31190476190476,
+          "end": 16.71281179138322,
+          "midi": 44,
+          "confidence": 0.963936867554034,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-20",
+          "start": 16.823061224489795,
+          "end": 16.953356009070294,
+          "midi": 44,
+          "confidence": 0.9649033870096234,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-21",
+          "start": 17.033537414965984,
+          "end": 17.18387755102041,
+          "midi": 43,
+          "confidence": 0.9632868311327368,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-22",
+          "start": 17.76519274376417,
+          "end": 17.87544217687075,
+          "midi": 44,
+          "confidence": 0.9701299884207075,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-23",
+          "start": 18.2262358276644,
+          "end": 18.30641723356009,
+          "midi": 44,
+          "confidence": 0.959708376241572,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-24",
+          "start": 18.957891156462583,
+          "end": 19.078163265306124,
+          "midi": 51,
+          "confidence": 0.9555194941687971,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-25",
+          "start": 20.782018140589567,
+          "end": 20.872222222222224,
+          "midi": 43,
+          "confidence": 0.9590337190368994,
+          "inferredArticulation": "unknown"
+        }
+      ]
+    },
+    {
+      "id": "02_BN1-129-Eb_solo",
+      "kind": "real-solo",
+      "seconds": 22.3244,
+      "referenceNotes": 57,
+      "predictedNotes": 59,
+      "monophonicFramePitchPrecision": 0.9052,
+      "monophonicFramePitchRecall": 0.6805,
+      "monophonicFrameCoverage": 0.7518,
+      "pitchAndOnset70ms": {
+        "matched": 47,
+        "precision": 0.7966,
+        "recall": 0.8246,
+        "falsePositives": 12,
+        "missedNotes": 10
+      },
+      "onsetOnly70ms": {
+        "matched": 49,
+        "maeMs": 35.8104
+      },
+      "pitchMatchedOnsetMaeMs": 35.9287,
+      "pitchMatchedDurationMaeMs": 110.5989,
+      "polyphonicReferenceFrames": 126,
+      "polyphonicFramesWithSinglePitch": 57,
+      "fingering": {
+        "validCandidates": 59,
+        "suggestions": 59,
+        "expertPreferenceQuality": null
+      },
+      "runtimeMs": 1670.7653,
+      "rssBeforeMb": 197.5781,
+      "rssAfterMb": 200.25,
+      "predictions": [
+        {
+          "id": "detected-0",
+          "start": 0.42596371882086165,
+          "end": 0.676530612244898,
+          "midi": 63,
+          "confidence": 0.9899766430243576,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-1",
+          "start": 0.746689342403628,
+          "end": 0.9270975056689342,
+          "midi": 58,
+          "confidence": 0.9850403997196483,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-2",
+          "start": 1.187687074829932,
+          "end": 1.3079591836734692,
+          "midi": 51,
+          "confidence": 0.9825113497563889,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-3",
+          "start": 1.4282312925170069,
+          "end": 1.8692290249433106,
+          "midi": 55,
+          "confidence": 0.9902479750984194,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-4",
+          "start": 2.149863945578231,
+          "end": 2.380385487528345,
+          "midi": 63,
+          "confidence": 0.9834736004507276,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-5",
+          "start": 2.4004308390022673,
+          "end": 2.450544217687075,
+          "midi": 63,
+          "confidence": 0.9458502081275224,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-6",
+          "start": 2.630952380952381,
+          "end": 2.8213832199546487,
+          "midi": 58,
+          "confidence": 0.9871067999607511,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-7",
+          "start": 3.091995464852608,
+          "end": 3.2423356009070297,
+          "midi": 51,
+          "confidence": 0.9870239220967532,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-8",
+          "start": 3.322517006802721,
+          "end": 3.4828798185941046,
+          "midi": 55,
+          "confidence": 0.9626787105300246,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-9",
+          "start": 3.5329931972789113,
+          "end": 3.6833333333333336,
+          "midi": 44,
+          "confidence": 0.9904701718728366,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-10",
+          "start": 4.0140816326530615,
+          "end": 4.224557823129252,
+          "midi": 63,
+          "confidence": 0.9839969168390051,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-11",
+          "start": 4.465102040816327,
+          "end": 4.655532879818594,
+          "midi": 58,
+          "confidence": 0.9887120276411178,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-12",
+          "start": 4.946190476190477,
+          "end": 5.106553287981859,
+          "midi": 51,
+          "confidence": 0.988425261035307,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-13",
+          "start": 5.186734693877551,
+          "end": 5.407233560090702,
+          "midi": 55,
+          "confidence": 0.96685999546721,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-14",
+          "start": 5.407233560090703,
+          "end": 5.557573696145124,
+          "midi": 43,
+          "confidence": 0.9509888995695994,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-15",
+          "start": 5.86827664399093,
+          "end": 6.07875283446712,
+          "midi": 63,
+          "confidence": 0.9896887108728911,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-16",
+          "start": 6.329319727891157,
+          "end": 6.4997052154195005,
+          "midi": 58,
+          "confidence": 0.9844066217092258,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-17",
+          "start": 6.7903628117913835,
+          "end": 6.930680272108844,
+          "midi": 51,
+          "confidence": 0.9791748998906565,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-18",
+          "start": 7.000839002267574,
+          "end": 7.201292517006802,
+          "midi": 55,
+          "confidence": 0.9699584583987942,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-19",
+          "start": 7.25140589569161,
+          "end": 7.4117687074829925,
+          "midi": 44,
+          "confidence": 0.981624595470568,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-20",
+          "start": 7.532040816326531,
+          "end": 7.822698412698412,
+          "midi": 58,
+          "confidence": 0.9762107011398953,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-21",
+          "start": 7.932947845804989,
+          "end": 8.14342403628118,
+          "midi": 56,
+          "confidence": 0.9815626219181417,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-22",
+          "start": 8.183514739229024,
+          "end": 8.333854875283448,
+          "midi": 55,
+          "confidence": 0.9420323861630341,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-23",
+          "start": 8.76482993197279,
+          "end": 8.855034013605442,
+          "midi": 53,
+          "confidence": 0.9608103569652413,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-24",
+          "start": 9.105600907029478,
+          "end": 9.86732426303855,
+          "midi": 55,
+          "confidence": 0.9732862796451363,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-25",
+          "start": 9.867324263038547,
+          "end": 10.047732426303856,
+          "midi": 43,
+          "confidence": 0.9691270007063751,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-26",
+          "start": 10.248185941043083,
+          "end": 10.448639455782313,
+          "midi": 55,
+          "confidence": 0.9820157687089888,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-27",
+          "start": 10.488730158730158,
+          "end": 10.56891156462585,
+          "midi": 56,
+          "confidence": 0.9468240870380606,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-28",
+          "start": 10.56891156462585,
+          "end": 10.689183673469389,
+          "midi": 44,
+          "confidence": 0.9901019065706933,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-29",
+          "start": 10.999886621315191,
+          "end": 11.140204081632653,
+          "midi": 48,
+          "confidence": 0.9709024182891577,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-30",
+          "start": 11.25045351473923,
+          "end": 11.661383219954649,
+          "midi": 51,
+          "confidence": 0.9946341122441608,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-31",
+          "start": 11.95204081632653,
+          "end": 12.102380952380953,
+          "midi": 63,
+          "confidence": 0.9756141401283983,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-32",
+          "start": 12.37299319727891,
+          "end": 12.503287981859412,
+          "midi": 51,
+          "confidence": 0.9674155623039742,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-33",
+          "start": 12.57344671201814,
+          "end": 12.964331065759637,
+          "midi": 55,
+          "confidence": 0.9676228808882555,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-34",
+          "start": 13.315124716553287,
+          "end": 13.746099773242632,
+          "midi": 63,
+          "confidence": 0.9950387725007349,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-35",
+          "start": 14.046780045351474,
+          "end": 14.187097505668936,
+          "midi": 63,
+          "confidence": 0.9819168249048396,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-36",
+          "start": 14.487777777777778,
+          "end": 14.6381179138322,
+          "midi": 51,
+          "confidence": 0.9855842994618756,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-37",
+          "start": 14.698253968253967,
+          "end": 14.868639455782313,
+          "midi": 55,
+          "confidence": 0.9841071267452531,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-38",
+          "start": 14.928775510204082,
+          "end": 15.309637188208617,
+          "midi": 56,
+          "confidence": 0.9864403858823394,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-39",
+          "start": 15.389818594104307,
+          "end": 15.54015873015873,
+          "midi": 55,
+          "confidence": 0.9686460735951065,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-40",
+          "start": 15.620340136054422,
+          "end": 15.830816326530613,
+          "midi": 56,
+          "confidence": 0.9803691775708943,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-41",
+          "start": 16.10142857142857,
+          "end": 16.311904761904763,
+          "midi": 58,
+          "confidence": 0.9775725106817558,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-42",
+          "start": 16.58251700680272,
+          "end": 16.762925170068026,
+          "midi": 60,
+          "confidence": 0.9785254646219221,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-43",
+          "start": 17.033537414965984,
+          "end": 17.19390022675737,
+          "midi": 58,
+          "confidence": 0.9801824492011945,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-44",
+          "start": 17.46451247165533,
+          "end": 17.644920634920634,
+          "midi": 56,
+          "confidence": 0.9791385842811327,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-45",
+          "start": 17.715079365079365,
+          "end": 17.88546485260771,
+          "midi": 55,
+          "confidence": 0.959440576111883,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-46",
+          "start": 18.206190476190475,
+          "end": 18.346507936507937,
+          "midi": 55,
+          "confidence": 0.9743299616930237,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-47",
+          "start": 18.43671201814059,
+          "end": 18.57702947845805,
+          "midi": 53,
+          "confidence": 0.9813633348304697,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-48",
+          "start": 18.677256235827663,
+          "end": 19.04809523809524,
+          "midi": 51,
+          "confidence": 0.993066568115964,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-49",
+          "start": 19.178390022675735,
+          "end": 19.298662131519276,
+          "midi": 58,
+          "confidence": 0.9826034611188641,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-50",
+          "start": 19.378843537414966,
+          "end": 19.53920634920635,
+          "midi": 63,
+          "confidence": 0.9780680131379567,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-51",
+          "start": 19.799795918367348,
+          "end": 19.980204081632653,
+          "midi": 55,
+          "confidence": 0.981871636420321,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-52",
+          "start": 20.04034013605442,
+          "end": 20.51140589569161,
+          "midi": 56,
+          "confidence": 0.9868660500932144,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-53",
+          "start": 20.761972789115646,
+          "end": 21.092721088435376,
+          "midi": 55,
+          "confidence": 0.9844758231173666,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-54",
+          "start": 21.22301587301587,
+          "end": 21.33326530612245,
+          "midi": 53,
+          "confidence": 0.9834630051466874,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-55",
+          "start": 21.4234693877551,
+          "end": 21.643968253968254,
+          "midi": 55,
+          "confidence": 0.9814687300149193,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-56",
+          "start": 21.6840589569161,
+          "end": 21.864467120181406,
+          "midi": 56,
+          "confidence": 0.9731959334314266,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-57",
+          "start": 21.96469387755102,
+          "end": 22.044875283446714,
+          "midi": 55,
+          "confidence": 0.9409270398674308,
+          "inferredArticulation": "unknown"
+        },
+        {
+          "id": "detected-58",
+          "start": 22.165147392290248,
+          "end": 22.32439909297052,
+          "midi": 51,
+          "confidence": 0.977820316353989,
+          "inferredArticulation": "unknown"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2402 @@
+{
+  "config": {
+    "configFile": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/playwright.config.ts",
+    "rootDir": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e",
+        "testIgnore": [
+          "/unconfigured\\.spec\\.ts/"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e",
+        "testIgnore": [
+          "/unconfigured\\.spec\\.ts/"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium-unconfigured",
+        "name": "chromium-unconfigured",
+        "testDir": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "/unconfigured\\.spec\\.ts/"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.55.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "cloud.spec.ts",
+      "file": "cloud.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "magic-link request has a mocked browser flow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2861,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:12:38.957Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "56770d54d9dbcece91a2-d5b6fbcacf197c07d0ed",
+          "file": "cloud.spec.ts",
+          "line": 95,
+          "column": 1
+        },
+        {
+          "title": "signed-in sync and owner share management survive reopening",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6081,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:12:42.497Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "56770d54d9dbcece91a2-f07401ec78928d1536d6",
+          "file": "cloud.spec.ts",
+          "line": 112,
+          "column": 1
+        },
+        {
+          "title": "public share loads, transposes, and saves a private copy",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2557,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:12:48.589Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "56770d54d9dbcece91a2-1d57cd1a04acbee1c7a3",
+          "file": "cloud.spec.ts",
+          "line": 138,
+          "column": 1
+        },
+        {
+          "title": "photo import sends prepared pages and accepts a validated mocked draft",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3014,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:12:51.159Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "56770d54d9dbcece91a2-11b7c503fb3f928cf5a3",
+          "file": "cloud.spec.ts",
+          "line": 170,
+          "column": 1
+        },
+        {
+          "title": "new cloud surfaces have no serious axe findings in mobile dark mode",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3152,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:12:54.183Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "56770d54d9dbcece91a2-bbfe3cf9cf3f0f629d18",
+          "file": "cloud.spec.ts",
+          "line": 211,
+          "column": 1
+        },
+        {
+          "title": "magic-link request has a mocked browser flow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3037,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:15:23.889Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "56770d54d9dbcece91a2-3e3de1833cee06a615df",
+          "file": "cloud.spec.ts",
+          "line": 95,
+          "column": 1
+        },
+        {
+          "title": "signed-in sync and owner share management survive reopening",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10885,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:15:27.320Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "56770d54d9dbcece91a2-93772e84f108feeae76c",
+          "file": "cloud.spec.ts",
+          "line": 112,
+          "column": 1
+        },
+        {
+          "title": "public share loads, transposes, and saves a private copy",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2573,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:15:38.221Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "56770d54d9dbcece91a2-b6caeeb67f748797fee7",
+          "file": "cloud.spec.ts",
+          "line": 138,
+          "column": 1
+        },
+        {
+          "title": "photo import sends prepared pages and accepts a validated mocked draft",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2799,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:15:40.802Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "56770d54d9dbcece91a2-d9fe6b741067990249d0",
+          "file": "cloud.spec.ts",
+          "line": 170,
+          "column": 1
+        },
+        {
+          "title": "new cloud surfaces have no serious axe findings in mobile dark mode",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3250,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:15:43.613Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "56770d54d9dbcece91a2-82d18daf6f154ec4b788",
+          "file": "cloud.spec.ts",
+          "line": 211,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "interchange.spec.ts",
+      "file": "interchange.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "MusicXML custom tuning survives save, reload and downloaded-file reimport",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7191,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Expect \"poll toBe\"",
+                      "duration": 91
+                    },
+                    {
+                      "title": "Expect \"poll toBe\"",
+                      "duration": 17
+                    }
+                  ],
+                  "startTime": "2026-09-27T16:12:57.461Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8ada68ac8d8cbef863c5-8f7d79eb888ac4acfa45",
+          "file": "interchange.spec.ts",
+          "line": 176,
+          "column": 3
+        },
+        {
+          "title": "Guitar Pro custom tuning survives save, reload and downloaded-file reimport",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8140,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Expect \"poll toBe\"",
+                      "duration": 119
+                    },
+                    {
+                      "title": "Expect \"poll toBe\"",
+                      "duration": 15
+                    }
+                  ],
+                  "startTime": "2026-09-27T16:13:04.659Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8ada68ac8d8cbef863c5-6805da7e3b57dbd8adbe",
+          "file": "interchange.spec.ts",
+          "line": 176,
+          "column": 3
+        },
+        {
+          "title": "MIDI requires a track choice and its selected pitches survive export and reimport",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6464,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Expect \"poll toBe\"",
+                      "duration": 23
+                    },
+                    {
+                      "title": "Expect \"poll toBe\"",
+                      "duration": 71
+                    }
+                  ],
+                  "startTime": "2026-09-27T16:13:12.828Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8ada68ac8d8cbef863c5-63d4b43597bf4d81c418",
+          "file": "interchange.spec.ts",
+          "line": 219,
+          "column": 1
+        },
+        {
+          "title": "a malformed replacement clears a valid preview without saving either file",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3229,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:13:19.354Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8ada68ac8d8cbef863c5-28f2e94e11f94e747de2",
+          "file": "interchange.spec.ts",
+          "line": 297,
+          "column": 1
+        },
+        {
+          "title": "text-layer PDF boundaries import as separate songs and export a structured PDF",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5587,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:13:22.619Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "printable-sheet",
+                      "contentType": "application/pdf",
+                      "path": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/test-results/interchange-text-layer-PDF-81130-and-export-a-structured-PDF-chromium/attachments/printable-sheet-6cebb2d25b9669334bd99b599895a1c45a214624.pdf"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8ada68ac8d8cbef863c5-7811bd3f089def828322",
+          "file": "interchange.spec.ts",
+          "line": 325,
+          "column": 1
+        },
+        {
+          "title": "offline audio analysis produces a waveform and an editable chord draft",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3153,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:13:28.224Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8ada68ac8d8cbef863c5-2a03124312fa329d3bcd",
+          "file": "interchange.spec.ts",
+          "line": 384,
+          "column": 1
+        },
+        {
+          "title": "structured import and export dialog are accessible in light",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6252,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Expect \"poll toBe\"",
+                      "duration": 90
+                    }
+                  ],
+                  "startTime": "2026-09-27T16:13:31.391Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8ada68ac8d8cbef863c5-a4de7e34da302bb0e3d9",
+          "file": "interchange.spec.ts",
+          "line": 422,
+          "column": 3
+        },
+        {
+          "title": "structured import and export dialog are accessible in dark on mobile",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6656,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Expect \"poll toBe\"",
+                      "duration": 97
+                    }
+                  ],
+                  "startTime": "2026-09-27T16:13:37.653Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8ada68ac8d8cbef863c5-1bf19562e75ca7376977",
+          "file": "interchange.spec.ts",
+          "line": 422,
+          "column": 3
+        },
+        {
+          "title": "MusicXML custom tuning survives save, reload and downloaded-file reimport",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6920,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Expect \"poll toBe\"",
+                      "duration": 94
+                    },
+                    {
+                      "title": "Expect \"poll toBe\"",
+                      "duration": 10
+                    }
+                  ],
+                  "startTime": "2026-09-27T16:15:47.004Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8ada68ac8d8cbef863c5-9ac0342fae86e1757df5",
+          "file": "interchange.spec.ts",
+          "line": 176,
+          "column": 3
+        },
+        {
+          "title": "Guitar Pro custom tuning survives save, reload and downloaded-file reimport",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7064,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Expect \"poll toBe\"",
+                      "duration": 94
+                    },
+                    {
+                      "title": "Expect \"poll toBe\"",
+                      "duration": 8
+                    }
+                  ],
+                  "startTime": "2026-09-27T16:15:53.931Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8ada68ac8d8cbef863c5-aa425eebfad7069fa5a5",
+          "file": "interchange.spec.ts",
+          "line": 176,
+          "column": 3
+        },
+        {
+          "title": "MIDI requires a track choice and its selected pitches survive export and reimport",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5085,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Expect \"poll toBe\"",
+                      "duration": 9
+                    },
+                    {
+                      "title": "Expect \"poll toBe\"",
+                      "duration": 14
+                    }
+                  ],
+                  "startTime": "2026-09-27T16:16:01.003Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8ada68ac8d8cbef863c5-32a4fc7e3d0d87ca4add",
+          "file": "interchange.spec.ts",
+          "line": 219,
+          "column": 1
+        },
+        {
+          "title": "a malformed replacement clears a valid preview without saving either file",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2492,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:16:06.096Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8ada68ac8d8cbef863c5-e93a857ca1b135dcecae",
+          "file": "interchange.spec.ts",
+          "line": 297,
+          "column": 1
+        },
+        {
+          "title": "text-layer PDF boundaries import as separate songs and export a structured PDF",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3743,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:16:08.595Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "printable-sheet",
+                      "contentType": "application/pdf",
+                      "path": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/test-results/interchange-text-layer-PDF-81130-and-export-a-structured-PDF-webkit/attachments/printable-sheet-fada03ad150a71b98fd74c57bc9f6f59b3942267.pdf"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8ada68ac8d8cbef863c5-92cc5d33a5b9f420b468",
+          "file": "interchange.spec.ts",
+          "line": 325,
+          "column": 1
+        },
+        {
+          "title": "offline audio analysis produces a waveform and an editable chord draft",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3110,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:16:12.345Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8ada68ac8d8cbef863c5-e5449d9bf650a224e21c",
+          "file": "interchange.spec.ts",
+          "line": 384,
+          "column": 1
+        },
+        {
+          "title": "structured import and export dialog are accessible in light",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6299,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Expect \"poll toBe\"",
+                      "duration": 93
+                    }
+                  ],
+                  "startTime": "2026-09-27T16:16:15.467Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8ada68ac8d8cbef863c5-2727e59a991c6dae383a",
+          "file": "interchange.spec.ts",
+          "line": 422,
+          "column": 3
+        },
+        {
+          "title": "structured import and export dialog are accessible in dark on mobile",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6403,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Expect \"poll toBe\"",
+                      "duration": 99
+                    }
+                  ],
+                  "startTime": "2026-09-27T16:16:21.774Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8ada68ac8d8cbef863c5-54d483a213e25248eadc",
+          "file": "interchange.spec.ts",
+          "line": 422,
+          "column": 3
+        }
+      ]
+    },
+    {
+      "title": "stage1.spec.ts",
+      "file": "stage1.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "create, save, reload, edit tab, undo/redo and export source",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3203,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:13:44.333Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "256aba07ec52fc01c968-1a9c04900f5880608321",
+          "file": "stage1.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "accessible core screens in light theme",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5408,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:13:47.546Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "256aba07ec52fc01c968-166847ef367bf612e308",
+          "file": "stage1.spec.ts",
+          "line": 49,
+          "column": 40
+        },
+        {
+          "title": "accessible core screens in dark theme",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5373,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:13:52.966Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "256aba07ec52fc01c968-f15f8e553494c161093d",
+          "file": "stage1.spec.ts",
+          "line": 49,
+          "column": 40
+        },
+        {
+          "title": "mobile songbook and left-handed tab orientation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3560,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:13:58.347Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "256aba07ec52fc01c968-d41f26985cca07a13e67",
+          "file": "stage1.spec.ts",
+          "line": 76,
+          "column": 1
+        },
+        {
+          "title": "setlist create and keyboard reorder",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2424,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:14:01.916Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "256aba07ec52fc01c968-73d6b3a97f55ce0ec867",
+          "file": "stage1.spec.ts",
+          "line": 100,
+          "column": 1
+        },
+        {
+          "title": "create, save, reload, edit tab, undo/redo and export source",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3491,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:16:28.196Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "256aba07ec52fc01c968-7188c62ae279407f107a",
+          "file": "stage1.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "accessible core screens in light theme",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6259,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:16:31.695Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "256aba07ec52fc01c968-9a539b615d0536726ea9",
+          "file": "stage1.spec.ts",
+          "line": 49,
+          "column": 40
+        },
+        {
+          "title": "accessible core screens in dark theme",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6246,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:16:37.961Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "256aba07ec52fc01c968-660df6dbcf6446e48c7d",
+          "file": "stage1.spec.ts",
+          "line": 49,
+          "column": 40
+        },
+        {
+          "title": "mobile songbook and left-handed tab orientation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3753,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:16:44.216Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "256aba07ec52fc01c968-6755b9a4b69a39678476",
+          "file": "stage1.spec.ts",
+          "line": 76,
+          "column": 1
+        },
+        {
+          "title": "setlist create and keyboard reorder",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2554,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:16:47.978Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "256aba07ec52fc01c968-9bb46c2b82aac8423614",
+          "file": "stage1.spec.ts",
+          "line": 100,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "stage2.spec.ts",
+      "file": "stage2.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "accessible practice screens in light",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6101,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:14:04.361Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "62b586f9f775176e4782-5dea6906a74de0d5b7f3",
+          "file": "stage2.spec.ts",
+          "line": 3,
+          "column": 40
+        },
+        {
+          "title": "accessible practice screens in dark",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6417,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:14:10.470Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "62b586f9f775176e4782-128d13fc9f7dd1e5c68d",
+          "file": "stage2.spec.ts",
+          "line": 3,
+          "column": 40
+        },
+        {
+          "title": "plays notation, highlights cells, saves session and leaves the song unchanged",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 4445,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -   1\u001b[39m\n\u001b[31m+ Received  + 159\u001b[39m\n\n\u001b[33m@@ -843,10 +843,168 @@\u001b[39m\n\u001b[2m    \"provenance\": Object {\u001b[22m\n\u001b[2m      \"processedAt\": \"2026-09-27T16:14:17.797Z\",\u001b[22m\n\u001b[2m      \"source\": \"chordpro\",\u001b[22m\n\u001b[2m    },\u001b[22m\n\u001b[2m    \"schemaVersion\": 1,\u001b[22m\n\u001b[31m+   \"strumming\": Object {\u001b[39m\n\u001b[31m+     \"contexts\": Object {\u001b[39m\n\u001b[31m+       \"52dbb71d-c47a-47f7-8369-223ef8836117\": Object {\u001b[39m\n\u001b[31m+         \"fingerprint\": \"[1,\\\"52dbb71d-c47a-47f7-8369-223ef8836117\\\",{\\\"meter\\\":[3,4],\\\"bpm\\\":84,\\\"section\\\":\\\"verse\\\",\\\"styles\\\":[],\\\"chords\\\":[],\\\"timingKnown\\\":false,\\\"difficulty\\\":\\\"intermediate\\\",\\\"changesPerMeasure\\\":2.75,\\\"notes\\\":[\\\"84 BPM is a practice tempo; 3/4 is provisional until confirmed. Existing scores can contain import defaults.\\\",\\\"Chord timing is unconfirmed; no precise chord accents are inferred.\\\",\\\"No style supplied; using broadly suitable grooves.\\\"]},{}]\",\u001b[39m\n\u001b[31m+         \"generation\": 0,\u001b[39m\n\u001b[31m+         \"recommendations\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"explanation\": \"3/4 at 84 quarter-note BPM: 3 strokes per bar. Frequent written chord changes favor simpler movement. Start here to practice clean chord changes.\",\u001b[39m\n\u001b[31m+             \"pattern\": Object {\u001b[39m\n\u001b[31m+               \"difficulty\": \"beginner\",\u001b[39m\n\u001b[31m+               \"events\": Array [\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 1,\u001b[39m\n\u001b[31m+                   \"duration\": 1,\u001b[39m\n\u001b[31m+                   \"position\": 0,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 1,\u001b[39m\n\u001b[31m+                   \"position\": 1,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 1,\u001b[39m\n\u001b[31m+                   \"position\": 2,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+               ],\u001b[39m\n\u001b[31m+               \"feel\": \"straight\",\u001b[39m\n\u001b[31m+               \"id\": \"waltz:3-4\",\u001b[39m\n\u001b[31m+               \"meter\": Array [\u001b[39m\n\u001b[31m+                 3,\u001b[39m\n\u001b[31m+                 4,\u001b[39m\n\u001b[31m+               ],\u001b[39m\n\u001b[31m+               \"name\": \"Waltz pulse\",\u001b[39m\n\u001b[31m+               \"subdivision\": 1,\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"role\": \"Simple\",\u001b[39m\n\u001b[31m+             \"score\": 98,\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"explanation\": \"3/4 at 84 quarter-note BPM: 5 strokes and 1 rest per bar. Suited to the verse's phrasing. Frequent written chord changes favor simpler movement.\",\u001b[39m\n\u001b[31m+             \"pattern\": Object {\u001b[39m\n\u001b[31m+               \"difficulty\": \"intermediate\",\u001b[39m\n\u001b[31m+               \"events\": Array [\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 1,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 0,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 0.5,\u001b[39m\n\u001b[31m+                   \"stroke\": \"rest\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 1,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 1.5,\u001b[39m\n\u001b[31m+                   \"stroke\": \"up\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 2,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 2.5,\u001b[39m\n\u001b[31m+                   \"stroke\": \"up\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+               ],\u001b[39m\n\u001b[31m+               \"feel\": \"straight\",\u001b[39m\n\u001b[31m+               \"id\": \"waltz-lift:3-4\",\u001b[39m\n\u001b[31m+               \"meter\": Array [\u001b[39m\n\u001b[31m+                 3,\u001b[39m\n\u001b[31m+                 4,\u001b[39m\n\u001b[31m+               ],\u001b[39m\n\u001b[31m+               \"name\": \"Waltz lift\",\u001b[39m\n\u001b[31m+               \"subdivision\": 2,\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"role\": \"Recommended\",\u001b[39m\n\u001b[31m+             \"score\": 105.07,\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"explanation\": \"3/4 at 84 quarter-note BPM: 4 strokes and 2 rests per bar. Frequent written chord changes favor simpler movement. Muted strokes add a percussive pulse.\",\u001b[39m\n\u001b[31m+             \"pattern\": Object {\u001b[39m\n\u001b[31m+               \"difficulty\": \"advanced\",\u001b[39m\n\u001b[31m+               \"events\": Array [\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 1,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 0,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 0.5,\u001b[39m\n\u001b[31m+                   \"stroke\": \"rest\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 1,\u001b[39m\n\u001b[31m+                   \"stroke\": \"up\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 1.5,\u001b[39m\n\u001b[31m+                   \"stroke\": \"rest\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 2,\u001b[39m\n\u001b[31m+                   \"stroke\": \"mute\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 2.5,\u001b[39m\n\u001b[31m+                   \"stroke\": \"up\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+               ],\u001b[39m\n\u001b[31m+               \"feel\": \"straight\",\u001b[39m\n\u001b[31m+               \"id\": \"waltz-space:3-4\",\u001b[39m\n\u001b[31m+               \"meter\": Array [\u001b[39m\n\u001b[31m+                 3,\u001b[39m\n\u001b[31m+                 4,\u001b[39m\n\u001b[31m+               ],\u001b[39m\n\u001b[31m+               \"name\": \"Floating waltz\",\u001b[39m\n\u001b[31m+               \"subdivision\": 2,\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"role\": \"Expressive\",\u001b[39m\n\u001b[31m+             \"score\": 92.33,\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"selectedId\": \"waltz-lift:3-4\",\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     },\u001b[39m\n\u001b[31m+     \"customs\": Array [],\u001b[39m\n\u001b[31m+     \"inputs\": Object {},\u001b[39m\n\u001b[31m+     \"schemaVersion\": 1,\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[2m    \"tags\": Array [\u001b[22m\n\u001b[2m      \"Public domain\",\u001b[22m\n\u001b[2m      \"Easy\",\u001b[22m\n\u001b[2m    ],\u001b[22m\n\u001b[2m    \"tempo\": 84,\u001b[22m\n\u001b[33m@@ -854,7 +1012,7 @@\u001b[39m\n\u001b[2m      3,\u001b[22m\n\u001b[2m      4,\u001b[22m\n\u001b[2m    ],\u001b[22m\n\u001b[2m    \"title\": \"Amazing Grace\",\u001b[22m\n\u001b[2m    \"tuningId\": \"standard\",\u001b[22m\n\u001b[32m-   \"updatedAt\": \"2026-09-27T16:14:17.797Z\",\u001b[39m\n\u001b[31m+   \"updatedAt\": \"2026-09-27T16:14:18.208Z\",\u001b[39m\n\u001b[2m  }\u001b[22m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -   1\u001b[39m\n\u001b[31m+ Received  + 159\u001b[39m\n\n\u001b[33m@@ -843,10 +843,168 @@\u001b[39m\n\u001b[2m    \"provenance\": Object {\u001b[22m\n\u001b[2m      \"processedAt\": \"2026-09-27T16:14:17.797Z\",\u001b[22m\n\u001b[2m      \"source\": \"chordpro\",\u001b[22m\n\u001b[2m    },\u001b[22m\n\u001b[2m    \"schemaVersion\": 1,\u001b[22m\n\u001b[31m+   \"strumming\": Object {\u001b[39m\n\u001b[31m+     \"contexts\": Object {\u001b[39m\n\u001b[31m+       \"52dbb71d-c47a-47f7-8369-223ef8836117\": Object {\u001b[39m\n\u001b[31m+         \"fingerprint\": \"[1,\\\"52dbb71d-c47a-47f7-8369-223ef8836117\\\",{\\\"meter\\\":[3,4],\\\"bpm\\\":84,\\\"section\\\":\\\"verse\\\",\\\"styles\\\":[],\\\"chords\\\":[],\\\"timingKnown\\\":false,\\\"difficulty\\\":\\\"intermediate\\\",\\\"changesPerMeasure\\\":2.75,\\\"notes\\\":[\\\"84 BPM is a practice tempo; 3/4 is provisional until confirmed. Existing scores can contain import defaults.\\\",\\\"Chord timing is unconfirmed; no precise chord accents are inferred.\\\",\\\"No style supplied; using broadly suitable grooves.\\\"]},{}]\",\u001b[39m\n\u001b[31m+         \"generation\": 0,\u001b[39m\n\u001b[31m+         \"recommendations\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"explanation\": \"3/4 at 84 quarter-note BPM: 3 strokes per bar. Frequent written chord changes favor simpler movement. Start here to practice clean chord changes.\",\u001b[39m\n\u001b[31m+             \"pattern\": Object {\u001b[39m\n\u001b[31m+               \"difficulty\": \"beginner\",\u001b[39m\n\u001b[31m+               \"events\": Array [\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 1,\u001b[39m\n\u001b[31m+                   \"duration\": 1,\u001b[39m\n\u001b[31m+                   \"position\": 0,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 1,\u001b[39m\n\u001b[31m+                   \"position\": 1,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 1,\u001b[39m\n\u001b[31m+                   \"position\": 2,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+               ],\u001b[39m\n\u001b[31m+               \"feel\": \"straight\",\u001b[39m\n\u001b[31m+               \"id\": \"waltz:3-4\",\u001b[39m\n\u001b[31m+               \"meter\": Array [\u001b[39m\n\u001b[31m+                 3,\u001b[39m\n\u001b[31m+                 4,\u001b[39m\n\u001b[31m+               ],\u001b[39m\n\u001b[31m+               \"name\": \"Waltz pulse\",\u001b[39m\n\u001b[31m+               \"subdivision\": 1,\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"role\": \"Simple\",\u001b[39m\n\u001b[31m+             \"score\": 98,\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"explanation\": \"3/4 at 84 quarter-note BPM: 5 strokes and 1 rest per bar. Suited to the verse's phrasing. Frequent written chord changes favor simpler movement.\",\u001b[39m\n\u001b[31m+             \"pattern\": Object {\u001b[39m\n\u001b[31m+               \"difficulty\": \"intermediate\",\u001b[39m\n\u001b[31m+               \"events\": Array [\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 1,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 0,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 0.5,\u001b[39m\n\u001b[31m+                   \"stroke\": \"rest\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 1,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 1.5,\u001b[39m\n\u001b[31m+                   \"stroke\": \"up\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 2,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 2.5,\u001b[39m\n\u001b[31m+                   \"stroke\": \"up\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+               ],\u001b[39m\n\u001b[31m+               \"feel\": \"straight\",\u001b[39m\n\u001b[31m+               \"id\": \"waltz-lift:3-4\",\u001b[39m\n\u001b[31m+               \"meter\": Array [\u001b[39m\n\u001b[31m+                 3,\u001b[39m\n\u001b[31m+                 4,\u001b[39m\n\u001b[31m+               ],\u001b[39m\n\u001b[31m+               \"name\": \"Waltz lift\",\u001b[39m\n\u001b[31m+               \"subdivision\": 2,\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"role\": \"Recommended\",\u001b[39m\n\u001b[31m+             \"score\": 105.07,\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"explanation\": \"3/4 at 84 quarter-note BPM: 4 strokes and 2 rests per bar. Frequent written chord changes favor simpler movement. Muted strokes add a percussive pulse.\",\u001b[39m\n\u001b[31m+             \"pattern\": Object {\u001b[39m\n\u001b[31m+               \"difficulty\": \"advanced\",\u001b[39m\n\u001b[31m+               \"events\": Array [\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 1,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 0,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 0.5,\u001b[39m\n\u001b[31m+                   \"stroke\": \"rest\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 1,\u001b[39m\n\u001b[31m+                   \"stroke\": \"up\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 1.5,\u001b[39m\n\u001b[31m+                   \"stroke\": \"rest\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 2,\u001b[39m\n\u001b[31m+                   \"stroke\": \"mute\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 2.5,\u001b[39m\n\u001b[31m+                   \"stroke\": \"up\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+               ],\u001b[39m\n\u001b[31m+               \"feel\": \"straight\",\u001b[39m\n\u001b[31m+               \"id\": \"waltz-space:3-4\",\u001b[39m\n\u001b[31m+               \"meter\": Array [\u001b[39m\n\u001b[31m+                 3,\u001b[39m\n\u001b[31m+                 4,\u001b[39m\n\u001b[31m+               ],\u001b[39m\n\u001b[31m+               \"name\": \"Floating waltz\",\u001b[39m\n\u001b[31m+               \"subdivision\": 2,\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"role\": \"Expressive\",\u001b[39m\n\u001b[31m+             \"score\": 92.33,\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"selectedId\": \"waltz-lift:3-4\",\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     },\u001b[39m\n\u001b[31m+     \"customs\": Array [],\u001b[39m\n\u001b[31m+     \"inputs\": Object {},\u001b[39m\n\u001b[31m+     \"schemaVersion\": 1,\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[2m    \"tags\": Array [\u001b[22m\n\u001b[2m      \"Public domain\",\u001b[22m\n\u001b[2m      \"Easy\",\u001b[22m\n\u001b[2m    ],\u001b[22m\n\u001b[2m    \"tempo\": 84,\u001b[22m\n\u001b[33m@@ -854,7 +1012,7 @@\u001b[39m\n\u001b[2m      3,\u001b[22m\n\u001b[2m      4,\u001b[22m\n\u001b[2m    ],\u001b[22m\n\u001b[2m    \"title\": \"Amazing Grace\",\u001b[22m\n\u001b[2m    \"tuningId\": \"standard\",\u001b[22m\n\u001b[32m-   \"updatedAt\": \"2026-09-27T16:14:17.797Z\",\u001b[39m\n\u001b[31m+   \"updatedAt\": \"2026-09-27T16:14:18.208Z\",\u001b[39m\n\u001b[2m  }\u001b[22m\n    at /Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e/stage2.spec.ts:69:28",
+                    "location": {
+                      "file": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e/stage2.spec.ts",
+                      "column": 28,
+                      "line": 69
+                    },
+                    "snippet": "  67 |     )\n  68 |     .toBe(1);\n> 69 |   expect(await readSong()).toEqual(before);\n     |                            ^\n  70 |   await page.goto(\"/progress\");\n  71 |   await expect(page.locator(\".practice-log\")).toContainText(\"Amazing Grace\");\n  72 | });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e/stage2.spec.ts",
+                        "column": 28,
+                        "line": 69
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -   1\u001b[39m\n\u001b[31m+ Received  + 159\u001b[39m\n\n\u001b[33m@@ -843,10 +843,168 @@\u001b[39m\n\u001b[2m    \"provenance\": Object {\u001b[22m\n\u001b[2m      \"processedAt\": \"2026-09-27T16:14:17.797Z\",\u001b[22m\n\u001b[2m      \"source\": \"chordpro\",\u001b[22m\n\u001b[2m    },\u001b[22m\n\u001b[2m    \"schemaVersion\": 1,\u001b[22m\n\u001b[31m+   \"strumming\": Object {\u001b[39m\n\u001b[31m+     \"contexts\": Object {\u001b[39m\n\u001b[31m+       \"52dbb71d-c47a-47f7-8369-223ef8836117\": Object {\u001b[39m\n\u001b[31m+         \"fingerprint\": \"[1,\\\"52dbb71d-c47a-47f7-8369-223ef8836117\\\",{\\\"meter\\\":[3,4],\\\"bpm\\\":84,\\\"section\\\":\\\"verse\\\",\\\"styles\\\":[],\\\"chords\\\":[],\\\"timingKnown\\\":false,\\\"difficulty\\\":\\\"intermediate\\\",\\\"changesPerMeasure\\\":2.75,\\\"notes\\\":[\\\"84 BPM is a practice tempo; 3/4 is provisional until confirmed. Existing scores can contain import defaults.\\\",\\\"Chord timing is unconfirmed; no precise chord accents are inferred.\\\",\\\"No style supplied; using broadly suitable grooves.\\\"]},{}]\",\u001b[39m\n\u001b[31m+         \"generation\": 0,\u001b[39m\n\u001b[31m+         \"recommendations\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"explanation\": \"3/4 at 84 quarter-note BPM: 3 strokes per bar. Frequent written chord changes favor simpler movement. Start here to practice clean chord changes.\",\u001b[39m\n\u001b[31m+             \"pattern\": Object {\u001b[39m\n\u001b[31m+               \"difficulty\": \"beginner\",\u001b[39m\n\u001b[31m+               \"events\": Array [\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 1,\u001b[39m\n\u001b[31m+                   \"duration\": 1,\u001b[39m\n\u001b[31m+                   \"position\": 0,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 1,\u001b[39m\n\u001b[31m+                   \"position\": 1,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 1,\u001b[39m\n\u001b[31m+                   \"position\": 2,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+               ],\u001b[39m\n\u001b[31m+               \"feel\": \"straight\",\u001b[39m\n\u001b[31m+               \"id\": \"waltz:3-4\",\u001b[39m\n\u001b[31m+               \"meter\": Array [\u001b[39m\n\u001b[31m+                 3,\u001b[39m\n\u001b[31m+                 4,\u001b[39m\n\u001b[31m+               ],\u001b[39m\n\u001b[31m+               \"name\": \"Waltz pulse\",\u001b[39m\n\u001b[31m+               \"subdivision\": 1,\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"role\": \"Simple\",\u001b[39m\n\u001b[31m+             \"score\": 98,\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"explanation\": \"3/4 at 84 quarter-note BPM: 5 strokes and 1 rest per bar. Suited to the verse's phrasing. Frequent written chord changes favor simpler movement.\",\u001b[39m\n\u001b[31m+             \"pattern\": Object {\u001b[39m\n\u001b[31m+               \"difficulty\": \"intermediate\",\u001b[39m\n\u001b[31m+               \"events\": Array [\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 1,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 0,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 0.5,\u001b[39m\n\u001b[31m+                   \"stroke\": \"rest\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 1,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 1.5,\u001b[39m\n\u001b[31m+                   \"stroke\": \"up\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 2,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 2.5,\u001b[39m\n\u001b[31m+                   \"stroke\": \"up\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+               ],\u001b[39m\n\u001b[31m+               \"feel\": \"straight\",\u001b[39m\n\u001b[31m+               \"id\": \"waltz-lift:3-4\",\u001b[39m\n\u001b[31m+               \"meter\": Array [\u001b[39m\n\u001b[31m+                 3,\u001b[39m\n\u001b[31m+                 4,\u001b[39m\n\u001b[31m+               ],\u001b[39m\n\u001b[31m+               \"name\": \"Waltz lift\",\u001b[39m\n\u001b[31m+               \"subdivision\": 2,\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"role\": \"Recommended\",\u001b[39m\n\u001b[31m+             \"score\": 105.07,\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"explanation\": \"3/4 at 84 quarter-note BPM: 4 strokes and 2 rests per bar. Frequent written chord changes favor simpler movement. Muted strokes add a percussive pulse.\",\u001b[39m\n\u001b[31m+             \"pattern\": Object {\u001b[39m\n\u001b[31m+               \"difficulty\": \"advanced\",\u001b[39m\n\u001b[31m+               \"events\": Array [\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 1,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 0,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 0.5,\u001b[39m\n\u001b[31m+                   \"stroke\": \"rest\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 1,\u001b[39m\n\u001b[31m+                   \"stroke\": \"up\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 1.5,\u001b[39m\n\u001b[31m+                   \"stroke\": \"rest\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 2,\u001b[39m\n\u001b[31m+                   \"stroke\": \"mute\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 2.5,\u001b[39m\n\u001b[31m+                   \"stroke\": \"up\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+               ],\u001b[39m\n\u001b[31m+               \"feel\": \"straight\",\u001b[39m\n\u001b[31m+               \"id\": \"waltz-space:3-4\",\u001b[39m\n\u001b[31m+               \"meter\": Array [\u001b[39m\n\u001b[31m+                 3,\u001b[39m\n\u001b[31m+                 4,\u001b[39m\n\u001b[31m+               ],\u001b[39m\n\u001b[31m+               \"name\": \"Floating waltz\",\u001b[39m\n\u001b[31m+               \"subdivision\": 2,\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"role\": \"Expressive\",\u001b[39m\n\u001b[31m+             \"score\": 92.33,\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"selectedId\": \"waltz-lift:3-4\",\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     },\u001b[39m\n\u001b[31m+     \"customs\": Array [],\u001b[39m\n\u001b[31m+     \"inputs\": Object {},\u001b[39m\n\u001b[31m+     \"schemaVersion\": 1,\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[2m    \"tags\": Array [\u001b[22m\n\u001b[2m      \"Public domain\",\u001b[22m\n\u001b[2m      \"Easy\",\u001b[22m\n\u001b[2m    ],\u001b[22m\n\u001b[2m    \"tempo\": 84,\u001b[22m\n\u001b[33m@@ -854,7 +1012,7 @@\u001b[39m\n\u001b[2m      3,\u001b[22m\n\u001b[2m      4,\u001b[22m\n\u001b[2m    ],\u001b[22m\n\u001b[2m    \"title\": \"Amazing Grace\",\u001b[22m\n\u001b[2m    \"tuningId\": \"standard\",\u001b[22m\n\u001b[32m-   \"updatedAt\": \"2026-09-27T16:14:17.797Z\",\u001b[39m\n\u001b[31m+   \"updatedAt\": \"2026-09-27T16:14:18.208Z\",\u001b[39m\n\u001b[2m  }\u001b[22m\n\n  67 |     )\n  68 |     .toBe(1);\n> 69 |   expect(await readSong()).toEqual(before);\n     |                            ^\n  70 |   await page.goto(\"/progress\");\n  71 |   await expect(page.locator(\".practice-log\")).toContainText(\"Amazing Grace\");\n  72 | });\n    at /Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e/stage2.spec.ts:69:28"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Expect \"poll toBe\"",
+                      "duration": 35
+                    }
+                  ],
+                  "startTime": "2026-09-27T16:14:16.898Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/test-results/stage2-plays-notation-high-0345b-d-leaves-the-song-unchanged-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e/stage2.spec.ts",
+                    "column": 28,
+                    "line": 69
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "62b586f9f775176e4782-c09aec4ba80fdb7120c3",
+          "file": "stage2.spec.ts",
+          "line": 29,
+          "column": 1
+        },
+        {
+          "title": "metronome toggles and denied microphone has a useful recovery message",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3944,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:14:22.838Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "62b586f9f775176e4782-92eec7d7599ffe289199",
+          "file": "stage2.spec.ts",
+          "line": 68,
+          "column": 1
+        },
+        {
+          "title": "stage view responds to keyboard page turns",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1128,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:14:27.474Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "62b586f9f775176e4782-165f96a0f8444ab13edd",
+          "file": "stage2.spec.ts",
+          "line": 98,
+          "column": 1
+        },
+        {
+          "title": "actual time-stretch output preserves synthetic pitch",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1500,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:14:28.621Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "62b586f9f775176e4782-c05c4b60d4d5f1196387",
+          "file": "stage2.spec.ts",
+          "line": 108,
+          "column": 1
+        },
+        {
+          "title": "accessible practice screens in light",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11809,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:16:50.549Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "62b586f9f775176e4782-5034404bb1ad0a0d1528",
+          "file": "stage2.spec.ts",
+          "line": 3,
+          "column": 40
+        },
+        {
+          "title": "accessible practice screens in dark",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9759,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:17:02.368Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "62b586f9f775176e4782-c2a652bff7ec9c15f169",
+          "file": "stage2.spec.ts",
+          "line": 3,
+          "column": 40
+        },
+        {
+          "title": "plays notation, highlights cells, saves session and leaves the song unchanged",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 3918,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -   1\u001b[39m\n\u001b[31m+ Received  + 159\u001b[39m\n\n\u001b[33m@@ -843,10 +843,168 @@\u001b[39m\n\u001b[2m    \"provenance\": Object {\u001b[22m\n\u001b[2m      \"processedAt\": \"2026-09-27T16:17:12.770Z\",\u001b[22m\n\u001b[2m      \"source\": \"chordpro\",\u001b[22m\n\u001b[2m    },\u001b[22m\n\u001b[2m    \"schemaVersion\": 1,\u001b[22m\n\u001b[31m+   \"strumming\": Object {\u001b[39m\n\u001b[31m+     \"contexts\": Object {\u001b[39m\n\u001b[31m+       \"b156f52a-6ccb-4022-8d81-f92fdda676f9\": Object {\u001b[39m\n\u001b[31m+         \"fingerprint\": \"[1,\\\"b156f52a-6ccb-4022-8d81-f92fdda676f9\\\",{\\\"meter\\\":[3,4],\\\"bpm\\\":84,\\\"section\\\":\\\"verse\\\",\\\"styles\\\":[],\\\"chords\\\":[],\\\"timingKnown\\\":false,\\\"difficulty\\\":\\\"intermediate\\\",\\\"changesPerMeasure\\\":2.75,\\\"notes\\\":[\\\"84 BPM is a practice tempo; 3/4 is provisional until confirmed. Existing scores can contain import defaults.\\\",\\\"Chord timing is unconfirmed; no precise chord accents are inferred.\\\",\\\"No style supplied; using broadly suitable grooves.\\\"]},{}]\",\u001b[39m\n\u001b[31m+         \"generation\": 0,\u001b[39m\n\u001b[31m+         \"recommendations\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"explanation\": \"3/4 at 84 quarter-note BPM: 3 strokes per bar. Frequent written chord changes favor simpler movement. Start here to practice clean chord changes.\",\u001b[39m\n\u001b[31m+             \"pattern\": Object {\u001b[39m\n\u001b[31m+               \"difficulty\": \"beginner\",\u001b[39m\n\u001b[31m+               \"events\": Array [\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 1,\u001b[39m\n\u001b[31m+                   \"duration\": 1,\u001b[39m\n\u001b[31m+                   \"position\": 0,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 1,\u001b[39m\n\u001b[31m+                   \"position\": 1,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 1,\u001b[39m\n\u001b[31m+                   \"position\": 2,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+               ],\u001b[39m\n\u001b[31m+               \"feel\": \"straight\",\u001b[39m\n\u001b[31m+               \"id\": \"waltz:3-4\",\u001b[39m\n\u001b[31m+               \"meter\": Array [\u001b[39m\n\u001b[31m+                 3,\u001b[39m\n\u001b[31m+                 4,\u001b[39m\n\u001b[31m+               ],\u001b[39m\n\u001b[31m+               \"name\": \"Waltz pulse\",\u001b[39m\n\u001b[31m+               \"subdivision\": 1,\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"role\": \"Simple\",\u001b[39m\n\u001b[31m+             \"score\": 98,\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"explanation\": \"3/4 at 84 quarter-note BPM: 5 strokes and 1 rest per bar. Suited to the verse's phrasing. Frequent written chord changes favor simpler movement.\",\u001b[39m\n\u001b[31m+             \"pattern\": Object {\u001b[39m\n\u001b[31m+               \"difficulty\": \"intermediate\",\u001b[39m\n\u001b[31m+               \"events\": Array [\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 1,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 0,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 0.5,\u001b[39m\n\u001b[31m+                   \"stroke\": \"rest\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 1,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 1.5,\u001b[39m\n\u001b[31m+                   \"stroke\": \"up\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 2,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 2.5,\u001b[39m\n\u001b[31m+                   \"stroke\": \"up\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+               ],\u001b[39m\n\u001b[31m+               \"feel\": \"straight\",\u001b[39m\n\u001b[31m+               \"id\": \"waltz-lift:3-4\",\u001b[39m\n\u001b[31m+               \"meter\": Array [\u001b[39m\n\u001b[31m+                 3,\u001b[39m\n\u001b[31m+                 4,\u001b[39m\n\u001b[31m+               ],\u001b[39m\n\u001b[31m+               \"name\": \"Waltz lift\",\u001b[39m\n\u001b[31m+               \"subdivision\": 2,\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"role\": \"Recommended\",\u001b[39m\n\u001b[31m+             \"score\": 105.07,\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"explanation\": \"3/4 at 84 quarter-note BPM: 4 strokes and 2 rests per bar. Frequent written chord changes favor simpler movement. Muted strokes add a percussive pulse.\",\u001b[39m\n\u001b[31m+             \"pattern\": Object {\u001b[39m\n\u001b[31m+               \"difficulty\": \"advanced\",\u001b[39m\n\u001b[31m+               \"events\": Array [\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 1,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 0,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 0.5,\u001b[39m\n\u001b[31m+                   \"stroke\": \"rest\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 1,\u001b[39m\n\u001b[31m+                   \"stroke\": \"up\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 1.5,\u001b[39m\n\u001b[31m+                   \"stroke\": \"rest\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 2,\u001b[39m\n\u001b[31m+                   \"stroke\": \"mute\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 2.5,\u001b[39m\n\u001b[31m+                   \"stroke\": \"up\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+               ],\u001b[39m\n\u001b[31m+               \"feel\": \"straight\",\u001b[39m\n\u001b[31m+               \"id\": \"waltz-space:3-4\",\u001b[39m\n\u001b[31m+               \"meter\": Array [\u001b[39m\n\u001b[31m+                 3,\u001b[39m\n\u001b[31m+                 4,\u001b[39m\n\u001b[31m+               ],\u001b[39m\n\u001b[31m+               \"name\": \"Floating waltz\",\u001b[39m\n\u001b[31m+               \"subdivision\": 2,\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"role\": \"Expressive\",\u001b[39m\n\u001b[31m+             \"score\": 92.33,\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"selectedId\": \"waltz-lift:3-4\",\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     },\u001b[39m\n\u001b[31m+     \"customs\": Array [],\u001b[39m\n\u001b[31m+     \"inputs\": Object {},\u001b[39m\n\u001b[31m+     \"schemaVersion\": 1,\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[2m    \"tags\": Array [\u001b[22m\n\u001b[2m      \"Public domain\",\u001b[22m\n\u001b[2m      \"Easy\",\u001b[22m\n\u001b[2m    ],\u001b[22m\n\u001b[2m    \"tempo\": 84,\u001b[22m\n\u001b[33m@@ -854,7 +1012,7 @@\u001b[39m\n\u001b[2m      3,\u001b[22m\n\u001b[2m      4,\u001b[22m\n\u001b[2m    ],\u001b[22m\n\u001b[2m    \"title\": \"Amazing Grace\",\u001b[22m\n\u001b[2m    \"tuningId\": \"standard\",\u001b[22m\n\u001b[32m-   \"updatedAt\": \"2026-09-27T16:17:12.770Z\",\u001b[39m\n\u001b[31m+   \"updatedAt\": \"2026-09-27T16:17:13.182Z\",\u001b[39m\n\u001b[2m  }\u001b[22m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -   1\u001b[39m\n\u001b[31m+ Received  + 159\u001b[39m\n\n\u001b[33m@@ -843,10 +843,168 @@\u001b[39m\n\u001b[2m    \"provenance\": Object {\u001b[22m\n\u001b[2m      \"processedAt\": \"2026-09-27T16:17:12.770Z\",\u001b[22m\n\u001b[2m      \"source\": \"chordpro\",\u001b[22m\n\u001b[2m    },\u001b[22m\n\u001b[2m    \"schemaVersion\": 1,\u001b[22m\n\u001b[31m+   \"strumming\": Object {\u001b[39m\n\u001b[31m+     \"contexts\": Object {\u001b[39m\n\u001b[31m+       \"b156f52a-6ccb-4022-8d81-f92fdda676f9\": Object {\u001b[39m\n\u001b[31m+         \"fingerprint\": \"[1,\\\"b156f52a-6ccb-4022-8d81-f92fdda676f9\\\",{\\\"meter\\\":[3,4],\\\"bpm\\\":84,\\\"section\\\":\\\"verse\\\",\\\"styles\\\":[],\\\"chords\\\":[],\\\"timingKnown\\\":false,\\\"difficulty\\\":\\\"intermediate\\\",\\\"changesPerMeasure\\\":2.75,\\\"notes\\\":[\\\"84 BPM is a practice tempo; 3/4 is provisional until confirmed. Existing scores can contain import defaults.\\\",\\\"Chord timing is unconfirmed; no precise chord accents are inferred.\\\",\\\"No style supplied; using broadly suitable grooves.\\\"]},{}]\",\u001b[39m\n\u001b[31m+         \"generation\": 0,\u001b[39m\n\u001b[31m+         \"recommendations\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"explanation\": \"3/4 at 84 quarter-note BPM: 3 strokes per bar. Frequent written chord changes favor simpler movement. Start here to practice clean chord changes.\",\u001b[39m\n\u001b[31m+             \"pattern\": Object {\u001b[39m\n\u001b[31m+               \"difficulty\": \"beginner\",\u001b[39m\n\u001b[31m+               \"events\": Array [\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 1,\u001b[39m\n\u001b[31m+                   \"duration\": 1,\u001b[39m\n\u001b[31m+                   \"position\": 0,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 1,\u001b[39m\n\u001b[31m+                   \"position\": 1,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 1,\u001b[39m\n\u001b[31m+                   \"position\": 2,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+               ],\u001b[39m\n\u001b[31m+               \"feel\": \"straight\",\u001b[39m\n\u001b[31m+               \"id\": \"waltz:3-4\",\u001b[39m\n\u001b[31m+               \"meter\": Array [\u001b[39m\n\u001b[31m+                 3,\u001b[39m\n\u001b[31m+                 4,\u001b[39m\n\u001b[31m+               ],\u001b[39m\n\u001b[31m+               \"name\": \"Waltz pulse\",\u001b[39m\n\u001b[31m+               \"subdivision\": 1,\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"role\": \"Simple\",\u001b[39m\n\u001b[31m+             \"score\": 98,\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"explanation\": \"3/4 at 84 quarter-note BPM: 5 strokes and 1 rest per bar. Suited to the verse's phrasing. Frequent written chord changes favor simpler movement.\",\u001b[39m\n\u001b[31m+             \"pattern\": Object {\u001b[39m\n\u001b[31m+               \"difficulty\": \"intermediate\",\u001b[39m\n\u001b[31m+               \"events\": Array [\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 1,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 0,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 0.5,\u001b[39m\n\u001b[31m+                   \"stroke\": \"rest\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 1,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 1.5,\u001b[39m\n\u001b[31m+                   \"stroke\": \"up\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 2,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 2.5,\u001b[39m\n\u001b[31m+                   \"stroke\": \"up\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+               ],\u001b[39m\n\u001b[31m+               \"feel\": \"straight\",\u001b[39m\n\u001b[31m+               \"id\": \"waltz-lift:3-4\",\u001b[39m\n\u001b[31m+               \"meter\": Array [\u001b[39m\n\u001b[31m+                 3,\u001b[39m\n\u001b[31m+                 4,\u001b[39m\n\u001b[31m+               ],\u001b[39m\n\u001b[31m+               \"name\": \"Waltz lift\",\u001b[39m\n\u001b[31m+               \"subdivision\": 2,\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"role\": \"Recommended\",\u001b[39m\n\u001b[31m+             \"score\": 105.07,\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"explanation\": \"3/4 at 84 quarter-note BPM: 4 strokes and 2 rests per bar. Frequent written chord changes favor simpler movement. Muted strokes add a percussive pulse.\",\u001b[39m\n\u001b[31m+             \"pattern\": Object {\u001b[39m\n\u001b[31m+               \"difficulty\": \"advanced\",\u001b[39m\n\u001b[31m+               \"events\": Array [\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 1,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 0,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 0.5,\u001b[39m\n\u001b[31m+                   \"stroke\": \"rest\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 1,\u001b[39m\n\u001b[31m+                   \"stroke\": \"up\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 1.5,\u001b[39m\n\u001b[31m+                   \"stroke\": \"rest\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 2,\u001b[39m\n\u001b[31m+                   \"stroke\": \"mute\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 2.5,\u001b[39m\n\u001b[31m+                   \"stroke\": \"up\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+               ],\u001b[39m\n\u001b[31m+               \"feel\": \"straight\",\u001b[39m\n\u001b[31m+               \"id\": \"waltz-space:3-4\",\u001b[39m\n\u001b[31m+               \"meter\": Array [\u001b[39m\n\u001b[31m+                 3,\u001b[39m\n\u001b[31m+                 4,\u001b[39m\n\u001b[31m+               ],\u001b[39m\n\u001b[31m+               \"name\": \"Floating waltz\",\u001b[39m\n\u001b[31m+               \"subdivision\": 2,\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"role\": \"Expressive\",\u001b[39m\n\u001b[31m+             \"score\": 92.33,\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"selectedId\": \"waltz-lift:3-4\",\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     },\u001b[39m\n\u001b[31m+     \"customs\": Array [],\u001b[39m\n\u001b[31m+     \"inputs\": Object {},\u001b[39m\n\u001b[31m+     \"schemaVersion\": 1,\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[2m    \"tags\": Array [\u001b[22m\n\u001b[2m      \"Public domain\",\u001b[22m\n\u001b[2m      \"Easy\",\u001b[22m\n\u001b[2m    ],\u001b[22m\n\u001b[2m    \"tempo\": 84,\u001b[22m\n\u001b[33m@@ -854,7 +1012,7 @@\u001b[39m\n\u001b[2m      3,\u001b[22m\n\u001b[2m      4,\u001b[22m\n\u001b[2m    ],\u001b[22m\n\u001b[2m    \"title\": \"Amazing Grace\",\u001b[22m\n\u001b[2m    \"tuningId\": \"standard\",\u001b[22m\n\u001b[32m-   \"updatedAt\": \"2026-09-27T16:17:12.770Z\",\u001b[39m\n\u001b[31m+   \"updatedAt\": \"2026-09-27T16:17:13.182Z\",\u001b[39m\n\u001b[2m  }\u001b[22m\n    at /Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e/stage2.spec.ts:69:28",
+                    "location": {
+                      "file": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e/stage2.spec.ts",
+                      "column": 28,
+                      "line": 69
+                    },
+                    "snippet": "  67 |     )\n  68 |     .toBe(1);\n> 69 |   expect(await readSong()).toEqual(before);\n     |                            ^\n  70 |   await page.goto(\"/progress\");\n  71 |   await expect(page.locator(\".practice-log\")).toContainText(\"Amazing Grace\");\n  72 | });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e/stage2.spec.ts",
+                        "column": 28,
+                        "line": 69
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -   1\u001b[39m\n\u001b[31m+ Received  + 159\u001b[39m\n\n\u001b[33m@@ -843,10 +843,168 @@\u001b[39m\n\u001b[2m    \"provenance\": Object {\u001b[22m\n\u001b[2m      \"processedAt\": \"2026-09-27T16:17:12.770Z\",\u001b[22m\n\u001b[2m      \"source\": \"chordpro\",\u001b[22m\n\u001b[2m    },\u001b[22m\n\u001b[2m    \"schemaVersion\": 1,\u001b[22m\n\u001b[31m+   \"strumming\": Object {\u001b[39m\n\u001b[31m+     \"contexts\": Object {\u001b[39m\n\u001b[31m+       \"b156f52a-6ccb-4022-8d81-f92fdda676f9\": Object {\u001b[39m\n\u001b[31m+         \"fingerprint\": \"[1,\\\"b156f52a-6ccb-4022-8d81-f92fdda676f9\\\",{\\\"meter\\\":[3,4],\\\"bpm\\\":84,\\\"section\\\":\\\"verse\\\",\\\"styles\\\":[],\\\"chords\\\":[],\\\"timingKnown\\\":false,\\\"difficulty\\\":\\\"intermediate\\\",\\\"changesPerMeasure\\\":2.75,\\\"notes\\\":[\\\"84 BPM is a practice tempo; 3/4 is provisional until confirmed. Existing scores can contain import defaults.\\\",\\\"Chord timing is unconfirmed; no precise chord accents are inferred.\\\",\\\"No style supplied; using broadly suitable grooves.\\\"]},{}]\",\u001b[39m\n\u001b[31m+         \"generation\": 0,\u001b[39m\n\u001b[31m+         \"recommendations\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"explanation\": \"3/4 at 84 quarter-note BPM: 3 strokes per bar. Frequent written chord changes favor simpler movement. Start here to practice clean chord changes.\",\u001b[39m\n\u001b[31m+             \"pattern\": Object {\u001b[39m\n\u001b[31m+               \"difficulty\": \"beginner\",\u001b[39m\n\u001b[31m+               \"events\": Array [\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 1,\u001b[39m\n\u001b[31m+                   \"duration\": 1,\u001b[39m\n\u001b[31m+                   \"position\": 0,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 1,\u001b[39m\n\u001b[31m+                   \"position\": 1,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 1,\u001b[39m\n\u001b[31m+                   \"position\": 2,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+               ],\u001b[39m\n\u001b[31m+               \"feel\": \"straight\",\u001b[39m\n\u001b[31m+               \"id\": \"waltz:3-4\",\u001b[39m\n\u001b[31m+               \"meter\": Array [\u001b[39m\n\u001b[31m+                 3,\u001b[39m\n\u001b[31m+                 4,\u001b[39m\n\u001b[31m+               ],\u001b[39m\n\u001b[31m+               \"name\": \"Waltz pulse\",\u001b[39m\n\u001b[31m+               \"subdivision\": 1,\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"role\": \"Simple\",\u001b[39m\n\u001b[31m+             \"score\": 98,\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"explanation\": \"3/4 at 84 quarter-note BPM: 5 strokes and 1 rest per bar. Suited to the verse's phrasing. Frequent written chord changes favor simpler movement.\",\u001b[39m\n\u001b[31m+             \"pattern\": Object {\u001b[39m\n\u001b[31m+               \"difficulty\": \"intermediate\",\u001b[39m\n\u001b[31m+               \"events\": Array [\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 1,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 0,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 0.5,\u001b[39m\n\u001b[31m+                   \"stroke\": \"rest\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 1,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 1.5,\u001b[39m\n\u001b[31m+                   \"stroke\": \"up\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 2,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 2.5,\u001b[39m\n\u001b[31m+                   \"stroke\": \"up\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+               ],\u001b[39m\n\u001b[31m+               \"feel\": \"straight\",\u001b[39m\n\u001b[31m+               \"id\": \"waltz-lift:3-4\",\u001b[39m\n\u001b[31m+               \"meter\": Array [\u001b[39m\n\u001b[31m+                 3,\u001b[39m\n\u001b[31m+                 4,\u001b[39m\n\u001b[31m+               ],\u001b[39m\n\u001b[31m+               \"name\": \"Waltz lift\",\u001b[39m\n\u001b[31m+               \"subdivision\": 2,\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"role\": \"Recommended\",\u001b[39m\n\u001b[31m+             \"score\": 105.07,\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"explanation\": \"3/4 at 84 quarter-note BPM: 4 strokes and 2 rests per bar. Frequent written chord changes favor simpler movement. Muted strokes add a percussive pulse.\",\u001b[39m\n\u001b[31m+             \"pattern\": Object {\u001b[39m\n\u001b[31m+               \"difficulty\": \"advanced\",\u001b[39m\n\u001b[31m+               \"events\": Array [\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 1,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 0,\u001b[39m\n\u001b[31m+                   \"stroke\": \"down\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 0.5,\u001b[39m\n\u001b[31m+                   \"stroke\": \"rest\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 1,\u001b[39m\n\u001b[31m+                   \"stroke\": \"up\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 1.5,\u001b[39m\n\u001b[31m+                   \"stroke\": \"rest\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 2,\u001b[39m\n\u001b[31m+                   \"stroke\": \"mute\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+                 Object {\u001b[39m\n\u001b[31m+                   \"accent\": 0.35,\u001b[39m\n\u001b[31m+                   \"duration\": 0.5,\u001b[39m\n\u001b[31m+                   \"position\": 2.5,\u001b[39m\n\u001b[31m+                   \"stroke\": \"up\",\u001b[39m\n\u001b[31m+                 },\u001b[39m\n\u001b[31m+               ],\u001b[39m\n\u001b[31m+               \"feel\": \"straight\",\u001b[39m\n\u001b[31m+               \"id\": \"waltz-space:3-4\",\u001b[39m\n\u001b[31m+               \"meter\": Array [\u001b[39m\n\u001b[31m+                 3,\u001b[39m\n\u001b[31m+                 4,\u001b[39m\n\u001b[31m+               ],\u001b[39m\n\u001b[31m+               \"name\": \"Floating waltz\",\u001b[39m\n\u001b[31m+               \"subdivision\": 2,\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"role\": \"Expressive\",\u001b[39m\n\u001b[31m+             \"score\": 92.33,\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"selectedId\": \"waltz-lift:3-4\",\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     },\u001b[39m\n\u001b[31m+     \"customs\": Array [],\u001b[39m\n\u001b[31m+     \"inputs\": Object {},\u001b[39m\n\u001b[31m+     \"schemaVersion\": 1,\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[2m    \"tags\": Array [\u001b[22m\n\u001b[2m      \"Public domain\",\u001b[22m\n\u001b[2m      \"Easy\",\u001b[22m\n\u001b[2m    ],\u001b[22m\n\u001b[2m    \"tempo\": 84,\u001b[22m\n\u001b[33m@@ -854,7 +1012,7 @@\u001b[39m\n\u001b[2m      3,\u001b[22m\n\u001b[2m      4,\u001b[22m\n\u001b[2m    ],\u001b[22m\n\u001b[2m    \"title\": \"Amazing Grace\",\u001b[22m\n\u001b[2m    \"tuningId\": \"standard\",\u001b[22m\n\u001b[32m-   \"updatedAt\": \"2026-09-27T16:17:12.770Z\",\u001b[39m\n\u001b[31m+   \"updatedAt\": \"2026-09-27T16:17:13.182Z\",\u001b[39m\n\u001b[2m  }\u001b[22m\n\n  67 |     )\n  68 |     .toBe(1);\n> 69 |   expect(await readSong()).toEqual(before);\n     |                            ^\n  70 |   await page.goto(\"/progress\");\n  71 |   await expect(page.locator(\".practice-log\")).toContainText(\"Amazing Grace\");\n  72 | });\n    at /Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e/stage2.spec.ts:69:28"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Expect \"poll toBe\"",
+                      "duration": 11
+                    }
+                  ],
+                  "startTime": "2026-09-27T16:17:12.136Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/test-results/stage2-plays-notation-high-0345b-d-leaves-the-song-unchanged-webkit/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e/stage2.spec.ts",
+                    "column": 28,
+                    "line": 69
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "62b586f9f775176e4782-92bdd5f02bbc02a52794",
+          "file": "stage2.spec.ts",
+          "line": 29,
+          "column": 1
+        },
+        {
+          "title": "metronome toggles and denied microphone has a useful recovery message",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3542,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:17:16.910Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "62b586f9f775176e4782-3667ba68b68176d2fe08",
+          "file": "stage2.spec.ts",
+          "line": 68,
+          "column": 1
+        },
+        {
+          "title": "stage view responds to keyboard page turns",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1027,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:17:21.189Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "62b586f9f775176e4782-e9fb8177dab2437e4d42",
+          "file": "stage2.spec.ts",
+          "line": 98,
+          "column": 1
+        },
+        {
+          "title": "actual time-stretch output preserves synthetic pitch",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 805,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:17:22.227Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "62b586f9f775176e4782-6986e25b82801aabee54",
+          "file": "stage2.spec.ts",
+          "line": 108,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "strumming.spec.ts",
+      "file": "strumming.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "strumming editing, persistence and playback at 390px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8656,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Expect \"poll toBe\"",
+                      "duration": 113
+                    }
+                  ],
+                  "startTime": "2026-09-27T16:14:30.160Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3e6c398e330a065aafa7-9bd43e02f5bd93555ca7",
+          "file": "strumming.spec.ts",
+          "line": 4,
+          "column": 3
+        },
+        {
+          "title": "strumming editing, persistence and playback at 1280px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7515,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Expect \"poll toBe\"",
+                      "duration": 112
+                    }
+                  ],
+                  "startTime": "2026-09-27T16:14:38.827Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3e6c398e330a065aafa7-3936d60148ad9c7c2a74",
+          "file": "strumming.spec.ts",
+          "line": 4,
+          "column": 3
+        },
+        {
+          "title": "compound meter, difficulty, single pass, and theme retain readable grids",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7128,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:14:46.352Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3e6c398e330a065aafa7-d1c2ac3adc24be497bba",
+          "file": "strumming.spec.ts",
+          "line": 126,
+          "column": 1
+        },
+        {
+          "title": "sixteenth-note controls fit an iPhone without shrinking touch targets",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2940,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:14:53.489Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3e6c398e330a065aafa7-456ce984be0e7a0ea07f",
+          "file": "strumming.spec.ts",
+          "line": 181,
+          "column": 1
+        },
+        {
+          "title": "strumming editing, persistence and playback at 390px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9851,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Expect \"poll toBe\"",
+                      "duration": 379
+                    }
+                  ],
+                  "startTime": "2026-09-27T16:17:23.056Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3e6c398e330a065aafa7-f65ae08851e0564432cf",
+          "file": "strumming.spec.ts",
+          "line": 4,
+          "column": 3
+        },
+        {
+          "title": "strumming editing, persistence and playback at 1280px",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 30067,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e/strumming.spec.ts",
+                        "column": 37,
+                        "line": 49
+                      },
+                      "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('region', { name: 'Strumming pattern', exact: true }).locator('summary')\u001b[22m\n\u001b[2m    - locator resolved to <summary>Musical inputs & assumptions</summary>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <img alt=\"FretShift\" class=\"splash-logo\" src=\"/src/assets/fretshift-wordmark-transparent.png\"/> from <div role=\"status\" class=\"launch-splash\" aria-label=\"Opening FretShift\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <img alt=\"FretShift\" class=\"splash-logo\" src=\"/src/assets/fretshift-wordmark-transparent.png\"/> from <div role=\"status\" class=\"launch-splash\" aria-label=\"Opening FretShift\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 100ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <div class=\"splash-fretboard\">…</div> from <div role=\"status\" class=\"launch-splash\" aria-label=\"Opening FretShift\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 100ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <img alt=\"FretShift\" class=\"splash-logo\" src=\"/src/assets/fretshift-wordmark-transparent.png\"/> from <div role=\"status\" class=\"launch-splash\" aria-label=\"Opening FretShift\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <div class=\"splash-fretboard\">…</div> from <div role=\"status\" class=\"launch-splash\" aria-label=\"Opening FretShift\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m  11 × retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <select>…</select> from <label class=\"strumming-context\">…</label> subtree intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <section class=\"card strumming-card\" aria-label=\"Strumming pattern\">…</section> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <main id=\"main\">…</main> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <section class=\"card strumming-card\" aria-label=\"Strumming pattern\">…</section> intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <select>…</select> from <label class=\"strumming-context\">…</label> subtree intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\n\n  47 |       studio.getByRole(\"button\", { name: \"Beat 1: rest\", exact: true }),\n  48 |     ).toBeVisible();\n> 49 |     await studio.locator(\"summary\").click();\n     |                                     ^\n  50 |     await studio.getByLabel(\"Practice BPM (quarter note)\").fill(\"85\");\n  51 |     await studio.getByLabel(\"Practice BPM (quarter note)\").press(\"Tab\");\n  52 |     await expect(studio.getByText(/Song inputs changed/)).toBeVisible();\n    at /Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e/strumming.spec.ts:49:37"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:17:32.924Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/test-results/strumming-strumming-editin-86144-ence-and-playback-at-1280px-webkit/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3e6c398e330a065aafa7-f7c40b27342846ad545e",
+          "file": "strumming.spec.ts",
+          "line": 4,
+          "column": 3
+        },
+        {
+          "title": "compound meter, difficulty, single pass, and theme retain readable grids",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8371,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:18:03.668Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3e6c398e330a065aafa7-55195612b91af01a39d9",
+          "file": "strumming.spec.ts",
+          "line": 126,
+          "column": 1
+        },
+        {
+          "title": "sixteenth-note controls fit an iPhone without shrinking touch targets",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3665,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:18:12.405Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3e6c398e330a065aafa7-c5ebc99362c52cbbc2f0",
+          "file": "strumming.spec.ts",
+          "line": 181,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "vision.spec.ts",
+      "file": "vision.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "photo import explains configuration or transient processing",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2167,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:14:56.450Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "25472900828a21a5e34e-c35952f25f89863baf5c",
+          "file": "vision.spec.ts",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "photo import explains configuration or transient processing",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2505,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:18:16.087Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "25472900828a21a5e34e-10b81c9a8d72b93d64a0",
+          "file": "vision.spec.ts",
+          "line": 2,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "unconfigured.spec.ts",
+      "file": "unconfigured.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "cloud features stay explicit when the build is unconfigured",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-unconfigured",
+              "projectName": "chromium-unconfigured",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 8662,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  getByRole('heading', { name: 'Photo import isn\\'t configured' })\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Photo import isn\\'t configured' })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  getByRole('heading', { name: 'Photo import isn\\'t configured' })\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Photo import isn\\'t configured' })\u001b[22m\n\n    at /Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e/unconfigured.spec.ts:12:5",
+                    "location": {
+                      "file": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e/unconfigured.spec.ts",
+                      "column": 5,
+                      "line": 12
+                    },
+                    "snippet": "  10 |   await expect(\n  11 |     page.getByRole(\"heading\", { name: \"Photo import isn't configured\" }),\n> 12 |   ).toBeVisible();\n     |     ^\n  13 | });\n  14 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e/unconfigured.spec.ts",
+                        "column": 5,
+                        "line": 12
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  getByRole('heading', { name: 'Photo import isn\\'t configured' })\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Photo import isn\\'t configured' })\u001b[22m\n\n\n  10 |   await expect(\n  11 |     page.getByRole(\"heading\", { name: \"Photo import isn't configured\" }),\n> 12 |   ).toBeVisible();\n     |     ^\n  13 | });\n  14 |\n    at /Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e/unconfigured.spec.ts:12:5"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-27T16:18:19.138Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/test-results/unconfigured-cloud-feature-c8dc3-n-the-build-is-unconfigured-chromium-unconfigured/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated/e2e/unconfigured.spec.ts",
+                    "column": 5,
+                    "line": 12
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c48f8eaa515cac36909f-6024159caa375a4c9e72",
+          "file": "unconfigured.spec.ts",
+          "line": 2,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-27T16:12:37.198Z",
+    "duration": 351796.972,
+    "expected": 55,
+    "skipped": 0,
+    "unexpected": 4,
+    "flaky": 0
+  }
+}

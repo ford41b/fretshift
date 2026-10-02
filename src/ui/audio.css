@@ -1,0 +1,862 @@
+.audio-tools-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 24px;
+}
+.audio-card {
+  padding: 28px;
+}
+.audio-card .section-title {
+  align-items: start;
+}
+.audio-card h2 {
+  font-size: 23px;
+  margin-top: 9px;
+}
+.audio-card .section-title button {
+  font-size: 11px;
+}
+.tuner-display {
+  padding: 22px 0 10px;
+}
+.tuner-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-variant-numeric: tabular-nums;
+}
+.tuner-top > span {
+  font-size: 11px;
+  color: var(--text-2);
+  text-transform: capitalize;
+  min-width: 90px;
+}
+.tuner-top > span:last-child {
+  text-align: right;
+}
+.tuner-top strong {
+  font-family: "Space Grotesk";
+  font-size: 64px;
+  letter-spacing: -4px;
+}
+.tuner-display.in-tune .tuner-top strong {
+  color: var(--accent-text);
+}
+.tuner-display.flat .tuner-top strong,
+.tuner-display.sharp .tuner-top strong {
+  color: var(--amber);
+}
+.tuner-gauge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 22px 0;
+}
+.tuner-gauge > span {
+  font-size: 22px;
+  color: var(--text-2);
+}
+.gauge-track {
+  position: relative;
+  height: 27px;
+  border-radius: 25px;
+  background: var(--bg);
+  flex: 1;
+}
+.gauge-center {
+  height: 27px;
+  width: 34px;
+  background: var(--soft-accent);
+  position: absolute;
+  left: calc(50% - 17px);
+}
+.gauge-track b {
+  position: absolute;
+  top: -5px;
+  width: 36px;
+  height: 36px;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: #fff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: left 0.12s;
+}
+.tuner-display p {
+  font-size: 11px;
+  text-align: center;
+}
+.string-targets {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 14px 0 20px;
+}
+.string-targets > div {
+  text-align: center;
+  background: var(--bg);
+  border-radius: 13px;
+  padding: 12px 8px;
+  flex: 1;
+}
+.string-targets strong {
+  font-family: "Space Grotesk";
+  font-size: 18px;
+}
+.string-targets span {
+  display: block;
+  font-size: 8px;
+  color: var(--text-2);
+  margin-top: 5px;
+}
+.fretboard {
+  width: 100%;
+  display: block;
+  margin: 18px 0;
+}
+.metronome-ring {
+  width: 225px;
+  height: 225px;
+  border: 13px solid var(--soft-accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 28px auto 22px;
+}
+.metronome-ring.running {
+  border-color: var(--accent);
+}
+.metronome-ring > div:first-child {
+  text-align: center;
+}
+.metronome-ring strong {
+  display: block;
+  font-family: "Space Grotesk";
+  font-size: 65px;
+  letter-spacing: -4px;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+.metronome-ring span {
+  font-size: 8px;
+  letter-spacing: 1px;
+  color: var(--text-2);
+}
+.beat-dots {
+  display: flex;
+  gap: 8px;
+  margin-top: 20px;
+}
+.beat-dots i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--border-subtle);
+}
+.beat-dots i.active {
+  background: var(--accent-text);
+  outline: 4px solid var(--soft-accent);
+}
+.bpm-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+.bpm-controls > input {
+  width: 100%;
+}
+.center {
+  justify-content: center;
+}
+.centered {
+  text-align: center;
+  margin-top: 18px;
+}
+.practice-hub {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-bottom: 28px;
+}
+.practice-hub > a {
+  padding: 30px;
+}
+.practice-hub svg {
+  color: var(--accent-text);
+  margin-bottom: 17px;
+}
+.practice-hub h2 {
+  font-size: 23px;
+}
+.practice-hub p {
+  font-size: 12px;
+  margin: 0;
+}
+.practice-choice {
+  padding: 27px;
+}
+.practice-choice h2 {
+  font-size: 20px;
+}
+.practice-choice p {
+  font-size: 12px;
+}
+.practice-choice span {
+  font-size: 11px;
+}
+.practice-controls {
+  padding: 24px;
+  margin-bottom: 25px;
+}
+.practice-controls > .form-row {
+  margin-top: 20px;
+}
+.practice-controls .form-row label {
+  margin-bottom: 8px;
+}
+.inline-check {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  margin: 0;
+}
+.inline-check input {
+  width: 17px;
+  flex-shrink: 0;
+}
+.ramp-row {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  margin: 18px 0;
+  flex-wrap: wrap;
+}
+.ramp-row > label:not(.inline-check) {
+  max-width: 100px;
+  margin: 0;
+  font-size: 10px;
+}
+.ramp-row progress {
+  max-width: 130px;
+  width: 100%;
+  height: 10px;
+  accent-color: var(--accent);
+}
+.ramp-row button {
+  align-self: end;
+  font-size: 11px;
+}
+.live-pitch {
+  padding: 18px 28px;
+  margin-bottom: 25px;
+}
+.live-pitch .tuner-display {
+  max-width: 500px;
+  margin: 0 auto;
+}
+.live-pitch .fretboard {
+  max-height: 130px;
+}
+.reference-card {
+  padding: 28px;
+  margin-top: 25px;
+}
+.reference-card p {
+  font-size: 12px;
+}
+.reference-card h2 {
+  font-size: 20px;
+}
+.reference-card .form-row {
+  align-items: center;
+}
+.reference-card .inline-check {
+  margin: 10px 0;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 26px;
+}
+.stat-card {
+  padding: 25px;
+}
+.stat-card svg {
+  color: var(--accent-text);
+  margin-bottom: 25px;
+}
+.stat-card strong {
+  font-family: "Space Grotesk";
+  font-size: 43px;
+  letter-spacing: -2px;
+  display: block;
+  font-variant-numeric: tabular-nums;
+}
+.stat-card > span {
+  font-size: 12px;
+  display: block;
+}
+.stat-card small {
+  color: var(--text-2);
+  font-size: 10px;
+  display: block;
+  margin-top: 10px;
+}
+.progress-section {
+  padding: 30px;
+  margin-bottom: 24px;
+}
+.progress-section > p {
+  font-size: 12px;
+}
+.tempo-chart {
+  height: 185px;
+  display: flex;
+  align-items: end;
+  gap: 12px;
+  padding-top: 25px;
+}
+.tempo-chart a {
+  flex: 1;
+  max-width: 65px;
+  min-width: 20px;
+  position: relative;
+  background: var(--accent);
+  border-radius: 9px 9px 3px 3px;
+}
+.tempo-chart a span {
+  position: absolute;
+  top: -22px;
+  width: 100%;
+  text-align: center;
+  font-size: 10px;
+  color: var(--text-2);
+}
+.practice-log a,
+.leaderboard-row,
+.heat-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 12px;
+}
+.practice-log span,
+.leaderboard-row span {
+  color: var(--text-2);
+  font-size: 11px;
+}
+.heat-row strong {
+  color: var(--amber);
+  font-size: 11px;
+}
+.drill-card {
+  padding: 40px;
+  margin-top: 25px;
+}
+.drill-title {
+  text-align: center;
+  max-width: 650px;
+  margin: auto;
+}
+.drill-title > svg {
+  color: var(--accent-text);
+  margin: 0 auto 17px;
+}
+.drill-title h2 {
+  font-size: 30px;
+}
+.drill-title p {
+  font-size: 12px;
+}
+.drill-chords {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+  margin: 25px 0;
+}
+.drill-chords > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: var(--bg);
+  border-radius: 20px;
+}
+.drill-chords input {
+  max-width: 105px;
+  text-align: center;
+  background: var(--card);
+  font-weight: 600;
+  font-size: 16px;
+}
+.drill-chords .chord-diagram {
+  margin-top: 10px;
+}
+.drill-chords > svg {
+  color: var(--accent-text);
+}
+.drill-numbers {
+  display: flex;
+  justify-content: center;
+  gap: 65px;
+  margin: 30px 0 40px;
+}
+.drill-numbers > div {
+  text-align: center;
+}
+.drill-numbers strong {
+  display: block;
+  font-family: "Space Grotesk";
+  font-size: 58px;
+  letter-spacing: -2px;
+  font-variant-numeric: tabular-nums;
+}
+.drill-numbers span {
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: var(--text-2);
+}
+.inline-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+}
+.inline-label input {
+  width: 82px;
+}
+.timing-readout {
+  text-align: center;
+  font-family: "Space Grotesk";
+  font-size: 24px;
+  color: var(--accent-text);
+}
+.accuracy-strip {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin: 22px 0;
+  min-height: 33px;
+}
+.accuracy-strip span {
+  width: 18px;
+  border-radius: 5px;
+  background: var(--bg);
+  color: var(--amber);
+  display: grid;
+  place-items: center;
+}
+.accuracy-strip .accurate {
+  background: var(--soft-accent);
+  color: var(--accent-text);
+}
+.drill-history {
+  max-width: 650px;
+  margin: 35px auto 0;
+}
+.drill-history h3 {
+  font-size: 16px;
+}
+.bar-chart {
+  height: 130px;
+  padding-top: 25px;
+  display: flex;
+  align-items: end;
+  gap: 15px;
+}
+.bar-chart > div {
+  position: relative;
+  flex: 1;
+  max-width: 60px;
+  background: var(--accent);
+  border-radius: 8px 8px 2px 2px;
+}
+.bar-chart span {
+  position: absolute;
+  top: -25px;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+}
+.stage-view {
+  position: fixed;
+  inset: 0;
+  background: #08090b;
+  color: #fff;
+  z-index: 60;
+  padding: 40px 60px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+.stage-view header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+.stage-view h1 {
+  font-size: 30px;
+  margin: 7px 0;
+}
+.stage-view .eyebrow {
+  color: #c4c3cc;
+  font-size: 11px;
+}
+.stage-view .segments {
+  background: #24212f;
+}
+.stage-view .segments button {
+  color: #eee;
+}
+.stage-view .segments button.active {
+  color: #c1afff;
+  background: #382c5b;
+}
+.stage-view .icon-button {
+  color: #fff;
+}
+.stage-view .icon-button:hover {
+  background: #28242e;
+}
+.stage-page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px 0;
+}
+.stage-section {
+  font-family: "Space Grotesk";
+  font-size: 17px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #c4b4ff;
+  margin-bottom: 30px;
+}
+.stage-chords {
+  display: flex;
+  gap: 55px;
+  flex-wrap: wrap;
+  font-family: "Space Grotesk";
+  font-size: clamp(40px, 6vw, 85px);
+  line-height: 1.3;
+  letter-spacing: -3px;
+  color: #c4b4ff;
+}
+.stage-page > p {
+  font-size: clamp(30px, 4vw, 65px);
+  font-family: "Space Grotesk";
+  font-weight: 500;
+  line-height: 1.5;
+  color: #fff;
+  letter-spacing: -1px;
+  margin: 15px 0 25px;
+}
+.stage-next-line {
+  font-size: 23px;
+  color: #a5a4ad;
+}
+.stage-view progress {
+  width: 100%;
+  height: 4px;
+  accent-color: #ad97ff;
+}
+.stage-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  margin-top: 20px;
+  font-variant-numeric: tabular-nums;
+}
+.stage-footer small {
+  display: block;
+  color: #aaa9b4;
+  font-size: 9px;
+  margin-top: 6px;
+}
+.stage-footer .button-row > button:not(.icon-button) {
+  background: #28242e;
+  color: white;
+}
+.next-song {
+  text-align: right;
+}
+.next-song strong {
+  font-size: 16px;
+  color: #c4b4ff;
+}
+.stage-footer > .small {
+  color: #aaa9b4;
+  font-size: 10px;
+}
+@media (max-width: 1050px) {
+  .audio-tools-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .stage-view {
+    padding: 30px;
+  }
+  .stage-footer {
+    flex-wrap: wrap;
+  }
+  .audio-card .section-title button {
+    font-size: 10px;
+  }
+}
+@media (max-width: 650px) {
+  .audio-card {
+    padding: 21px;
+  }
+  .audio-card .section-title {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .audio-card .section-title h2 {
+    font-size: 22px;
+  }
+  .tuner-top strong {
+    font-size: 56px;
+  }
+  .tuner-top > span {
+    min-width: 70px;
+    font-size: 9px;
+  }
+  .string-targets {
+    gap: 6px;
+  }
+  .string-targets > div {
+    padding: 10px 5px;
+  }
+  .string-targets strong {
+    font-size: 15px;
+  }
+  .string-targets span {
+    font-size: 7px;
+  }
+  .practice-hub {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  .practice-hub > a {
+    padding: 23px;
+  }
+  .practice-hub h2 {
+    font-size: 21px;
+  }
+  .practice-choice {
+    padding: 20px;
+  }
+  .practice-choice h2 {
+    font-size: 17px;
+  }
+  .practice-controls {
+    padding: 20px;
+  }
+  .practice-controls .button-row > button {
+    font-size: 10px;
+  }
+  .ramp-row {
+    gap: 12px;
+  }
+  .ramp-row progress {
+    max-width: 100%;
+  }
+  .reference-card {
+    padding: 23px;
+  }
+  .reference-card .section-title {
+    flex-wrap: wrap;
+  }
+  .stats-grid {
+    gap: 13px;
+  }
+  .stat-card {
+    padding: 21px;
+  }
+  .stat-card strong {
+    font-size: 37px;
+  }
+  .stat-card > span {
+    font-size: 10px;
+  }
+  .stat-card small {
+    font-size: 9px;
+  }
+  .progress-section {
+    padding: 23px;
+  }
+  .progress-section h2 {
+    font-size: 20px;
+  }
+  .practice-log a,
+  .heat-row {
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 11px;
+  }
+  .practice-log a strong {
+    flex-basis: 100%;
+  }
+  .tempo-chart {
+    gap: 8px;
+  }
+  .tempo-chart a span {
+    font-size: 8px;
+  }
+  .drill-card {
+    padding: 22px;
+  }
+  .drill-title h2 {
+    font-size: 26px;
+  }
+  .drill-chords {
+    gap: 13px;
+  }
+  .drill-chords > div {
+    padding: 12px;
+  }
+  .drill-chords input {
+    max-width: 88px;
+  }
+  .drill-numbers {
+    gap: 20px;
+  }
+  .drill-numbers strong {
+    font-size: 43px;
+  }
+  .drill-numbers span {
+    font-size: 7px;
+    letter-spacing: 0.5px;
+  }
+  .drill-card .button-row {
+    gap: 11px;
+  }
+  .drill-card .button-row > button {
+    font-size: 10px;
+  }
+  .stage-view {
+    padding: 22px 20px;
+  }
+  .stage-view header {
+    align-items: flex-start;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  .stage-view h1 {
+    font-size: 26px;
+  }
+  .stage-view .eyebrow {
+    font-size: 9px;
+  }
+  .stage-page {
+    padding: 40px 0;
+  }
+  .stage-section {
+    font-size: 13px;
+    margin-bottom: 25px;
+  }
+  .stage-chords {
+    gap: 25px;
+    font-size: 44px;
+  }
+  .stage-page > p {
+    font-size: 33px;
+  }
+  .stage-next-line {
+    font-size: 18px;
+  }
+  .stage-footer {
+    gap: 15px;
+  }
+  .stage-footer > .small {
+    display: none;
+  }
+  .stage-footer > .button-row {
+    gap: 4px;
+  }
+  .stage-footer button {
+    font-size: 10px;
+  }
+  .next-song {
+    flex-basis: 100%;
+    text-align: left;
+  }
+  .stage-footer > span:first-child small {
+    max-width: 120px;
+  }
+}
+
+.tab-cell.current .cell-background {
+  fill: var(--accent);
+  stroke: var(--accent-text);
+  stroke-width: 2;
+}
+.tab-cell.current text {
+  fill: #fff;
+}
+.current-chord {
+  outline: 2px solid var(--accent-text);
+  border-radius: 10px;
+  background: var(--card-hover);
+}
+
+.loop-editor {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  align-items: center;
+}
+.loop-editor label {
+  flex: 1;
+  min-width: 130px;
+}
+.practice-pulse {
+  width: 58px;
+  height: 58px;
+  border: 4px solid var(--accent);
+  border-radius: 50%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.practice-pulse strong {
+  font-size: 20px;
+}
+.practice-pulse span {
+  font-size: 8px;
+  color: var(--text-2);
+}
+.tab-cell.pitch-match .cell-background {
+  stroke: var(--text);
+  stroke-width: 4;
+}
+.ramp-row progress::-webkit-progress-bar {
+  background: var(--bg);
+  border-radius: 10px;
+}
+.ramp-row progress::-webkit-progress-value {
+  background: var(--accent);
+  border-radius: 10px;
+}
+.ramp-row progress::-moz-progress-bar {
+  background: var(--accent);
+  border-radius: 10px;
+}

@@ -1,0 +1,7 @@
+Command: ['pnpm', 'lint']
+
+> fretshift@1.0.0 lint /Users/gaultneyfamily/Documents/ChatGPT/Fretshift/FretShift-Audio-Intelligence-Validated
+> eslint . && tsc -b
+
+
+Exit: 0; seconds: 12.257

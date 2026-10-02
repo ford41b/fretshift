@@ -1,0 +1,9 @@
+Command: ['node', 'node_modules/@playwright/test/cli.js', 'test', 'e2e/strumming.spec.ts', '--grep', 'playback at 1280px', '--project=webkit', '--trace=off', '--reporter=list,json']
+[2m[WebServer] [22m(node:7104) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22m(node:8731) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+Error: Timed out waiting 60000ms from config.webServer.
+
+
+Exit: 1; seconds: 294.335
