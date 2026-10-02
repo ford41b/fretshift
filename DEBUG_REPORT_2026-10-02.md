@@ -208,3 +208,7 @@ Everything already listed in `TODO.md`: physical devices, live multi-device sync
 - `src/ui/components/Notation.tsx`: fix 6
 - `.github/workflows/ci.yml`, `.nvmrc`: fix 7
 - `e2e/cloud.spec.ts`, `e2e/audio-intelligence.spec.ts`, `e2e/strumming.spec.ts`: browser tests for fixes 1, 3 (PostgREST-shaped mock), 4 and 6
+
+## Final CI
+
+The last code commit, `dd180ae`, is green on all three jobs in [run 4](https://github.com/ford41b/fretshift/actions/runs/36954879605): lint, unit tests and build; E2E chromium; E2E webkit. Later commits change documentation only.
