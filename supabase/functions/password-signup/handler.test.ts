@@ -171,6 +171,22 @@ describe("password-signup security", () => {
     expect(authCalls(down)).toEqual([]);
   });
 
+  it("keys the IP limit on the proxy-appended address, not a spoofed X-Forwarded-For", async () => {
+    const backend = fakeBackend();
+    const handler = handlerFor(backend);
+    const statuses: number[] = [];
+    for (let i = 0; i < 11; i++)
+      statuses.push(
+        (
+          await handler(
+            // Rotating a client-supplied first entry must not reset the limit.
+            signup({ email: `spoof${i}@example.com` }, { ip: `10.0.0.${i}, 192.0.2.250` }),
+          )
+        ).status,
+      );
+    expect(statuses[10]).toBe(429);
+  });
+
   it("forwards only a same-origin /settings redirect for the iPhone handoff", async () => {
     const backend = fakeBackend();
     const handler = handlerFor(backend);

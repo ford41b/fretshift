@@ -97,14 +97,18 @@ export async function hashKey(value: string): Promise<string> {
 }
 
 /**
- * Best-effort caller IP. Supabase's edge gateway sets X-Forwarded-For; the
- * first entry is the client. Unknown callers share one bucket (fail safe).
+ * Best-effort caller IP for rate limiting. A client can send its own
+ * X-Forwarded-For and proxies append to it, so the leftmost entry is
+ * attacker-controlled; use the rightmost entry, which the platform's proxy
+ * appended. Unknown callers share one bucket (fail safe).
  */
 export function clientIp(request: Request): string {
   const forwarded = request.headers
     .get("x-forwarded-for")
-    ?.split(",")[0]
-    ?.trim();
+    ?.split(",")
+    .map((value) => value.trim())
+    .filter(Boolean)
+    .at(-1);
   return forwarded || request.headers.get("x-real-ip")?.trim() || "unknown";
 }
 

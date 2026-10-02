@@ -15,7 +15,7 @@
 - [x] Hosted Supabase project exists and the database migrations are applied. Auth redirect URLs and signed-in smoke testing remain open.
 - [ ] Add `VITE_SUPABASE_URL` and preferred `VITE_SUPABASE_PUBLISHABLE_KEY` (or legacy `VITE_SUPABASE_ANON_KEY`) to `.env.local` and hosting environment.
 - [ ] `vision-import` is deployed and active. Add `OCR_SPACE_API_KEY` plus production `ALLOWED_ORIGINS` as Edge Function secrets before real OCR testing.
-- [ ] Configure Supabase SMTP provider credentials for volume email.
+- [ ] Configure Supabase SMTP provider credentials for volume email. (Now required for password sign-up too: it sends a verification code.)
 - [ ] Replace/augment provisional vision corpus with real photos, run the OCR.space benchmark, and review chord accuracy ≥80% / lyric CER ≤10% in `RESULTS.md`.
 
 ## Stage status
@@ -32,7 +32,7 @@
 
 - [x] Node 20.20.2 local lint, strict TypeScript, production build, Deno Edge Function check, and full 123-test run.
 - [x] Full local browser matrix: 51/51 across Chromium, WebKit, and a separate unconfigured build, including both themes, mobile axe, account/share/vision mocks, and imported-file flows.
-- [ ] Observe the committed Chromium + WebKit workflow on a remote GitHub Actions run.
+- [x] Observe the committed Chromium + WebKit workflow on a remote GitHub Actions run (2026-10-02, https://github.com/ford41b/fretshift/actions/runs/36953856047: lint/unit/build, Chromium and WebKit E2E all green).
 
 ## Explicit scope follow-ups
 
@@ -48,3 +48,26 @@
 - [x] Preview-test and promote the guarded production compatibility deployment; verify root HTML, CSS MIME/type, service-worker cache revision, feature patch, and monophonic audio worker.
 - [ ] After dependencies are available again, run the complete source tree through `pnpm test`, `pnpm lint`, `pnpm build`, Chromium/WebKit E2E, then deploy the native source build and retire the runtime compatibility patch.
 - [ ] Device acceptance: record a few clean open/fretted single-string notes on iPhone; take a photo directly from the import screen; complete one six-digit verification-code sign-in inside the installed Home Screen app and confirm account songs arrive; separately smoke-test the optional magic-link path; try the interface-size slider at 85%, 100%, and 120%.
+
+## 2026-10-02 debug pass (see DEBUG_REPORT_2026-10-02.md)
+
+Done locally / in CI (no live Supabase, email, or device verification):
+
+- [x] `password-signup`: no pre-confirmed accounts, no password before code verification, Origin required, uniform response, per-IP/per-email rate limits.
+- [x] Reusable per-user quota helper (`supabase/functions/_shared/rateLimit.ts`) enforced in `vision-import`.
+- [x] Incremental sync pull (per-account `updated_at` cursor, 60 s overlap) and `Content-Range` paging.
+- [x] Audio review drafts autosave/restore/discard; cancel no longer waits for `decodeAudioData`.
+- [x] Node 25/26 test shim; unit suite verified on Node 20, 22, 24, 25, 26.
+- [x] WebKit 1280 px strumming failure fixed (notation placeholder height). Immersive controlled-microphone tests already passed in WebKit on CI.
+- [x] CI split into lint/unit/build plus parallel Chromium and WebKit E2E jobs.
+
+You must do (in order):
+
+- [ ] Apply migrations `202610020001_rate_limits.sql` and `202610020002_sync_records_updated_at_index.sql` to the hosted project; confirm `consume_rate_limit` is not callable with the publishable key.
+- [ ] `supabase functions deploy password-signup` and `supabase functions deploy vision-import`.
+- [ ] Optional secrets: `SIGNUP_IP_LIMIT_PER_HOUR`, `SIGNUP_EMAIL_LIMIT_PER_HOUR`, `VISION_PAGES_PER_HOUR`, `VISION_PAGES_PER_DAY`, `ALLOWED_ORIGINS`.
+- [ ] Auth dashboard: "Confirm email" on, OTP length 8, hosted Confirm-signup and Magic-link templates include `{{ .Token }}`; review Auth per-IP OTP rate limit (all password sign-ups now share the function's IP).
+- [ ] Deploy the web app immediately after the functions (old clients try password sign-in before confirmation).
+- [ ] Audit existing `auth.users` created by the old pre-confirming function.
+- [ ] Live smoke test: new-email sign-up by code; existing-email sign-up (same response); missing-Origin 403; 11th request/hour 429; one photo import within quota; iPhone Home Screen sign-up by code and by emailed link (handoff).
+- [ ] Observe incremental sync against hosted PostgREST (two devices; second sync downloads only changed rows).
