@@ -105,7 +105,8 @@ export function ImmersiveCalibration({ input, ready, floor, sink, record, onBusy
         onSaved(saved);
         setMessage(
           `Measured ${saved.offsetMs > 0 ? "+" : ""}${saved.offsetMs} ms from ${outcome.used} of ${outcome.cues} taps` +
-            `${outcome.rejected ? ` (${outcome.rejected} outlier${outcome.rejected === 1 ? "" : "s"} rejected)` : ""}. ` +
+            `${outcome.rejected ? ` (${outcome.rejected} outlier${outcome.rejected === 1 ? "" : "s"} rejected)` : ""}` +
+            `${outcome.unclear ? ` · ${outcome.unclear} unclear` : ""}. ` +
             (stored ? "Saved for this microphone on this device." : "Applied to this session; this browser would not store it."),
         );
         return;

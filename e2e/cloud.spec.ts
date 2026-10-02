@@ -250,7 +250,11 @@ test("new cloud surfaces have no serious axe findings in mobile dark mode", asyn
   await page.goto("/settings");
   await page.getByRole("button", { name: "Dark", exact: true }).click();
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
-  await page.waitForTimeout(250);
+  // Buttons transition their background (0.15s) while text colour switches
+  // at once; scan the settled theme, not a mid-transition frame.
+  await page.waitForFunction(() =>
+    document.getAnimations().every((a) => a.playState !== "running"),
+  );
   const results = await new AxeBuilder({ page }).analyze();
   expect(
     results.violations.filter((violation) =>
