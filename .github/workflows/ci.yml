@@ -47,4 +47,6 @@ jobs:
       - run: pnpm exec playwright test ${{ matrix.projects }}
       - uses: actions/upload-artifact@v4
         if: failure()
-        with: { name: e2e-${{ matrix.browser }}, path: test-results }
+        with:
+          name: e2e-${{ matrix.browser }}
+          path: test-results
