@@ -2,6 +2,8 @@ import { beforeEach, afterEach, expect, it, vi } from "vitest";
 import {
   cloudConfig,
   claimPendingAuthHandoff,
+  completePasswordAccount,
+  requestPasswordAccountCode,
   getAccessToken,
   getSession,
   initializeAuth,
@@ -266,4 +268,67 @@ it("deduplicates refreshes and never restores a session after sign out", async (
   expect(await second).toBeNull();
   expect(getSession()).toBeNull();
   expect(request).toHaveBeenCalledTimes(2);
+});
+
+it("password sign-up never sends the password before the emailed code is verified", async () => {
+  const calls: Array<{ url: string; method: string; body: unknown }> = [];
+  const request = vi.fn().mockImplementation((url: string, init: RequestInit) => {
+    calls.push({
+      url,
+      method: init.method ?? "GET",
+      body: init.body ? JSON.parse(String(init.body)) : null,
+    });
+    if (url.includes("/functions/v1/password-signup"))
+      return Promise.resolve(new Response('{"status":"code_sent"}', { status: 202 }));
+    if (url.includes("/auth/v1/verify"))
+      return Promise.resolve(
+        new Response(
+          JSON.stringify({
+            access_token: "signup-access",
+            refresh_token: "signup-refresh",
+            expires_in: 3600,
+            user: { id: "user-new", email: "new@example.com" },
+          }),
+        ),
+      );
+    if (url.endsWith("/auth/v1/user") && init.method === "PUT")
+      return Promise.resolve(new Response("{}"));
+    return Promise.reject(new Error(`Unexpected request: ${url}`));
+  });
+  vi.stubGlobal("fetch", request);
+
+  await requestPasswordAccountCode("New@Example.com", "chosen-password");
+  expect(calls).toHaveLength(1);
+  expect(calls[0].body).toEqual({
+    email: "new@example.com",
+    redirect_to: `${location.origin}/settings?auth_method=code`,
+  });
+  expect(JSON.stringify(calls[0].body)).not.toContain("chosen-password");
+  expect(getSession()).toBeNull();
+
+  await completePasswordAccount("new@example.com", "12345678", "chosen-password");
+  expect(calls.map((call) => `${call.method} ${new URL(call.url).pathname}`)).toEqual([
+    "POST /functions/v1/password-signup",
+    "POST /auth/v1/verify",
+    "PUT /auth/v1/user",
+  ]);
+  expect(calls[2].body).toEqual({ password: "chosen-password" });
+  expect(getSession()?.user.id).toBe("user-new");
+});
+
+it("password sign-up honours the server rate limit before sending another request", async () => {
+  const request = vi.fn().mockResolvedValue(
+    new Response('{"error":"Too many account requests."}', {
+      status: 429,
+      headers: { "Retry-After": "1800" },
+    }),
+  );
+  vi.stubGlobal("fetch", request);
+  await expect(
+    requestPasswordAccountCode("busy@example.com", "chosen-password"),
+  ).rejects.toMatchObject({ status: 429, retryAfterMs: 1_800_000 });
+  await expect(
+    requestPasswordAccountCode("busy@example.com", "chosen-password"),
+  ).rejects.toThrow(/just requested/);
+  expect(request).toHaveBeenCalledTimes(1);
 });

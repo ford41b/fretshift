@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import {
   AuthRequestError,
   cloudConfig,
-  createPasswordAccount,
+  completePasswordAccount,
   getMagicLinkRetryAt,
   isStandaloneWebApp,
+  requestPasswordAccountCode,
   sendSignInEmail,
   signInWithPassword,
   signOut,
@@ -35,6 +36,7 @@ export function AccountSync() {
   const [savingPassword, setSavingPassword] = useState(false);
   const [code, setCode] = useState("");
   const [codeSent, setCodeSent] = useState(false);
+  const [signupCodeSent, setSignupCodeSent] = useState(false);
   const [message, setMessage] = useState("");
   const [localError, setLocalError] = useState("");
   const [retryAt, setRetryAt] = useState(() => getMagicLinkRetryAt());
@@ -63,8 +65,16 @@ export function AccountSync() {
     setMessage("");
     try {
       if (passwordMode === "signup") {
-        await createPasswordAccount(email, password);
-        setMessage("Account created and signed in. Syncing your library…");
+        // The server never confirms an address or stores a password; the
+        // emailed code proves ownership first (see password-signup).
+        await requestPasswordAccountCode(email, password);
+        setRetryAt(getMagicLinkRetryAt());
+        setNow(Date.now());
+        setSignupCodeSent(true);
+        setMessage(
+          "Code sent. Enter the 8-digit code from the newest FretShift email to finish creating your account. Your password is saved only after the code is confirmed.",
+        );
+        return;
       } else {
         await signInWithPassword(email, password);
         setMessage("Signed in. Syncing your library…");
@@ -75,6 +85,10 @@ export function AccountSync() {
         passwordMode === "signin" &&
         error instanceof AuthRequestError &&
         /invalid login credentials/i.test(error.message);
+      if (error instanceof AuthRequestError && error.status === 429) {
+        setRetryAt(getMagicLinkRetryAt());
+        setNow(Date.now());
+      }
       setLocalError(
         isInvalidPasswordLogin
           ? "Email or password doesn't match. If you previously used a verification code and never set a password, sign in with the code first, then use Set or change password below."
@@ -378,6 +392,7 @@ export function AccountSync() {
                   aria-pressed={passwordMode === "signin"}
                   onClick={() => {
                     setPasswordMode("signin");
+                    setSignupCodeSent(false);
                     setLocalError("");
                   }}
                 >
@@ -409,18 +424,74 @@ export function AccountSync() {
                   onChange={(event) => setPassword(event.target.value)}
                 />
               </label>
-              <button type="submit" disabled={sending || password.length < 8}>
+              <button
+                type="submit"
+                disabled={
+                  sending ||
+                  password.length < 8 ||
+                  (passwordMode === "signup" && retrySeconds > 0)
+                }
+              >
                 {sending
                   ? passwordMode === "signup"
-                    ? "Creating account…"
+                    ? "Sending code…"
                     : "Signing in…"
                   : passwordMode === "signup"
-                    ? "Create account & sign in"
+                    ? retrySeconds > 0
+                      ? `Try again in ${retryLabel}`
+                      : signupCodeSent
+                        ? "Email me a new code"
+                        : "Create account · email me a code"
                     : "Sign in with password"}
               </button>
+              {passwordMode === "signup" && signupCodeSent ? (
+                <div style={{ marginTop: 18 }}>
+                  <label>
+                    8-digit verification code
+                    <input
+                      type="text"
+                      inputMode="numeric"
+                      autoComplete="one-time-code"
+                      pattern="[0-9]{8}"
+                      maxLength={8}
+                      placeholder="12345678"
+                      value={code}
+                      onChange={(event) =>
+                        setCode(event.target.value.replace(/\D/g, "").slice(0, 8))
+                      }
+                    />
+                  </label>
+                  <button
+                    type="button"
+                    className="primary"
+                    disabled={verifying || code.length !== 8 || password.length < 8}
+                    onClick={async () => {
+                      setVerifying(true);
+                      setLocalError("");
+                      setMessage("");
+                      try {
+                        await completePasswordAccount(email, code, password);
+                        setMessage("Account confirmed and password saved. Syncing your library…");
+                        await syncNow();
+                      } catch (error) {
+                        setLocalError(
+                          error instanceof Error
+                            ? error.message
+                            : "That verification code could not be confirmed.",
+                        );
+                      } finally {
+                        setVerifying(false);
+                      }
+                    }}
+                  >
+                    {verifying ? "Verifying…" : "Verify & create account"}
+                  </button>
+                </div>
+              ) : null}
               <p className="small muted" style={{ marginTop: 12 }}>
-                Password accounts are available for the private beta and do not
-                require an email to be delivered. Use at least 8 characters.
+                {passwordMode === "signup"
+                  ? "New accounts are confirmed with an emailed 8-digit code before first sign-in. Use at least 8 characters for the password. If you open the email link instead of entering the code, set your password afterwards under Set or change password."
+                  : "Use at least 8 characters."}
               </p>
             </>
           ) : (

@@ -100,6 +100,47 @@ test("magic-link request has a mocked browser flow", async ({ page }) => {
   await expect(page.getByText(/Check your email/)).toBeVisible();
 });
 
+test("password sign-up confirms the emailed code before saving the password", async ({
+  page,
+}) => {
+  await mockCloud(page);
+  const sent: Array<{ path: string; body: unknown }> = [];
+  await page.route("http://127.0.0.1:54321/functions/v1/password-signup", (route) => {
+    sent.push({ path: "signup", body: route.request().postDataJSON() });
+    return route.fulfill({ status: 202, json: { status: "code_sent" } });
+  });
+  await page.route("http://127.0.0.1:54321/auth/v1/verify", (route) => {
+    sent.push({ path: "verify", body: route.request().postDataJSON() });
+    return route.fulfill({
+      json: {
+        access_token: "e2e-access",
+        refresh_token: "e2e-refresh",
+        expires_in: 3600,
+        user: { id: "e2e-account", email: "new@example.com" },
+      },
+    });
+  });
+  await page.route("http://127.0.0.1:54321/auth/v1/user", (route) => {
+    sent.push({ path: "user", body: route.request().postDataJSON() });
+    return route.fulfill({ json: {} });
+  });
+  await page.goto("/settings");
+  await page.getByLabel("Email address").fill("new@example.com");
+  await page.getByRole("button", { name: "Email + password", exact: true }).click();
+  await page.getByRole("button", { name: "Create account", exact: true }).click();
+  await page.getByLabel("Password", { exact: true }).fill("chosen-password");
+  await page.getByRole("button", { name: "Create account · email me a code" }).click();
+  await expect(page.getByText(/Code sent\. Enter the 8-digit code/)).toBeVisible();
+  // Nothing is signed in yet and the password has not left the browser.
+  expect(sent).toHaveLength(1);
+  expect(JSON.stringify(sent[0].body)).not.toContain("chosen-password");
+  await page.getByLabel("8-digit verification code").fill("12345678");
+  await page.getByRole("button", { name: "Verify & create account" }).click();
+  await expect(page.getByText(/Signed in as/)).toContainText("new@example.com");
+  expect(sent.map((entry) => entry.path)).toEqual(["signup", "verify", "user"]);
+  expect(sent[2].body).toEqual({ password: "chosen-password" });
+});
+
 test("signed-in sync and owner share management survive reopening", async ({
   page,
 }) => {

@@ -282,6 +282,19 @@ function setMagicLinkRetryAt(retryAt: number) {
 
 export type EmailSignInMethod = "code" | "magic";
 
+// Supabase uses one Magic Link / OTP email template. FretShift's hosted
+// template contains both a one-time code and a link, so users can choose
+// whichever path is more reliable on their device. A standalone iPhone PWA
+// also prepares the handoff in case the user chooses the link from the email.
+async function prepareEmailRedirect(method: EmailSignInMethod) {
+  let handoff: AuthHandoff | null = null;
+  if (isStandaloneWebApp()) handoff = await createAuthHandoff();
+  const redirect = new URL("/settings", location.origin);
+  redirect.searchParams.set("auth_method", method);
+  if (handoff) redirect.searchParams.set("auth_handoff", handoff.id);
+  return { redirect: redirect.toString(), handoff };
+}
+
 export async function sendSignInEmail(
   email: string,
   method: EmailSignInMethod = "code",
@@ -295,18 +308,10 @@ export async function sendSignInEmail(
       existingRetryAt - Date.now(),
     );
 
-  // Supabase uses one Magic Link / OTP email template. FretShift's hosted
-  // template contains both a one-time code and a link, so users can choose
-  // whichever path is more reliable on their device. A standalone iPhone PWA
-  // also prepares the handoff in case the user chooses the link from the email.
-  let handoff: AuthHandoff | null = null;
-  if (isStandaloneWebApp()) handoff = await createAuthHandoff();
-  const redirect = new URL("/settings", location.origin);
-  redirect.searchParams.set("auth_method", method);
-  if (handoff) redirect.searchParams.set("auth_handoff", handoff.id);
+  const { redirect, handoff } = await prepareEmailRedirect(method);
 
   try {
-    await authRequest(`otp?redirect_to=${encodeURIComponent(redirect.toString())}`, {
+    await authRequest(`otp?redirect_to=${encodeURIComponent(redirect)}`, {
       email: value,
       create_user: true,
     });
@@ -393,7 +398,16 @@ export async function updateCurrentUserPassword(password: string) {
   return data;
 }
 
-export async function createPasswordAccount(email: string, password: string) {
+/**
+ * Step 1 of password sign-up: ask the server to email a verification code.
+ * The password is validated here but never sent; the server cannot know
+ * whether the caller owns the address, so it neither confirms the account
+ * nor sets a password. The response is the same for new and existing emails.
+ */
+export async function requestPasswordAccountCode(
+  email: string,
+  password: string,
+) {
   const config = cloudConfig();
   if (!config)
     throw new Error(
@@ -401,26 +415,71 @@ export async function createPasswordAccount(email: string, password: string) {
     );
 
   const credentials = validatePasswordCredentials(email, password);
-  const response = await fetch(`${config.url}/functions/v1/password-signup`, {
-    method: "POST",
-    headers: {
-      apikey: config.key,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(credentials),
-    signal: AbortSignal.timeout(20_000),
-  });
+  const existingRetryAt = getMagicLinkRetryAt();
+  if (existingRetryAt)
+    throw new AuthRequestError(
+      "A code was just requested. Wait for the button to become available before trying again.",
+      429,
+      existingRetryAt - Date.now(),
+    );
+  const { redirect, handoff } = await prepareEmailRedirect("code");
+  let response: Response;
+  try {
+    response = await fetch(`${config.url}/functions/v1/password-signup`, {
+      method: "POST",
+      headers: {
+        apikey: config.key,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: credentials.email, redirect_to: redirect }),
+      signal: AbortSignal.timeout(20_000),
+    });
+  } catch (error) {
+    if (handoff) localStorage.removeItem(authHandoffKey);
+    throw error;
+  }
   const data = await response.json().catch(() => null);
   if (!response.ok) {
+    if (handoff) localStorage.removeItem(authHandoffKey);
+    const retryAfter = Number(response.headers.get("Retry-After") || 0);
+    const wait =
+      response.status === 429
+        ? Math.max(Number.isFinite(retryAfter) ? retryAfter * 1000 : 0, 60_000)
+        : 0;
+    if (wait) setMagicLinkRetryAt(Date.now() + wait);
     throw new AuthRequestError(
       data?.error ||
         data?.message ||
         `Account could not be created (${response.status}). Try again.`,
       response.status,
+      wait,
     );
   }
+  setMagicLinkRetryAt(Date.now() + 60_000);
+}
 
-  return signInWithPassword(credentials.email, credentials.password);
+/**
+ * Step 2: the emailed code proves the caller owns the address. Only then is
+ * the chosen password stored, from the verified session.
+ */
+export async function completePasswordAccount(
+  email: string,
+  code: string,
+  password: string,
+) {
+  const credentials = validatePasswordCredentials(email, password);
+  const session = await verifyEmailCode(credentials.email, code);
+  try {
+    await updateCurrentUserPassword(credentials.password);
+  } catch (error) {
+    throw new AuthRequestError(
+      `Signed in, but your password could not be saved (${
+        error instanceof Error ? error.message : "unknown error"
+      }). Open Set or change password to try again.`,
+      error instanceof AuthRequestError ? error.status : 0,
+    );
+  }
+  return session;
 }
 
 export async function sendMagicLink(email: string) {

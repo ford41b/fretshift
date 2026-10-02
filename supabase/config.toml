@@ -7,6 +7,12 @@ project_id = "fretshift"
 [functions.vision-import]
 verify_jwt = false
 
+# password-signup is called before the user has a session (apikey header
+# only), so the platform JWT gate must stay off. It enforces Origin, rate
+# limits, and never confirms an account or sets a password itself.
+[functions.password-signup]
+verify_jwt = false
+
 # Local-development auth email templates. The hosted Supabase project needs the
 # same content copied into Authentication > Email Templates. One email exposes
 # both Supabase-supported passwordless paths: an 8-digit OTP and a magic link.
