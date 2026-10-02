@@ -106,7 +106,12 @@ describe("Supabase sync adapter", () => {
   it("uses stable pagination and lists owner-managed shares", async () => {
     const fetch = vi
       .fn()
-      .mockResolvedValueOnce(new Response("[]", { status: 200 }))
+      .mockResolvedValueOnce(
+        new Response("[]", {
+          status: 200,
+          headers: { "Content-Range": "*/0" },
+        }),
+      )
       .mockResolvedValueOnce(
         new Response(
           JSON.stringify([
@@ -161,5 +166,57 @@ describe("Supabase sync adapter", () => {
     vi.stubGlobal("fetch", fetch);
     await expect(value.pull()).rejects.toThrow(/account changed/);
     expect(fetch).not.toHaveBeenCalled();
+  });
+
+  it("follows Content-Range so a lower PostgREST max-rows cannot truncate the pull", async () => {
+    const MAX_ROWS = 500;
+    const total = 1200;
+    const rows = Array.from({ length: total }, (_, index) => ({
+      kind: "song",
+      record_id: `song-${String(index).padStart(4, "0")}`,
+      payload: { id: `song-${String(index).padStart(4, "0")}` },
+      updated_at: "2026-09-13T12:00:00.000Z",
+      deleted_at: null,
+      revision: 1,
+    }));
+    // Behaves like PostgREST with db-max-rows = 500: it silently caps the
+    // requested Range and reports what it returned in Content-Range.
+    const fetch = vi.fn().mockImplementation((_url: string, init: RequestInit) => {
+      // jsdom's Headers class drops Range, so read the plain header object.
+      const range = (init.headers as Record<string, string>).Range ?? "0-";
+      const [from, to] = range.split("-").map(Number);
+      const start = from;
+      const end = Math.min(to, start + MAX_ROWS - 1, total - 1);
+      const page = start < total ? rows.slice(start, end + 1) : [];
+      return Promise.resolve(
+        new Response(JSON.stringify(page), {
+          status: 206,
+          headers: {
+            "Content-Range": page.length ? `${start}-${end}/${total}` : `*/${total}`,
+          },
+        }),
+      );
+    });
+    vi.stubGlobal("fetch", fetch);
+    const pulled = await adapter().value.pull();
+    expect(pulled).toHaveLength(total);
+    expect(new Set(pulled.map((record) => record.id)).size).toBe(total);
+    expect(fetch.mock.calls[0][1].headers.Prefer).toBe("count=exact");
+  });
+
+  it("adds the updated_at cursor filter and refuses a response without Content-Range", async () => {
+    const fetch = vi
+      .fn()
+      .mockResolvedValueOnce(
+        new Response(JSON.stringify([]), { headers: { "Content-Range": "*/0" } }),
+      )
+      .mockResolvedValueOnce(new Response(JSON.stringify([])));
+    vi.stubGlobal("fetch", fetch);
+    const { value } = adapter();
+    await value.pull({ since: "2026-09-13T12:00:00.000Z" });
+    expect(String(fetch.mock.calls[0][0])).toContain(
+      "updated_at=gte.2026-09-13T12%3A00%3A00.000Z",
+    );
+    await expect(value.pull()).rejects.toThrow(/Content-Range/);
   });
 });

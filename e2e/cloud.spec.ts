@@ -31,8 +31,27 @@ async function mockCloud(page: Page) {
   await page.route("http://127.0.0.1:54321/rest/v1/**", async (route) => {
     const request = route.request();
     const path = new URL(request.url()).pathname;
-    if (path.endsWith("/sync_records"))
-      return route.fulfill({ json: [...records.values()] });
+    if (path.endsWith("/sync_records")) {
+      // Behaves like PostgREST: honours the updated_at filter and Range, and
+      // reports Content-Range (the client refuses responses without it).
+      const since = new URL(request.url()).searchParams.get("updated_at");
+      const rows = [...records.values()].filter(
+        (row) =>
+          !since ||
+          Date.parse(String(row.updated_at)) >= Date.parse(since.replace(/^gte\./, "")),
+      );
+      const [from, to] = (request.headers()["range"] ?? "0-999").split("-").map(Number);
+      const page = rows.slice(from, to + 1);
+      return route.fulfill({
+        status: 206,
+        json: page,
+        headers: {
+          "Content-Range": page.length
+            ? `${from}-${from + page.length - 1}/${rows.length}`
+            : `*/${rows.length}`,
+        },
+      });
+    }
     if (path.endsWith("/rpc/sync_cas")) {
       const body = request.postDataJSON();
       const key = `${body.p_kind}:${body.p_record_id}`;

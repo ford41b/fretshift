@@ -4,7 +4,50 @@ import { FakeSyncService } from "../persistence/fakes/sync";
 import { newSong, type Tuning } from "../schema/song.v1";
 import { defaultSettings } from "../schema/settings";
 import type { SyncAdapter, SyncRecord } from "./adapter";
-import { AccountWorkspaceMismatchError, SyncEngine } from "./engine";
+import {
+  AccountWorkspaceMismatchError,
+  SyncEngine,
+  relinkWorkspaceOwner,
+} from "./engine";
+
+// jsonb does not keep insertion order: shorter keys first, then bytewise.
+const jsonb = (value: unknown): unknown =>
+  Array.isArray(value)
+    ? value.map(jsonb)
+    : value && typeof value === "object"
+      ? Object.fromEntries(
+          Object.keys(value)
+            .sort((a, b) => a.length - b.length || (a < b ? -1 : a > b ? 1 : 0))
+            .map((k) => [k, jsonb((value as Record<string, unknown>)[k])]),
+        )
+      : value;
+const reorder = (record: SyncRecord | null) =>
+  record && { ...record, payload: jsonb(record.payload) };
+/** The fake service, but returning payloads in Postgres jsonb key order. */
+const jsonbAdapter = (owner: string): SyncAdapter => {
+  const direct = service.adapter(owner);
+  return {
+    pull: async (options) => (await direct.pull(options)).map((r) => reorder(r)!),
+    cas: async (record) => {
+      const result = await direct.cas(record);
+      return result.ok
+        ? { ok: true, record: reorder(result.record)! }
+        : { ok: false, record: reorder(result.record) };
+    },
+    createShare: (song, tuning) => direct.createShare(song, tuning),
+    listShares: () => direct.listShares(),
+    readShare: (token) => direct.readShare(token),
+    revokeShare: (token) => direct.revokeShare(token),
+  };
+};
+/** Moves every server timestamp back so it falls outside the overlap window. */
+function ageServerRecords(owner: string, ms: number) {
+  for (const record of service.recordsFor(owner).values())
+    service.put(owner, {
+      ...record,
+      updatedAt: new Date(Date.parse(record.updatedAt) - ms).toISOString(),
+    });
+}
 
 let service: FakeSyncService;
 beforeEach(async () => {
@@ -149,7 +192,8 @@ describe("sync engine", () => {
       kind: "tuning",
       id: tuning.id,
       payload: tuning,
-      updatedAt: "2026-09-13T12:00:00.000Z",
+      // Server timestamps come from now(), so they are newer than any cursor.
+      updatedAt: new Date().toISOString(),
       deletedAt: null,
       revision: 1,
     });
@@ -159,7 +203,7 @@ describe("sync engine", () => {
     service.put("owner", {
       ...remote,
       payload: { ...(remote.payload as object), tuningId: tuning.id },
-      updatedAt: "2026-09-13T12:01:00.000Z",
+      updatedAt: new Date().toISOString(),
       revision: remote.revision + 1,
     });
     expect((await engine.sync("owner")).conflicts).toEqual([]);
@@ -417,35 +461,6 @@ describe("sync engine", () => {
     });
   });
   it("stays stable when the server reorders payload keys like Postgres jsonb", async () => {
-    // jsonb does not keep insertion order: shorter keys first, then bytewise.
-    const jsonb = (value: unknown): unknown =>
-      Array.isArray(value)
-        ? value.map(jsonb)
-        : value && typeof value === "object"
-          ? Object.fromEntries(
-              Object.keys(value)
-                .sort((a, b) => a.length - b.length || (a < b ? -1 : a > b ? 1 : 0))
-                .map((k) => [k, jsonb((value as Record<string, unknown>)[k])]),
-            )
-          : value;
-    const reorder = (record: SyncRecord | null) =>
-      record && { ...record, payload: jsonb(record.payload) };
-    const jsonbAdapter = (owner: string): SyncAdapter => {
-      const direct = service.adapter(owner);
-      return {
-        pull: async () => (await direct.pull()).map((r) => reorder(r)!),
-        cas: async (record) => {
-          const result = await direct.cas(record);
-          return result.ok
-            ? { ok: true, record: reorder(result.record)! }
-            : { ok: false, record: reorder(result.record) };
-        },
-        createShare: (song, tuning) => direct.createShare(song, tuning),
-        listShares: () => direct.listShares(),
-        readShare: (token) => direct.readShare(token),
-        revokeShare: (token) => direct.revokeShare(token),
-      };
-    };
     await db.songs.put(newSong("Ordered"));
     await db.settings.put({ id: "device", value: defaultSettings });
     const engine = new SyncEngine(jsonbAdapter("owner"));
@@ -459,5 +474,110 @@ describe("sync engine", () => {
       (r) => r.revision,
     );
     expect(revisions).toEqual([1, 1]);
+  });
+});
+
+describe("incremental pull", () => {
+  const HOUR = 60 * 60_000;
+
+  it("downloads only records changed since the last sync (jsonb ordering)", async () => {
+    for (const title of ["One", "Two", "Three"]) await db.songs.put(newSong(title));
+    await db.settings.put({ id: "device", value: defaultSettings });
+    const engine = new SyncEngine(jsonbAdapter("owner"));
+    expect((await engine.sync("owner")).uploaded).toBe(4);
+    ageServerRecords("owner", HOUR);
+    service.pullLog.length = 0;
+
+    expect(await engine.sync("owner")).toMatchObject({
+      uploaded: 0,
+      applied: 0,
+      conflicts: [],
+    });
+    // Old behaviour pulled all 4 rows (multi-MB audio songs) every 30 s.
+    expect(service.pullLog).toEqual([0]);
+
+    // Another device edits one song: exactly that row is downloaded.
+    const remote = [...service.recordsFor("owner").values()].find(
+      (r) => r.kind === "song",
+    )!;
+    await service.adapter("owner").cas({
+      ...remote,
+      payload: { ...(remote.payload as object), title: "Edited elsewhere" },
+      revision: remote.revision,
+    });
+    service.pullLog.length = 0;
+    expect(await engine.sync("owner")).toMatchObject({ applied: 1, uploaded: 0 });
+    expect(service.pullLog).toEqual([1]);
+    expect((await db.songs.get(remote.id))?.title).toBe("Edited elsewhere");
+    const revisions = [...service.recordsFor("owner").values()].map((r) => r.revision);
+    expect(revisions.sort()).toEqual([1, 1, 1, 2]);
+  });
+
+  it("re-reads the overlap window so a late-committed row is not skipped", async () => {
+    await db.songs.put(newSong("Anchor"));
+    const engine = new SyncEngine(jsonbAdapter("owner"));
+    await engine.sync("owner");
+    const cursor = (await db.meta.get("sync:cursor:owner"))?.value as string;
+    expect(typeof cursor).toBe("string");
+    // A transaction that started before the cursor but committed after our pull
+    // carries an updated_at slightly earlier than the cursor.
+    const late = { ...newSong("Late commit"), id: "late-song" };
+    service.put("owner", {
+      kind: "song",
+      id: late.id,
+      payload: late,
+      updatedAt: new Date(Date.parse(cursor) - 5_000).toISOString(),
+      deletedAt: null,
+      revision: 1,
+    });
+    expect((await engine.sync("owner")).applied).toBe(1);
+    expect((await db.songs.get(late.id))?.title).toBe("Late commit");
+  });
+
+  it("keeps re-raising an unresolved conflict on later syncs", async () => {
+    const song = newSong("Original");
+    await db.songs.put(song);
+    const engine = new SyncEngine(jsonbAdapter("owner"));
+    await engine.sync("owner");
+    const remote = [...service.recordsFor("owner").values()][0];
+    await service.adapter("owner").cas({
+      ...remote,
+      payload: { ...(remote.payload as object), title: "Server" },
+      revision: remote.revision,
+    });
+    await db.songs.put({ ...song, title: "Mine", updatedAt: new Date().toISOString() });
+    expect((await engine.sync("owner")).conflicts).toHaveLength(1);
+    ageServerRecords("owner", HOUR);
+    expect((await engine.sync("owner")).conflicts).toHaveLength(1);
+  });
+
+  it("falls back to a full pull when a synced record disappeared locally", async () => {
+    const keep = newSong("Keep"),
+      restored = newSong("Restored by sync");
+    await db.songs.bulkPut([keep, restored]);
+    const engine = new SyncEngine(jsonbAdapter("owner"));
+    await engine.sync("owner");
+    ageServerRecords("owner", HOUR);
+    // e.g. a backup restore replaces the local songs table.
+    await db.songs.delete(restored.id);
+    service.pullLog.length = 0;
+    await engine.sync("owner");
+    expect(service.pullLog).toEqual([2]);
+    expect((await db.songs.get(restored.id))?.title).toBe("Restored by sync");
+  });
+
+  it("does a full pull again after relinking this device back to an account", async () => {
+    await db.songs.put(newSong("Linked"));
+    const engine = new SyncEngine(jsonbAdapter("owner"));
+    await engine.sync("owner");
+    ageServerRecords("owner", HOUR);
+    expect(await db.meta.get("sync:cursor:owner")).toBeDefined();
+    // The device was used with another account in between.
+    await db.meta.put({ id: "sync:account", value: "someone-else" });
+    await relinkWorkspaceOwner("owner");
+    expect(await db.meta.get("sync:cursor:owner")).toBeUndefined();
+    service.pullLog.length = 0;
+    await engine.sync("owner");
+    expect(service.pullLog).toEqual([1]);
   });
 });

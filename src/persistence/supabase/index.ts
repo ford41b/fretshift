@@ -1,6 +1,7 @@
 import type { Song, Tuning } from "../../schema/song.v1";
 import type {
   CasResult,
+  PullOptions,
   ShareRecord,
   SyncAdapter,
   SyncRecord,
@@ -14,6 +15,21 @@ type Options = {
   getAccountId: () => string | null;
   getAccessToken: () => Promise<string | null>;
 };
+
+const PAGE_SIZE = 1000;
+
+/** Parses `0-999/1234`, `0-499/*`, or `*\/0`; null when absent or malformed. */
+export function parseContentRange(
+  value: string | null,
+): { start: number; end: number | null; total: number | null } | null {
+  const match = value?.trim().match(/^(?:(\d+)-(\d+)|\*)\/(\d+|\*)$/);
+  if (!match) return null;
+  return {
+    start: match[1] === undefined ? 0 : Number(match[1]),
+    end: match[2] === undefined ? null : Number(match[2]),
+    total: match[3] === "*" ? null : Number(match[3]),
+  };
+}
 
 function singleRow<T>(value: unknown, operation: string): T | null {
   if (!Array.isArray(value))
@@ -58,12 +74,26 @@ export class SupabaseSyncAdapter implements SyncAdapter {
     return response;
   }
 
-  async pull(): Promise<SyncRecord[]> {
-    const all: SyncRecord[] = [];
-    for (let offset = 0; ; offset += 1000) {
+  /**
+   * Pages with Range/Content-Range instead of "a short page means the end":
+   * PostgREST silently caps each page at its max-rows setting, so a project
+   * configured below the page size used to truncate the pull.
+   */
+  async pull(options: PullOptions = {}): Promise<SyncRecord[]> {
+    const filter = options.since
+      ? `&updated_at=gte.${encodeURIComponent(options.since)}`
+      : "";
+    const byKey = new Map<string, SyncRecord>();
+    for (let offset = 0; ; ) {
       const r = await this.request(
-        "sync_records?select=kind,record_id,payload,updated_at,deleted_at,revision&order=kind.asc,record_id.asc",
-        { headers: { Range: `${offset}-${offset + 999}` } },
+        `sync_records?select=kind,record_id,payload,updated_at,deleted_at,revision&order=kind.asc,record_id.asc${filter}`,
+        {
+          headers: {
+            Range: `${offset}-${offset + PAGE_SIZE - 1}`,
+            "Range-Unit": "items",
+            Prefer: "count=exact",
+          },
+        },
       );
       const rows = (await r.json()) as Array<{
         kind: SyncRecord["kind"];
@@ -73,17 +103,38 @@ export class SupabaseSyncAdapter implements SyncAdapter {
         deleted_at: string | null;
         revision: number;
       }>;
-      all.push(
-        ...rows.map((x) => ({
+      if (!Array.isArray(rows))
+        throw new SyncTransportError("Sync pull returned an invalid response.");
+      const range = parseContentRange(r.headers.get("Content-Range"));
+      if (
+        !range ||
+        (rows.length > 0 &&
+          (range.start !== offset ||
+            range.end === null ||
+            range.end - range.start + 1 !== rows.length))
+      )
+        throw new SyncTransportError(
+          "Sync pull response had no consistent Content-Range; refusing to treat it as complete.",
+        );
+      for (const x of rows) {
+        const record: SyncRecord = {
           kind: x.kind,
           id: x.record_id,
           payload: x.payload,
           updatedAt: x.updated_at,
           deletedAt: x.deleted_at,
           revision: x.revision,
-        })),
-      );
-      if (rows.length < 1000) return all;
+        };
+        // An insert that sorts before the current offset shifts later rows by
+        // one between pages; keep one copy (the newest) instead of a duplicate.
+        const key = `${record.kind}:${record.id}`;
+        const existing = byKey.get(key);
+        if (!existing || existing.revision < record.revision)
+          byKey.set(key, record);
+      }
+      offset += rows.length;
+      if (rows.length === 0 || (range.total !== null && offset >= range.total))
+        return [...byKey.values()];
     }
   }
 

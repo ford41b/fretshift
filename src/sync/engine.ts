@@ -53,6 +53,16 @@ const canonical = (value: unknown): unknown =>
 const same = (a: unknown, b: unknown) =>
   JSON.stringify(canonical(a)) === JSON.stringify(canonical(b));
 const baselineKey = (accountId: string) => `sync:baseline:${accountId}`;
+// Server updated_at of the newest record this account has fully settled.
+const cursorKey = (accountId: string) => `sync:cursor:${accountId}`;
+/**
+ * sync_records.updated_at is the writing transaction's start time, so a row can
+ * become visible after a pull already saw newer rows. Every incremental pull
+ * re-reads this much history before the cursor; records already settled at the
+ * same revision are no-ops. sync_cas transactions are a single statement, so a
+ * minute is a wide margin.
+ */
+export const PULL_OVERLAP_MS = 60_000;
 
 const workspaceOwnerKey = "sync:account";
 
@@ -65,13 +75,22 @@ export async function relinkWorkspaceOwner(accountId: string): Promise<void> {
   // reconcile the local library with whatever is already in that account.
   await db.transaction("rw", db.meta, async () => {
     await db.meta.delete(baselineKey(accountId));
+    await db.meta.delete(cursorKey(accountId));
     await db.meta.put({ id: workspaceOwnerKey, value: accountId });
   });
 }
 
 
+export type SyncEngineOptions = { pullOverlapMs?: number };
+
 export class SyncEngine {
-  constructor(private readonly adapter: SyncAdapter) {}
+  private readonly pullOverlapMs: number;
+  constructor(
+    private readonly adapter: SyncAdapter,
+    options: SyncEngineOptions = {},
+  ) {
+    this.pullOverlapMs = options.pullOverlapMs ?? PULL_OVERLAP_MS;
+  }
   async sync(accountId: string): Promise<SyncResult> {
     await assertWorkspaceOwner(accountId);
     // Bind before the first network request. A partial first sync must never
@@ -80,9 +99,26 @@ export class SyncEngine {
     const captured = await capture();
     const baseline = ((await db.meta.get(baselineKey(accountId)))?.value ??
       {}) as Baseline;
+    // Incremental pull. Only a record absent from the pull is assumed to be
+    // unchanged since it was settled into the baseline, so pull everything
+    // when there is no cursor or baseline yet, or when a settled record has
+    // vanished locally (e.g. a backup restore) and must be re-offered.
+    const storedCursor = (await db.meta.get(cursorKey(accountId)))?.value;
+    const cursor =
+      typeof storedCursor === "string" && !Number.isNaN(Date.parse(storedCursor))
+        ? storedCursor
+        : null;
+    const incremental =
+      cursor !== null &&
+      Object.keys(baseline).length > 0 &&
+      Object.keys(baseline).every((k) => captured.byKey.has(k));
+    const since = incremental
+      ? new Date(Date.parse(cursor) - this.pullOverlapMs).toISOString()
+      : null;
     const remote: SyncRecord[] = [];
     const seen = new Set<string>();
-    for (const raw of await this.adapter.pull()) {
+    let pulledInvalid = false;
+    for (const raw of await this.adapter.pull(since ? { since } : {})) {
       try {
         const record = validateRemoteRecord(raw);
         if (seen.has(key(record)))
@@ -90,6 +126,7 @@ export class SyncEngine {
         seen.add(key(record));
         remote.push(record);
       } catch (error) {
+        pulledInvalid = true;
         await quarantine(raw, error);
       }
     }
@@ -97,6 +134,8 @@ export class SyncEngine {
     const conflicts: SyncConflict[] = [];
     let applied = 0,
       uploaded = 0;
+    // Server-stamped copies of our own accepted uploads also advance the cursor.
+    const acceptedUploads: SyncRecord[] = [];
     // Process the union in dependency order so a cloud tuning exists before any
     // existing or new song that references it is validated.
     const orderedKeys = [
@@ -157,6 +196,7 @@ export class SyncEngine {
         if (response.ok) {
           const accepted = validateRemoteRecord(response.record, local);
           baseline[k] = accepted;
+          acceptedUploads.push(accepted);
           await applyIfUnchanged(local, accepted);
           uploaded++;
         } else if (response.record) {
@@ -179,6 +219,16 @@ export class SyncEngine {
       }
     }
     await db.meta.put({ id: baselineKey(accountId), value: baseline });
+    await db.meta.put({
+      id: cursorKey(accountId),
+      value: nextCursor(
+        incremental ? cursor : null,
+        remote,
+        acceptedUploads,
+        baseline,
+        pulledInvalid,
+      ),
+    });
     return { conflicts, applied, uploaded };
   }
 
@@ -234,6 +284,39 @@ export class SyncEngine {
     }
     await db.meta.put({ id: baselineKey(accountId), value: base });
   }
+}
+
+/**
+ * The cursor only advances past records that are settled in the baseline at
+ * (or beyond) the pulled revision. Anything else (a conflict, a record that
+ * failed to apply, or an apply skipped because the user edited mid-sync) holds
+ * the cursor at its timestamp, so it is pulled and evaluated again exactly as
+ * the old full pull did. An envelope too broken to date keeps the old cursor.
+ */
+function nextCursor(
+  previous: string | null,
+  pulled: SyncRecord[],
+  uploaded: SyncRecord[],
+  baseline: Baseline,
+  pulledInvalid: boolean,
+): string | null {
+  const ms = (value: string) => Date.parse(value);
+  let newest = previous;
+  let held: string | null = null;
+  for (const record of uploaded)
+    if (newest === null || ms(record.updatedAt) > ms(newest))
+      newest = record.updatedAt;
+  for (const record of pulled) {
+    if (newest === null || ms(record.updatedAt) > ms(newest))
+      newest = record.updatedAt;
+    const settled = baseline[key(record)];
+    if (!settled || settled.revision < record.revision)
+      if (held === null || ms(record.updatedAt) < ms(held))
+        held = record.updatedAt;
+  }
+  if (pulledInvalid) return previous;
+  if (held !== null && (newest === null || ms(held) < ms(newest))) return held;
+  return newest;
 }
 
 function copyPayload(record: SyncRecord, id: string) {

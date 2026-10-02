@@ -1,6 +1,7 @@
 import type { Song, Tuning } from "../../schema/song.v1";
 import type {
   CasResult,
+  PullOptions,
   ShareRecord,
   SyncAdapter,
   SyncRecord,
@@ -19,6 +20,8 @@ export class FakeSyncService {
       revokedAt: string | null;
     }
   >();
+  /** Number of records each pull() returned, in order (a bandwidth proxy). */
+  readonly pullLog: number[] = [];
   adapter(owner: string): SyncAdapter {
     return new FakeSyncAdapter(this, owner);
   }
@@ -65,10 +68,14 @@ class FakeSyncAdapter implements SyncAdapter {
     private service: FakeSyncService,
     private owner: string,
   ) {}
-  async pull(): Promise<SyncRecord[]> {
-    return [...this.service.recordsFor(this.owner).values()].map((record) =>
-      structuredClone(record),
-    );
+  async pull(options: PullOptions = {}): Promise<SyncRecord[]> {
+    // Mirrors the PostgREST filter `updated_at=gte.<since>`.
+    const since = options.since ? Date.parse(options.since) : null;
+    const records = [...this.service.recordsFor(this.owner).values()]
+      .filter((record) => since === null || Date.parse(record.updatedAt) >= since)
+      .map((record) => structuredClone(record));
+    this.service.pullLog.push(records.length);
+    return records;
   }
   async cas(
     input: Omit<SyncRecord, "updatedAt" | "revision"> & {

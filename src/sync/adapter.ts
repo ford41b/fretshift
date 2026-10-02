@@ -30,9 +30,17 @@ export type ShareRecord = {
   revokedAt: string | null;
 };
 
+export type PullOptions = {
+  /**
+   * Only records whose server updatedAt is at or after this ISO time. Omitted
+   * or null means a full pull. The engine already subtracts its overlap window.
+   */
+  since?: string | null;
+};
+
 /** A small backend seam; the engine deliberately has no Supabase dependency. */
 export interface SyncAdapter {
-  pull(): Promise<SyncRecord[]>;
+  pull(options?: PullOptions): Promise<SyncRecord[]>;
   cas(
     record: Omit<SyncRecord, "updatedAt" | "revision"> & {
       revision: number | null;
