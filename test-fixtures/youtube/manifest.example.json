@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "description": "Copy to manifest.json, replace the placeholders, and label 5–10 lesson videos (see LABELING.md). Times are seconds from the start of the whole video.",
+  "cases": [
+    {
+      "id": "lesson-01",
+      "videoId": "XXXXXXXXXXX",
+      "title": "Song title as the teacher says it",
+      "artist": "Original artist",
+      "tuning": "Standard (EADGBE)",
+      "capo": 0,
+      "closeUp": true,
+      "startSeconds": 42,
+      "endSeconds": 162,
+      "durationSeconds": 734,
+      "grid": { "tempoBpm": 92, "firstDownbeatSeconds": 44.1, "meter": 4 },
+      "chords": [
+        { "start": 42, "label": "N.C." },
+        { "start": 44.1, "label": "G" },
+        { "start": 49.32, "label": "D/F#" },
+        { "start": 54.54, "label": "Em" },
+        { "start": 59.76, "label": "C" },
+        { "start": 150.3, "label": "N.C." }
+      ]
+    },
+    {
+      "id": "lesson-02",
+      "videoId": "YYYYYYYYYYY",
+      "title": "",
+      "artist": "",
+      "tuning": "Drop D",
+      "capo": 2,
+      "closeUp": false,
+      "startSeconds": 0,
+      "endSeconds": 95,
+      "durationSeconds": 95,
+      "beats": [0.5, 1.0, 1.5, 2.0],
+      "chords": [
+        { "start": 0, "label": "N.C." },
+        { "start": 0.5, "label": "Am" },
+        { "start": 4.5, "label": "F" }
+      ]
+    }
+  ]
+}
