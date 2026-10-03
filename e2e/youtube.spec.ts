@@ -186,12 +186,14 @@ test("YouTube link: progress, cancel, clear provider errors and retry", async ({
       if (mode === "hang") { await new Promise((resolve) => setTimeout(resolve, 5000)); return route.abort().catch(() => undefined); }
       if (mode === "private")
         return route.fulfill({ status: 422, json: { error: "This video is private or its owner turned off embedding. FretShift can analyze only public videos that play in an embedded player.", code: "private-video", retryable: false } });
-      return route.fulfill({ json: wire(body as never, [[0, 12, "Am"], [12, 20, "F"]]) });
+      const segment = (body as { segment: { startSeconds: number } }).segment;
+      return route.fulfill({ json: wire(body as never, [[segment.startSeconds, 12, "Am"], [12, 20, "F"]]) });
     },
   });
   await openYouTubeImport(page);
   await acceptPrivacy(page);
   await page.getByLabel("YouTube link").fill(`https://www.youtube.com/shorts/${ID}`);
+  await page.getByLabel("Start time (optional)").fill("0:05");
   await page.getByLabel("End time (optional)").fill("20");
   await expect(page.getByText("Video length 3:00.0")).toBeVisible();
   await page.getByRole("button", { name: "Analyze video" }).click();
@@ -205,6 +207,9 @@ test("YouTube link: progress, cancel, clear provider errors and retry", async ({
   mode = "ok";
   await page.getByRole("button", { name: "Retry analysis" }).click();
   await expect(page.locator(".ai-regions button")).toHaveText(["Am", "F"]);
+  expect(calls.posts.at(-1)!.body.segment).toEqual({ startSeconds: 5, endSeconds: 20 });
+  // The timeline starts at the analyzed range, not at 0:00 of the video.
+  await expect(page.locator(".ai-regions button").first()).toHaveAttribute("style", /left: 0(\.0+)?%/);
   expect(calls.posts.length).toBeGreaterThanOrEqual(3);
   // Unsaved review edits autosave to this device (IndexedDB) shortly after each change.
   await expect.poll(() => page.evaluate(async () => {

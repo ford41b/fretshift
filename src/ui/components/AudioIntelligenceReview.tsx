@@ -347,7 +347,10 @@ export function AudioIntelligenceReview({ song, onAnalysisStart, youtube }: {
   const duration = review?.duration ?? 1;
   const downbeat = review?.reviewed.firstDownbeatIndex ?? 0;
   const meter = review?.reviewed.meter ?? 4;
-  const range = (time: number) => `${(100 * time / duration).toFixed(4)}%`;
+  // A YouTube timeline starts at the analyzed range, not at 0:00 of a long video.
+  const origin = videoId ? Math.min(youtubeMeta?.youtube.startSeconds ?? 0, Math.max(0, duration - 1)) : 0;
+  const range = (time: number) => `${(100 * (time - origin) / (duration - origin)).toFixed(4)}%`;
+  const span = (seconds: number) => `${(100 * seconds / (duration - origin)).toFixed(4)}%`;
 
   return <section className="ai-review" aria-label="Audio Intelligence timeline">
     {videoId ? <div className="ai-review-head">
@@ -413,7 +416,7 @@ export function AudioIntelligenceReview({ song, onAnalysisStart, youtube }: {
       <div className="ai-scroll" aria-label="Waveform and chord timeline"><div className="ai-track" style={{width:`${zoom * 100}%`}}>
         <div className={`ai-waveform${review.waveform.length ? "" : " ai-waveform-empty"}`} onClick={(e) => { if (audio.current) {
           const bounds = e.currentTarget.getBoundingClientRect();
-          audio.current.currentTime = Math.max(0, Math.min(1, (e.clientX - bounds.left) / bounds.width)) * duration;
+          audio.current.currentTime = origin + Math.max(0, Math.min(1, (e.clientX - bounds.left) / bounds.width)) * (duration - origin);
         } }}>
           {review.waveform.map((height, i) => <i key={i} style={{height:`${Math.max(2, height * 100)}%`}}/>)}
           {beats.map((beat, i) => <b key={i} className={i >= downbeat && (i-downbeat)%meter===0 ? "measure" : ""}
@@ -421,7 +424,7 @@ export function AudioIntelligenceReview({ song, onAnalysisStart, youtube }: {
           <em style={{left:range(playhead)}}/></div>
         <div className="ai-regions">{regions.map((region, i) => <button key={region.id}
           className={`${i===selected ? "selected" : ""} ${!region.label || !region.reviewed ? "uncertain" : ""}`}
-          style={{left:range(region.start),width:range(region.end-region.start)}}
+          style={{left:range(region.start),width:span(region.end-region.start)}}
           title={`${clock(region.start)}–${clock(region.end)}: ${region.label ?? "Unknown"}`}
           onClick={() => {setSelected(i); if (audio.current) audio.current.currentTime = region.start;}}>
           {region.label ?? (region.decision === "no-chord" ? "No chord" : "Unknown")}</button>)}</div>

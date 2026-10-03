@@ -79,8 +79,13 @@ export class YouTubeMedia implements MediaHandle {
   preservesPitch = true;
   constructor(private readonly player: YTPlayer) {}
   refresh() {
-    const playing = this.player.getPlayerState() === PLAYING;
-    const time = this.player.getCurrentTime() || 0;
+    let playing: boolean, time: number;
+    try {
+      playing = this.player.getPlayerState() === PLAYING;
+      time = this.player.getCurrentTime() || 0;
+    } catch {
+      return;
+    }
     if (time !== this.sample.time || playing !== this.sample.playing)
       this.sample = { time, at: performance.now(), playing };
   }
@@ -108,12 +113,13 @@ export class YouTubeMedia implements MediaHandle {
   // Update the playing state at once so a tap right after Play is not rejected
   // while waiting for the next player poll.
   play() {
-    this.player.playVideo();
+    try { this.player.playVideo(); } catch { return Promise.reject(new Error("The YouTube player is not ready.")); }
     this.sample = { time: this.currentTime, at: performance.now(), playing: true };
     return Promise.resolve();
   }
   pause() {
-    this.player.pauseVideo();
+    // The player may already be destroyed when a parent unmounts.
+    try { this.player.pauseVideo(); } catch { /* nothing to pause */ }
     this.sample = { time: this.currentTime, at: performance.now(), playing: false };
   }
 }

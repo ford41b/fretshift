@@ -122,6 +122,8 @@ export function YouTubeImport({ disabled = false }: { disabled?: boolean }) {
       setSource({ review: youtubeResultToReview(result), providerId: result.modelId, meta, onDiscard: reset,
         title: title.trim() || result.video.title?.slice(0, 160) || "YouTube chord draft" });
     } catch (reason) {
+      // A cancelled run that settles after a newer run started must not overwrite its state.
+      if (abort.current !== null && abort.current !== controller) return;
       if (reason instanceof DOMException && reason.name === "AbortError")
         setNotice(`Analysis cancelled.${cache.current.size ? " Finished parts are kept, so Retry continues where it stopped." : ""}`);
       else setError(reason instanceof Error ? reason.message : String(reason));

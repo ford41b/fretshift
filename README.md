@@ -10,7 +10,7 @@ Audio Intelligence Phase 3 adds opt-in single-note detection, editable source-al
 
 ## Run
 
-Use Node 20 (`nvm use`) and pnpm 10.15.1.
+Use Node 22 (`nvm use`, from `.nvmrc`) and pnpm 10.15.1 with `pnpm install --frozen-lockfile`.
 
 ```sh
 pnpm install
@@ -25,6 +25,7 @@ Open the local URL printed by Vite. Five deletable public-domain sample arrangem
 pnpm lint
 pnpm test
 pnpm build
+pnpm test:edge          # Deno 2: youtube-import Edge Function tests
 pnpm exec playwright install chromium webkit
 pnpm test:e2e
 ```
@@ -47,6 +48,7 @@ Local Playwright uses installed Google Chrome for the Chromium project and bundl
 - Text-layer PDFs are read locally. Suggested page boundaries can be merged or split before saving one or more editable songs. When the optional vision service is configured, photos and scanned or mixed PDFs can be resized, stripped of photo metadata, uploaded transiently, and reviewed as an editable draft.
 - Printable chord sheets export as Letter or A4 PDFs with chord diagrams, page numbers, and either sounding names or capo-relative shape names.
 - The older single-string audio/microphone draft remains available under Import → Audio recording. The new Audio Intelligence upload supports a separate chord and timing review; see `AUDIO_IMPORT.md`.
+- Import → YouTube link turns a public YouTube lesson into the same editable chord/beat review. A signed-in user's link (plus optional title, artist, tuning, capo and time range) is analyzed by Google's Gemini API through the `youtube-import` Edge Function; FretShift never downloads YouTube audio or video and never requests lyrics. Review uses an embedded YouTube player, a tap-along tempo/downbeat control and optional beat snapping; nothing is saved until you choose Save. See `AUDIO_IMPORT.md` and `YOUTUBE_IMPORT_HANDOFF.md`.
 
 ### Audio Intelligence Phase 1 (experimental foundation)
 
@@ -60,17 +62,18 @@ Use Tuner & Metronome for a warm-up, Drills for a full 60-second scored exercise
 
 ## Offline and privacy
 
-Songs, setlists, practice data and custom tunings use IndexedDB. Device preferences also use a validated synchronous local cache. Production builds cache the app shell and bundled assets with a service worker, after the first online load. Development requires the local Vite server. Microphone, reference audio and audio analysis never leave the device. Photo/scan upload occurs only after the user chooses files and requires the separately configured vision proxy.
+Songs, setlists, practice data and custom tunings use IndexedDB. Device preferences also use a validated synchronous local cache. Production builds cache the app shell and bundled assets with a service worker, after the first online load. Development requires the local Vite server. Microphone, reference audio and audio analysis never leave the device. Photo/scan upload occurs only after the user chooses files and requires the separately configured vision proxy. A YouTube link, its time range and optional hints are sent to Google's Gemini API only after a one-time notice and an explicit Analyze; the embedded YouTube player (privacy-enhanced host) loads only after that notice.
 
 ## Optional network services
 
-The app works without an account. When configured, native Supabase REST integration provides passwordless email authentication (8-digit verification code or magic link), per-record sync with conflict resolution, and revocable public song links. A Supabase Edge Function proxies photo/scanned-PDF transcription. Missing configuration remains explicit; no production fake responses are used. Copy `.env.example` to `.env.local` for local configuration and never commit real secrets.
+The app works without an account. When configured, native Supabase REST integration provides passwordless email authentication (8-digit verification code or magic link), per-record sync with conflict resolution, and revocable public song links. Supabase Edge Functions proxy photo/scanned-PDF transcription and YouTube link analysis. Missing configuration remains explicit; no production fake responses are used. Copy `.env.example` to `.env.local` for local configuration and never commit real secrets.
 
 - `VITE_SUPABASE_URL`: Supabase project URL.
 - `VITE_SUPABASE_PUBLISHABLE_KEY`: preferred current Supabase browser key. RLS protects account data.
 - `VITE_SUPABASE_ANON_KEY`: legacy browser key; still supported for existing projects.
 - `OCR_SPACE_API_KEY`: **server-only**, stored using Supabase Edge Function secrets, never a `VITE_` variable.
-- `ALLOWED_ORIGINS`: comma-separated deployed app origins for the vision function.
+- `GEMINI_API_KEY`: **server-only** Edge Function secret for `youtube-import`; optional `GEMINI_MODEL` (default `gemini-3.8-flash`), `GEMINI_TIMEOUT_MS`, `YOUTUBE_CALLS_PER_HOUR` (20) and `YOUTUBE_CALLS_PER_DAY` (60).
+- `ALLOWED_ORIGINS`: comma-separated deployed app origins for the vision and YouTube functions.
 
 Apply `supabase/migrations/202609120001_sync.sql`, configure the Auth Site URL and `${origin}/settings` redirect, set `OCR_SPACE_API_KEY`, then deploy `supabase/functions/vision-import`. For hosted Auth, set both the **Magic link** and **Confirm signup** email templates to include `{{ .Token }}` and `{{ .ConfirmationURL }}`; `supabase/templates/` contains the ready-to-copy FretShift template. Verification-code sign-in is recommended for installed iPhone web apps because the session is created inside the app instead of depending on Safari-to-PWA storage transfer. The committed `supabase/config.toml` disables Supabase's legacy platform JWT gate for this function because FretShift verifies the bearer session inside the function itself; this also works with current asymmetric Auth signing keys. OCR.space Engine 3 extracts chart text; FretShift converts chord lines and adjacent lyrics into an editable draft. Prepared JPEG pages are compressed below OCR.space's free-plan 1 MB file limit. The provisional rendered corpus contains 20 cases (24 pages). Generate or inspect it with `pnpm generate:vision-corpus`; run the live benchmark with `pnpm bench:vision` only after supplying `VISION_IMPORT_URL`, a Supabase public key (`SUPABASE_PUBLISHABLE_KEY` or `SUPABASE_ANON_KEY`), and `FRETSHIFT_USER_ACCESS_TOKEN`. Without those variables the benchmark records a skipped run and makes no API call.
 
