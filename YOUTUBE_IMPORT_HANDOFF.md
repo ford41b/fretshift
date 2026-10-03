@@ -65,7 +65,7 @@ MOCKED evidence covers FretShift's code paths only. SIMULATED evidence comes fro
 | `pnpm test` (Vitest) | MOCKED transport | 399/399 pass, including 16 new YouTube tests (planning, voting, window merge, snapping, chord normalization, tap tempo, retry/cache, account switch, cancel, review draft and Song provenance) |
 | `e2e/youtube.spec.ts` + `e2e/unconfigured.spec.ts`, local Chromium | MOCKED Edge Function and a fake IFrame API (no YouTube or Google request) | 4/4 pass: privacy notice once, hints and canonical URL sent, 2-pass vote with an Unknown disagreement, timeline seeks the player, tap-along ≈120 BPM, snap, save, reopen, stored `youtube` provenance, cancel, private-video error, retry, draft restore, timeline origin, signed-out and unconfigured states |
 | Full local Chromium E2E suite | MOCKED | 64/64 pass (no regressions in Audio Intelligence and other flows) |
-| GitHub Actions run 19 (`ca63a1d`) | MOCKED | Lint/unit/build ✓, E2E Chromium ✓, E2E WebKit ✓ (WebKit could not be installed in this container; CI is the WebKit evidence) |
+| GitHub Actions run 20 (`7745f39`, https://github.com/ford41b/fretshift/actions/runs/37155541679) | MOCKED | All 4 jobs ✓: lint/unit/build, Edge Function tests (Deno), E2E Chromium, E2E WebKit 63/63 including the 3 YouTube specs. WebKit could not be installed in this container, so CI is the WebKit evidence. |
 | `pnpm bench:youtube` | SIMULATED | `YOUTUBE_IMPORT_SIMULATED_BENCHMARK_RESULTS.json`; table in `DECISIONS.md` |
 | Live Gemini / deployed function | LIVE | **Not run.** No Gemini key or deployed function was available. |
 
