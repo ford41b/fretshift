@@ -278,3 +278,19 @@ describe("review draft and Song provenance", () => {
     expect(SongV1.safeParse({ ...song, provenance: { ...song.provenance, source: "audio" } }).success).toBe(false);
   });
 });
+
+describe("tap-along tempo", () => {
+  it("fits tempo and first downbeat from noisy taps and restarts after a pause", async () => {
+    const { addTap, tapTempo } = await import("./tap");
+    let taps: number[] = [];
+    [31.2, 31.86, 32.5, 33.16, 33.8, 34.44, 35.11, 35.73].forEach((t) => { taps = addTap(taps, t); });
+    const fit = tapTempo(taps)!;
+    expect(fit.bpm).toBeGreaterThan(92);
+    expect(fit.bpm).toBeLessThan(95);
+    expect(Math.abs(fit.firstDownbeat - 31.2)).toBeLessThan(0.05);
+    expect(fit.jitterMs).toBeLessThan(30);
+    expect(tapTempo(taps.slice(0, 3))).toBeNull();
+    expect(addTap(taps, 40)).toEqual([40]);
+    expect(addTap(taps, 10)).toEqual([10]);
+  });
+});

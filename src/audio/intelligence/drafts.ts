@@ -2,6 +2,7 @@ import { z } from "zod";
 import { db } from "../../persistence/dexie";
 import { ProvenanceSchema } from "../../schema/song.v1";
 import type { AudioReview } from "./review";
+import { YouTubeSongMetaSchema } from "../../youtube/review";
 
 /**
  * Local autosave for unsaved Audio Intelligence review edits.
@@ -13,6 +14,8 @@ import type { AudioReview } from "./review";
  */
 export const REVIEW_DRAFT_PREFIX = "audio-review-draft:";
 export const NEW_REVIEW_DRAFT = "new";
+/** Separate slot for a new, unsaved YouTube review so it never replaces an audio draft. */
+export const NEW_YOUTUBE_DRAFT = "youtube-new";
 
 const AudioReviewSchema = ProvenanceSchema.shape.audioReview.unwrap();
 
@@ -25,6 +28,8 @@ const DraftSchema = z.object({
   savedAt: z.string(),
   /** updatedAt of the song the draft was based on (edit mode only). */
   baseUpdatedAt: z.string().nullable(),
+  /** YouTube source details; the video itself is never stored. */
+  youtube: YouTubeSongMetaSchema.optional(),
 });
 export type ReviewDraft = Omit<z.infer<typeof DraftSchema>, "review" | "version"> & {
   review: AudioReview;

@@ -9,6 +9,7 @@ import {
   Upload,
   Music2,
   AudioLines,
+  MonitorPlay,
 } from "lucide-react";
 import { PageTitle, Segments, ErrorNotice } from "../components/Common";
 import { parseChordPro } from "../../io/chordpro";
@@ -30,6 +31,7 @@ import { Notation } from "../components/Notation";
 import { AudioChordReview } from "../components/AudioChordReview";
 import { AudioIntelligenceReview } from "../components/AudioIntelligenceReview";
 import { VisionImport } from "../components/VisionImport";
+import { YouTubeImport } from "../components/YouTubeImport";
 
 const sources = [
   {
@@ -67,6 +69,12 @@ const sources = [
     title: "Photos & scans",
     description: "Photo or scanned PDF recognition",
     icon: Camera,
+  },
+  {
+    id: "youtube",
+    title: "YouTube link",
+    description: "Chord draft from a public lesson video",
+    icon: MonitorPlay,
   },
 ] as const;
 type Source = (typeof sources)[number]["id"];
@@ -284,7 +292,9 @@ export function Import() {
           ))}
         </div>
         <section className="card import-workspace">
-          {source === "photo" ? (
+          {source === "youtube" ? (
+            <YouTubeImport disabled={saving} />
+          ) : source === "photo" ? (
             <VisionImport
               disabled={saving}
               onDraft={(song) => {
