@@ -248,6 +248,7 @@ export function SongDetail() {
           "pdf-scan",
           "pdf-text",
           "audio",
+          "youtube",
           "midi",
           "musicxml",
           "guitarpro",

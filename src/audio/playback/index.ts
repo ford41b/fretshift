@@ -1,7 +1,7 @@
 import { audioNotePlan } from "../intelligence/notePractice";
 import * as Tone from "tone";
 import { z } from "zod";
-import { type Song, resolveTuning, SongV1 } from "../../schema/song.v1";
+import { hasMediaTimeline, type Song, resolveTuning, SongV1 } from "../../schema/song.v1";
 import { frequencyOf } from "../../theory/pitch";
 import { chordToTab } from "../../transforms";
 import { enableAudio } from "../context";
@@ -20,8 +20,8 @@ export function compilePlayback(input: Song, multiplier = 1) {
   const song = structuredClone(input);
   for (let i = 0; i < song.measures.length; i++) {
     const m = song.measures[i];
-    // Audio chord labels carry no strumming or fingering information.
-    if (!m.tab && m.chords.length && song.provenance?.source !== "audio") {
+    // Audio/YouTube chord labels carry no strumming or fingering information.
+    if (!m.tab && m.chords.length && !hasMediaTimeline(song.provenance?.source)) {
       const single = { ...song, measures: [{ ...m, index: 0 }] };
       song.measures[i] = {
         ...chordToTab(single).song.measures[0],

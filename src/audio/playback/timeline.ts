@@ -1,5 +1,5 @@
 import { audioNotePlan } from "../intelligence/notePractice";
-import { type Song } from "../../schema/song.v1";
+import { hasMediaTimeline, type Song } from "../../schema/song.v1";
 import { compilePlayback, type NoteEvent } from "./index";
 export function practiceTimeline(
   song: Song,
@@ -57,7 +57,7 @@ export function practiceTimeline(
       const [n, d] = m.timeSignature ?? song.timeSignature;
       return sum + (n * 4) / d;
     }, 0);
-  const reviewed = song.provenance?.source === "audio" ? song.provenance.audioReview?.reviewed : undefined;
+  const reviewed = hasMediaTimeline(song.provenance?.source) ? song.provenance?.audioReview?.reviewed : undefined;
   if (reviewed?.timingConfirmed && song.measures.slice(startMeasure, endMeasure + 1)
     .every((measure) => measure.timingConfirmed === true && !measure.tab)) {
     const firstBeat = reviewed.firstDownbeatIndex + startMeasure * reviewed.meter;

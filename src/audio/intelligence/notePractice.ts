@@ -1,4 +1,4 @@
-import type { Song } from "../../schema/song.v1";
+import { hasMediaTimeline, type Song } from "../../schema/song.v1";
 import { noteLabel } from "../../theory/pitch";
 import { audioChartSignature, sourceBeat } from "./noteReview";
 
@@ -10,8 +10,8 @@ export function audioNotePlan(
   last: number,
 ) {
   const review =
-    song.provenance?.source === "audio"
-      ? song.provenance.audioReview
+    hasMediaTimeline(song.provenance?.source)
+      ? song.provenance?.audioReview
       : undefined;
   const t = review?.noteTranscription;
   if (!review || !t) return null;
