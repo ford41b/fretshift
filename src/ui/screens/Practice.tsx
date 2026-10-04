@@ -28,7 +28,7 @@ import { Notation } from "../components/Notation";
 import { GlassSwitch } from "../components/MobileGlass";
 import { PageTitle, Empty, ErrorNotice, useToast } from "../components/Common";
 import { useMicrophone, TunerGauge, Fretboard } from "../components/AudioTools";
-import { resolveTuning } from "../../schema/song.v1";
+import { hasMediaTimeline, resolveTuning } from "../../schema/song.v1";
 export function Practice() {
   const { id } = useParams();
   const [query] = useSearchParams();
@@ -82,7 +82,7 @@ export function Practice() {
   const toast = useToast();
   const live = useRef({ autoScroll, ramp, step, target });
   live.current = { autoScroll, ramp, step, target };
-  const timingScorable = song?.provenance?.source !== "audio" ||
+  const timingScorable = !hasMediaTimeline(song?.provenance?.source) ||
     (song.provenance.audioReview?.reviewed.timingConfirmed === true &&
       song.provenance.timingNeedsConfirmation !== true &&
       song.measures.every((measure) => measure.timingConfirmed === true));
@@ -559,7 +559,7 @@ export function Practice() {
         }
       />
       <ErrorNotice error={error} />
-      {song.provenance?.source === "audio" && !timingScorable && <p role="alert" className="card">
+      {hasMediaTimeline(song.provenance?.source) && !timingScorable && <p role="alert" className="card">
         Timing needs confirmation. Practice playback is available, but microphone attacks will not receive rhythm timing scores until the audio timeline is confirmed.
       </p>}
       <div className="button-row" style={{ marginBottom: 16 }}><Link className="primary" to={`/immersive/${song.id}`}>Immersive practice</Link><span>Focus on the selected passage, one attack at a time.</span></div>

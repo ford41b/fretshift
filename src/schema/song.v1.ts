@@ -187,6 +187,7 @@ export const ProvenanceSchema = z.object({
     "chordpro",
     "manual",
     "json",
+    "youtube",
   ]),
   confidence: z.record(z.number().min(0).max(1)).optional(),
   overallConfidence: z.number().min(0).max(1).optional(),
@@ -232,10 +233,32 @@ export const ProvenanceSchema = z.object({
       })),
     }),
   }).optional(),
+  /** YouTube link import (source "youtube"). The video itself is never stored. */
+  youtube: z.object({
+    videoId: z.string().regex(/^[A-Za-z0-9_-]{11}$/),
+    startSeconds: z.number().finite().nonnegative(),
+    endSeconds: z.number().finite().positive(),
+    options: z.object({
+      useHints: z.boolean(),
+      windowSeconds: z.number().finite().positive().nullable(),
+      overlapSeconds: z.number().finite().nonnegative(),
+      fps: z.number().finite().positive(),
+      passes: z.number().int().min(1).max(3),
+      snapToBeats: z.boolean(),
+    }),
+    requests: z.number().int().nonnegative(),
+    keyGuess: z.string().nullable(),
+    capoGuess: z.number().int().min(0).max(12).nullable(),
+    sections: z.array(z.object({ label: z.string(), startSeconds: z.number().finite().nonnegative(),
+      endSeconds: z.number().finite().positive() })),
+  }).optional(),
   /** Unresolved imported chord-like source tokens; never silently discard. */
   reviewItems: z.array(z.object({ page: z.number().int().positive(), line: z.number().int().positive(), token: z.string() })).optional(),
 });
 export type Provenance = z.infer<typeof ProvenanceSchema>;
+/** Sources whose chords carry reviewed media timestamps (audio file or YouTube video). */
+export const hasMediaTimeline = (source: Provenance["source"] | undefined) =>
+  source === "audio" || source === "youtube";
 export const SongBase = z.object({
   schemaVersion: z.literal(1),
   id: z.string().min(1),
@@ -273,6 +296,10 @@ export const SongV1 = SongBase.superRefine((song, ctx) => {
       message: `Unknown tuning “${song.tuningId}”.`,
     });
   const audio = song.provenance?.audioReview, nt = audio?.noteTranscription;
+  const youtube = song.provenance?.youtube;
+  if (youtube && (song.provenance?.source !== "youtube" || !audio || youtube.startSeconds >= youtube.endSeconds))
+    ctx.addIssue({ code: "custom", path: ["provenance", "youtube"],
+      message: "YouTube provenance needs the youtube source, a reviewed timeline and an increasing analyzed range." });
   if (audio) {
     const r = audio.reviewed;
     const issue = (message: string) => ctx.addIssue({code:"custom",path:["provenance","audioReview"],message});

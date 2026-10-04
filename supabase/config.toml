@@ -7,6 +7,10 @@ project_id = "fretshift"
 [functions.vision-import]
 verify_jwt = false
 
+# youtube-import verifies the bearer token in-function like vision-import.
+[functions.youtube-import]
+verify_jwt = false
+
 # password-signup is called before the user has a session (apikey header
 # only), so the platform JWT gate must stay off. It enforces Origin, rate
 # limits, and never confirms an account or sets a password itself.

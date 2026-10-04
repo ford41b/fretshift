@@ -20,3 +20,6 @@ work/
 /supabase/.temp/
 
 .vercel/
+
+# Raw responses from paid YouTube benchmark runs (re-score with YOUTUBE_BENCH_REPLAY)
+/test-fixtures/youtube/recordings/

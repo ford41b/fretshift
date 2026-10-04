@@ -23,7 +23,9 @@
     "verify:live": "node scripts/verify-live.mjs",
     "test:offline": "node scripts/verify-strumming-offline.mjs",
     "bench:audio-notes": "node scripts/bench-audio-notes.mjs",
-    "eval:chords": "node scripts/eval-chord-recordings.mjs"
+    "eval:chords": "node scripts/eval-chord-recordings.mjs",
+    "bench:youtube": "node scripts/bench-youtube.mjs",
+    "test:edge": "deno test --no-lock supabase/functions/youtube-import/"
   },
   "dependencies": {
     "@coderline/alphatab": "1.8.4",

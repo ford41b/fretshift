@@ -1,4 +1,4 @@
-import { resolveTuning, SongV1, type Song } from "../../schema/song.v1";
+import { hasMediaTimeline, resolveTuning, SongV1, type Song } from "../../schema/song.v1";
 import { audioNotePlan } from "../intelligence/notePractice";
 import { noteLabel } from "../../theory/pitch";
 import { judgeChord, type Peak } from "./chord";
@@ -41,7 +41,7 @@ export function compileTargets(
   const notePlan = audioNotePlan(song,speed,first,last);
   if (notePlan) return notePlan;
   const tuning = resolveTuning(song.tuningId).midi;
-  const reviewed = song.provenance?.source === "audio" ? song.provenance.audioReview?.reviewed : undefined;
+  const reviewed = hasMediaTimeline(song.provenance?.source) ? song.provenance?.audioReview?.reviewed : undefined;
   const exactTiming = !!reviewed?.timingConfirmed &&
     song.measures.slice(first, last + 1).every((measure) => measure.timingConfirmed === true);
   const passageStart = exactTiming && reviewed
@@ -152,6 +152,7 @@ export function compileTargets(
   needsTimingConfirmation ||= [
     "chordpro",
     "audio",
+    "youtube",
     "photo",
     "pdf-scan",
     "pdf-text",

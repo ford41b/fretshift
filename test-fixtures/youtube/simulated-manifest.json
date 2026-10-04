@@ -1,0 +1,888 @@
+{
+  "version": 1,
+  "description": "SYNTHETIC timelines for the simulated benchmark only (about 15% of changes anticipate the beat by an eighth note). The video IDs are fake; never run live against this file.",
+  "cases": [
+    {
+      "id": "simLesson01",
+      "videoId": "simLesson01",
+      "title": "Synthetic lesson 1",
+      "artist": "Simulated",
+      "tuning": "Standard (EADGBE)",
+      "capo": 0,
+      "closeUp": true,
+      "startSeconds": 20,
+      "endSeconds": 140,
+      "durationSeconds": 540,
+      "grid": {
+        "tempoBpm": 92,
+        "firstDownbeatSeconds": 24.23,
+        "meter": 4
+      },
+      "chords": [
+        {
+          "start": 20,
+          "label": "N.C."
+        },
+        {
+          "start": 24.23,
+          "label": "G"
+        },
+        {
+          "start": 29.121,
+          "label": "D"
+        },
+        {
+          "start": 34.665,
+          "label": "Em"
+        },
+        {
+          "start": 37.273,
+          "label": "C"
+        },
+        {
+          "start": 42.165,
+          "label": "G"
+        },
+        {
+          "start": 47.708,
+          "label": "D"
+        },
+        {
+          "start": 52.926,
+          "label": "Em"
+        },
+        {
+          "start": 58.143,
+          "label": "C"
+        },
+        {
+          "start": 60.752,
+          "label": "G"
+        },
+        {
+          "start": 65.643,
+          "label": "D"
+        },
+        {
+          "start": 71.187,
+          "label": "Em"
+        },
+        {
+          "start": 76.404,
+          "label": "C"
+        },
+        {
+          "start": 81.621,
+          "label": "N.C."
+        },
+        {
+          "start": 92.056,
+          "label": "G"
+        },
+        {
+          "start": 97.273,
+          "label": "D"
+        },
+        {
+          "start": 102.491,
+          "label": "Em"
+        },
+        {
+          "start": 107.708,
+          "label": "C"
+        },
+        {
+          "start": 112.926,
+          "label": "G"
+        },
+        {
+          "start": 118.143,
+          "label": "D"
+        },
+        {
+          "start": 123.36,
+          "label": "Em"
+        },
+        {
+          "start": 128.578,
+          "label": "C"
+        },
+        {
+          "start": 133.795,
+          "label": "G"
+        },
+        {
+          "start": 139.013,
+          "label": "D"
+        }
+      ]
+    },
+    {
+      "id": "simLesson02",
+      "videoId": "simLesson02",
+      "title": "Synthetic lesson 2",
+      "artist": "Simulated",
+      "tuning": "Standard (EADGBE)",
+      "capo": 0,
+      "closeUp": false,
+      "startSeconds": 0,
+      "endSeconds": 96,
+      "durationSeconds": 300,
+      "grid": {
+        "tempoBpm": 120,
+        "firstDownbeatSeconds": 8.07,
+        "meter": 4
+      },
+      "chords": [
+        {
+          "start": 0,
+          "label": "N.C."
+        },
+        {
+          "start": 8.07,
+          "label": "C"
+        },
+        {
+          "start": 10.07,
+          "label": "G"
+        },
+        {
+          "start": 11.07,
+          "label": "Am"
+        },
+        {
+          "start": 13.07,
+          "label": "F"
+        },
+        {
+          "start": 14.07,
+          "label": "C"
+        },
+        {
+          "start": 15.82,
+          "label": "G"
+        },
+        {
+          "start": 18.07,
+          "label": "Am"
+        },
+        {
+          "start": 19.82,
+          "label": "F"
+        },
+        {
+          "start": 22.07,
+          "label": "C"
+        },
+        {
+          "start": 24.07,
+          "label": "G"
+        },
+        {
+          "start": 26.07,
+          "label": "Am"
+        },
+        {
+          "start": 28.07,
+          "label": "F"
+        },
+        {
+          "start": 29.07,
+          "label": "C"
+        },
+        {
+          "start": 31.07,
+          "label": "G"
+        },
+        {
+          "start": 33.07,
+          "label": "Am"
+        },
+        {
+          "start": 34.82,
+          "label": "F"
+        },
+        {
+          "start": 37.07,
+          "label": "C"
+        },
+        {
+          "start": 39.07,
+          "label": "G"
+        },
+        {
+          "start": 41.07,
+          "label": "Am"
+        },
+        {
+          "start": 42.07,
+          "label": "F"
+        },
+        {
+          "start": 44.07,
+          "label": "C"
+        },
+        {
+          "start": 45.07,
+          "label": "G"
+        },
+        {
+          "start": 45.82,
+          "label": "Am"
+        },
+        {
+          "start": 48.07,
+          "label": "F"
+        },
+        {
+          "start": 49.82,
+          "label": "C"
+        },
+        {
+          "start": 51.82,
+          "label": "G"
+        },
+        {
+          "start": 54.07,
+          "label": "Am"
+        },
+        {
+          "start": 55.07,
+          "label": "F"
+        },
+        {
+          "start": 57.07,
+          "label": "C"
+        },
+        {
+          "start": 59.07,
+          "label": "G"
+        },
+        {
+          "start": 60.82,
+          "label": "Am"
+        },
+        {
+          "start": 63.07,
+          "label": "F"
+        },
+        {
+          "start": 65.07,
+          "label": "C"
+        },
+        {
+          "start": 67.07,
+          "label": "G"
+        },
+        {
+          "start": 69.07,
+          "label": "Am"
+        },
+        {
+          "start": 71.07,
+          "label": "F"
+        },
+        {
+          "start": 73.07,
+          "label": "C"
+        },
+        {
+          "start": 75.07,
+          "label": "G"
+        },
+        {
+          "start": 77.07,
+          "label": "Am"
+        },
+        {
+          "start": 79.07,
+          "label": "F"
+        },
+        {
+          "start": 81.07,
+          "label": "C"
+        },
+        {
+          "start": 83.07,
+          "label": "G"
+        },
+        {
+          "start": 85.07,
+          "label": "Am"
+        },
+        {
+          "start": 86.07,
+          "label": "F"
+        },
+        {
+          "start": 87.07,
+          "label": "C"
+        },
+        {
+          "start": 89.07,
+          "label": "G"
+        },
+        {
+          "start": 90.82,
+          "label": "Am"
+        },
+        {
+          "start": 92.82,
+          "label": "F"
+        },
+        {
+          "start": 95.07,
+          "label": "C"
+        }
+      ]
+    },
+    {
+      "id": "simLesson03",
+      "videoId": "simLesson03",
+      "title": "Synthetic lesson 3",
+      "artist": "Simulated",
+      "tuning": "Standard (EADGBE)",
+      "capo": 0,
+      "closeUp": true,
+      "startSeconds": 35,
+      "endSeconds": 215,
+      "durationSeconds": 720,
+      "grid": {
+        "tempoBpm": 76,
+        "firstDownbeatSeconds": 42.55,
+        "meter": 3
+      },
+      "chords": [
+        {
+          "start": 35,
+          "label": "N.C."
+        },
+        {
+          "start": 42.55,
+          "label": "D"
+        },
+        {
+          "start": 47.287,
+          "label": "A"
+        },
+        {
+          "start": 52.024,
+          "label": "Bm"
+        },
+        {
+          "start": 56.761,
+          "label": "G"
+        },
+        {
+          "start": 61.497,
+          "label": "D"
+        },
+        {
+          "start": 66.234,
+          "label": "A"
+        },
+        {
+          "start": 70.971,
+          "label": "Bm"
+        },
+        {
+          "start": 75.708,
+          "label": "G"
+        },
+        {
+          "start": 80.445,
+          "label": "D"
+        },
+        {
+          "start": 85.182,
+          "label": "A"
+        },
+        {
+          "start": 89.918,
+          "label": "Bm"
+        },
+        {
+          "start": 94.655,
+          "label": "G"
+        },
+        {
+          "start": 99.392,
+          "label": "D"
+        },
+        {
+          "start": 104.129,
+          "label": "A"
+        },
+        {
+          "start": 108.866,
+          "label": "Bm"
+        },
+        {
+          "start": 113.603,
+          "label": "G"
+        },
+        {
+          "start": 118.339,
+          "label": "D"
+        },
+        {
+          "start": 123.076,
+          "label": "A"
+        },
+        {
+          "start": 127.813,
+          "label": "Bm"
+        },
+        {
+          "start": 132.55,
+          "label": "N.C."
+        },
+        {
+          "start": 142.024,
+          "label": "G"
+        },
+        {
+          "start": 146.761,
+          "label": "D"
+        },
+        {
+          "start": 151.497,
+          "label": "A"
+        },
+        {
+          "start": 156.234,
+          "label": "Bm"
+        },
+        {
+          "start": 160.971,
+          "label": "G"
+        },
+        {
+          "start": 163.339,
+          "label": "D"
+        },
+        {
+          "start": 168.076,
+          "label": "A"
+        },
+        {
+          "start": 172.813,
+          "label": "Bm"
+        },
+        {
+          "start": 175.182,
+          "label": "G"
+        },
+        {
+          "start": 179.918,
+          "label": "D"
+        },
+        {
+          "start": 181.892,
+          "label": "A"
+        },
+        {
+          "start": 187.024,
+          "label": "Bm"
+        },
+        {
+          "start": 191.761,
+          "label": "G"
+        },
+        {
+          "start": 196.102,
+          "label": "D"
+        },
+        {
+          "start": 201.234,
+          "label": "A"
+        },
+        {
+          "start": 205.576,
+          "label": "Bm"
+        },
+        {
+          "start": 208.339,
+          "label": "G"
+        },
+        {
+          "start": 213.076,
+          "label": "D"
+        }
+      ]
+    },
+    {
+      "id": "simLesson04",
+      "videoId": "simLesson04",
+      "title": "Synthetic lesson 4",
+      "artist": "Simulated",
+      "tuning": "Standard (EADGBE)",
+      "capo": 0,
+      "closeUp": true,
+      "startSeconds": 10,
+      "endSeconds": 250,
+      "durationSeconds": 900,
+      "grid": {
+        "tempoBpm": 104,
+        "firstDownbeatSeconds": 21.74,
+        "meter": 4
+      },
+      "chords": [
+        {
+          "start": 10,
+          "label": "N.C."
+        },
+        {
+          "start": 21.74,
+          "label": "Am"
+        },
+        {
+          "start": 26.355,
+          "label": "F"
+        },
+        {
+          "start": 35.586,
+          "label": "C"
+        },
+        {
+          "start": 44.817,
+          "label": "G"
+        },
+        {
+          "start": 53.76,
+          "label": "Am"
+        },
+        {
+          "start": 63.278,
+          "label": "F"
+        },
+        {
+          "start": 72.509,
+          "label": "C"
+        },
+        {
+          "start": 81.74,
+          "label": "G"
+        },
+        {
+          "start": 90.683,
+          "label": "Am"
+        },
+        {
+          "start": 100.202,
+          "label": "F"
+        },
+        {
+          "start": 109.432,
+          "label": "C"
+        },
+        {
+          "start": 118.663,
+          "label": "G"
+        },
+        {
+          "start": 127.894,
+          "label": "Am"
+        },
+        {
+          "start": 137.125,
+          "label": "F"
+        },
+        {
+          "start": 146.355,
+          "label": "C"
+        },
+        {
+          "start": 150.971,
+          "label": "G"
+        },
+        {
+          "start": 155.586,
+          "label": "Am"
+        },
+        {
+          "start": 164.817,
+          "label": "F"
+        },
+        {
+          "start": 174.048,
+          "label": "C"
+        },
+        {
+          "start": 183.278,
+          "label": "G"
+        },
+        {
+          "start": 192.509,
+          "label": "Am"
+        },
+        {
+          "start": 201.74,
+          "label": "F"
+        },
+        {
+          "start": 210.683,
+          "label": "C"
+        },
+        {
+          "start": 219.914,
+          "label": "G"
+        },
+        {
+          "start": 229.432,
+          "label": "Am"
+        },
+        {
+          "start": 238.663,
+          "label": "F"
+        },
+        {
+          "start": 247.894,
+          "label": "C"
+        }
+      ]
+    },
+    {
+      "id": "simLesson05",
+      "videoId": "simLesson05",
+      "title": "Synthetic lesson 5",
+      "artist": "Simulated",
+      "tuning": "Standard (EADGBE)",
+      "capo": 0,
+      "closeUp": false,
+      "startSeconds": 0,
+      "endSeconds": 60,
+      "durationSeconds": 60,
+      "grid": {
+        "tempoBpm": 132,
+        "firstDownbeatSeconds": 11.14,
+        "meter": 4
+      },
+      "chords": [
+        {
+          "start": 0,
+          "label": "N.C."
+        },
+        {
+          "start": 11.14,
+          "label": "E"
+        },
+        {
+          "start": 12.049,
+          "label": "A"
+        },
+        {
+          "start": 13.867,
+          "label": "B7"
+        },
+        {
+          "start": 15.685,
+          "label": "A"
+        },
+        {
+          "start": 17.504,
+          "label": "E"
+        },
+        {
+          "start": 19.322,
+          "label": "A"
+        },
+        {
+          "start": 21.14,
+          "label": "B7"
+        },
+        {
+          "start": 22.958,
+          "label": "A"
+        },
+        {
+          "start": 24.776,
+          "label": "E"
+        },
+        {
+          "start": 26.595,
+          "label": "A"
+        },
+        {
+          "start": 28.186,
+          "label": "B7"
+        },
+        {
+          "start": 30.231,
+          "label": "A"
+        },
+        {
+          "start": 32.049,
+          "label": "N.C."
+        },
+        {
+          "start": 39.322,
+          "label": "E"
+        },
+        {
+          "start": 41.14,
+          "label": "A"
+        },
+        {
+          "start": 42.049,
+          "label": "B7"
+        },
+        {
+          "start": 43.867,
+          "label": "A"
+        },
+        {
+          "start": 45.685,
+          "label": "E"
+        },
+        {
+          "start": 47.504,
+          "label": "A"
+        },
+        {
+          "start": 48.413,
+          "label": "B7"
+        },
+        {
+          "start": 49.322,
+          "label": "A"
+        },
+        {
+          "start": 51.14,
+          "label": "E"
+        },
+        {
+          "start": 52.958,
+          "label": "A"
+        },
+        {
+          "start": 53.867,
+          "label": "B7"
+        },
+        {
+          "start": 54.549,
+          "label": "A"
+        },
+        {
+          "start": 56.595,
+          "label": "E"
+        },
+        {
+          "start": 58.413,
+          "label": "A"
+        }
+      ]
+    },
+    {
+      "id": "simLesson06",
+      "videoId": "simLesson06",
+      "title": "Synthetic lesson 6",
+      "artist": "Simulated",
+      "tuning": "Standard (EADGBE)",
+      "capo": 0,
+      "closeUp": true,
+      "startSeconds": 45,
+      "endSeconds": 165,
+      "durationSeconds": 610,
+      "grid": {
+        "tempoBpm": 84,
+        "firstDownbeatSeconds": 51.64,
+        "meter": 4
+      },
+      "chords": [
+        {
+          "start": 45,
+          "label": "N.C."
+        },
+        {
+          "start": 51.64,
+          "label": "Em"
+        },
+        {
+          "start": 57.354,
+          "label": "C"
+        },
+        {
+          "start": 62.712,
+          "label": "G"
+        },
+        {
+          "start": 68.426,
+          "label": "D"
+        },
+        {
+          "start": 71.64,
+          "label": "Em"
+        },
+        {
+          "start": 77.354,
+          "label": "C"
+        },
+        {
+          "start": 82.712,
+          "label": "G"
+        },
+        {
+          "start": 88.426,
+          "label": "D"
+        },
+        {
+          "start": 91.64,
+          "label": "Em"
+        },
+        {
+          "start": 97.354,
+          "label": "C"
+        },
+        {
+          "start": 103.069,
+          "label": "G"
+        },
+        {
+          "start": 108.783,
+          "label": "D"
+        },
+        {
+          "start": 114.497,
+          "label": "Em"
+        },
+        {
+          "start": 117.354,
+          "label": "C"
+        },
+        {
+          "start": 123.069,
+          "label": "G"
+        },
+        {
+          "start": 128.426,
+          "label": "D"
+        },
+        {
+          "start": 134.497,
+          "label": "Em"
+        },
+        {
+          "start": 140.211,
+          "label": "C"
+        },
+        {
+          "start": 145.926,
+          "label": "G"
+        },
+        {
+          "start": 151.283,
+          "label": "D"
+        },
+        {
+          "start": 157.354,
+          "label": "Em"
+        },
+        {
+          "start": 163.069,
+          "label": "C"
+        }
+      ]
+    }
+  ]
+}

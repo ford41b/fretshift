@@ -25,6 +25,17 @@ jobs:
       - run: pnpm build
       - run: node scripts/verify-immersive-beta-gate.mjs
 
+  edge:
+    name: Edge Function tests (Deno)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v2
+        with: { deno-version: v2.x }
+      - run: deno check --no-lock supabase/functions/youtube-import/index.ts
+      - run: deno test --no-lock supabase/functions/youtube-import/
+
   e2e:
     name: E2E (${{ matrix.browser }})
     runs-on: ubuntu-latest
