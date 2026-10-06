@@ -22,8 +22,8 @@ verify_jwt = false
 # both Supabase-supported passwordless paths: an 8-digit OTP and a magic link.
 [auth.email.template.magic_link]
 subject = "Your FretShift sign-in code or link"
-content_path = "./templates/magic_link.html"
+content_path = "./supabase/templates/magic_link.html"
 
 [auth.email.template.confirmation]
 subject = "Confirm your FretShift account"
-content_path = "./templates/confirmation.html"
+content_path = "./supabase/templates/confirmation.html"
