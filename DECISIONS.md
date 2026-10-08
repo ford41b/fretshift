@@ -155,3 +155,10 @@
   | a+e (defaults) | 0.789 | 0.730 | 0.070 | 0.784 | 289 ms | 1 | 26.5k |
 
 - **Defaults.** (a) on: no extra requests, user-entered text only. (b) off: in the cost model each window bills the whole audio track (2.8× tokens for 3 windows), windows add Unknown at discarded or edge regions, and the reported offset regressions make windowed timestamps the riskiest part. Ranges over 10 minutes are still split automatically. (c) off by default and offered for close-up lessons (1.9× tokens). (d) 1 pass: 3 passes raised precision and change recall but triples quota use (the default hourly quota allows about 6 such imports), and 2 passes cut recall to 0.54 because any disagreement becomes Unknown. (e) on, half-beat grid: free, only runs when the player applies a tapped grid; it raised change recall ±0.5 s (0.695 → 0.734) but raised the median error of matched changes (290 → 326 ms) because boundaries more than a quarter-beat off snap to the wrong half-beat. Whole-beat snapping was worse on both measures. Re-decide every default from a live or replayed run on the player's hand-labeled lessons.
+
+## 2026-10-08 — Hardening pass
+
+- The 2026-09-14 runtime compatibility layer is retired. Production serves a native Vite build of `main` (2026-10-06); nothing in source or deploy config referred to the layer.
+- Root-level handoffs, reports and result files live under `docs/{handoffs,reports,features,deploy,results}/`. Benchmark scripts write to `docs/results/`.
+- E2E screenshots are test artifacts (`test-results/`), not committed documentation.
+- Every Edge Function with `verify_jwt = false` has tests for: missing/foreign `Origin`, missing/malformed/unverifiable bearer token where sign-in is required, and a fail-closed quota when `consume_rate_limit` is unconfigured, unreachable, missing or malformed. `pnpm test:edge` and CI type-check all three functions.
