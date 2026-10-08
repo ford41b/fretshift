@@ -33,8 +33,10 @@ jobs:
       - uses: actions/checkout@v4
       - uses: denoland/setup-deno@v2
         with: { deno-version: v2.x }
-      - run: deno check --no-lock supabase/functions/youtube-import/index.ts
-      - run: deno test --no-lock supabase/functions/youtube-import/
+      # Vitest covers password-signup and vision-import (*.test.ts); Deno tests
+      # use *_test.ts. Type-check every function's Deno entry point.
+      - run: deno check --no-lock supabase/functions/password-signup/index.ts supabase/functions/vision-import/index.ts supabase/functions/youtube-import/index.ts
+      - run: deno test --no-lock supabase/functions/youtube-import/ supabase/functions/_shared/
 
   e2e:
     name: E2E (${{ matrix.browser }})

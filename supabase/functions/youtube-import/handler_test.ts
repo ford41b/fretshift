@@ -6,6 +6,7 @@ const ID = "dQw4w9WgXcQ";
 
 type Options = {
   limiterDown?: boolean;
+  limiterReply?: () => Promise<Response>;
   oembedStatus?: number;
   geminiStatus?: number;
   geminiBody?: unknown;
@@ -31,6 +32,7 @@ function fakeServices(options: Options = {}) {
     if (url.endsWith("/rest/v1/rpc/consume_rate_limit")) {
       const body = JSON.parse(String(init!.body));
       calls.limiter.push(body);
+      if (options.limiterReply) return await options.limiterReply();
       if (options.limiterDown) return new Response("{}", { status: 500 });
       const next = (counters.get(body.p_bucket) ?? 0) + body.p_cost;
       if (next > body.p_limit)
@@ -207,4 +209,61 @@ Deno.test("maps provider failures, timeouts and malformed output to clear errors
   assertEquals([slow.status, (await slow.json()).code], [504, "timeout"]);
   const unconfigured = await fakeServices({ env: { GEMINI_API_KEY: undefined } }).handler(importRequest());
   assertEquals([unconfigured.status, (await unconfigured.json()).code], [503, "not-configured"]);
+});
+
+Deno.test("requires a verified bearer token: missing, non-Bearer, empty and unverifiable tokens get 401", async () => {
+  const { calls, handler } = fakeServices();
+  const post = (authorization?: string) =>
+    handler(
+      new Request("https://project.supabase.co/functions/v1/youtube-import", {
+        method: "POST",
+        headers: {
+          Origin: ORIGIN,
+          "Content-Type": "application/json",
+          ...(authorization === undefined ? {} : { Authorization: authorization }),
+        },
+        body: JSON.stringify({ url: `https://youtu.be/${ID}`, segment: { startSeconds: 0, endSeconds: 12 }, fps: 1 }),
+      }),
+    );
+  for (const authorization of [undefined, "", "Basic dXNlci1hOg==", "user-a", "Bearer ", "Bearer forged"]) {
+    const response = await post(authorization);
+    assertEquals([response.status, (await response.json()).code], [401, "sign-in"], String(authorization));
+  }
+  // An auth service outage is not a sign-in.
+  const authDown = createYouTubeImportHandler({
+    env: (name) => ({ SUPABASE_URL: "https://project.supabase.co", SUPABASE_ANON_KEY: "k", GEMINI_API_KEY: "g" })[name],
+    fetch: () => Promise.reject(new TypeError("unreachable")),
+  });
+  assertEquals((await authDown(importRequest())).status, 401);
+  assertEquals(calls.limiter, []);
+  assertEquals(calls.gemini.length, 0);
+});
+
+Deno.test("ALLOWED_ORIGINS replaces the built-in origin list", async () => {
+  const { calls, handler } = fakeServices({ env: { ALLOWED_ORIGINS: "https://app.example, https://beta.example" } });
+  assertEquals((await handler(importRequest({}, "user-a", "https://beta.example"))).status, 200);
+  const defaultOrigin = await handler(importRequest({}, "user-a", ORIGIN));
+  assertEquals(defaultOrigin.status, 403);
+  assertEquals(defaultOrigin.headers.get("Access-Control-Allow-Origin"), null);
+  const preflight = await handler(new Request("https://edge.test", { method: "OPTIONS", headers: { Origin: "https://evil.example" } }));
+  assertEquals(preflight.status, 403);
+  assertEquals(calls.gemini.length, 1);
+});
+
+Deno.test("fails closed when the quota service is unconfigured, unreachable or answers nonsense", async () => {
+  const unconfigured = fakeServices({ env: { SUPABASE_SERVICE_ROLE_KEY: undefined } });
+  const response = await unconfigured.handler(importRequest());
+  assertEquals([response.status, (await response.json()).code], [503, "not-configured"]);
+  assertEquals(unconfigured.calls.gemini.length, 0);
+
+  for (const limiterReply of [
+    () => Promise.reject(new TypeError("unreachable")),
+    () => Promise.resolve(new Response('{"code":"PGRST202","message":"function not found"}', { status: 404 })),
+    () => Promise.resolve(new Response("[]")),
+  ]) {
+    const { calls, handler } = fakeServices({ limiterReply });
+    const failed = await handler(importRequest());
+    assertEquals([failed.status, (await failed.json()).code], [503, "quota-unavailable"]);
+    assertEquals(calls.gemini.length, 0);
+  }
 });
