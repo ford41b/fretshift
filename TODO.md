@@ -9,7 +9,7 @@
 - [ ] Bluetooth foot pedal and stage view wake lock.
 - [ ] Real cross-device sync plus verification-code and optional magic-link delivery.
 - [ ] Deploy a URL to Vercel/Netlify; observe GitHub Actions on the pushed repository.
-- [ ] Immersive iPhone acceptance checklist (IMMERSIVE_RELEASE_HANDOFF.md); then record it in `src/audio/immersive/evidence/physical-acceptance.json` to remove the BETA badge.
+- [ ] Immersive iPhone acceptance checklist (docs/handoffs/IMMERSIVE_RELEASE_HANDOFF.md); then record it in `src/audio/immersive/evidence/physical-acceptance.json` to remove the BETA badge.
 - [ ] Immersive timing calibration on hardware: wired, speaker and Bluetooth/visual results.
 - [ ] Record the 78-file chord corpus (docs/immersive/chord-recording-checklist.md) and run `pnpm eval:chords <folder>`; chord scoring stays off until it meets the thresholds.
 
@@ -52,7 +52,7 @@
 - [ ] After dependencies are available again, run the complete source tree through `pnpm test`, `pnpm lint`, `pnpm build`, Chromium/WebKit E2E, then deploy the native source build and retire the runtime compatibility patch.
 - [ ] Device acceptance: record a few clean open/fretted single-string notes on iPhone; take a photo directly from the import screen; complete one six-digit verification-code sign-in inside the installed Home Screen app and confirm account songs arrive; separately smoke-test the optional magic-link path; try the interface-size slider at 85%, 100%, and 120%.
 
-## 2026-10-02 debug pass (see DEBUG_REPORT_2026-10-02.md)
+## 2026-10-02 debug pass (see docs/reports/DEBUG_REPORT_2026-10-02.md)
 
 Done locally / in CI (no live Supabase, email, or device verification):
 

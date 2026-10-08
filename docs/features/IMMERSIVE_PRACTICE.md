@@ -6,7 +6,7 @@
 > - **Off:** chord scoring. It is built and harnessed, but no real recordings exist yet.
 > - **BETA** stays until the physical checklist at the end of this file passes.
 >
-> Evidence for every claim is labelled synthetic, local, emulated or physical. **No physical (real phone and guitar) evidence exists yet.** Details: [IMMERSIVE_RELEASE_HANDOFF.md](IMMERSIVE_RELEASE_HANDOFF.md). Gate: [IMMERSIVE_BETA_GATE.md](IMMERSIVE_BETA_GATE.md).
+> Evidence for every claim is labelled synthetic, local, emulated or physical. **No physical (real phone and guitar) evidence exists yet.** Details: [IMMERSIVE_RELEASE_HANDOFF.md](../handoffs/IMMERSIVE_RELEASE_HANDOFF.md). Gate: [IMMERSIVE_BETA_GATE.md](IMMERSIVE_BETA_GATE.md).
 
 No deployment, external inference, paid API, new production dependency or audio upload was added. Microphone audio never leaves the device.
 
@@ -21,7 +21,7 @@ pnpm dev
 
 Open `/immersive` and choose a song, or choose **Immersive practice** from a song or practice screen. The selected measure range carries into setup.
 
-For a ready-made test chart, import [docs/immersive/iphone-acceptance-song.json](docs/immersive/iphone-acceptance-song.json) via **Import → JSON**. Measures 1–4 are single notes and can be scored. Measure 5 is a chord and measure 6 is a held overlap; both stay guided.
+For a ready-made test chart, import [docs/immersive/iphone-acceptance-song.json](../immersive/iphone-acceptance-song.json) via **Import → JSON**. Measures 1–4 are single notes and can be scored. Measure 5 is a chord and measure 6 is a held overlap; both stay guided.
 
 ## What works
 
@@ -50,7 +50,7 @@ For a ready-made test chart, import [docs/immersive/iphone-acceptance-song.json]
 
 **Chords.** Chords are **not scored in this build.** Chord scoring by **required-tone coverage** is implemented behind the `chordScoring` flag, which is off. Every written pitch class must be heard at an octave the voicing places it. Harmonics of other chord tones don't count. A strong foreign note counts as wrong. Anything unclear is *uncertain*.
 
-The flag turns on only when the evaluation harness shows the release thresholds on **real labeled recordings**: false accepts on wrong chords ≤ 2% with a Wilson 95% upper bound ≤ 5%, plus the other thresholds in the handoff. See the [recording checklist](docs/immersive/chord-recording-checklist.md).
+The flag turns on only when the evaluation harness shows the release thresholds on **real labeled recordings**: false accepts on wrong chords ≤ 2% with a Wilson 95% upper bound ≤ 5%, plus the other thresholds in the handoff. See the [recording checklist](../immersive/chord-recording-checklist.md).
 
 Until then:
 
@@ -86,7 +86,7 @@ Until then:
 
 ## Validation
 
-**Current (2026-10-02)**: see [IMMERSIVE_RELEASE_HANDOFF.md](IMMERSIVE_RELEASE_HANDOFF.md) for full counts and the CI run.
+**Current (2026-10-02)**: see [IMMERSIVE_RELEASE_HANDOFF.md](../handoffs/IMMERSIVE_RELEASE_HANDOFF.md) for full counts and the CI run.
 
 - Local:
   - `pnpm lint` and `pnpm build` pass.
@@ -100,13 +100,13 @@ Until then:
 
 **Historical (earlier builds, retained for context).**
 
-- 18 generated plucks, E2–E6 at 44.1 and 48 kHz, gave 18/18 stable identities, available 132.2–134.7 ms after generated onset. There were no extra detections in 2 s of silence or quiet noise. Analysis cost was a median of 1.67 ms (p95 1.86 ms) per window on that host. See the [benchmark JSON](docs/immersive/synthetic-benchmark.json).
+- 18 generated plucks, E2–E6 at 44.1 and 48 kHz, gave 18/18 stable identities, available 132.2–134.7 ms after generated onset. There were no extra detections in 2 s of silence or quiet noise. Analysis cost was a median of 1.67 ms (p95 1.86 ms) per window on that host. See the [benchmark JSON](../immersive/synthetic-benchmark.json).
 - These are deterministic fixtures, not real-guitar accuracy.
 - Earlier WebKit passes (10 tests) and the Chromium startup observation from the previous host are superseded by the current counts.
 
 ## Physical iPhone / guitar acceptance checklist: pending
 
-The step-by-step version, with expected results, is in **[IMMERSIVE_RELEASE_HANDOFF.md → iPhone acceptance checklist](IMMERSIVE_RELEASE_HANDOFF.md#iphone-acceptance-checklist)**. In summary:
+The step-by-step version, with expected results, is in **[IMMERSIVE_RELEASE_HANDOFF.md → iPhone acceptance checklist](../handoffs/IMMERSIVE_RELEASE_HANDOFF.md#iphone-acceptance-checklist)**. In summary:
 
 1. Safari **and** the installed PWA over HTTPS: allow and deny the microphone, cancel and retry, lock or background and return, disconnect, exit. Tracks stop and no background credit appears.
 2. Timing calibration with wired headphones (three runs agree within about ±15 ms), through the phone speaker (refused or unchanged), and with Bluetooth plus the visual pulse. The manual override works.
@@ -116,4 +116,4 @@ The step-by-step version, with expected results, is in **[IMMERSIVE_RELEASE_HAND
 
 When it passes, record it in `src/audio/immersive/evidence/physical-acceptance.json` (`complete: true`, devices, date, empty `failedSteps`) and rebuild. That removes the BETA badge.
 
-Screenshots from the earlier build: [portrait](docs/immersive/portrait.png), [landscape](docs/immersive/landscape.png).
+Screenshots from the earlier build: [portrait](../immersive/portrait.png), [landscape](../immersive/landscape.png).

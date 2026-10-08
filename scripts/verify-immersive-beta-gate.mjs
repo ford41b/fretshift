@@ -65,10 +65,10 @@ try {
 }
 
 // 6. Documentation exists for the release decision and the hardware checklist.
-const handoff = read('IMMERSIVE_RELEASE_HANDOFF.md');
+const handoff = read('docs/handoffs/IMMERSIVE_RELEASE_HANDOFF.md');
 assert.match(handoff, /iPhone acceptance checklist/i);
-assert.match(read('IMMERSIVE_BETA_GATE.md'), /criteria/i);
-console.log('PASS: IMMERSIVE_BETA_GATE.md and IMMERSIVE_RELEASE_HANDOFF.md document the criteria and the iPhone checklist');
+assert.match(read('docs/features/IMMERSIVE_BETA_GATE.md'), /criteria/i);
+console.log('PASS: docs/features/IMMERSIVE_BETA_GATE.md and docs/handoffs/IMMERSIVE_RELEASE_HANDOFF.md document the criteria and the iPhone checklist');
 
 function on(feature) {
   return feature.enabled ? 'on' : 'off';

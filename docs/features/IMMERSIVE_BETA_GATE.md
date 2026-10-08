@@ -1,6 +1,6 @@
 # Immersive Practice release gate
 
-**2026-10-02: the hard "Coming soon" gate has been replaced by criteria-based release flags.** Details, evidence and the iPhone checklist are in [IMMERSIVE_RELEASE_HANDOFF.md](IMMERSIVE_RELEASE_HANDOFF.md).
+**2026-10-02: the hard "Coming soon" gate has been replaced by criteria-based release flags.** Details, evidence and the iPhone checklist are in [IMMERSIVE_RELEASE_HANDOFF.md](../handoffs/IMMERSIVE_RELEASE_HANDOFF.md).
 
 ## How the gate works now
 

@@ -4,4 +4,4 @@ These four `audio_mono_mic` WAV files and `ground-truth.json` are from [GuitarSe
 
 The selected rows are all acoustic composition excerpts by player 0: bossa nova, funk, and two jazz tempos. This is a small validation sample, not a representative test of electric guitar, singing, drums, or full bands. The annotations include complex chord symbols outside FretShift's classifier vocabulary. `scripts/bench-audio-real.mjs` scores roots across labeled time and exact labels only where an unaltered reference label is directly representable. It never converts a complex reference chord to a simpler label.
 
-Run `pnpm bench:audio-real` from the project root. The script verifies WAV hashes and writes `AUDIO_INTELLIGENCE_REAL_BENCHMARK_RESULTS.json`.
+Run `pnpm bench:audio-real` from the project root. The script verifies WAV hashes and writes `docs/results/AUDIO_INTELLIGENCE_REAL_BENCHMARK_RESULTS.json`.

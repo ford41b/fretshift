@@ -83,7 +83,7 @@ export const YouTubeHintsSchema = z
   .strict();
 export type YouTubeHints = z.infer<typeof YouTubeHintsSchema>;
 
-/** Accuracy options (a)–(e). Defaults are set from measurements; see YOUTUBE_IMPORT_HANDOFF.md. */
+/** Accuracy options (a)–(e). Defaults are set from measurements; see docs/handoffs/YOUTUBE_IMPORT_HANDOFF.md. */
 export type AccuracyOptions = {
   /** (a) Send title/artist/tuning/capo hints to Gemini. */
   useHints: boolean;

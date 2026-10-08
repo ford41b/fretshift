@@ -3,7 +3,7 @@
  * `scripts/eval-chord-recordings.mjs`. The flag is derived from the counts in
  * the committed report, never from a stored pass/fail boolean.
  *
- * Why these numbers (see IMMERSIVE_RELEASE_HANDOFF.md):
+ * Why these numbers (see docs/handoffs/IMMERSIVE_RELEASE_HANDOFF.md):
  * - A false ✓ on a wrong chord teaches the mistake and costs trust, so its
  *   bound is the strictest and uses the Wilson 95% upper bound: a small corpus
  *   cannot pass by luck (0/100 → 3.7%; 1/100 → 5.4% fails; 1/150 → 3.7%).

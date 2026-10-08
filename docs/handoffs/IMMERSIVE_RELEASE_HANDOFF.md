@@ -105,7 +105,7 @@ There are two cue options:
 
 **Harness.** `pnpm eval:chords`, in `scripts/eval-chord-recordings.mjs` and `chordHarness.ts`.
 
-- `pnpm eval:chords --checklist` writes [docs/immersive/chord-recording-checklist.md](docs/immersive/chord-recording-checklist.md) and [the manifest template](docs/immersive/chord-recording-manifest.template.json).
+- `pnpm eval:chords --checklist` writes [docs/immersive/chord-recording-checklist.md](../immersive/chord-recording-checklist.md) and [the manifest template](../immersive/chord-recording-manifest.template.json).
 - The checklist has 78 files: 10 shapes × (3 correct, 2 wrong-chord confusions, 1 missing-tone, 1 root-only), plus 4 muted and 4 silent files.
 - **Recording format.** Each row has a file name, target chord, voicing (low E → high E, e.g. `x32010`), label (`correct` | `wrong-chord` | `missing-tone` | `single-note` | `muted` | `silence`), what was actually played, strum (`down` | `up` | `pick` | `none`), number of strums and dynamics. The manifest also records `evidence`, `device` and `guitar`.
 - **Evaluation.** `pnpm eval:chords <folder>` reads 16/24/32-bit PCM or float WAVs, mono or stereo. It runs each file through the live recognizer, taking the room floor from the leading second and using 1024-sample packets, then through the judge. It writes `chord-evaluation-report.json`. Counting is conservative: an undetected strum is *missed* (no credit), and a hit on a surplus attack in a non-correct file counts against it.
@@ -120,7 +120,7 @@ There are two cue options:
 - root-only 0/30 hit (all wrong)
 - muted 0/20 hit, silence 0/4 hit
 
-The report refuses release because the evidence is synthetic ([report](docs/immersive/chord-synthetic-evaluation.json)). **This is a pipeline check, not guitar accuracy.**
+The report refuses release because the evidence is synthetic ([report](../immersive/chord-synthetic-evaluation.json)). **This is a pipeline check, not guitar accuracy.**
 
 **No real recordings were available, so the flag ships off.**
 
@@ -199,7 +199,7 @@ Run this on the normal HTTPS deployment, in Safari **and** in the Home Screen PW
 
 0.1. Deploy this branch to your HTTPS test environment. Open it in Safari once while online so the service worker installs.
 0.2. Tune the guitar (standard, A4 = 440) with the FretShift tuner. Quiet room. Wired headphones (USB-C or Lightning adapter) for calibration.
-0.3. Put [docs/immersive/iphone-acceptance-song.json](docs/immersive/iphone-acceptance-song.json) on the phone (AirDrop or Files). In FretShift: **Import → JSON**, then choose it. You should see "FretShift iPhone check" with 6 measures:
+0.3. Put [docs/immersive/iphone-acceptance-song.json](../immersive/iphone-acceptance-song.json) on the phone (AirDrop or Files). In FretShift: **Import → JSON**, then choose it. You should see "FretShift iPhone check" with 6 measures:
 - m1: E2 A2 D3 G3
 - m2: B3 E4 G4 A4
 - m3: E4 ×3
@@ -263,7 +263,7 @@ I1. Portrait and landscape. Pause and Exit are visible without scrolling during 
 I2. Settings → left-handed: the lane mirrors.
 I3. VoiceOver: setup controls, the calibration status and feedback are announced. Larger Text doesn't clip the setup buttons. With Reduce Motion, the lane steps instead of scrolling.
 
-**J. Optional: chord corpus.** Record [the chord checklist](docs/immersive/chord-recording-checklist.md) and run `pnpm eval:chords <folder>`. Keep the report; it decides the chord flag.
+**J. Optional: chord corpus.** Record [the chord checklist](../immersive/chord-recording-checklist.md) and run `pnpm eval:chords <folder>`. Keep the report; it decides the chord flag.
 
 When A–I pass, update `physical-acceptance.json` as described above. That removes the BETA badge.
 
