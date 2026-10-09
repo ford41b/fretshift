@@ -68,3 +68,4 @@
 .ai-waveform b,.ai-waveform em { min-width:0; min-height:0; padding:0; margin:0; border:0; border-radius:0; }
 .ai-tab-grid,.ai-tab-cursor { position:absolute; top:0; bottom:0; width:1px; background:var(--border-subtle); pointer-events:none; }
 .ai-tab-cursor { width:2px; background:#ef476f; z-index:5; }
+.ai-save-error { flex-basis:100%; display:flex; align-items:center; gap:12px; flex-wrap:wrap; }

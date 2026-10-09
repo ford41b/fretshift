@@ -150,9 +150,13 @@ test("YouTube link: privacy notice, hints, voted draft, synced player, tap-along
   await expect(page.locator(".ai-notice")).toContainText("snapped to the beat grid");
   await expect(page.getByText("Timing needs review.")).toBeVisible();
 
+  // A blocked save explains itself beside the button and selects the region to fix.
   await page.getByRole("button", { name: "Save as FretShift song" }).click();
-  await expect(page.getByRole("alert")).toContainText("Review each uncertain region");
-  await page.getByRole("button", { name: "Mark all uncertain regions Unknown" }).click();
+  const saveError = page.locator(".ai-actions [role=alert]");
+  await expect(saveError).toContainText("1 chord region still needs a decision before saving, starting with region 3");
+  await expect(page.locator(".ai-edit h3")).toContainText("Region 3");
+  await saveError.getByRole("button", { name: "Mark all uncertain regions Unknown" }).click();
+  await expect(saveError).toHaveCount(0);
   await page.getByRole("button", { name: "Save as FretShift song" }).click();
   await expect(page.getByRole("status").filter({ hasText: "Chord draft saved" })).toContainText("the video stays on YouTube");
 
@@ -177,6 +181,41 @@ test("YouTube link: privacy notice, hints, voted draft, synced player, tap-along
       youtube: { videoId: ID, startSeconds: 0, endSeconds: 24, requests: 2, options: { passes: 2 } } } });
   expect(JSON.stringify(stored)).not.toMatch(/lyric/i);
   expect(calls.external).toEqual([]);
+});
+
+test("YouTube link: a full-length song gets a readable, scrolling chord timeline", async ({ page }) => {
+  // 3 minutes of one-bar chords: 89 regions, plus an Unknown gap before the first chord.
+  const loop = ["F", "Dm", "Am", "Bb"];
+  await setup(page, { post: (route, body) => route.fulfill({ json: wire(body as Parameters<typeof wire>[0],
+    Array.from({ length: 89 }, (_, i): Chord => [2 + i * 2, 4 + i * 2, loop[i % 4]])) }) });
+  await openYouTubeImport(page);
+  await acceptPrivacy(page);
+  await page.getByLabel("YouTube link").fill(`https://youtu.be/${ID}`);
+  await expect(page.getByText("Video length 3:00.0")).toBeVisible();
+  await page.getByRole("button", { name: "Analyze video" }).click();
+  await expect(page.getByRole("heading", { name: "Review the YouTube chord draft" })).toBeVisible();
+
+  const regions = page.locator(".ai-regions button");
+  await expect(regions).toHaveCount(90);
+  await expect(regions.first()).toHaveText("Unknown");
+  const widths = await regions.evaluateAll((items) => items.map((item) => item.getBoundingClientRect().width));
+  expect(Math.min(...widths.slice(1))).toBeGreaterThanOrEqual(40);
+  // Chord labels fit their buttons instead of being clipped.
+  expect(await regions.evaluateAll((items) => items.slice(1).filter((item) => item.scrollWidth > item.clientWidth).length)).toBe(0);
+
+  // While playing, the timeline scrolls to keep the playhead in view.
+  const timeline = page.getByLabel("Waveform and chord timeline");
+  expect(await timeline.evaluate((box) => box.scrollLeft)).toBe(0);
+  await page.getByRole("button", { name: "Play video" }).click();
+  await page.evaluate(() => (window as unknown as { __ytFake: { players: Array<{ seekTo(time: number): void }> } })
+    .__ytFake.players.at(-1)!.seekTo(150));
+  await expect.poll(() => timeline.evaluate((box) => box.scrollLeft)).toBeGreaterThan(0);
+  const visible = await page.evaluate(() => {
+    const box = document.querySelector(".ai-scroll")!.getBoundingClientRect();
+    const playhead = document.querySelector(".ai-waveform em")!.getBoundingClientRect();
+    return playhead.left >= box.left && playhead.right <= box.right;
+  });
+  expect(visible).toBe(true);
 });
 
 test("YouTube link: progress, cancel, clear provider errors and retry", async ({ page }) => {
