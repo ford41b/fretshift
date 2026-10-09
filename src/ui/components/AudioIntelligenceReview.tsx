@@ -54,6 +54,8 @@ export function AudioIntelligenceReview({ song, onAnalysisStart, youtube }: {
   const [stage, setStage] = useState<AnalysisStage | null>(null);
   const [cancelling, setCancelling] = useState(false);
   const [error, setError] = useState("");
+  // Shown beside the Save button: the page-level notice is usually scrolled out of view there.
+  const [saveError, setSaveError] = useState("");
   const [notice, setNotice] = useState("");
   const [file, setFile] = useState<File | null>(null);
   const [url, setUrl] = useState("");
@@ -73,6 +75,7 @@ export function AudioIntelligenceReview({ song, onAnalysisStart, youtube }: {
   const operation = useRef(0);
   const activeUrl = useRef("");
   const persistedId = useRef(song?.id ?? "");
+  const timeline = useRef<HTMLDivElement | null>(null);
   const hasReview = !!review;
   // Unsaved edits are autosaved to IndexedDB so leaving the screen, a reload,
   // or an iOS tab eviction does not lose review work. Keyed by the song once
@@ -146,6 +149,17 @@ export function AudioIntelligenceReview({ song, onAnalysisStart, youtube }: {
     });
     setSavedId("");
     setError("");
+    setSaveError("");
+  }
+
+  function markUncertainUnknown() {
+    change((next) => {
+      next.reviewed.segments.forEach((region) => {
+        if (!region.label && region.decision === "detected") {
+          region.decision = "unknown"; region.reviewed = true;
+        }
+      });
+    });
   }
 
   function setAudio(fileToPlay: File) {
@@ -253,7 +267,17 @@ export function AudioIntelligenceReview({ song, onAnalysisStart, youtube }: {
 
   async function save() {
     if (!review || saving) return;
-    setSaving(true); setError("");
+    const firstUnresolved = review.reviewed.segments.findIndex((region) => !region.label && region.decision === "detected");
+    if (firstUnresolved >= 0) {
+      const count = review.reviewed.segments.filter((region) => !region.label && region.decision === "detected").length;
+      const region = review.reviewed.segments[firstUnresolved];
+      setSelected(firstUnresolved);
+      setSaveError(`${count === 1 ? "1 chord region still needs" : `${count} chord regions still need`} a decision before saving, ` +
+        `starting with region ${firstUnresolved + 1} (${clock(region.start)}–${clock(region.end)}). ` +
+        "Choose a chord, Unknown, or No chord for each, or mark them all Unknown.");
+      return;
+    }
+    setSaving(true); setError(""); setSaveError("");
     try {
       const generated = youtubeMeta ? youtubeReviewToSong(title.trim(), providerId, review, youtubeMeta)
         : audioReviewToSong(title.trim(), providerId, review);
@@ -282,7 +306,7 @@ export function AudioIntelligenceReview({ song, onAnalysisStart, youtube }: {
       setNotice(videoId
         ? "Chord draft saved to your songbook. Only derived chords and timing were saved; the video stays on YouTube."
         : "Transcription saved to your songbook. Raw audio was not saved.");
-    } catch (reason) { setError(reason instanceof Error ? reason.message : String(reason)); }
+    } catch (reason) { setSaveError(reason instanceof Error ? reason.message : String(reason)); }
     finally { setSaving(false); }
   }
 
@@ -351,6 +375,17 @@ export function AudioIntelligenceReview({ song, onAnalysisStart, youtube }: {
   const origin = videoId ? Math.min(youtubeMeta?.youtube.startSeconds ?? 0, Math.max(0, duration - 1)) : 0;
   const range = (time: number) => `${(100 * (time - origin) / (duration - origin)).toFixed(4)}%`;
   const span = (seconds: number) => `${(100 * seconds / (duration - origin)).toFixed(4)}%`;
+  // Give every region room for its label (about 48 px each) so a long song scrolls
+  // instead of squeezing a hundred chords into the screen width. Zoom scales from there.
+  const trackWidth = `calc(${zoom} * max(100%, ${Math.min(regions.length * 48, 40_000)}px))`;
+  useEffect(() => {
+    // While playing, keep the playhead in view of a timeline wider than the screen.
+    const box = timeline.current;
+    if (!box || audio.current?.paused !== false || box.scrollWidth <= box.clientWidth) return;
+    const x = (playhead - origin) / Math.max(0.001, duration - origin) * box.scrollWidth;
+    if (x < box.scrollLeft || x > box.scrollLeft + box.clientWidth - 24)
+      box.scrollLeft = Math.max(0, x - box.clientWidth / 4);
+  }, [playhead, origin, duration]);
 
   return <section className="ai-review" aria-label="Audio Intelligence timeline">
     {videoId ? <div className="ai-review-head">
@@ -379,13 +414,7 @@ export function AudioIntelligenceReview({ song, onAnalysisStart, youtube }: {
       <div className="ai-summary"><label>Song title<input value={title} onChange={(e) => {setTitle(e.target.value); setSavedId("");}}/></label>
         <span>{clock(duration)} · {regions.length} regions · {beats.length} beats</span>
         {unresolved > 0 && <strong role="status">{unresolved} chord regions need review</strong>}
-        {unresolved > 0 && <button onClick={() => change((next) => {
-          next.reviewed.segments.forEach((region) => {
-            if (!region.label && region.decision === "detected") {
-              region.decision = "unknown"; region.reviewed = true;
-            }
-          });
-        })}>Mark all uncertain regions Unknown</button>}</div>
+        {unresolved > 0 && <button onClick={markUncertainUnknown}>Mark all uncertain regions Unknown</button>}</div>
       {videoId ? <div className="ai-player yt-review-player">
         <YouTubePlayer videoId={videoId} start={youtubeMeta?.youtube.startSeconds ?? 0}
           onReady={(media) => { audio.current = media; media.playbackRate = playbackRate; setPlayerReady(true); setPlayerError(""); }}
@@ -413,7 +442,7 @@ export function AudioIntelligenceReview({ song, onAnalysisStart, youtube }: {
         <label>to <input type="number" min="0" max={duration} step=".01" value={loopEnd}
           onChange={(e) => setLoopEnd(Number(e.target.value))}/></label>
         <label><input type="checkbox" checked={looping} onChange={(e) => setLooping(e.target.checked)}/> Loop</label></div>
-      <div className="ai-scroll" aria-label="Waveform and chord timeline"><div className="ai-track" style={{width:`${zoom * 100}%`}}>
+      <div className="ai-scroll" ref={timeline} aria-label="Waveform and chord timeline"><div className="ai-track" style={{width:trackWidth}}>
         <div className={`ai-waveform${review.waveform.length ? "" : " ai-waveform-empty"}`} onClick={(e) => { if (audio.current) {
           const bounds = e.currentTarget.getBoundingClientRect();
           audio.current.currentTime = origin + Math.max(0, Math.min(1, (e.clientX - bounds.left) / bounds.width)) * (duration - origin);
@@ -490,7 +519,9 @@ export function AudioIntelligenceReview({ song, onAnalysisStart, youtube }: {
             setError("Correct the beat grid and choose a complete first measure before confirming timing.");return;}
             change((r)=>{r.reviewed.timingConfirmed=e.target.checked;});}}/> I checked the beat grid, meter, and downbeats against the audio.</label>
       </section>
-      <div className="ai-actions"><button className="primary" disabled={saving} onClick={() => void save()}>{saving ? "Saving…" : song ? "Save corrections" : "Save as FretShift song"}</button>
+      <div className="ai-actions">{saveError && <div role="alert" className="error-notice ai-save-error">{saveError}
+          {unresolved > 0 && <button onClick={markUncertainUnknown}>Mark all uncertain regions Unknown</button>}</div>}
+        <button className="primary" disabled={saving} onClick={() => void save()}>{saving ? "Saving…" : song ? "Save corrections" : "Save as FretShift song"}</button>
         {!savedId && <button disabled={saving} onClick={() => void discard()}>Discard unsaved changes</button>}
         {savedId && <><Link className="button" to={`/audio-review/${savedId}`}>Reopen transcription</Link>
           <Link className="button" to={`/practice/${savedId}`}>Practice</Link>
