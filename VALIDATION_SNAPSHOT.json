@@ -1,9 +1,0 @@
-{
-  "snapshot": "post-phase-3-validation-2026-09-27",
-  "packageVersion": "1.0.0",
-  "sourceContentSha256": "287ec191862e80bd6824f0fec0f20499db1f1ef25f655d0ae92bd908996d6593",
-  "hashDefinition": "SHA256 of sorted relative path, NUL, file SHA256, newline; excludes this file and VALIDATION_SOURCE_CHANGES.json",
-  "sourceFileCountExcludingManifests": 439,
-  "deployment": "not deployed",
-  "physicalDevicesTested": []
-}

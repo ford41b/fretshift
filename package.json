@@ -25,7 +25,7 @@
     "bench:audio-notes": "node scripts/bench-audio-notes.mjs",
     "eval:chords": "node scripts/eval-chord-recordings.mjs",
     "bench:youtube": "node scripts/bench-youtube.mjs",
-    "test:edge": "deno test --no-lock supabase/functions/youtube-import/"
+    "test:edge": "deno check --no-lock supabase/functions/password-signup/index.ts supabase/functions/vision-import/index.ts supabase/functions/youtube-import/index.ts && deno test --no-lock supabase/functions/youtube-import/ supabase/functions/_shared/"
   },
   "dependencies": {
     "@coderline/alphatab": "1.8.4",

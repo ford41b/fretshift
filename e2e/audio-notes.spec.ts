@@ -1,4 +1,4 @@
-import { mkdirSync, readFileSync } from "node:fs";
+import { readFileSync } from "node:fs";
 import { expect, test, type Page } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { resumeChromiumWorklets } from "./support/worklets";
@@ -84,19 +84,18 @@ test("note import, fingering/timing edits, playback, persistence and scored targ
   await expect(page.locator(".ai-tab-note")).toHaveCount(5);
   await timing(page);
   await confirmAll(page);
-  mkdirSync("docs/post-phase-3-validation/browser", { recursive: true });
   await page
     .locator(".ai-note-editor")
-    .screenshot({ path: `docs/post-phase-3-validation/browser/${info.project.name}-editor.png` });
+    .screenshot({ path: info.outputPath("editor.png") });
   await page
     .locator(".ai-track")
-    .screenshot({ path: `docs/post-phase-3-validation/browser/${info.project.name}-tab.png` });
+    .screenshot({ path: info.outputPath("tab.png") });
   await page.evaluate(() => {
     document.documentElement.dataset.theme = "dark";
   });
   await page
     .locator(".ai-note-editor")
-    .screenshot({ path: `docs/post-phase-3-validation/browser/${info.project.name}-dark.png` });
+    .screenshot({ path: info.outputPath("dark.png") });
   const darkAudit = await new AxeBuilder({ page })
     .include(".ai-note-editor")
     .analyze();
@@ -190,10 +189,9 @@ test("narrow tab layout, keyboard selection, setup constraints and accessibility
       ["serious", "critical"].includes(v.impact ?? ""),
     ),
   ).toEqual([]);
-  mkdirSync("docs/post-phase-3-validation/browser", { recursive: true });
   await page
     .locator(".ai-review")
-    .screenshot({ path: `docs/post-phase-3-validation/browser/${info.project.name}-mobile.png` });
+    .screenshot({ path: info.outputPath("mobile.png") });
 });
 
 test("note Worker cancellation terminates an in-flight pass and permits retry", async ({

@@ -307,7 +307,7 @@ const report = {
   cases,
 };
 writeFileSync(
-  process.argv[3] ?? "GUITAR_TAB_BENCHMARK_RESULTS.json",
+  process.argv[3] ?? "docs/results/GUITAR_TAB_BENCHMARK_RESULTS.json",
   JSON.stringify(report, null, 2) + "\n",
 );
 console.log(JSON.stringify(report.summary, null, 2));

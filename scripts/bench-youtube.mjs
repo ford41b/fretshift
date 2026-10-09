@@ -22,7 +22,7 @@ const mode = replayFile ? "replay" : live ? "live" : "simulated";
 const manifestPath = env.YOUTUBE_BENCH_MANIFEST ??
   (mode === "simulated" ? "test-fixtures/youtube/simulated-manifest.json" : "test-fixtures/youtube/manifest.json");
 const resultsPath = env.YOUTUBE_BENCH_RESULTS ??
-  (mode === "simulated" ? "YOUTUBE_IMPORT_SIMULATED_BENCHMARK_RESULTS.json" : `YOUTUBE_IMPORT_${mode.toUpperCase()}_BENCHMARK_RESULTS.json`);
+  (mode === "simulated" ? "docs/results/YOUTUBE_IMPORT_SIMULATED_BENCHMARK_RESULTS.json" : `docs/results/YOUTUBE_IMPORT_${mode.toUpperCase()}_BENCHMARK_RESULTS.json`);
 const maxRequests = Number(env.YOUTUBE_BENCH_MAX_REQUESTS ?? 60);
 
 if (live) {

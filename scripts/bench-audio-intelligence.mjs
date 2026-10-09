@@ -111,6 +111,6 @@ const report = {
     totalFalseTransitions: cases.reduce((sum, row) => sum + row.falseTransitions, 0) },
   cases,
 };
-const output = new URL("../AUDIO_INTELLIGENCE_BENCHMARK_RESULTS.json", import.meta.url);
+const output = new URL("../docs/results/AUDIO_INTELLIGENCE_BENCHMARK_RESULTS.json", import.meta.url);
 writeFileSync(output, JSON.stringify(report, null, 2) + "\n");
 console.log(JSON.stringify({ summary: report.summary, output: output.pathname }, null, 2));

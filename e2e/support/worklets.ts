@@ -8,7 +8,7 @@ import type { Page } from "@playwright/test";
  * every worklet (AudioWorklet, CSS paint worklet) paused for a debugger that
  * never resumes it, so `audioWorklet.addModule()` stays pending forever. The
  * same headless Chromium binary resolves `addModule()` immediately when no
- * Playwright session is attached (see IMMERSIVE_RELEASE_HANDOFF.md).
+ * Playwright session is attached (see docs/handoffs/IMMERSIVE_RELEASE_HANDOFF.md).
  *
  * A test-owned CDP session resumes worklet targets as they appear. It does not
  * touch the page, the worklet code or the audio path. No-op outside Chromium.

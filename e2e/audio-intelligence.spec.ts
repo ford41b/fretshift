@@ -1,4 +1,4 @@
-import { mkdirSync, readFileSync } from "node:fs";
+import { readFileSync } from "node:fs";
 import { expect, test } from "@playwright/test";
 
 const encoded = (["wav", "mp3", "m4a"] as const).map((extension) => ({
@@ -56,8 +56,7 @@ test("audio upload, local review, save, reopen, and Immersive entry", async ({ p
   await page.getByLabel("Choose audio for Audio Intelligence").setInputFiles(
     "test-fixtures/audio-intelligence/codec-c-major.wav");
   await expect(page.locator(".ai-regions button").first()).toBeVisible({ timeout: 30000 });
-  mkdirSync("docs/post-phase-3-validation/browser/chord-regression", { recursive: true });
-  await page.locator(".ai-review").screenshot({ path: `docs/post-phase-3-validation/browser/chord-regression/${testInfo.project.name}-desktop.png` });
+  await page.locator(".ai-review").screenshot({ path: testInfo.outputPath("desktop.png") });
   const count = await page.locator(".ai-regions button").count();
   for (let i = 0; i < count; i++) {
     await page.locator(".ai-regions button").nth(i).click();
@@ -186,8 +185,7 @@ test("mobile timeline releases its local audio URL on navigation", async ({ page
   await page.locator(".ai-waveform").click({ position: { x: waveform!.width * .75, y: waveform!.height / 2 } });
   await expect.poll(() => page.locator(".ai-player audio").evaluate((node: HTMLAudioElement) => node.currentTime))
     .toBeCloseTo(3, 1);
-  mkdirSync("docs/post-phase-3-validation/browser/chord-regression", { recursive: true });
-  await page.locator(".ai-review").screenshot({ path: `docs/post-phase-3-validation/browser/chord-regression/${testInfo.project.name}-mobile.png` });
+  await page.locator(".ai-review").screenshot({ path: testInfo.outputPath("mobile.png") });
   const url = await page.locator(".ai-player audio").getAttribute("src");
   await page.getByRole("link", { name: "fretshift" }).click();
   await expect.poll(() => page.evaluate((source) =>

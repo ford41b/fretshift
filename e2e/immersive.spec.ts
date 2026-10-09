@@ -383,7 +383,7 @@ for (const viewport of [
 test("chord-only audio songs stay visual: scored modes cannot grade guided chords", async ({
   page,
 }) => {
-  // Current design (REVIEW_FIXES.md, IMMERSIVE_BETA_GATE.md): passages with
+  // Current design (docs/handoffs/REVIEW_FIXES.md, docs/features/IMMERSIVE_BETA_GATE.md): passages with
   // guided chord targets default to Quiet visual and never award chord credit.
   await page.goto("/immersive");
   await expect(
